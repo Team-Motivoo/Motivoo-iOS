@@ -12,8 +12,8 @@
 		05AAF8642B3E58480079CEAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8632B3E58480079CEAB /* ViewController.swift */; };
 		05AAF8692B3E58490079CEAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8682B3E58490079CEAB /* Assets.xcassets */; };
 		05AAF86C2B3E58490079CEAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF86A2B3E58490079CEAB /* LaunchScreen.storyboard */; };
-		05AAF88F2B3E5A860079CEAB /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF88E2B3E5A860079CEAB /* Image.swift */; };
-		05AAF8912B3E5AA30079CEAB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8902B3E5AA30079CEAB /* Text.swift */; };
+		05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */; };
+		05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */; };
 		05AAF8952B3E5B800079CEAB /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8942B3E5B800079CEAB /* a.swift */; };
 		05AAF8972B3E5B860079CEAB /* b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8962B3E5B860079CEAB /* b.swift */; };
 		05AAF8992B3E5B920079CEAB /* c.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8982B3E5B920079CEAB /* c.swift */; };
@@ -27,13 +27,28 @@
 		05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A82B3E5BE30079CEAB /* k.swift */; };
 		05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */; };
 		05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AC2B3E5C190079CEAB /* q.swift */; };
-		05AAF8AF2B3E5C200079CEAB /* r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AE2B3E5C200079CEAB /* r.swift */; };
 		05AAF8B12B3E5C270079CEAB /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8B02B3E5C270079CEAB /* s.swift */; };
 		05AAF8B32B3E5C320079CEAB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8B22B3E5C320079CEAB /* BaseView.swift */; };
 		05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8B42B3E5C410079CEAB /* BaseViewController.swift */; };
 		05AAF8B82B3E5C890079CEAB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05AAF8B72B3E5C890079CEAB /* SnapKit */; };
 		05AAF8BB2B3E5CA60079CEAB /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 05AAF8BA2B3E5CA60079CEAB /* Then */; };
 		05AAF8BE2B3E5CD70079CEAB /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 05AAF8BD2B3E5CD70079CEAB /* Moya */; };
+		05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8BF2B3EA7FC0079CEAB /* Adjust+.swift */; };
+		05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8C32B3EA83F0079CEAB /* UIStackView+.swift */; };
+		05AAF8C72B3EA8620079CEAB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 05AAF8C62B3EA8620079CEAB /* Kingfisher */; };
+		05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8C82B3EA8750079CEAB /* UIImageView+.swift */; };
+		05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8CA2B3EA92D0079CEAB /* UIViewController+.swift */; };
+		05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8CC2B3EA9960079CEAB /* UITableViewCell+.swift */; };
+		05AAF8CF2B3EA9E30079CEAB /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8CE2B3EA9E30079CEAB /* UICollectionViewCell+.swift */; };
+		05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8D02B3EAA000079CEAB /* UICollectionReusableView+.swift */; };
+		05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8D22B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift */; };
+		05AAF8D52B3EAB8F0079CEAB /* SizeLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8D42B3EAB8F0079CEAB /* SizeLiterals.swift */; };
+		05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8F02B44F10A0079CEAB /* UIFont+.swift */; };
+		05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8F22B44F18D0079CEAB /* FontLiterals.swift */; };
+		05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8F42B44F2950079CEAB /* UIColor+.swift */; };
+		05AAF8F92B44F3FC0079CEAB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8F62B44F3FC0079CEAB /* Pretendard-Medium.otf */; };
+		05AAF8FA2B44F3FC0079CEAB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8F72B44F3FC0079CEAB /* Pretendard-Regular.otf */; };
+		05AAF8FB2B44F3FC0079CEAB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +59,8 @@
 		05AAF8682B3E58490079CEAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05AAF86B2B3E58490079CEAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05AAF86D2B3E58490079CEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05AAF88E2B3E5A860079CEAB /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		05AAF8902B3E5AA30079CEAB /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
+		05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLiterals.swift; sourceTree = "<group>"; };
 		05AAF8942B3E5B800079CEAB /* a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a.swift; sourceTree = "<group>"; };
 		05AAF8962B3E5B860079CEAB /* b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = b.swift; sourceTree = "<group>"; };
 		05AAF8982B3E5B920079CEAB /* c.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c.swift; sourceTree = "<group>"; };
@@ -59,10 +74,24 @@
 		05AAF8A82B3E5BE30079CEAB /* k.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = k.swift; sourceTree = "<group>"; };
 		05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		05AAF8AC2B3E5C190079CEAB /* q.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q.swift; sourceTree = "<group>"; };
-		05AAF8AE2B3E5C200079CEAB /* r.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = r.swift; sourceTree = "<group>"; };
 		05AAF8B02B3E5C270079CEAB /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
 		05AAF8B22B3E5C320079CEAB /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		05AAF8B42B3E5C410079CEAB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		05AAF8BF2B3EA7FC0079CEAB /* Adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjust+.swift"; sourceTree = "<group>"; };
+		05AAF8C32B3EA83F0079CEAB /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		05AAF8C82B3EA8750079CEAB /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		05AAF8CA2B3EA92D0079CEAB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		05AAF8CC2B3EA9960079CEAB /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		05AAF8CE2B3EA9E30079CEAB /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
+		05AAF8D02B3EAA000079CEAB /* UICollectionReusableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+.swift"; sourceTree = "<group>"; };
+		05AAF8D22B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+.swift"; sourceTree = "<group>"; };
+		05AAF8D42B3EAB8F0079CEAB /* SizeLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeLiterals.swift; sourceTree = "<group>"; };
+		05AAF8F02B44F10A0079CEAB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		05AAF8F22B44F18D0079CEAB /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
+		05AAF8F42B44F2950079CEAB /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		05AAF8F62B44F3FC0079CEAB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		05AAF8F72B44F3FC0079CEAB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05AAF8C72B3EA8620079CEAB /* Kingfisher in Frameworks */,
 				05AAF8B82B3E5C890079CEAB /* SnapKit in Frameworks */,
 				05AAF8BB2B3E5CA60079CEAB /* Then in Frameworks */,
 				05AAF8BE2B3E5CD70079CEAB /* Moya in Frameworks */,
@@ -321,8 +351,10 @@
 		05AAF88C2B3E5A660079CEAB /* Literals */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF88E2B3E5A860079CEAB /* Image.swift */,
-				05AAF8902B3E5AA30079CEAB /* Text.swift */,
+				05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */,
+				05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */,
+				05AAF8D42B3EAB8F0079CEAB /* SizeLiterals.swift */,
+				05AAF8F22B44F18D0079CEAB /* FontLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -331,6 +363,16 @@
 			isa = PBXGroup;
 			children = (
 				05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */,
+				05AAF8BF2B3EA7FC0079CEAB /* Adjust+.swift */,
+				05AAF8C32B3EA83F0079CEAB /* UIStackView+.swift */,
+				05AAF8C82B3EA8750079CEAB /* UIImageView+.swift */,
+				05AAF8CA2B3EA92D0079CEAB /* UIViewController+.swift */,
+				05AAF8CC2B3EA9960079CEAB /* UITableViewCell+.swift */,
+				05AAF8CE2B3EA9E30079CEAB /* UICollectionViewCell+.swift */,
+				05AAF8D02B3EAA000079CEAB /* UICollectionReusableView+.swift */,
+				05AAF8D22B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift */,
+				05AAF8F02B44F10A0079CEAB /* UIFont+.swift */,
+				05AAF8F42B44F2950079CEAB /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -338,7 +380,9 @@
 		05AAF8922B3E5AC20079CEAB /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF8AE2B3E5C200079CEAB /* r.swift */,
+				05AAF8F62B44F3FC0079CEAB /* Pretendard-Medium.otf */,
+				05AAF8F72B44F3FC0079CEAB /* Pretendard-Regular.otf */,
+				05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -371,6 +415,7 @@
 				05AAF8B72B3E5C890079CEAB /* SnapKit */,
 				05AAF8BA2B3E5CA60079CEAB /* Then */,
 				05AAF8BD2B3E5CD70079CEAB /* Moya */,
+				05AAF8C62B3EA8620079CEAB /* Kingfisher */,
 			);
 			productName = "Motivoo-iOS";
 			productReference = 05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */;
@@ -404,6 +449,7 @@
 				05AAF8B62B3E5C890079CEAB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				05AAF8B92B3E5CA60079CEAB /* XCRemoteSwiftPackageReference "Then" */,
 				05AAF8BC2B3E5CD70079CEAB /* XCRemoteSwiftPackageReference "Moya" */,
+				05AAF8C52B3EA8620079CEAB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 05AAF85D2B3E58480079CEAB /* Products */;
 			projectDirPath = "";
@@ -420,7 +466,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				05AAF86C2B3E58490079CEAB /* LaunchScreen.storyboard in Resources */,
+				05AAF8FA2B44F3FC0079CEAB /* Pretendard-Regular.otf in Resources */,
+				05AAF8FB2B44F3FC0079CEAB /* Pretendard-SemiBold.otf in Resources */,
 				05AAF8692B3E58490079CEAB /* Assets.xcassets in Resources */,
+				05AAF8F92B44F3FC0079CEAB /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,25 +480,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05AAF8D52B3EAB8F0079CEAB /* SizeLiterals.swift in Sources */,
+				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
+				05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */,
+				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,
 				05AAF8972B3E5B860079CEAB /* b.swift in Sources */,
 				05AAF8B12B3E5C270079CEAB /* s.swift in Sources */,
 				05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */,
+				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
+				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,
 				05AAF8A32B3E5BC30079CEAB /* h.swift in Sources */,
+				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* ViewController.swift in Sources */,
-				05AAF8912B3E5AA30079CEAB /* Text.swift in Sources */,
-				05AAF88F2B3E5A860079CEAB /* Image.swift in Sources */,
+				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
+				05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */,
+				05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */,
 				05AAF8952B3E5B800079CEAB /* a.swift in Sources */,
-				05AAF8AF2B3E5C200079CEAB /* r.swift in Sources */,
+				05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */,
 				05AAF8A52B3E5BC90079CEAB /* i.swift in Sources */,
 				05AAF8992B3E5B920079CEAB /* c.swift in Sources */,
+				05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */,
 				05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */,
 				05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */,
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
 				05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */,
+				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* g.swift in Sources */,
 				05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */,
 				05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */,
 				05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */,
+				05AAF8CF2B3EA9E30079CEAB /* UICollectionViewCell+.swift in Sources */,
 				05AAF8B32B3E5C320079CEAB /* BaseView.swift in Sources */,
 				05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */,
 				05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */,
@@ -592,7 +652,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Motivoo-iOS/Resources/Info.plist";
+				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -618,7 +678,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Motivoo-iOS/Resources/Info.plist";
+				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -684,6 +744,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		05AAF8C52B3EA8620079CEAB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -701,6 +769,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 05AAF8BC2B3E5CD70079CEAB /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		05AAF8C62B3EA8620079CEAB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05AAF8C52B3EA8620079CEAB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
