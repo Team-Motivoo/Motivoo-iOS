@@ -15,11 +15,11 @@ final class LoginViewController: BaseViewController {
     // MARK: - UI Component
 
     private let kakaoLoginButton = UIButton().then {
-        $0.setImage(ImageLiterals.kakaoLogin, for: .normal)
+        $0.setImage(ImageLiterals.img.kakaoLogin, for: .normal)
     }
 
     private let appleLoginButton = UIButton().then {
-        $0.setImage(ImageLiterals.appleLogin, for: .normal)
+        $0.setImage(ImageLiterals.img.appleLogin, for: .normal)
     }
 
     // MARK: - Life Cycles

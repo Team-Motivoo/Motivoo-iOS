@@ -15,7 +15,7 @@ final class SplashViewController: BaseViewController {
     // MARK: - UI Component
 
     private let logoImage = UIImageView().then {
-        $0.image = ImageLiterals.motivooLogo
+        $0.image = ImageLiterals.img.motivooLogo
     }
 
     // MARK: - Life Cycles

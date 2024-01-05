@@ -7,14 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class MyPageViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .blue
+        view.backgroundColor = .blue400
     }
-
-
 }
 
