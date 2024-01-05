@@ -52,6 +52,7 @@
 		05AAF8F92B44F3FC0079CEAB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8F62B44F3FC0079CEAB /* Pretendard-Medium.otf */; };
 		05AAF8FA2B44F3FC0079CEAB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8F72B44F3FC0079CEAB /* Pretendard-Regular.otf */; };
 		05AAF8FB2B44F3FC0079CEAB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */; };
+		05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		05AAF8F62B44F3FC0079CEAB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		05AAF8F72B44F3FC0079CEAB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 			children = (
 				05AAF8B22B3E5C320079CEAB /* BaseView.swift */,
 				05AAF8B42B3E5C410079CEAB /* BaseViewController.swift */,
+				05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
 				05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */,
 				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
+				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
