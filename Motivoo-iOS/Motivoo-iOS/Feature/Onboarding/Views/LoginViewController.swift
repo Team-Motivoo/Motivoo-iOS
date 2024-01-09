@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import Then
+import KakaoSDKUser
 
 final class LoginViewController: BaseViewController {
     
@@ -57,7 +58,33 @@ final class LoginViewController: BaseViewController {
 
     @objc
     private func kakaoLoginButtonDidTap() {
-        let nextVC = StartViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        print("kakaoLoginButtonDidTap")
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            //카톡 설치되어있으면 -> 카톡으로 로그인
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("카카오 톡으로 로그인 성공")
+                    let StartViewController = StartViewController()
+                    self.navigationController?.pushViewController(StartViewController, animated: true)
+                    _ = oauthToken
+                    // 로그인 관련 메소드 추가
+                }
+            }
+        } else {
+            // 카톡 없으면 -> 계정으로 로그인
+            UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("카카오 계정으로 로그인 성공 /n ===oauthToken: \(String(describing: oauthToken))")
+                     let StartViewController = StartViewController()
+                     self.navigationController?.pushViewController(StartViewController, animated: true)
+                    _ = oauthToken
+                    // 관련 메소드 추가
+                }
+            }
+        }
     }
 }

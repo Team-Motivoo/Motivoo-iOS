@@ -7,14 +7,32 @@
 
 import UIKit
 
+import KakaoSDKAuth
+import KakaoSDKCommon
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Kakao SDK 초기화
+        if let KAKAO_APP_KEY = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String {
+            print("=== KAKAO_APP_KEY: \(KAKAO_APP_KEY)")
+            KakaoSDK.initSDK(appKey: KAKAO_APP_KEY)
+        } else {
+            print("Error: KAKAO_APP_KEY is not available in the Info.plist")
+            // Handle the error or provide a default value if necessary
+        }
         return true
+    }
+
+    // onOpenURL()을 사용해 커스텀 URL 스킴 처리
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (AuthApi.isKakaoTalkLoginUrl(url)) {
+            return AuthController.handleOpenUrl(url: url)
+        }
+        return false
     }
 
     // MARK: UISceneSession Lifecycle
@@ -24,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
+    
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.

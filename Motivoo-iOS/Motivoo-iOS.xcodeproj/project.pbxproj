@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		02642C942B46913B00134D73 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C932B46913B00134D73 /* UIImage+.swift */; };
 		02642C962B46960D00134D73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C952B46960D00134D73 /* LoginViewController.swift */; };
+		0280E9F82B4BEA4C0047215F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 0280E9F72B4BEA4C0047215F /* KakaoSDK */; };
+		0280E9FA2B4BEA4C0047215F /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0280E9F92B4BEA4C0047215F /* KakaoSDKAuth */; };
+		0280E9FC2B4BEA4C0047215F /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 0280E9FB2B4BEA4C0047215F /* KakaoSDKCert */; };
+		0280E9FE2B4BEA4C0047215F /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0280E9FD2B4BEA4C0047215F /* KakaoSDKCertCore */; };
+		0280EA002B4BEA4C0047215F /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 0280E9FF2B4BEA4C0047215F /* KakaoSDKCommon */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF85F2B3E58480079CEAB /* AppDelegate.swift */; };
 		05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8612B3E58480079CEAB /* SceneDelegate.swift */; };
@@ -60,6 +65,7 @@
 /* Begin PBXFileReference section */
 		02642C932B46913B00134D73 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		02642C952B46960D00134D73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0280EA012B4C37A30047215F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motivoo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AAF85F2B3E58480079CEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,10 +117,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0280E9FE2B4BEA4C0047215F /* KakaoSDKCertCore in Frameworks */,
 				05AAF8C72B3EA8620079CEAB /* Kingfisher in Frameworks */,
+				0280E9F82B4BEA4C0047215F /* KakaoSDK in Frameworks */,
 				05AAF8B82B3E5C890079CEAB /* SnapKit in Frameworks */,
+				0280EA002B4BEA4C0047215F /* KakaoSDKCommon in Frameworks */,
 				05AAF8BB2B3E5CA60079CEAB /* Then in Frameworks */,
 				05AAF8BE2B3E5CD70079CEAB /* Moya in Frameworks */,
+				0280E9FC2B4BEA4C0047215F /* KakaoSDKCert in Frameworks */,
+				0280E9FA2B4BEA4C0047215F /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +363,7 @@
 				05AAF8922B3E5AC20079CEAB /* Font */,
 				05AAF86D2B3E58490079CEAB /* Info.plist */,
 				05AAF8682B3E58490079CEAB /* Assets.xcassets */,
+				0280EA012B4C37A30047215F /* Config.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -458,6 +470,11 @@
 				05AAF8BA2B3E5CA60079CEAB /* Then */,
 				05AAF8BD2B3E5CD70079CEAB /* Moya */,
 				05AAF8C62B3EA8620079CEAB /* Kingfisher */,
+				0280E9F72B4BEA4C0047215F /* KakaoSDK */,
+				0280E9F92B4BEA4C0047215F /* KakaoSDKAuth */,
+				0280E9FB2B4BEA4C0047215F /* KakaoSDKCert */,
+				0280E9FD2B4BEA4C0047215F /* KakaoSDKCertCore */,
+				0280E9FF2B4BEA4C0047215F /* KakaoSDKCommon */,
 			);
 			productName = "Motivoo-iOS";
 			productReference = 05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */;
@@ -492,6 +509,7 @@
 				05AAF8B92B3E5CA60079CEAB /* XCRemoteSwiftPackageReference "Then" */,
 				05AAF8BC2B3E5CD70079CEAB /* XCRemoteSwiftPackageReference "Moya" */,
 				05AAF8C52B3EA8620079CEAB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0280E9F62B4BEA4C0047215F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 05AAF85D2B3E58480079CEAB /* Products */;
 			projectDirPath = "";
@@ -694,6 +712,7 @@
 		};
 		05AAF8712B3E58490079CEAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0280EA012B4C37A30047215F /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -720,6 +739,7 @@
 		};
 		05AAF8722B3E58490079CEAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0280EA012B4C37A30047215F /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -768,6 +788,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0280E9F62B4BEA4C0047215F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.20.0;
+			};
+		};
 		05AAF8B62B3E5C890079CEAB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -803,6 +831,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0280E9F72B4BEA4C0047215F /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0280E9F62B4BEA4C0047215F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		0280E9F92B4BEA4C0047215F /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0280E9F62B4BEA4C0047215F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		0280E9FB2B4BEA4C0047215F /* KakaoSDKCert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0280E9F62B4BEA4C0047215F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCert;
+		};
+		0280E9FD2B4BEA4C0047215F /* KakaoSDKCertCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0280E9F62B4BEA4C0047215F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCertCore;
+		};
+		0280E9FF2B4BEA4C0047215F /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0280E9F62B4BEA4C0047215F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
 		05AAF8B72B3E5C890079CEAB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 05AAF8B62B3E5C890079CEAB /* XCRemoteSwiftPackageReference "SnapKit" */;
