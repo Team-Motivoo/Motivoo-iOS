@@ -70,7 +70,20 @@ enum TextLiterals {
     }
     
     enum MyPage {
-        
+        static var exerciseInfo = "운동 정보"
+        static var checkExerciseInfo = "내 운동 정보를 확인하세요!"
+        static var parent = "의지뿜뿜 부모님"
+        static var child = "행복팡팡 자녀"
+        static var service = "서비스 이용약관"
+        static var privacyPolicy = "개인정보 처리방침"
+        static var openSourceLicense = "오픈소스 라이선스"
+        static var developerInfo = "개발자 정보"
+        static var AppInfoItems: [String] = ["서비스 이용약관", "개인정보 처리방침", "오픈소스 라이선스", "개발자 정보"]
+        static var ToKakaoChannel = "카카오채널 문의하기"
+        static var appInfo = "앱 정보"
+        static var back = "이전"
+        static var ㄷxercisestatus = "운동여부"
+
     }
 }
 
