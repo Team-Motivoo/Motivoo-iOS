@@ -129,7 +129,6 @@
 		05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCircularProgressView.swift; sourceTree = "<group>"; };
 		05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepCountView.swift; sourceTree = "<group>"; };
 		05C8FE632B4D496A00A2838C /* HomeStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepModel.swift; sourceTree = "<group>"; };
-		05C8FE652B4DC55000A2838C /* Motivoo-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Motivoo-iOS.entitlements"; sourceTree = "<group>"; };
 		05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,11 +158,21 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		02BAC2DE2B4EE5F500657CF7 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				05AAF8A22B3E5BC30079CEAB /* h.swift */,
+				05AAF8A62B3E5BCF0079CEAB /* j.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		05AAF8532B3E58480079CEAB = {
 			isa = PBXGroup;
 			children = (
 				05AAF85E2B3E58480079CEAB /* Motivoo-iOS */,
 				05AAF85D2B3E58480079CEAB /* Products */,
+				02BAC2DE2B4EE5F500657CF7 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,7 +187,6 @@
 		05AAF85E2B3E58480079CEAB /* Motivoo-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				05C8FE652B4DC55000A2838C /* Motivoo-iOS.entitlements */,
 				05AAF8772B3E59450079CEAB /* Application */,
 				05AAF8762B3E593D0079CEAB /* Global */,
 				05AAF8752B3E59380079CEAB /* Data */,
