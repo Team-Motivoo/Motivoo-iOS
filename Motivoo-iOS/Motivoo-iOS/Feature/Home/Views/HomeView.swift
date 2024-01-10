@@ -12,15 +12,6 @@ import Then
 
 final class HomeView: BaseView {
     
-    // MARK: - Properties
-    
-    private var isMissionSelected: Bool = false {
-        willSet {
-            print("이거보세요오오오ㅗ!!!!!")
-        }
-    }
-    var missionTappedHadler: (() -> (Void))?
-    
     // MARK: - UI Components
     
     private var dateLabel = UILabel()
@@ -151,10 +142,10 @@ final class HomeView: BaseView {
     
     @objc
     private func missionViewDidTapped() {
-//        missionTappedHadler?()
         configureMissionSelectedView()
     }
     
+    /// 나중에 아래 작업을 enum으로 처리하기! -> 서버 명세 참고
     private func configureMissionSelectedView() {
         firstMissionView.isHidden = true
         secondMissionView.isHidden = true
