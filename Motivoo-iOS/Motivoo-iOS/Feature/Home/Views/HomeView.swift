@@ -24,6 +24,7 @@ final class HomeView: BaseView {
     var homeStepCountView = HomeStepCountView()
     lazy var homeCircularProgressView = HomeCircularProgressView()
     var checkMissionButton = UIButton()
+    var dimmView = UIView()
     
     // MARK: - Life Cycle
     
@@ -79,6 +80,11 @@ final class HomeView: BaseView {
             $0.layer.cornerRadius = 8.adjusted
             $0.isHidden = true
         }
+        
+        dimmView.do {
+            $0.backgroundColor = .gray900.withAlphaComponent(0.7)
+            $0.isHidden = true
+        }
     }
     
     override func setHierachy() {
@@ -88,7 +94,8 @@ final class HomeView: BaseView {
                          stepTitleLabel,
                          homeStepCountView,
                          homeCircularProgressView,
-                         checkMissionButton)
+                         checkMissionButton,
+                         dimmView)
     }
     
     override func setLayout() {
@@ -127,6 +134,10 @@ final class HomeView: BaseView {
             $0.top.equalTo(homeStepCountView.snp.bottom).offset(16.adjusted)
             $0.leading.trailing.equalToSuperview().inset(20.adjusted)
             $0.height.equalTo(52.adjusted)
+        }
+        
+        dimmView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     

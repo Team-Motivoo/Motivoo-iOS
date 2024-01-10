@@ -16,6 +16,7 @@
 		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
 		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
+		0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */; };
 		058A1AC42B49307500F170D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1AC32B49307500F170D0 /* HomeView.swift */; };
 		05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF85F2B3E58480079CEAB /* AppDelegate.swift */; };
 		05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8612B3E58480079CEAB /* SceneDelegate.swift */; };
@@ -78,6 +79,7 @@
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveViewController.swift; sourceTree = "<group>"; };
 		058A1AC32B49307500F170D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motivoo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AAF85F2B3E58480079CEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */,
+				0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05AAF8D52B3EAB8F0079CEAB /* SizeLiterals.swift in Sources */,
+				0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */,
 				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
 				05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
