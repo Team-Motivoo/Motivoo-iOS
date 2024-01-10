@@ -58,37 +58,13 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-        
         if section == 0 {
-            
-            
-            
             return 1
-            
-            
-            
         } else if section == 1 {
-            
-            
-            
             return TextLiterals.MyPage.AppInfoItems.count+1
-            
-            
-            
         } else {
-            
-            
-            
             return 1
-            
-            
-            
-        }
-        
-        
-        
+        } 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

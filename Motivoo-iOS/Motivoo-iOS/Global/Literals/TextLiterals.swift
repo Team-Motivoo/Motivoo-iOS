@@ -82,8 +82,12 @@ enum TextLiterals {
         static var ToKakaoChannel = "카카오채널 문의하기"
         static var appInfo = "앱 정보"
         static var back = "이전"
-        static var ㄷxercisestatus = "운동여부"
-
+        static var exercisestatus = "운동여부"
+        static var intensity = "운동 / 신체활동 강도"
+        static var WeeklyaverageFrequency = "주 평균 횟수"
+        static var averageTimePerDay = "하루 평균 시간"
+        static var pointsToNote = "주의할 곳"
+        
     }
 }
 

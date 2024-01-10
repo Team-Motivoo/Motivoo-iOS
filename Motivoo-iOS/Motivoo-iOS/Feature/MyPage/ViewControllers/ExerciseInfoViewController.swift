@@ -18,10 +18,10 @@ final class ExerciseInfoViewController: BaseViewController {
     
     
     private func setTableViewConfig() {
-        exerciseInfoView.ExerciseInfotableView.register(DetailExerciseInfoTableViewCell.self,
+        exerciseInfoView.exerciseInfotableView.register(DetailExerciseInfoTableViewCell.self,
                                       forCellReuseIdentifier: DetailExerciseInfoTableViewCell.cellIdentifier)
-        exerciseInfoView.ExerciseInfotableView.dataSource = self
-        exerciseInfoView.ExerciseInfotableView.delegate = self
+        exerciseInfoView.exerciseInfotableView.dataSource = self
+        exerciseInfoView.exerciseInfotableView.delegate = self
     }
     
     // MARK: - Life Cycles
@@ -55,22 +55,12 @@ extension ExerciseInfoViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
             cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
-                cell.textLabel?.text = "\(TextLiterals.MyPage.AppInfoItems[indexPath.row])"
-                cell.textLabel?.font = UIFont.heading6
-                cell.textLabel?.textColor = .gray900
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 64
-    }
-   
-
-
-   
 }

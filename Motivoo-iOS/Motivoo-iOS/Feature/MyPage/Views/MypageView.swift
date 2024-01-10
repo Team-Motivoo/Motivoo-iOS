@@ -13,29 +13,35 @@ import Then
 final class MyPageView: BaseView {
     
     // MARK: - Properties
+    private let parentLabel = UILabel()
+    private let childLabel = UILabel()
+    private let nameLabel = UILabel()
+    private let myInfoButton = UIButton()
     
-    private let parentLabel = UILabel().then {
-        $0.text = TextLiterals.MyPage.parent
-        $0.textColor = .gray900
-        $0.font = .body5
-    }
-    private let childLabel = UILabel().then {
-        $0.text = TextLiterals.MyPage.child
-        $0.textColor = .gray900
-        $0.font = .body5
-    }
     
-    private let nameLabel = UILabel().then {
-        $0.text = "김뿡뿡"
-        $0.textColor = .gray900
-        $0.font = .heading2
-    }
-    private let myInfoButton = UIButton().then {
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 18 //버튼 width/4
-        //$0.layer.masksToBounds = true
-        $0.setTitle("내 정보", for: .normal)
-        $0.setTitleColor(.gray700, for: .normal)
+    
+    override func setUI() {
+        parentLabel.do{
+            $0.text = TextLiterals.MyPage.parent
+            $0.textColor = .gray900
+            $0.font = .body5
+        }
+        childLabel.do{
+            $0.text = TextLiterals.MyPage.child
+            $0.textColor = .gray900
+            $0.font = .body5
+        }
+        nameLabel.do{
+            $0.text = "김뿡뿡"
+            $0.textColor = .gray900
+            $0.font = .heading2
+        }
+        myInfoButton.do{
+            $0.backgroundColor = .white
+            $0.layer.cornerRadius = 18 //버튼 width/4
+            $0.setTitle("내 정보", for: .normal)
+            $0.setTitleColor(.gray700, for: .normal)
+        }
     }
     let tableView = UITableView(frame: .zero, style: .insetGrouped).then {
         $0.backgroundColor = .clear
@@ -86,6 +92,5 @@ final class MyPageView: BaseView {
             $0.bottom.equalToSuperview().inset(131.adjusted)
         }
     }
-    // MARK: - 이 곳은 위의 오버라이드 함수 영역과 구분될 수 있도록 자유로운 마크주석을 달아주세요
     
 }
