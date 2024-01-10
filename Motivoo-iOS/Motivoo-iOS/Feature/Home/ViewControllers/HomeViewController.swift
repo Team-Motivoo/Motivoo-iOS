@@ -27,11 +27,6 @@ final class HomeViewController: BaseViewController {
     
     // MARK: - Life Cycles
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -54,11 +49,7 @@ final class HomeViewController: BaseViewController {
             $0.edges.equalToSuperview()
         }
     }
-    
-    override func setButtonEvent() {
 
-    }
-    
     private func configureMissionView(dataList: [HomeMissionModel]) {
         homeView.firstMissionView.configureView(image: dataList[0].image,
                                                 mission: dataList[0].mission)
