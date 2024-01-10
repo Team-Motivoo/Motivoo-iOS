@@ -14,8 +14,9 @@ final class StartViewController: BaseViewController {
 
     // MARK: - UI Component
 
-    private let startMotivooButton = UIButton()
-    private let invitationCodeButton = UIButton()
+    private let startMotivooButton = MotivooButton(text: "모티부 시작하기", buttonStyle: .gray900)
+    private let invitationCodeButton = MotivooButton(text: "초대코드 입력하기", buttonStyle: .gray100)
+
 
     // MARK: - Life Cycles
 
@@ -23,23 +24,6 @@ final class StartViewController: BaseViewController {
         super.viewDidLoad()
 
         self.navigationController?.isNavigationBarHidden = true
-    }
-
-    override func setUI() {
-        startMotivooButton.do {
-            $0.setTitle("모티부 시작하기", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
-            $0.titleLabel?.font = .body5
-            $0.backgroundColor = .gray900
-            $0.layer.cornerRadius = 8
-        }
-        invitationCodeButton.do {
-            $0.setTitle("초대코드 입력하기", for: .normal)
-            $0.setTitleColor(.gray900, for: .normal)
-            $0.titleLabel?.font = .body5
-            $0.backgroundColor = .gray100
-            $0.layer.cornerRadius = 8
-        }
     }
 
     // MARK: - Override Functions
@@ -51,14 +35,10 @@ final class StartViewController: BaseViewController {
     override func setLayout() {
         startMotivooButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
-            $0.height.equalTo(52.adjusted)
             $0.bottom.equalTo(invitationCodeButton.snp.top).offset(-16.adjusted)
         }
         invitationCodeButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
-            $0.height.equalTo(52.adjusted)
             $0.bottom.equalToSuperview().inset(78.adjusted)
         }
     }

@@ -36,6 +36,7 @@ final class OnboardingViewController: BaseViewController {
         onboardingIntro1View.parentButton.isSelected = true
         onboardingIntro1View.childButton.isSelected = true
         onboardingIntro2View.alpha = 0
+        buttonEnabledCheck()
     }
 
     // MARK: - Override Functions
@@ -43,7 +44,7 @@ final class OnboardingViewController: BaseViewController {
     override func setButtonEvent() {
         onboardingIntro1View.parentButton.addTarget(self, action: #selector(parentButtonButtonDidTap), for: .touchUpInside)
         onboardingIntro1View.childButton.addTarget(self, action: #selector(childButtonButtonDidTap), for: .touchUpInside)
-        onboardingIntro1View.nextButton.addTarget(self, action: #selector(changeViewAnimation), for: .touchUpInside)
+        // onboardingIntro1View.nextButton.addTarget(self, action: #selector(changeViewAnimation), for: .touchUpInside)
         onboardingIntro2View.ageTextField.addTarget(self, action:  #selector(textFieldDidChanacge), for: .editingChanged)
     }
 
@@ -57,7 +58,7 @@ final class OnboardingViewController: BaseViewController {
         }
         onboardingIntro2View.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(330)
+            $0.height.equalTo(350)
         }
     }
 
@@ -70,10 +71,11 @@ final class OnboardingViewController: BaseViewController {
                 onboardingIntro1View.childButton.isSelected = true
             }
             onboardingIntro1View.parentButton.isSelected = false
+            changeViewAnimation()
         } else {
             onboardingIntro1View.parentButton.isSelected = true
+            changeViewAnimation()
         }
-        buttonEnabledCheck()
     }
 
     @objc
@@ -83,10 +85,11 @@ final class OnboardingViewController: BaseViewController {
                 onboardingIntro1View.parentButton.isSelected = true
             }
             onboardingIntro1View.childButton.isSelected = false
+            changeViewAnimation()
         } else {
             onboardingIntro1View.childButton.isSelected = true
+            changeViewAnimation()
         }
-        buttonEnabledCheck()
     }
 
     @objc
@@ -128,13 +131,13 @@ final class OnboardingViewController: BaseViewController {
         onboardingIntro1View.introTitle.isHidden = true
         onboardingIntro1View.introSubtitle.isHidden = true
 
-        UIView.animate(withDuration: 0.4,
+        UIView.animate(withDuration: 0.3,
                        delay: 0.2,
                        options: [.curveEaseInOut]) { [self] in
             onboardingIntro2View.alpha = 1
             onboardingIntro2View.transform = CGAffineTransform(translationX: 0, y: 0)
         }
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.4,
                        delay: 0,
                        options: [.curveEaseInOut]) { [self] in
             onboardingIntro1View.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 102)
