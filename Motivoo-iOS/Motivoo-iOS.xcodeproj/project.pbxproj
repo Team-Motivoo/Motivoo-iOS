@@ -57,7 +57,6 @@
 		05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE442B493A8300A2838C /* DateLiterals.swift */; };
 		05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */; };
 		05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */; };
-		05C8FE5E2B4D38BB00A2838C /* HomeWalkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5D2B4D38BB00A2838C /* HomeWalkingView.swift */; };
 		05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */; };
 		05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */; };
 		05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE632B4D496A00A2838C /* HomeStepModel.swift */; };
@@ -112,7 +111,6 @@
 		05C8FE442B493A8300A2838C /* DateLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLiterals.swift; sourceTree = "<group>"; };
 		05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionModel.swift; sourceTree = "<group>"; };
 		05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionView.swift; sourceTree = "<group>"; };
-		05C8FE5D2B4D38BB00A2838C /* HomeWalkingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWalkingView.swift; sourceTree = "<group>"; };
 		05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCircularProgressView.swift; sourceTree = "<group>"; };
 		05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepCountView.swift; sourceTree = "<group>"; };
 		05C8FE632B4D496A00A2838C /* HomeStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepModel.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 			children = (
 				058A1AC32B49307500F170D0 /* HomeView.swift */,
 				05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */,
-				05C8FE5D2B4D38BB00A2838C /* HomeWalkingView.swift */,
 				05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */,
 				05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */,
 			);
@@ -585,7 +582,6 @@
 				05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */,
 				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
 				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
-				05C8FE5E2B4D38BB00A2838C /* HomeWalkingView.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
