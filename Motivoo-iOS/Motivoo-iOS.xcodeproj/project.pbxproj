@@ -60,6 +60,7 @@
 		05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */; };
 		05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */; };
 		05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE632B4D496A00A2838C /* HomeStepModel.swift */; };
+		05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepCountView.swift; sourceTree = "<group>"; };
 		05C8FE632B4D496A00A2838C /* HomeStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepModel.swift; sourceTree = "<group>"; };
 		05C8FE652B4DC55000A2838C /* Motivoo-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Motivoo-iOS.entitlements"; sourceTree = "<group>"; };
+		05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +400,7 @@
 				05AAF8F02B44F10A0079CEAB /* UIFont+.swift */,
 				05AAF8F42B44F2950079CEAB /* UIColor+.swift */,
 				02642C932B46913B00134D73 /* UIImage+.swift */,
+				05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
+				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
 				05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */,
 				05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */,
