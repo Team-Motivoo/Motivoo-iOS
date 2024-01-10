@@ -30,8 +30,6 @@
 		05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89C2B3E5BAC0079CEAB /* e.swift */; };
 		05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89E2B3E5BB30079CEAB /* f.swift */; };
 		05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */; };
-		05AAF8A32B3E5BC30079CEAB /* h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A22B3E5BC30079CEAB /* h.swift */; };
-		05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A62B3E5BCF0079CEAB /* j.swift */; };
 		05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A82B3E5BE30079CEAB /* k.swift */; };
 		05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */; };
 		05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AC2B3E5C190079CEAB /* q.swift */; };
@@ -589,7 +587,6 @@
 				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
 				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,
 				05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */,
-				05AAF8A32B3E5BC30079CEAB /* h.swift in Sources */,
 				05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */,
 				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
 				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
@@ -618,7 +615,6 @@
 				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
-				05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */,
 				0280EA082B4D0B170047215F /* TitleBoxButton.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
 				05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */,
@@ -768,7 +764,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DGF5D388H;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -796,7 +792,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DGF5D388H;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
