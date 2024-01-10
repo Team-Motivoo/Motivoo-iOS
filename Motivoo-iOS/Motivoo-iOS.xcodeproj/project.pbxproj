@@ -10,6 +10,7 @@
 		02642C942B46913B00134D73 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C932B46913B00134D73 /* UIImage+.swift */; };
 		02642C962B46960D00134D73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C952B46960D00134D73 /* LoginViewController.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
+		058A1AC42B49307500F170D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1AC32B49307500F170D0 /* HomeView.swift */; };
 		05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF85F2B3E58480079CEAB /* AppDelegate.swift */; };
 		05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8612B3E58480079CEAB /* SceneDelegate.swift */; };
 		05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8632B3E58480079CEAB /* MyPageViewController.swift */; };
@@ -18,14 +19,12 @@
 		05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */; };
 		05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */; };
 		05AAF8952B3E5B800079CEAB /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8942B3E5B800079CEAB /* a.swift */; };
-		05AAF8972B3E5B860079CEAB /* b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8962B3E5B860079CEAB /* b.swift */; };
 		05AAF8992B3E5B920079CEAB /* c.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8982B3E5B920079CEAB /* c.swift */; };
 		05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89A2B3E5B9C0079CEAB /* d.swift */; };
 		05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89C2B3E5BAC0079CEAB /* e.swift */; };
 		05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89E2B3E5BB30079CEAB /* f.swift */; };
 		05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */; };
 		05AAF8A32B3E5BC30079CEAB /* h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A22B3E5BC30079CEAB /* h.swift */; };
-		05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A62B3E5BCF0079CEAB /* j.swift */; };
 		05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A82B3E5BE30079CEAB /* k.swift */; };
 		05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */; };
 		05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AC2B3E5C190079CEAB /* q.swift */; };
@@ -55,12 +54,20 @@
 		05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */; };
 		05AAF90C2B47F0B70079CEAB /* t.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF90B2B47F0B70079CEAB /* t.swift */; };
 		05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */; };
+		05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE442B493A8300A2838C /* DateLiterals.swift */; };
+		05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */; };
+		05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */; };
+		05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */; };
+		05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */; };
+		05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE632B4D496A00A2838C /* HomeStepModel.swift */; };
+		05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02642C932B46913B00134D73 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		02642C952B46960D00134D73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		058A1AC32B49307500F170D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motivoo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AAF85F2B3E58480079CEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05AAF8612B3E58480079CEAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,14 +78,12 @@
 		05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 		05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLiterals.swift; sourceTree = "<group>"; };
 		05AAF8942B3E5B800079CEAB /* a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a.swift; sourceTree = "<group>"; };
-		05AAF8962B3E5B860079CEAB /* b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = b.swift; sourceTree = "<group>"; };
 		05AAF8982B3E5B920079CEAB /* c.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c.swift; sourceTree = "<group>"; };
 		05AAF89A2B3E5B9C0079CEAB /* d.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = d.swift; sourceTree = "<group>"; };
 		05AAF89C2B3E5BAC0079CEAB /* e.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = e.swift; sourceTree = "<group>"; };
 		05AAF89E2B3E5BB30079CEAB /* f.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = f.swift; sourceTree = "<group>"; };
 		05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		05AAF8A22B3E5BC30079CEAB /* h.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = h.swift; sourceTree = "<group>"; };
-		05AAF8A62B3E5BCF0079CEAB /* j.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = j.swift; sourceTree = "<group>"; };
 		05AAF8A82B3E5BE30079CEAB /* k.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = k.swift; sourceTree = "<group>"; };
 		05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		05AAF8AC2B3E5C190079CEAB /* q.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q.swift; sourceTree = "<group>"; };
@@ -104,6 +109,14 @@
 		05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05AAF90B2B47F0B70079CEAB /* t.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = t.swift; sourceTree = "<group>"; };
 		05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewViewController.swift; sourceTree = "<group>"; };
+		05C8FE442B493A8300A2838C /* DateLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLiterals.swift; sourceTree = "<group>"; };
+		05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionModel.swift; sourceTree = "<group>"; };
+		05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionView.swift; sourceTree = "<group>"; };
+		05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCircularProgressView.swift; sourceTree = "<group>"; };
+		05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepCountView.swift; sourceTree = "<group>"; };
+		05C8FE632B4D496A00A2838C /* HomeStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepModel.swift; sourceTree = "<group>"; };
+		05C8FE652B4DC55000A2838C /* Motivoo-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Motivoo-iOS.entitlements"; sourceTree = "<group>"; };
+		05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +153,7 @@
 		05AAF85E2B3E58480079CEAB /* Motivoo-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				05C8FE652B4DC55000A2838C /* Motivoo-iOS.entitlements */,
 				05AAF8772B3E59450079CEAB /* Application */,
 				05AAF8762B3E593D0079CEAB /* Global */,
 				05AAF8752B3E59380079CEAB /* Data */,
@@ -214,8 +228,8 @@
 		05AAF8792B3E596E0079CEAB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				05C8FE5A2B4C259300A2838C /* ViewControllers */,
 				05AAF87E2B3E59B20079CEAB /* Views */,
-				05AAF87D2B3E59A60079CEAB /* ViewModels */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,18 +259,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		05AAF87D2B3E59A60079CEAB /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				05AAF8A62B3E5BCF0079CEAB /* j.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		05AAF87E2B3E59B20079CEAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */,
+				058A1AC32B49307500F170D0 /* HomeView.swift */,
+				05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */,
+				05C8FE5F2B4D39C400A2838C /* HomeCircularProgressView.swift */,
+				05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,7 +323,7 @@
 		05AAF8852B3E5A180079CEAB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF8962B3E5B860079CEAB /* b.swift */,
+				05C8FE572B4AA29400A2838C /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -371,6 +380,7 @@
 				05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */,
 				05AAF8D42B3EAB8F0079CEAB /* SizeLiterals.swift */,
 				05AAF8F22B44F18D0079CEAB /* FontLiterals.swift */,
+				05C8FE442B493A8300A2838C /* DateLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -390,6 +400,7 @@
 				05AAF8F02B44F10A0079CEAB /* UIFont+.swift */,
 				05AAF8F42B44F2950079CEAB /* UIColor+.swift */,
 				02642C932B46913B00134D73 /* UIImage+.swift */,
+				05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -433,6 +444,23 @@
 			isa = PBXGroup;
 			children = (
 				05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		05C8FE572B4AA29400A2838C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */,
+				05C8FE632B4D496A00A2838C /* HomeStepModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05C8FE5A2B4C259300A2838C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -529,20 +557,26 @@
 				02642C942B46913B00134D73 /* UIImage+.swift in Sources */,
 				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,
 				02F817332B46A22A00650E14 /* StartViewController.swift in Sources */,
-				05AAF8972B3E5B860079CEAB /* b.swift in Sources */,
 				05AAF8B12B3E5C270079CEAB /* s.swift in Sources */,
 				05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */,
 				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
 				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,
+				05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */,
 				05AAF8A32B3E5BC30079CEAB /* h.swift in Sources */,
+				05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */,
+				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
+				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
+				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
+				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
 				05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */,
 				05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */,
 				05AAF8952B3E5B800079CEAB /* a.swift in Sources */,
 				05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */,
+				05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */,
 				05AAF8992B3E5B920079CEAB /* c.swift in Sources */,
 				05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */,
 				05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */,
@@ -553,7 +587,7 @@
 				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
 				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
-				05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */,
+				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
 				05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */,
 				05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */,
@@ -697,8 +731,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -710,7 +746,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YUNBINN.Motivoo-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YUNBINN.Motivoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -723,8 +759,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -736,7 +774,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YUNBINN.Motivoo-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YUNBINN.Motivoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
