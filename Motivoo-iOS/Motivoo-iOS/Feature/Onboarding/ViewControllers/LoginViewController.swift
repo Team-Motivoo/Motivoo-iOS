@@ -1,5 +1,5 @@
 //
-//  StartViewController.swift
+//  LoginViewController.swift
 //  Motivoo-iOS
 //
 //  Created by 이조은 on 1/4/24.
@@ -10,38 +10,37 @@ import UIKit
 import SnapKit
 import Then
 
-final class StartViewController: BaseViewController {
-
+final class LoginViewController: BaseViewController {
+    
     // MARK: - UI Component
 
-    private let kakaoLoginButton = UIButton().then {
-        $0.setTitle("초대코드 입력하기", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.titleLabel?.font = .heading4
-        $0.backgroundColor = UIColor(red: 0.36, green: 0.2, blue: 1, alpha: 1)
-        $0.layer.cornerRadius = 8
-    }
+    private let kakaoLoginButton = UIButton()
 
-    private let appleLoginButton = UIButton().then {
-        $0.setTitle("모티부 시작하기", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
-        $0.titleLabel?.font = .heading4
-        $0.backgroundColor = UIColor(red: 0.957, green: 0.961, blue: 0.976, alpha: 1)
-        $0.layer.cornerRadius = 8
-    }
+    private let appleLoginButton = UIButton()
 
     // MARK: - Life Cycles
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Override Functions
 
+    override func setUI() {
+        kakaoLoginButton.do {
+            $0.setImage(ImageLiterals.img.kakaoLogin, for: .normal)
+        }
+        appleLoginButton.do {
+            $0.setImage(ImageLiterals.img.appleLogin, for: .normal)
+        }
+    }
+
     override func setHierachy() {
         self.view.addSubviews(kakaoLoginButton, appleLoginButton)
+    }
+
+    override func setButtonEvent() {
+        kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonDidTap), for: .touchUpInside)
     }
 
     override func setLayout() {
@@ -57,5 +56,13 @@ final class StartViewController: BaseViewController {
             $0.height.equalTo(53.adjusted)
             $0.bottom.equalToSuperview().inset(91.adjusted)
         }
+    }
+
+    // MARK: - Actions
+
+    @objc
+    private func kakaoLoginButtonDidTap() {
+        let nextVC = StartViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

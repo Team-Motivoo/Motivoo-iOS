@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		02642C942B46913B00134D73 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C932B46913B00134D73 /* UIImage+.swift */; };
 		02642C962B46960D00134D73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C952B46960D00134D73 /* LoginViewController.swift */; };
+		0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA032B4D04210047215F /* OnboardingViewController.swift */; };
+		0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA052B4D04260047215F /* OnboardingIntro1View.swift */; };
+		0280EA082B4D0B170047215F /* TitleBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA072B4D0B170047215F /* TitleBoxButton.swift */; };
+		02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2D82B4D850B00657CF7 /* UILabel+.swift */; };
+		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
+		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		058A1AC42B49307500F170D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1AC32B49307500F170D0 /* HomeView.swift */; };
 		05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF85F2B3E58480079CEAB /* AppDelegate.swift */; };
@@ -25,6 +31,7 @@
 		05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89E2B3E5BB30079CEAB /* f.swift */; };
 		05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */; };
 		05AAF8A32B3E5BC30079CEAB /* h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A22B3E5BC30079CEAB /* h.swift */; };
+		05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A62B3E5BCF0079CEAB /* j.swift */; };
 		05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A82B3E5BE30079CEAB /* k.swift */; };
 		05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */; };
 		05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AC2B3E5C190079CEAB /* q.swift */; };
@@ -66,6 +73,12 @@
 /* Begin PBXFileReference section */
 		02642C932B46913B00134D73 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		02642C952B46960D00134D73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0280EA032B4D04210047215F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		0280EA052B4D04260047215F /* OnboardingIntro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro1View.swift; sourceTree = "<group>"; };
+		0280EA072B4D0B170047215F /* TitleBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBoxButton.swift; sourceTree = "<group>"; };
+		02BAC2D82B4D850B00657CF7 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
+		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		058A1AC32B49307500F170D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motivoo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +97,7 @@
 		05AAF89E2B3E5BB30079CEAB /* f.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = f.swift; sourceTree = "<group>"; };
 		05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		05AAF8A22B3E5BC30079CEAB /* h.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = h.swift; sourceTree = "<group>"; };
+		05AAF8A62B3E5BCF0079CEAB /* j.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = j.swift; sourceTree = "<group>"; };
 		05AAF8A82B3E5BE30079CEAB /* k.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = k.swift; sourceTree = "<group>"; };
 		05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		05AAF8AC2B3E5C190079CEAB /* q.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q.swift; sourceTree = "<group>"; };
@@ -134,6 +148,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0280EA022B4D03B30047215F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */,
+				02642C952B46960D00134D73 /* LoginViewController.swift */,
+				02F817322B46A22A00650E14 /* StartViewController.swift */,
+				0280EA032B4D04210047215F /* OnboardingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		05AAF8532B3E58480079CEAB = {
 			isa = PBXGroup;
 			children = (
@@ -237,8 +262,8 @@
 		05AAF87A2B3E59730079CEAB /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				0280EA022B4D03B30047215F /* ViewControllers */,
 				05AAF8802B3E59DB0079CEAB /* Views */,
-				05AAF87F2B3E59D50079CEAB /* ViewModels */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -270,20 +295,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		05AAF87F2B3E59D50079CEAB /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				05AAF8A22B3E5BC30079CEAB /* h.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		05AAF8802B3E59DB0079CEAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */,
-				02642C952B46960D00134D73 /* LoginViewController.swift */,
-				02F817322B46A22A00650E14 /* StartViewController.swift */,
+				0280EA052B4D04260047215F /* OnboardingIntro1View.swift */,
+				02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -401,6 +417,8 @@
 				05AAF8F42B44F2950079CEAB /* UIColor+.swift */,
 				02642C932B46913B00134D73 /* UIImage+.swift */,
 				05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */,
+				02BAC2D82B4D850B00657CF7 /* UILabel+.swift */,
+				02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -419,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				05AAF8B02B3E5C270079CEAB /* s.swift */,
+				0280EA072B4D0B170047215F /* TitleBoxButton.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -567,11 +586,14 @@
 				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
 				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
+				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
+				0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */,
 				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
+				02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */,
 				05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */,
 				05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */,
 				05AAF8952B3E5B800079CEAB /* a.swift in Sources */,
@@ -588,13 +610,17 @@
 				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
+				05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */,
+				0280EA082B4D0B170047215F /* TitleBoxButton.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
 				05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */,
+				02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */,
 				05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */,
 				05AAF8CF2B3EA9E30079CEAB /* UICollectionViewCell+.swift in Sources */,
 				05AAF8B32B3E5C320079CEAB /* BaseView.swift in Sources */,
 				05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */,
 				05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */,
+				02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
