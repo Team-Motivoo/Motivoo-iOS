@@ -29,9 +29,9 @@ class TitleBoxButton: UIButton {
     func setupView() {
         self.setTitleColor(.gray800, for: .normal)
         self.backgroundColor = .gray100
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = 1.adjusted
         self.layer.borderColor = UIColor.gray200.cgColor
         self.layer.cornerRadius = 8
-        self.frame.size.height = 52
+        self.frame.size.height = 52.adjusted
     }
 }

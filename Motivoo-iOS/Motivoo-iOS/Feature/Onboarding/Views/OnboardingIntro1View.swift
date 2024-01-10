@@ -14,9 +14,8 @@ final class OnboardingIntro1View: BaseView {
 
     // MARK: - UI Component
 
-    lazy var onboardingProgressView = UIProgressView()
-
-    let bgView = UIView()
+    private lazy var onboardingProgressView = UIProgressView()
+    private let bgView = UIView()
     let introTitle = UILabel()
     let introSubtitle = UILabel()
     var buttonStackView = UIStackView()
@@ -38,7 +37,7 @@ final class OnboardingIntro1View: BaseView {
             $0.textColor = .gray900
             $0.textAlignment = .left
             $0.numberOfLines = 2
-            $0.addLineHeight(lineHeight: 33.6)
+            $0.addLineHeight(lineHeight: 33.6.adjusted)
         }
         introSubtitle.do {
             $0.text = TextLiterals.Onboarding.Q1.ParentSubtitle
@@ -48,11 +47,11 @@ final class OnboardingIntro1View: BaseView {
         }
         parentButton.do {
             $0.setTitle(TextLiterals.Onboarding.Q1.Parent, for: .normal)
-            $0.frame.size.width = 162
+            $0.frame.size.width = 162.adjusted
         }
         childButton.do {
             $0.setTitle(TextLiterals.Onboarding.Q1.Child, for: .normal)
-            $0.frame.size.width = 162
+            $0.frame.size.width = 162.adjusted
         }
         buttonStackView.do {
             $0.axis = .horizontal

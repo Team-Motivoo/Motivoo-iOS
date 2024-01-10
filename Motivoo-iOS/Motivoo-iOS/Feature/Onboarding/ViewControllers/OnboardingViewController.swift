@@ -56,7 +56,8 @@ final class OnboardingViewController: BaseViewController {
             $0.edges.equalToSuperview()
         }
         onboardingIntro2View.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(330)
         }
     }
 

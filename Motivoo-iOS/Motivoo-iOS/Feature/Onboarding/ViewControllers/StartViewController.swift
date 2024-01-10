@@ -51,13 +51,13 @@ final class StartViewController: BaseViewController {
     override func setLayout() {
         startMotivooButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(335.adjusted)
+            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
             $0.height.equalTo(52.adjusted)
             $0.bottom.equalTo(invitationCodeButton.snp.top).offset(-16.adjusted)
         }
         invitationCodeButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(335.adjusted)
+            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
             $0.height.equalTo(52.adjusted)
             $0.bottom.equalToSuperview().inset(78.adjusted)
         }

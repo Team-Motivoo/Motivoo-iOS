@@ -15,14 +15,7 @@ final class LoginViewController: BaseViewController {
     // MARK: - UI Component
 
     private let kakaoLoginButton = UIButton()
-
     private let appleLoginButton = UIButton()
-
-    // MARK: - Life Cycles
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     // MARK: - Override Functions
 
@@ -46,13 +39,13 @@ final class LoginViewController: BaseViewController {
     override func setLayout() {
         kakaoLoginButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(335.adjusted)
+            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
             $0.height.equalTo(53.adjusted)
             $0.bottom.equalTo(appleLoginButton.snp.top).offset(-20.adjusted)
         }
         appleLoginButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(335.adjusted)
+            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
             $0.height.equalTo(53.adjusted)
             $0.bottom.equalToSuperview().inset(91.adjusted)
         }
