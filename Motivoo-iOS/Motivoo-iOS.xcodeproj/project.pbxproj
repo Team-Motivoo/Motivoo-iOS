@@ -18,6 +18,7 @@
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */; };
 		0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */; };
+		0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */; };
 		058A1AC42B49307500F170D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1AC32B49307500F170D0 /* HomeView.swift */; };
 		05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF85F2B3E58480079CEAB /* AppDelegate.swift */; };
 		05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8612B3E58480079CEAB /* SceneDelegate.swift */; };
@@ -82,6 +83,7 @@
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveViewController.swift; sourceTree = "<group>"; };
 		0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveView.swift; sourceTree = "<group>"; };
+		0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveMissionView.swift; sourceTree = "<group>"; };
 		058A1AC32B49307500F170D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motivoo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AAF85F2B3E58480079CEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */,
+				0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */,
 			);
 			path = Prove;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
+				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
 				02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */,
