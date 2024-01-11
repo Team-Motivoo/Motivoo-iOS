@@ -61,7 +61,7 @@ final class OnboardingIntro1View: BaseView {
 
     override func setLayout() {
         onboardingProgressView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(62.adjusted)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(2.adjusted)
         }
