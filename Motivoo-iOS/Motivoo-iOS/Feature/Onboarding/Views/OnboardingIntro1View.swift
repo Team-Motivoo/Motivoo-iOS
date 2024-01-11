@@ -19,9 +19,9 @@ final class OnboardingIntro1View: BaseView {
     let introTitle = UILabel()
     let introSubtitle = UILabel()
     var buttonStackView = UIStackView()
-    let parentButton = MotivooButton(text: TextLiterals.Onboarding.Q1.Parent, buttonStyle: .borderGray100Half)
-    let childButton = MotivooButton(text: TextLiterals.Onboarding.Q1.Child, buttonStyle: .borderGray100Half)
-    let nextButton = MotivooButton(text: TextLiterals.Onboarding.Next, buttonStyle: .gray900)
+    let parentButton = MotivooButton(text: TextLiterals.Onboarding.Q1.patent, buttonStyle: .borderGray100Half)
+    let childButton = MotivooButton(text: TextLiterals.Onboarding.Q1.child, buttonStyle: .borderGray100Half)
+    let nextButton = MotivooButton(text: TextLiterals.Onboarding.name, buttonStyle: .gray900)
 
     // MARK: - Override Functions
 
@@ -32,7 +32,7 @@ final class OnboardingIntro1View: BaseView {
             $0.progress = 0.25
         }
         introTitle.do {
-            $0.text = TextLiterals.Onboarding.Q1.ParentTitle
+            $0.text = TextLiterals.Onboarding.Q1.parentTitle
             $0.font = .heading3
             $0.textColor = .gray900
             $0.textAlignment = .left
@@ -40,7 +40,7 @@ final class OnboardingIntro1View: BaseView {
             $0.addLineHeight(lineHeight: 33.6.adjusted)
         }
         introSubtitle.do {
-            $0.text = TextLiterals.Onboarding.Q1.ParentSubtitle
+            $0.text = TextLiterals.Onboarding.Q1.parentSubtitle
             $0.font = .body6
             $0.textColor = .gray600
             $0.textAlignment = .left
