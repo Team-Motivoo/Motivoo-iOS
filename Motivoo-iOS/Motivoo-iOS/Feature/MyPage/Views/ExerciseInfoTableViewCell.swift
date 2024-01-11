@@ -33,7 +33,7 @@ class ExerciseInfoTableViewCell: UITableViewCell {
             $0.font = .heading6
         }
         exerciseImage.do{
-            $0.image = ImageLiterals.icon.home
+            $0.image = ImageLiterals.icon.shoes
             $0.contentMode = .scaleAspectFill
         }
         arrowIconImageView.do{

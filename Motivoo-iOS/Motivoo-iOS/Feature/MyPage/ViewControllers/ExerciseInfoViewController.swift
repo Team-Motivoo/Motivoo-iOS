@@ -13,13 +13,22 @@ import Then
 final class ExerciseInfoViewController: BaseViewController {
     
     // MARK: - Properties
+    
+    private var exerciseInfoDummy: [ExerciseInfo] = [ExerciseInfo(title: TextLiterals.MyPage.exercisestatus, info: "예"),
+                                                     ExerciseInfo(title: TextLiterals.MyPage.intensity, info: "아니오"),
+                                                     ExerciseInfo(title: TextLiterals.MyPage.weeklyaverageFrequency, info: "예"),
+                                                     ExerciseInfo(title: TextLiterals.MyPage.averageTimePerDay, info: "아니오"),
+                                                     ExerciseInfo(title: TextLiterals.MyPage.pointsToNote, info: "예")]
+    
+    // MARK: - UI Components
+    
     let exerciseInfoView = ExerciseInfoView()
     private var nextButton = UIButton()
     
     
     private func setTableViewConfig() {
-        exerciseInfoView.exerciseInfotableView.register(DetailExerciseInfoTableViewCell.self,
-                                      forCellReuseIdentifier: DetailExerciseInfoTableViewCell.cellIdentifier)
+        exerciseInfoView.exerciseInfotableView.register(SectionTitleTableViewCell.self,
+                                      forCellReuseIdentifier: SectionTitleTableViewCell.cellIdentifier)
         exerciseInfoView.exerciseInfotableView.dataSource = self
         exerciseInfoView.exerciseInfotableView.delegate = self
     }
@@ -34,7 +43,6 @@ final class ExerciseInfoViewController: BaseViewController {
     // MARK: - Override Functions
     override func setHierachy() {
         self.view.addSubview(exerciseInfoView)
-        
     }
     
     override func setLayout() {
@@ -42,25 +50,28 @@ final class ExerciseInfoViewController: BaseViewController {
             $0.edges.equalToSuperview()
         }
     }
-    
-    override func setButtonEvent() {
-    }
-    
-    // MARK: - 이 곳은 위의 오버라이드 함수 영역과 구분될 수 있도록 자유로운 마크주석을 달아주세요
-    
 }
+
+// MARK: - UITableViewDelegate
+
 extension ExerciseInfoViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return exerciseInfoDummy.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
-            cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SectionTitleTableViewCell.cellIdentifier) as? SectionTitleTableViewCell else {return UITableViewCell()}
+        cell.configureCell(title: exerciseInfoDummy[indexPath.row].title, info: exerciseInfoDummy[indexPath.row].info)
+        print("cell: \(indexPath.row)")
+        cell.selectionStyle = .none
         return cell
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+   
 }
