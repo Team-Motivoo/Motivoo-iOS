@@ -62,7 +62,7 @@ final class HomeCircularProgressView: BaseView {
         }
         
         clearPercentLabel.do {
-            $0.text = TextLiterals.Home.clearPercent
+            $0.text = TextLiterals.Home.Main.clearPercent
             $0.font = .caption2
             $0.textColor = .gray600
         }

@@ -44,13 +44,13 @@ final class HomeView: BaseView {
         self.backgroundColor = .white
         
         dateLabel.do {
-            $0.text = TextLiterals.Home.date
+            $0.text = TextLiterals.Home.Main.date
             $0.font = .caption1
             $0.textColor = .gray600
         }
         
         pickMissionLabel.do {
-            $0.text = TextLiterals.Home.pick
+            $0.text = TextLiterals.Home.Main.pick
             $0.font = .heading2
             $0.textColor = .black
         }
@@ -65,7 +65,7 @@ final class HomeView: BaseView {
         stepTitleLabel.do {
             $0.font = .caption1
             $0.textColor = .gray600
-            $0.text = TextLiterals.Home.walk
+            $0.text = TextLiterals.Home.Main.walk
         }
         
         homeCircularProgressView.do {
@@ -74,7 +74,7 @@ final class HomeView: BaseView {
         
         checkMissionButton.do {
             $0.backgroundColor = .gray100
-            $0.setTitle(TextLiterals.Home.checkMission,
+            $0.setTitle(TextLiterals.Home.Main.checkMission,
                         for: .normal)
             $0.setTitleColor(.gray400, for: .normal)
             $0.layer.cornerRadius = 8.adjusted
