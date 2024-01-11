@@ -25,15 +25,11 @@
 		05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */; };
 		05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */; };
 		05AAF8952B3E5B800079CEAB /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8942B3E5B800079CEAB /* a.swift */; };
-		05AAF8992B3E5B920079CEAB /* c.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8982B3E5B920079CEAB /* c.swift */; };
-		05AAF8972B3E5B860079CEAB /* b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8962B3E5B860079CEAB /* b.swift */; };
 		05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89A2B3E5B9C0079CEAB /* d.swift */; };
 		05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89C2B3E5BAC0079CEAB /* e.swift */; };
 		05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89E2B3E5BB30079CEAB /* f.swift */; };
 		05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */; };
-		05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A82B3E5BE30079CEAB /* k.swift */; };
-		05AAF8A32B3E5BC30079CEAB /* h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A22B3E5BC30079CEAB /* h.swift */; };
-		05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A62B3E5BCF0079CEAB /* j.swift */; };
+		05AAF8A92B3E5BE30079CEAB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */; };
 		05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AC2B3E5C190079CEAB /* q.swift */; };
 		05AAF8B12B3E5C270079CEAB /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8B02B3E5C270079CEAB /* s.swift */; };
@@ -104,7 +100,6 @@
 		05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLiterals.swift; sourceTree = "<group>"; };
 		05AAF8942B3E5B800079CEAB /* a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a.swift; sourceTree = "<group>"; };
 		05AAF8982B3E5B920079CEAB /* c.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c.swift; sourceTree = "<group>"; };
-		05AAF8962B3E5B860079CEAB /* b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = b.swift; sourceTree = "<group>"; };
 		05AAF89A2B3E5B9C0079CEAB /* d.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = d.swift; sourceTree = "<group>"; };
 		05AAF89C2B3E5BAC0079CEAB /* e.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = e.swift; sourceTree = "<group>"; };
 		05AAF89E2B3E5BB30079CEAB /* f.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = f.swift; sourceTree = "<group>"; };
@@ -186,6 +181,7 @@
 			children = (
 				05AAF8A22B3E5BC30079CEAB /* h.swift */,
 				05AAF8A62B3E5BCF0079CEAB /* j.swift */,
+				05AAF8982B3E5B920079CEAB /* c.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -648,7 +644,6 @@
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */,
-				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
@@ -659,7 +654,6 @@
 				05AAF8952B3E5B800079CEAB /* a.swift in Sources */,
 				05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */,
 				05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */,
-				05AAF8992B3E5B920079CEAB /* c.swift in Sources */,
 				05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */,
 				05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */,
 				05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */,
@@ -675,12 +669,11 @@
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				34BC14782B4FF8A700636C81 /* LeaveTableViewCell.swift in Sources */,
 				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
-				05AAF8A72B3E5BCF0079CEAB /* j.swift in Sources */,
 				34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */,
 				34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */,
 				348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
-				05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */,
+				05AAF8A92B3E5BE30079CEAB /* (null) in Sources */,
 				02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */,
 				05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */,
 				05AAF8CF2B3EA9E30079CEAB /* UICollectionViewCell+.swift in Sources */,
