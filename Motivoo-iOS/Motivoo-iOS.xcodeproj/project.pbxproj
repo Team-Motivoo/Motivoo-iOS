@@ -11,7 +11,7 @@
 		02642C962B46960D00134D73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C952B46960D00134D73 /* LoginViewController.swift */; };
 		0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA032B4D04210047215F /* OnboardingViewController.swift */; };
 		0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA052B4D04260047215F /* OnboardingIntro1View.swift */; };
-		0280EA082B4D0B170047215F /* TitleBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA072B4D0B170047215F /* TitleBoxButton.swift */; };
+		029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029CA3C22B4EF4F30007784D /* MotivooButton.swift */; };
 		02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2D82B4D850B00657CF7 /* UILabel+.swift */; };
 		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
 		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
@@ -73,7 +73,7 @@
 		02642C952B46960D00134D73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0280EA032B4D04210047215F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		0280EA052B4D04260047215F /* OnboardingIntro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro1View.swift; sourceTree = "<group>"; };
-		0280EA072B4D0B170047215F /* TitleBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBoxButton.swift; sourceTree = "<group>"; };
+		029CA3C22B4EF4F30007784D /* MotivooButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooButton.swift; sourceTree = "<group>"; };
 		02BAC2D82B4D850B00657CF7 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -443,7 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				05AAF8B02B3E5C270079CEAB /* s.swift */,
-				0280EA072B4D0B170047215F /* TitleBoxButton.swift */,
+				029CA3C22B4EF4F30007784D /* MotivooButton.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -609,13 +609,13 @@
 				05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */,
 				05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */,
 				05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */,
+				029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */,
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
 				05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */,
 				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
 				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
-				0280EA082B4D0B170047215F /* TitleBoxButton.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
 				05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */,
 				02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */,

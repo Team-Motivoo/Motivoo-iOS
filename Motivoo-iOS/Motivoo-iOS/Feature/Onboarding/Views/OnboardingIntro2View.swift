@@ -41,7 +41,7 @@ final class OnboardingIntro2View: BaseView {
             $0.progress = 0.25
         }
         ageTitle.do {
-            $0.text = TextLiterals.Onboarding.Q1.AgeTitle
+            $0.text = TextLiterals.Onboarding.Q1.ageTitle
             $0.font = .heading3
             $0.textColor = .gray900
             $0.textAlignment = .left
@@ -49,19 +49,19 @@ final class OnboardingIntro2View: BaseView {
             $0.addLineHeight(lineHeight: 33.6)
         }
         ageSubtitle.do {
-            $0.text = TextLiterals.Onboarding.Q1.AgeSubtitle
+            $0.text = TextLiterals.Onboarding.Q1.ageSubtitle
             $0.font = .body6
             $0.textColor = .gray600
             $0.textAlignment = .left
         }
         ageLabel.do {
-            $0.text = TextLiterals.Onboarding.Q1.Age
+            $0.text = TextLiterals.Onboarding.Q1.age
             $0.font = .body6
             $0.textColor = .gray500
             $0.textAlignment = .left
         }
         ageTextField.do {
-            $0.placeholder = TextLiterals.Onboarding.Q1.TextArea
+            $0.placeholder = TextLiterals.Onboarding.Q1.textArea
             $0.textColor = .gray900
             $0.layer.cornerRadius = 8
             $0.layer.borderColor = UIColor.gray300.cgColor
@@ -71,13 +71,13 @@ final class OnboardingIntro2View: BaseView {
             $0.addLeftPadding()
         }
         ageInputLabel.do {
-            $0.text = TextLiterals.Onboarding.Q1.AgeInput
+            $0.text = TextLiterals.Onboarding.Q1.ageInput
             $0.textColor = .pink
             $0.font = .caption2
             $0.textAlignment = .left
         }
         parentOrChildLabel.do {
-            $0.text = TextLiterals.Onboarding.Q1.ParentOrChild
+            $0.text = TextLiterals.Onboarding.Q1.parentOrChild
             $0.font = .body6
             $0.textColor = .gray500
             $0.textAlignment = .left
@@ -91,7 +91,7 @@ final class OnboardingIntro2View: BaseView {
 
     override func setLayout() {
         onboardingProgressView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(62.adjusted)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(2.adjusted)
         }
@@ -99,7 +99,7 @@ final class OnboardingIntro2View: BaseView {
             $0.top.equalTo(onboardingProgressView.snp.bottom).offset(44.adjusted)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(335.adjusted)
-            $0.height.equalTo(196.adjusted)
+            $0.height.equalTo(238.adjusted)
         }
         ageTitle.snp.makeConstraints {
             $0.top.leading.equalToSuperview()

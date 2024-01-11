@@ -36,6 +36,7 @@ final class OnboardingViewController: BaseViewController {
         onboardingIntro1View.parentButton.isSelected = true
         onboardingIntro1View.childButton.isSelected = true
         onboardingIntro2View.alpha = 0
+        buttonEnabledCheck()
     }
 
     // MARK: - Override Functions
@@ -43,7 +44,7 @@ final class OnboardingViewController: BaseViewController {
     override func setButtonEvent() {
         onboardingIntro1View.parentButton.addTarget(self, action: #selector(parentButtonButtonDidTap), for: .touchUpInside)
         onboardingIntro1View.childButton.addTarget(self, action: #selector(childButtonButtonDidTap), for: .touchUpInside)
-        onboardingIntro1View.nextButton.addTarget(self, action: #selector(changeViewAnimation), for: .touchUpInside)
+        // onboardingIntro1View.nextButton.addTarget(self, action: #selector(changeViewAnimation), for: .touchUpInside)
         onboardingIntro2View.ageTextField.addTarget(self, action:  #selector(textFieldDidChanacge), for: .editingChanged)
     }
 
@@ -57,8 +58,12 @@ final class OnboardingViewController: BaseViewController {
         }
         onboardingIntro2View.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(330)
+            $0.height.equalTo(350)
         }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
 
     // MARK: - Actions
@@ -70,10 +75,11 @@ final class OnboardingViewController: BaseViewController {
                 onboardingIntro1View.childButton.isSelected = true
             }
             onboardingIntro1View.parentButton.isSelected = false
+            changeViewAnimation()
         } else {
             onboardingIntro1View.parentButton.isSelected = true
+            changeViewAnimation()
         }
-        buttonEnabledCheck()
     }
 
     @objc
@@ -83,16 +89,18 @@ final class OnboardingViewController: BaseViewController {
                 onboardingIntro1View.parentButton.isSelected = true
             }
             onboardingIntro1View.childButton.isSelected = false
+            changeViewAnimation()
         } else {
             onboardingIntro1View.childButton.isSelected = true
+            changeViewAnimation()
         }
-        buttonEnabledCheck()
     }
 
     @objc
     func textFieldDidChanacge(_ sender: Any?) {
         if let text = onboardingIntro2View.ageTextField.text {
             let age: Int = Int(text) ?? 0
+            // age에는 변환된 Int 값 또는 0이 저장됩니다.
             if (age >= 14 && age <= 99) {
                 onboardingIntro2View.ageTextField.layer.borderColor = UIColor.blue500.cgColor
                 onboardingIntro2View.ageTextField.textColor = .blue500
@@ -100,7 +108,7 @@ final class OnboardingViewController: BaseViewController {
                 UIView.animate(withDuration: 0.2,
                                delay: 0,
                                options: [.curveEaseInOut]) { [self] in
-                    onboardingIntro1View.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 102)
+                    onboardingIntro1View.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
                     onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 0)
                 }
                 isButtonEnabled = true
@@ -111,34 +119,33 @@ final class OnboardingViewController: BaseViewController {
                 UIView.animate(withDuration: 0.2,
                                delay: 0,
                                options: [.curveEaseInOut]) { [self] in
-                    onboardingIntro1View.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 124)
-                    onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 22)
+                    onboardingIntro1View.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 124.adjusted)
+                    onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 22.adjusted)
                 }
                 isButtonEnabled = false
             }
             onboardingIntro1View.nextButton.isEnabled = isButtonEnabled
-            // age에는 변환된 Int 값 또는 nil이 저장됩니다.
         }
     }
 
     // MARK: - Actions
 
-    @objc 
+    @objc
     func changeViewAnimation() {
         onboardingIntro1View.introTitle.isHidden = true
         onboardingIntro1View.introSubtitle.isHidden = true
 
-        UIView.animate(withDuration: 0.4,
+        UIView.animate(withDuration: 0.3,
                        delay: 0.2,
                        options: [.curveEaseInOut]) { [self] in
             onboardingIntro2View.alpha = 1
             onboardingIntro2View.transform = CGAffineTransform(translationX: 0, y: 0)
         }
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.4,
                        delay: 0,
                        options: [.curveEaseInOut]) { [self] in
             onboardingIntro1View.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 102)
-            onboardingIntro1View.buttonStackView.alpha = 1
+            // onboardingIntro1View.buttonStackView.alpha = 1
         }
         isButtonEnabled = false
         onboardingIntro1View.nextButton.isEnabled = isButtonEnabled
