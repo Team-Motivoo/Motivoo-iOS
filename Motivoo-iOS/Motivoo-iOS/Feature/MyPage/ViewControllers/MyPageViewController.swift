@@ -12,13 +12,16 @@ import Then
 
 final class MyPageViewController: BaseViewController {
     
-    // MARK: - Properties
+    // MARK: - UI Components
+    
     let mypageView = MyPageView()
     private var nextButton = UIButton()
     
     private func setTableViewConfig() {
         mypageView.tableView.register(ExerciseInfoTableViewCell.self,
                                       forCellReuseIdentifier: ExerciseInfoTableViewCell.cellIdentifier)
+        mypageView.tableView.register(TitleTableViewCell.self,
+                                      forCellReuseIdentifier: TitleTableViewCell.cellIdentifier)
         mypageView.tableView.register(SectionTitleTableViewCell.self,
                                       forCellReuseIdentifier: SectionTitleTableViewCell.cellIdentifier)
         mypageView.tableView.register(DisclosureTableViewCell.self,
@@ -32,7 +35,7 @@ final class MyPageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewConfig()
-
+        
     }
     
     // MARK: - Override Functions
@@ -47,11 +50,20 @@ final class MyPageViewController: BaseViewController {
     }
     
     override func setButtonEvent() {
+        mypageView.myInfoButton.addTarget(self, action: #selector(myInfoButtonDidTapped), for: .touchUpInside)
     }
     
-    // MARK: - 이 곳은 위의 오버라이드 함수 영역과 구분될 수 있도록 자유로운 마크주석을 달아주세요
+    // MARK: - Custom Method
     
+    @objc
+    private func myInfoButtonDidTapped() {
+        let myInfoViewController = MyInfoViewController()
+        navigationController?.pushViewController(myInfoViewController, animated: true)
+    }
 }
+
+// MARK: - UITableViewDelegate
+
 extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -64,17 +76,24 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             return TextLiterals.MyPage.AppInfoItems.count+1
         } else {
             return 1
-        } 
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let exerciseInfoViewController = ExerciseInfoViewController()
+            navigationController?.pushViewController(exerciseInfoViewController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        
+
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseInfoTableViewCell", for: indexPath)
         } else if indexPath.section == 1 {
             if indexPath.row == 0{
-                cell = tableView.dequeueReusableCell(withIdentifier: "SectionTitleTableViewCell", for: indexPath)
+                cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell", for: indexPath)
             }
             else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
@@ -90,6 +109,7 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell = UITableViewCell()
         }
+        cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -108,8 +128,36 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableView.automaticDimension
         }
     }
-   
-
-
-   
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let clearView = UIView()
+        
+        clearView.do {
+            $0.backgroundColor = .clear
+        }
+        
+        return clearView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let clearView = UIView()
+        
+        clearView.do {
+            $0.backgroundColor = .clear
+        }
+        
+        return clearView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        } else {
+            return 16.adjusted
+        }
+    }
 }

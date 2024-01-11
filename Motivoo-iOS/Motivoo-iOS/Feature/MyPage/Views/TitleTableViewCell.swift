@@ -1,8 +1,8 @@
 //
-//  DisclosureTableViewCell.swift
+//  TitleTableViewCell.swift
 //  Motivoo-iOS
 //
-//  Created by Hyori Choi on 1/9/24.
+//  Created by Hyori Choi on 1/11/24.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SectionTitleTableViewCell: UITableViewCell {
+class TitleTableViewCell: UITableViewCell {
     
     private let AppInfoTitleLabel = UILabel()
     private let InfoLabel = UILabel()
@@ -28,12 +28,9 @@ class SectionTitleTableViewCell: UITableViewCell {
     }
     func setUI() {
         AppInfoTitleLabel.do{
+            $0.text = TextLiterals.MyPage.appInfo
             $0.font = .caption2
-            $0.textColor = .gray700
-        }
-        InfoLabel.do{
-            $0.font = .heading6 // 바꾸기 head 7
-            $0.textColor = .gray900
+            $0.textColor = .gray500
         }
     }
     func setHierachy() {
@@ -44,14 +41,5 @@ class SectionTitleTableViewCell: UITableViewCell {
             $0.leading.equalToSuperview().inset(20.adjusted)
             $0.centerY.equalToSuperview()
         }
-        InfoLabel.snp.makeConstraints{
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(20.adjusted)
-        }
-    }
-    
-    func configureCell(title: String, info: String) {
-        AppInfoTitleLabel.text = title
-        InfoLabel.text = info
     }
 }

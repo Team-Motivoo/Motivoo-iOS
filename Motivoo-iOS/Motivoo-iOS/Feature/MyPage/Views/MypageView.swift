@@ -12,13 +12,14 @@ import Then
 
 final class MyPageView: BaseView {
     
-    // MARK: - Properties
+    // MARK: - UI Components
+    
     private let parentLabel = UILabel()
     private let childLabel = UILabel()
     private let nameLabel = UILabel()
-    private let myInfoButton = UIButton()
+    let myInfoButton = UIButton()
     
-    
+    // MARK: - Override Functions
     
     override func setUI() {
         parentLabel.do{
@@ -41,6 +42,7 @@ final class MyPageView: BaseView {
             $0.layer.cornerRadius = 18 //버튼 width/4
             $0.setTitle("내 정보", for: .normal)
             $0.setTitleColor(.gray700, for: .normal)
+            $0.titleLabel?.font = .body6
         }
     }
     let tableView = UITableView(frame: .zero, style: .insetGrouped).then {
@@ -64,10 +66,7 @@ final class MyPageView: BaseView {
     }
     // MARK: - Override Functions
     override func setHierachy() {
-        self.addSubview(parentLabel)
-        self.addSubview(nameLabel)
-        self.addSubview(myInfoButton)
-        self.addSubview(tableView)
+        self.addSubviews(parentLabel,nameLabel,myInfoButton,tableView)
     }
     
     override func setLayout() {
@@ -84,7 +83,7 @@ final class MyPageView: BaseView {
             $0.width.equalTo(72.adjusted)
             $0.height.equalTo(36.adjusted)
             $0.trailing.equalToSuperview().inset(20.adjusted)
-            $0.top.equalTo(parentLabel.snp.bottom).inset(2.adjusted)
+            $0.centerY.equalTo(nameLabel)
         }
         tableView.snp.makeConstraints {
             $0.top.equalTo(myInfoButton.snp.bottom).offset(35.adjusted)
