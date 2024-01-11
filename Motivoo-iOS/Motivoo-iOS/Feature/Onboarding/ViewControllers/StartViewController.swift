@@ -22,8 +22,6 @@ final class StartViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Override Functions

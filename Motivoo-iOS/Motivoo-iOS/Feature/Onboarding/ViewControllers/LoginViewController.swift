@@ -19,6 +19,11 @@ final class LoginViewController: BaseViewController {
 
     // MARK: - Override Functions
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.leftBarButtonItem?.isHidden = true
+    }
+
     override func setUI() {
         kakaoLoginButton.do {
             $0.setImage(ImageLiterals.img.kakaoLogin, for: .normal)
