@@ -68,8 +68,32 @@ enum TextLiterals {
         static var clearPercent = "운동 달성률"
         static var checkMission = "운동 인증하기"
     }
-    
+    enum MissionOverview {
+        static var todayExercise = "오늘의 운동"
+        static var alertMessage = "운동 기록은 30일간 보간 후 사라져요!"
+    }
     enum MyPage {
+        static var exerciseInfo = "운동 정보"
+        static var checkExerciseInfo = "내 운동 정보를 확인하세요!"
+        static var parent = "의지뿜뿜 부모님"
+        static var child = "행복팡팡 자녀"
+        static var service = "서비스 이용약관"
+        static var privacyPolicy = "개인정보 처리방침"
+        static var openSourceLicense = "오픈소스 라이선스"
+        static var developerInfo = "개발자 정보"
+        static var AppInfoItems: [String] = ["서비스 이용약관", "개인정보 처리방침", "오픈소스 라이선스", "개발자 정보"]
+        static var ToKakaoChannel = "카카오채널 문의하기"
+        static var appInfo = "앱 정보"
+        static var back = "이전"
+        static var exercisestatus = "운동여부"
+        static var intensity = "운동 / 신체활동 강도"
+        static var weeklyaverageFrequency = "주 평균 횟수"
+        static var averageTimePerDay = "하루 평균 시간"
+        static var pointsToNote = "주의할 곳"
+        static var leave = "회원탈퇴"
+        static var leaveDescription = "탈퇴 시 모든 정보가 삭제됩니다."
+        static var name = "이름"
+        static var age = "나이"
         
     }
 }
