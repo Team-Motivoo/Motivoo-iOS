@@ -50,7 +50,7 @@ final class InvitationViewController: BaseViewController {
     @objc
     private func matchingCheckButtonDidTap() {
         // checking
-        showMatchingLabel(TextLiterals.Onboarding.Invitation.checking, withDuration: 0.5, delay: 1.0)
+        showMatchingLabel(TextLiterals.Onboarding.Invitation.checking, withDuration: 0.5, delay: 2.0)
     }
 
     func showMatchingLabel(_ message : String, withDuration: Double, delay: Double) {
