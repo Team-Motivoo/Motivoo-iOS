@@ -54,6 +54,42 @@ enum TextLiterals {
             static var oneHour = "30분 - 1시간"
             static var twoHour = "1시간 - 2시간"
             static var twoHourOver = "2시간 이상"
+
+            static var usuallyWorryExercise = """
+            평소 활동 중 불편했거나
+            걱정되는 곳을 선택해주세요
+            """
+            static var choiceMaxThree = "최대 3개까지 선택할 수 있어요"
+            static var neck = "목"
+            static var shoulder = "어깨"
+            static var waist = "허리"
+            static var knee = "무릎"
+            static var wrist = "손목"
+            static var ankle = "발목"
+            static var startMotivoo = "모티부 시작하기"
+        }
+
+        enum Q4 {
+            static var exerciseTitle = "일상생활 중 자주 하는 활동을 알려주세요"
+            static var exercisePowerSubtitle = "가장 많이 하는 활동을 기준으로 선택해주세요"
+            static var highTitle = "고강도 활동"
+            static var highSubtitle = "무거운 물건 나르기, 육아 등"
+            static var middleTitle = "중강도 활동"
+            static var middleSubtitle = "가벼운 물건 나르기 등"
+            static var lowTitle = "저강도 활동"
+            static var lowSubtitle = "출퇴근, 가벼운 청소, 쇼핑 등"
+
+            static var howManyExercise = "해당 활동을 일주일에\n몇 번 하시나요?"
+            static var howLongExercise = "하루에 몇 시간 정도\n해당 활동을 하시나요?"
+        }
+
+        enum Invitation {
+            static var share = "함께 운동할 가족에게\n초대코드를 공유해주세요!"
+            static var invitationCode = "초대코드"
+            static var copy = "복사하기"
+            static var mattchingCheck = "매칭 확인하기"
+            static var checking = "아직 매칭을 확인하고 있어요"
+            static var clipboard = "클립보드에 복사되었습니다"
         }
     }
 
