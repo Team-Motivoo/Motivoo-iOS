@@ -74,6 +74,9 @@ enum TextLiterals {
             static var save = "사진은 운동 모아보기에 저장돼요"
             static var takePicture = "사진 찍기"
             static var gallery = "앨범에서 선택하기"
+            static var title = "운동 인증이 완료되었어요!"
+            static var subTitle = "오늘도 멋지게 운동을 해내셨군요"
+            static var check = "확인"
         }
     }
     enum MissionOverview {

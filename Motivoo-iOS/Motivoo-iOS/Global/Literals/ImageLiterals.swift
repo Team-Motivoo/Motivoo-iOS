@@ -35,10 +35,14 @@ enum ImageLiterals {
         static var missionFill: UIImage { .load(named: "mission_fill")}
         static var my: UIImage { .load(named: "my")}
         static var myFill: UIImage { .load(named: "my_fill")}
+        
+        // MARK: - Home
+        
         static var camera: UIImage { .load(named: "icon_camera")}
         static var gallery: UIImage { .load(named: "icon_gallery")}
         static var shoes: UIImage { .load(named: "shoes")}
         static var notice: UIImage { .load(named: "notice")}
+        static var checkActive: UIImage { .load(named: "check_active")}
 
         // MARK: - MyPage
         

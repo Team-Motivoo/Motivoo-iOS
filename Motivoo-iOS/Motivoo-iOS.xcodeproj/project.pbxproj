@@ -16,6 +16,8 @@
 		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
 		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
+		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
+		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
 		0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */; };
 		0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */; };
 		0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */; };
@@ -91,6 +93,8 @@
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
+		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
 		0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveViewController.swift; sourceTree = "<group>"; };
 		0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveView.swift; sourceTree = "<group>"; };
 		0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveMissionView.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 			children = (
 				0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */,
 				0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */,
+				055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */,
 			);
 			path = Prove;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 			children = (
 				05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */,
 				0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */,
+				055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */,
+				055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */,
 				0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
@@ -708,6 +715,7 @@
 				05AAF8B32B3E5C320079CEAB /* BaseView.swift in Sources */,
 				05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */,
 				05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */,
+				055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */,
 				02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
