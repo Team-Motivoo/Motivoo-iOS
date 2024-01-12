@@ -848,7 +848,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -876,7 +876,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

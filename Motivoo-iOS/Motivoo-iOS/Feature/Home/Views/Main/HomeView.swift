@@ -51,7 +51,7 @@ final class HomeView: BaseView {
         
         pickMissionLabel.do {
             $0.text = TextLiterals.Home.Main.pick
-            $0.font = .heading2
+            $0.font = .heading4
             $0.textColor = .black
         }
         
@@ -78,6 +78,7 @@ final class HomeView: BaseView {
                         for: .normal)
             $0.setTitleColor(.gray400, for: .normal)
             $0.layer.cornerRadius = 8.adjusted
+            $0.titleLabel?.font = .body5
             $0.isHidden = true
         }
         

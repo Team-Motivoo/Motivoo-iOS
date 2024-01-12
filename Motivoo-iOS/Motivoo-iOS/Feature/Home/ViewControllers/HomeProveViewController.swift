@@ -25,6 +25,7 @@ final class HomeProveViewController: BaseViewController {
     // MARK: - UI Components
     
     private var homeProveView = HomeProveView()
+    private var imagePickerViewController = UIImagePickerController()
     
     // MARK: - Life Cycles
     
@@ -40,8 +41,8 @@ final class HomeProveViewController: BaseViewController {
         missionHandler?()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         onDismissHandler?()
     }
@@ -49,7 +50,9 @@ final class HomeProveViewController: BaseViewController {
     // MARK: - Override Functions
     
     override func setUI() {
-        
+        imagePickerViewController.do {
+            $0.delegate = self
+        }
     }
     
     override func setHierachy() {
@@ -65,12 +68,44 @@ final class HomeProveViewController: BaseViewController {
     override func setButtonEvent() {
         homeProveView.cameraViewHandler = { [weak self] in
             guard let self else { return }
-            print("cameraView Did Tapped!")
+            presentCamera()
         }
         
         homeProveView.galleryViewHandler = { [weak self] in
             guard let self else { return }
-            print("galleryView Did Tapped!")
+            presentGallery()
         }
+    }
+    
+    // MARK: - Custom Function
+    
+    private func presentGallery() {
+        imagePickerViewController.sourceType = .photoLibrary
+        imagePickerViewController.allowsEditing = true
+        self.present(self.imagePickerViewController, animated: true)
+    }
+    
+    private func presentCamera() {
+        imagePickerViewController.sourceType = .camera
+        imagePickerViewController.allowsEditing = true
+        self.present(self.imagePickerViewController, animated: true)
+    }
+}
+
+extension HomeProveViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var newImage: UIImage? = nil // update 할 이미지
+        
+        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            newImage = possibleImage // 수정된 이미지가 있을 경우
+        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            newImage = possibleImage // 원본 이미지가 있을 경우
+        }
+        
+        // newImage -> 받아온 이미지 이거 사용!!!!
+        
+        picker.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

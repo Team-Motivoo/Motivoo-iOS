@@ -49,7 +49,7 @@ final class HomeStepCountView: BaseView {
         }
         
         myWalkLabel.do {
-            $0.font = .caption2
+            $0.font = .caption1
             $0.textColor = .gray600
             $0.text = TextLiterals.Home.Main.myWalk
         }
@@ -61,7 +61,7 @@ final class HomeStepCountView: BaseView {
         }
         
         myWalkCountLabel.do {
-            $0.font = .heading2
+            $0.font = .heading1
             $0.textColor = .blue800
         }
         
