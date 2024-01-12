@@ -103,9 +103,11 @@ extension HomeProveViewController: UIImagePickerControllerDelegate, UINavigation
             newImage = possibleImage // 원본 이미지가 있을 경우
         }
         
-        // newImage -> 받아온 이미지 이거 사용!!!!
-        
         picker.dismiss(animated: true, completion: nil)
         self.dismiss(animated: true, completion: nil)
+        
+        let popupViewController = HomeProveSuccessViewController(image: newImage ?? UIImage())
+        popupViewController.modalPresentationStyle = .overFullScreen
+        self.present(popupViewController, animated: true)
     }
 }
