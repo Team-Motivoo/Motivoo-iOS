@@ -58,15 +58,23 @@ enum TextLiterals {
     }
 
     enum Home {
-        static var date = "\(DateLiterals.year)년 \(DateLiterals.month)월 \(DateLiterals.day)일"
-        static var pick = "오늘 할 운동을 골라주세요!"
-        static var firstMission = "8천걸음 걷고\n스쿼트 10번 하기"
-        static var secondMission = "8천걸음 걸어서\n트리 보러가기"
-        static var walk = "걸음 수"
-        static var myWalk = "내 걸음"
-        static var parentWalk = "부모님 걸음"
-        static var clearPercent = "운동 달성률"
-        static var checkMission = "운동 인증하기"
+        enum Main {
+            static var date = "\(DateLiterals.year)년 \(DateLiterals.month)월 \(DateLiterals.day)일"
+            static var pick = "오늘 할 운동을 골라주세요!"
+            static var firstMission = "8천걸음 걷고\n스쿼트 10번 하기"
+            static var secondMission = "8천걸음 걸어서\n트리 보러가기"
+            static var walk = "걸음 수"
+            static var myWalk = "내 걸음"
+            static var parentWalk = "부모님 걸음"
+            static var clearPercent = "운동 달성률"
+            static var checkMission = "운동 인증하기"
+        }
+        
+        enum Prove {
+            static var save = "사진은 운동 모아보기에 저장돼요"
+            static var takePicture = "사진 찍기"
+            static var gallery = "앨범에서 선택하기"
+        }
     }
     enum MissionOverview {
         static var todayExercise = "오늘의 운동"

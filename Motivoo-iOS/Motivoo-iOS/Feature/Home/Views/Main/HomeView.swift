@@ -24,6 +24,7 @@ final class HomeView: BaseView {
     var homeStepCountView = HomeStepCountView()
     lazy var homeCircularProgressView = HomeCircularProgressView()
     var checkMissionButton = UIButton()
+    var dimmView = UIView()
     
     // MARK: - Life Cycle
     
@@ -43,13 +44,13 @@ final class HomeView: BaseView {
         self.backgroundColor = .white
         
         dateLabel.do {
-            $0.text = TextLiterals.Home.date
+            $0.text = TextLiterals.Home.Main.date
             $0.font = .caption1
             $0.textColor = .gray600
         }
         
         pickMissionLabel.do {
-            $0.text = TextLiterals.Home.pick
+            $0.text = TextLiterals.Home.Main.pick
             $0.font = .heading2
             $0.textColor = .black
         }
@@ -64,7 +65,7 @@ final class HomeView: BaseView {
         stepTitleLabel.do {
             $0.font = .caption1
             $0.textColor = .gray600
-            $0.text = TextLiterals.Home.walk
+            $0.text = TextLiterals.Home.Main.walk
         }
         
         homeCircularProgressView.do {
@@ -73,10 +74,15 @@ final class HomeView: BaseView {
         
         checkMissionButton.do {
             $0.backgroundColor = .gray100
-            $0.setTitle(TextLiterals.Home.checkMission,
+            $0.setTitle(TextLiterals.Home.Main.checkMission,
                         for: .normal)
             $0.setTitleColor(.gray400, for: .normal)
             $0.layer.cornerRadius = 8.adjusted
+            $0.isHidden = true
+        }
+        
+        dimmView.do {
+            $0.backgroundColor = .gray900.withAlphaComponent(0.7)
             $0.isHidden = true
         }
     }
@@ -88,7 +94,8 @@ final class HomeView: BaseView {
                          stepTitleLabel,
                          homeStepCountView,
                          homeCircularProgressView,
-                         checkMissionButton)
+                         checkMissionButton,
+                         dimmView)
     }
     
     override func setLayout() {
@@ -127,6 +134,10 @@ final class HomeView: BaseView {
             $0.top.equalTo(homeStepCountView.snp.bottom).offset(16.adjusted)
             $0.leading.trailing.equalToSuperview().inset(20.adjusted)
             $0.height.equalTo(52.adjusted)
+        }
+        
+        dimmView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     
