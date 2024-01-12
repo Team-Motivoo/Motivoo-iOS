@@ -55,10 +55,7 @@ enum TextLiterals {
             static var twoHour = "1시간 - 2시간"
             static var twoHourOver = "2시간 이상"
 
-            static var usuallyWorryExercise = """
-            평소 활동 중 불편했거나
-            걱정되는 곳을 선택해주세요
-            """
+            static var usuallyWorryExercise = "평소 활동 중 불편했거나\n걱정되는 곳을 선택해주세요"
             static var choiceMaxThree = "최대 3개까지 선택할 수 있어요"
             static var neck = "목"
             static var shoulder = "어깨"
@@ -87,7 +84,7 @@ enum TextLiterals {
             static var share = "함께 운동할 가족에게\n초대코드를 공유해주세요!"
             static var invitationCode = "초대코드"
             static var copy = "복사하기"
-            static var mattchingCheck = "매칭 확인하기"
+            static var matchingCheck = "매칭 확인하기"
             static var checking = "아직 매칭을 확인하고 있어요"
             static var clipboard = "클립보드에 복사되었습니다"
         }
