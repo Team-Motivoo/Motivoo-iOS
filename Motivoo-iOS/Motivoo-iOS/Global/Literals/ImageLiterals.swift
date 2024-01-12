@@ -37,7 +37,13 @@ enum ImageLiterals {
         static var myFill: UIImage { .load(named: "my_fill")}
         static var camera: UIImage { .load(named: "icon_camera")}
         static var gallery: UIImage { .load(named: "icon_gallery")}
+        static var shoes: UIImage { .load(named: "shoes")}
+        static var notice: UIImage { .load(named: "notice")}
 
+        // MARK: - MyPage
+        
+        static var rightArrow: UIImage { .load(named: "right_arrow")}
+        
     }
 }
 

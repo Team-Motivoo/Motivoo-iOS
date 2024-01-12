@@ -9,26 +9,30 @@ import UIKit
 
 extension UIFont{
     class var heading1: UIFont {
-        return UIFont(name: AppFontName.medium.rawValue, size: 48.adjusted)!
+        return UIFont(name: AppFontName.medium.rawValue, size: 36.adjusted)!
     }
-    
+
     class var heading2: UIFont {
+        return UIFont(name: AppFontName.regular.rawValue, size: 36.adjusted)!
+    }
+
+    class var heading3: UIFont {
         return UIFont(name: AppFontName.semiBold.rawValue, size: 24.adjusted)!
     }
     
-    class var heading3: UIFont {
-        return UIFont(name: AppFontName.medium.rawValue, size: 24.adjusted)!
-    }
-    
     class var heading4: UIFont {
-        return UIFont(name: AppFontName.semiBold.rawValue, size: 18.adjusted)!
+        return UIFont(name: AppFontName.semiBold.rawValue, size: 20.adjusted)!
     }
     
     class var heading5: UIFont {
-        return UIFont(name: AppFontName.semiBold.rawValue, size: 17.adjusted)!
+        return UIFont(name: AppFontName.semiBold.rawValue, size: 18.adjusted)!
     }
     
     class var heading6: UIFont {
+        return UIFont(name: AppFontName.semiBold.rawValue, size: 17.adjusted)!
+    }
+    
+    class var heading7: UIFont {
         return UIFont(name: AppFontName.semiBold.rawValue, size: 16.adjusted)!
     }
     

@@ -30,6 +30,7 @@ final class SplashViewController: BaseViewController {
             let rootViewController = UINavigationController(rootViewController: LoginViewController())
             delegate.window?.rootViewController = rootViewController
         }
+        self.navigationItem.leftBarButtonItem?.isHidden = true
     }
 
     // MARK: - Override Functions

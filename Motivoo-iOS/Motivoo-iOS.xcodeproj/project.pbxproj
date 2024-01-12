@@ -11,7 +11,7 @@
 		02642C962B46960D00134D73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C952B46960D00134D73 /* LoginViewController.swift */; };
 		0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA032B4D04210047215F /* OnboardingViewController.swift */; };
 		0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA052B4D04260047215F /* OnboardingIntro1View.swift */; };
-		0280EA082B4D0B170047215F /* TitleBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA072B4D0B170047215F /* TitleBoxButton.swift */; };
+		029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029CA3C22B4EF4F30007784D /* MotivooButton.swift */; };
 		02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2D82B4D850B00657CF7 /* UILabel+.swift */; };
 		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
 		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
@@ -28,12 +28,11 @@
 		05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */; };
 		05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */; };
 		05AAF8952B3E5B800079CEAB /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8942B3E5B800079CEAB /* a.swift */; };
-		05AAF8992B3E5B920079CEAB /* c.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8982B3E5B920079CEAB /* c.swift */; };
 		05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89A2B3E5B9C0079CEAB /* d.swift */; };
 		05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89C2B3E5BAC0079CEAB /* e.swift */; };
 		05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF89E2B3E5BB30079CEAB /* f.swift */; };
 		05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */; };
-		05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8A82B3E5BE30079CEAB /* k.swift */; };
+		05AAF8A92B3E5BE30079CEAB /* (null) in Sources */ = {isa = PBXBuildFile; };
 		05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */; };
 		05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8AC2B3E5C190079CEAB /* q.swift */; };
 		05AAF8B12B3E5C270079CEAB /* s.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8B02B3E5C270079CEAB /* s.swift */; };
@@ -60,7 +59,6 @@
 		05AAF8FB2B44F3FC0079CEAB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */; };
 		05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */; };
 		05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */; };
-		05AAF90C2B47F0B70079CEAB /* t.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF90B2B47F0B70079CEAB /* t.swift */; };
 		05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */; };
 		05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE442B493A8300A2838C /* DateLiterals.swift */; };
 		05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */; };
@@ -69,6 +67,18 @@
 		05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */; };
 		05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE632B4D496A00A2838C /* HomeStepModel.swift */; };
 		05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */; };
+		348EB1AE2B4BE8790041BE5C /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB1AD2B4BE8790041BE5C /* MypageView.swift */; };
+		348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB1B02B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift */; };
+		34BC14632B4EF7D900636C81 /* ExerciseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */; };
+		34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */; };
+		34BC14692B4F064800636C81 /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */; };
+		34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */; };
+		34BC14702B4FEBBB00636C81 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */; };
+		34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14712B4FEBDD00636C81 /* MyInfoView.swift */; };
+		34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */; };
+		34BC14782B4FF8A700636C81 /* LeaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14772B4FF8A700636C81 /* LeaveTableViewCell.swift */; };
+		34BC147A2B5013BF00636C81 /* MissionOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14792B5013BF00636C81 /* MissionOverviewView.swift */; };
+		34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3CBBD2B4D044500DF4C63 /* DisclosureTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +86,7 @@
 		02642C952B46960D00134D73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0280EA032B4D04210047215F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		0280EA052B4D04260047215F /* OnboardingIntro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro1View.swift; sourceTree = "<group>"; };
-		0280EA072B4D0B170047215F /* TitleBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBoxButton.swift; sourceTree = "<group>"; };
+		029CA3C22B4EF4F30007784D /* MotivooButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooButton.swift; sourceTree = "<group>"; };
 		02BAC2D82B4D850B00657CF7 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -102,7 +112,6 @@
 		05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		05AAF8A22B3E5BC30079CEAB /* h.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = h.swift; sourceTree = "<group>"; };
 		05AAF8A62B3E5BCF0079CEAB /* j.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = j.swift; sourceTree = "<group>"; };
-		05AAF8A82B3E5BE30079CEAB /* k.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = k.swift; sourceTree = "<group>"; };
 		05AAF8AA2B3E5BFE0079CEAB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		05AAF8AC2B3E5C190079CEAB /* q.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = q.swift; sourceTree = "<group>"; };
 		05AAF8B02B3E5C270079CEAB /* s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s.swift; sourceTree = "<group>"; };
@@ -125,7 +134,6 @@
 		05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooTabBarController.swift; sourceTree = "<group>"; };
 		05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		05AAF90B2B47F0B70079CEAB /* t.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = t.swift; sourceTree = "<group>"; };
 		05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewViewController.swift; sourceTree = "<group>"; };
 		05C8FE442B493A8300A2838C /* DateLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLiterals.swift; sourceTree = "<group>"; };
 		05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionModel.swift; sourceTree = "<group>"; };
@@ -134,6 +142,18 @@
 		05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepCountView.swift; sourceTree = "<group>"; };
 		05C8FE632B4D496A00A2838C /* HomeStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepModel.swift; sourceTree = "<group>"; };
 		05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+.swift"; sourceTree = "<group>"; };
+		348EB1AD2B4BE8790041BE5C /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
+		348EB1B02B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoTableViewCell.swift; sourceTree = "<group>"; };
+		34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoViewController.swift; sourceTree = "<group>"; };
+		34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoView.swift; sourceTree = "<group>"; };
+		34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
+		34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfo.swift; sourceTree = "<group>"; };
+		34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		34BC14712B4FEBDD00636C81 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		34BC14772B4FF8A700636C81 /* LeaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveTableViewCell.swift; sourceTree = "<group>"; };
+		34BC14792B5013BF00636C81 /* MissionOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewView.swift; sourceTree = "<group>"; };
+		34F3CBBD2B4D044500DF4C63 /* DisclosureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +187,7 @@
 			children = (
 				05AAF8A22B3E5BC30079CEAB /* h.swift */,
 				05AAF8A62B3E5BCF0079CEAB /* j.swift */,
+				05AAF8982B3E5B920079CEAB /* c.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -303,7 +324,10 @@
 		05AAF87B2B3E598F0079CEAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF8A82B3E5BE30079CEAB /* k.swift */,
+				34BC14712B4FEBDD00636C81 /* MyInfoView.swift */,
+				34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */,
+				348EB1AD2B4BE8790041BE5C /* MypageView.swift */,
+				348EB1AF2B4BE8850041BE5C /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				05AAF8632B3E58480079CEAB /* MyPageViewController.swift */,
+				34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */,
+				34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -361,7 +387,7 @@
 		05AAF8842B3E5A120079CEAB /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF8982B3E5B920079CEAB /* c.swift */,
+				34BC146C2B4FDA5C00636C81 /* Model */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -467,7 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				05AAF8B02B3E5C270079CEAB /* s.swift */,
-				0280EA072B4D0B170047215F /* TitleBoxButton.swift */,
+				029CA3C22B4EF4F30007784D /* MotivooButton.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -484,7 +510,7 @@
 		05AAF9092B47F08E0079CEAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				05AAF90B2B47F0B70079CEAB /* t.swift */,
+				34BC14792B5013BF00636C81 /* MissionOverviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,6 +539,26 @@
 				0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		348EB1AF2B4BE8850041BE5C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				348EB1B02B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift */,
+				34F3CBBD2B4D044500DF4C63 /* DisclosureTableViewCell.swift */,
+				34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */,
+				34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */,
+				34BC14772B4FF8A700636C81 /* LeaveTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		34BC146C2B4FDA5C00636C81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,10 +651,15 @@
 				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
 				05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
+				34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */,
+				34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */,
 				02642C942B46913B00134D73 /* UIImage+.swift in Sources */,
 				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,
+				34BC147A2B5013BF00636C81 /* MissionOverviewView.swift in Sources */,
+				34BC14632B4EF7D900636C81 /* ExerciseInfoViewController.swift in Sources */,
 				02F817332B46A22A00650E14 /* StartViewController.swift in Sources */,
 				05AAF8B12B3E5C270079CEAB /* s.swift in Sources */,
+				348EB1AE2B4BE8790041BE5C /* MypageView.swift in Sources */,
 				05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */,
 				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
 				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,
@@ -620,7 +671,6 @@
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */,
 				0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */,
-				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
@@ -632,20 +682,26 @@
 				05AAF8952B3E5B800079CEAB /* a.swift in Sources */,
 				05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */,
 				05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */,
-				05AAF8992B3E5B920079CEAB /* c.swift in Sources */,
 				05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */,
 				05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */,
 				05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */,
+				34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */,
 				05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */,
+				34BC14702B4FEBBB00636C81 /* MyInfoViewController.swift in Sources */,
+				029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */,
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
 				05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */,
 				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
+				34BC14692B4F064800636C81 /* SectionTitleTableViewCell.swift in Sources */,
 				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
+				34BC14782B4FF8A700636C81 /* LeaveTableViewCell.swift in Sources */,
 				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
-				0280EA082B4D0B170047215F /* TitleBoxButton.swift in Sources */,
+				34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */,
+				34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */,
+				348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
-				05AAF8A92B3E5BE30079CEAB /* k.swift in Sources */,
+				05AAF8A92B3E5BE30079CEAB /* (null) in Sources */,
 				02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */,
 				05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */,
 				05AAF8CF2B3EA9E30079CEAB /* UICollectionViewCell+.swift in Sources */,

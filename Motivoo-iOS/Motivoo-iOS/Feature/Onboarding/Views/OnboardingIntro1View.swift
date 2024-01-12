@@ -19,9 +19,9 @@ final class OnboardingIntro1View: BaseView {
     let introTitle = UILabel()
     let introSubtitle = UILabel()
     var buttonStackView = UIStackView()
-    let parentButton = TitleBoxButton()
-    let childButton = TitleBoxButton()
-    let nextButton = UIButton()
+    let parentButton = MotivooButton(text: TextLiterals.Onboarding.Q1.patent, buttonStyle: .borderGray100Half)
+    let childButton = MotivooButton(text: TextLiterals.Onboarding.Q1.child, buttonStyle: .borderGray100Half)
+    let nextButton = MotivooButton(text: TextLiterals.Onboarding.name, buttonStyle: .gray900)
 
     // MARK: - Override Functions
 
@@ -32,7 +32,7 @@ final class OnboardingIntro1View: BaseView {
             $0.progress = 0.25
         }
         introTitle.do {
-            $0.text = TextLiterals.Onboarding.Q1.ParentTitle
+            $0.text = TextLiterals.Onboarding.Q1.parentTitle
             $0.font = .heading3
             $0.textColor = .gray900
             $0.textAlignment = .left
@@ -40,31 +40,16 @@ final class OnboardingIntro1View: BaseView {
             $0.addLineHeight(lineHeight: 33.6.adjusted)
         }
         introSubtitle.do {
-            $0.text = TextLiterals.Onboarding.Q1.ParentSubtitle
+            $0.text = TextLiterals.Onboarding.Q1.parentSubtitle
             $0.font = .body6
             $0.textColor = .gray600
             $0.textAlignment = .left
-        }
-        parentButton.do {
-            $0.setTitle(TextLiterals.Onboarding.Q1.Parent, for: .normal)
-            $0.frame.size.width = 162.adjusted
-        }
-        childButton.do {
-            $0.setTitle(TextLiterals.Onboarding.Q1.Child, for: .normal)
-            $0.frame.size.width = 162.adjusted
         }
         buttonStackView.do {
             $0.axis = .horizontal
             $0.spacing = 11
             $0.alignment = .fill
             $0.distribution = .fillEqually
-        }
-        nextButton.do {
-            $0.setTitle(TextLiterals.Onboarding.Next, for: .normal)
-            $0.setTitleColor(.gray400, for: .normal)
-            $0.titleLabel?.font = .body5
-            $0.backgroundColor = .gray100
-            $0.layer.cornerRadius = 8
         }
     }
 
@@ -76,7 +61,7 @@ final class OnboardingIntro1View: BaseView {
 
     override func setLayout() {
         onboardingProgressView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(62.adjusted)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(2.adjusted)
         }
@@ -95,13 +80,9 @@ final class OnboardingIntro1View: BaseView {
         }
         buttonStackView.snp.makeConstraints {
             $0.top.equalTo(introSubtitle.snp.bottom).offset(44.adjusted)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(52.adjusted)
         }
         nextButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(335.adjusted)
-            $0.height.equalTo(52.adjusted)
             $0.bottom.equalToSuperview().inset(78.adjusted)
         }
     }
