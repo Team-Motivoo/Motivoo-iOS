@@ -45,19 +45,17 @@ final class TermsOfUseViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.topItem?.title = TextLiterals.Onboarding.Terms.title
-        self.navigationItem.leftBarButtonItem?.isHidden = false
-
-        termsOfUseView.termsTableView.dataSource = self
-        termsOfUseView.termsTableView.delegate = self
-        termsOfUseView.termsTableView.separatorStyle = .none
-
-        termsOfUseView.nextButton.setTitleColor(.gray400, for: .normal)
-        termsOfUseView.nextButton.backgroundColor = .gray100
-        termsOfUseView.nextButton.isEnabled = false
+        setDelegate()
+        setNextButton()
     }
 
     // MARK: - Override Functions
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+
+        self.navigationController?.navigationBar.topItem?.title = TextLiterals.Onboarding.Terms.title
+        self.navigationItem.leftBarButtonItem?.isHidden = false
+    }
 
     override func setHierachy() {
         self.view.addSubviews(termsOfUseView)
@@ -75,6 +73,20 @@ final class TermsOfUseViewController: BaseViewController {
     }
 
     // MARK: - Actions
+
+    func setDelegate() {
+        termsOfUseView.termsTableView.dataSource = self
+        termsOfUseView.termsTableView.delegate = self
+        termsOfUseView.termsTableView.separatorStyle = .none
+    }
+
+    func setNextButton() {
+        termsOfUseView.nextButton.setTitleColor(.gray400, for: .normal)
+        termsOfUseView.nextButton.backgroundColor = .gray100
+        termsOfUseView.nextButton.isEnabled = false
+    }
+
+
     @objc
     func checkButtonDidTap(_ sender: UIButton) {
         if (!sender.isSelected) {
@@ -108,29 +120,29 @@ final class TermsOfUseViewController: BaseViewController {
 
     @objc
     func seeTermsOfUse() {
-        let notionUrl = NSURL(string: "https://www.notion.so/gayeong04/7f6097380a0b43d38ae265ea985152e7?pvs=4")
+        let notionUrl = NSURL(string: TextLiterals.Onboarding.Terms.termOfUserURL)
         let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl! as URL)
         self.present(notionSafariView, animated: true, completion: nil)
     }
 
     @objc
     func seeInfoCollection() {
-        let notionUrl = NSURL(string: "https://www.notion.so/gayeong04/iOS-dc7e5c4540df40a298dba1ed15ef45d6?pvs=4")
+        let notionUrl = NSURL(string: TextLiterals.Onboarding.Terms.termOfInfoCollectionURL)
         let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl! as URL)
         self.present(notionSafariView, animated: true, completion: nil)
     }
 
     @objc
     func seeInfoHandling() {
-        let notionUrl = NSURL(string: "https://www.notion.so/gayeong04/Plan-0714f852799742d286ffe012b09262db?pvs=4")
+        let notionUrl = NSURL(string: TextLiterals.Onboarding.Terms.termOfInfoHandlingURL)
         let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl! as URL)
         self.present(notionSafariView, animated: true, completion: nil)
     }
 
     @objc
     func nextButtonDidTap() {
-        let StartViewController = StartViewController()
-        self.navigationController?.pushViewController(StartViewController, animated: true)
+        let startViewController = StartViewController()
+        self.navigationController?.pushViewController(startViewController, animated: true)
     }
 }
 
@@ -156,7 +168,7 @@ extension TermsOfUseViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 44.adjusted
     }
 }
 

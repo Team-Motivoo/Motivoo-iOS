@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class AuthorizationTableViewCell: UITableViewCell {
+final class AuthorizationTableViewCell: UITableViewCell {
 
     lazy var iconImageView = UIImageView()
     lazy var title = UILabel()

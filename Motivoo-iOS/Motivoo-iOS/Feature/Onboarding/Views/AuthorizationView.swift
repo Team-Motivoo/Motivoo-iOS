@@ -14,7 +14,7 @@ final class AuthorizationView: BaseView {
 
     // MARK: - UI Component
 
-    let introLabel = UILabel()
+    private let introLabel = UILabel()
     var authorizatioTableView = UITableView()
     private let divider = UIView()
     private let cautionLabel = UILabel()
@@ -38,7 +38,7 @@ final class AuthorizationView: BaseView {
         }
         authorizatioTableView.do {
             $0.isUserInteractionEnabled = false
-            $0.register(AuthorizationTableViewCell.self, forCellReuseIdentifier: "AuthorizationTableViewCell")
+            $0.register(AuthorizationTableViewCell.self, forCellReuseIdentifier: AuthorizationTableViewCell.cellIdentifier)
         }
         divider.do {
             $0.backgroundColor = .gray200

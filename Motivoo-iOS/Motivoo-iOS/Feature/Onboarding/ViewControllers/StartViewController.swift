@@ -24,11 +24,15 @@ final class StartViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.leftBarButtonItem?.isHidden = true
     }
 
     // MARK: - Override Functions
+
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+
+        self.navigationItem.leftBarButtonItem?.isHidden = true
+    }
 
     override func setUI() {
         motivooTextLogo.do {
@@ -41,7 +45,7 @@ final class StartViewController: BaseViewController {
             $0.textColor = .gray900
             $0.textAlignment = .left
             $0.numberOfLines = 0
-            $0.addLineHeight(lineHeight: 28)
+            $0.addLineHeight(lineHeight: 28.adjusted)
         }
         imageView.do {
             $0.image = ImageLiterals.img.loginAfter

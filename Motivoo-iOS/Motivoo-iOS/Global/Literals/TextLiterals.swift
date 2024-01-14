@@ -36,6 +36,10 @@ enum TextLiterals {
             static var termsOfInfoCollection = "개인정보수집 및 이용 동의"
             static var termsOfInfoHangling = "개인정보 처리방침 동의"
             static var see = "보기"
+
+            static var termOfUserURL = "https://www.notion.so/gayeong04/7f6097380a0b43d38ae265ea985152e7?pvs=4"
+            static var termOfInfoCollectionURL = "https://www.notion.so/gayeong04/iOS-dc7e5c4540df40a298dba1ed15ef45d6?pvs=4"
+            static var termOfInfoHandlingURL = "https://www.notion.so/gayeong04/Plan-0714f852799742d286ffe012b09262db?pvs=4"
         }
 
         enum Login {

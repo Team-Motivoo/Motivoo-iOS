@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class TermsOfUseTableViewCell: UITableViewCell {
+final class TermsOfUseTableViewCell: UITableViewCell {
 
     let checkButton = UIButton()
     lazy var term = UILabel()
