@@ -43,13 +43,20 @@ final class StartViewController: BaseViewController {
 
     override func setButtonEvent() {
         startMotivooButton.addTarget(self, action: #selector(startMotivooButtonDidTap), for: .touchUpInside)
+        invitationCodeButton.addTarget(self, action: #selector(invitationCodeButtonDidTap), for: .touchUpInside)
     }
 
     // MARK: - Actions
 
     @objc
     private func startMotivooButtonDidTap() {
-        let OnboardingViewController = OnboardingViewController()
-        self.navigationController?.pushViewController(OnboardingViewController, animated: true)
+        let onboardingViewController = OnboardingViewController()
+        self.navigationController?.pushViewController(onboardingViewController, animated: true)
+    }
+
+    @objc
+    private func invitationCodeButtonDidTap() {
+        let inputInvitationViewController = InputInvitationViewController()
+        self.navigationController?.pushViewController(inputInvitationViewController, animated: true)
     }
 }

@@ -21,6 +21,11 @@ final class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+
         self.navigationItem.leftBarButtonItem?.isHidden = true
     }
 
@@ -60,7 +65,7 @@ final class LoginViewController: BaseViewController {
 
     @objc
     private func kakaoLoginButtonDidTap() {
-        let nextVC = StartViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        let startViewController = StartViewController()
+        self.navigationController?.pushViewController(startViewController, animated: true)
     }
 }

@@ -30,10 +30,14 @@ final class SplashViewController: BaseViewController {
             let rootViewController = UINavigationController(rootViewController: LoginViewController())
             delegate.window?.rootViewController = rootViewController
         }
-        self.navigationItem.leftBarButtonItem?.isHidden = true
     }
 
     // MARK: - Override Functions
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+
+        self.navigationItem.leftBarButtonItem?.isHidden = true
+    }
 
     override func setUI() {
         logoImage.do {
