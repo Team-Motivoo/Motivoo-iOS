@@ -57,7 +57,7 @@ enum ImageLiterals {
 
         // MARK: - MyPage
         
-        static var rightArrow: UIImage { .load(named: "right_arrow")}
+        static var rightArrow: UIImage { .load(named: "new_right_arrow")}
         
     }
 }

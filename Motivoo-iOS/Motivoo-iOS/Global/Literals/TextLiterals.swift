@@ -153,6 +153,8 @@ enum TextLiterals {
     enum MissionOverview {
         static var todayExercise = "오늘의 운동"
         static var alertMessage = "운동 기록은 30일간 보간 후 사라져요!"
+        static var noImg = "운동을 완료하고\n사진을 등록해보세요!"
+        static var fail = "다음 운동은\n완료해봐요!"
     }
     enum MyPage {
         static var exerciseInfo = "운동 정보"
