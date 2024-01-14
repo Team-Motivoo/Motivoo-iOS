@@ -7,11 +7,45 @@
 
 import UIKit
 
-final class MissionOverviewViewController: BaseViewController {
+import SnapKit
+import Then
 
+final class MissionOverviewViewController: BaseViewController {
+    
+    // MARK: - Properties
+    let missionOverviewView = MissionOverviewView()
+
+    
+    // MARK: - UI Components
+    
+    
+    
+    private func setTableViewConfig() {
+        //        exerciseInfoView.exerciseInfotableView.register(SectionTitleTableViewCell.self,
+        //                                      forCellReuseIdentifier: SectionTitleTableViewCell.cellIdentifier)
+        //        exerciseInfoView.exerciseInfotableView.dataSource = self
+        //        exerciseInfoView.exerciseInfotableView.delegate = self
+    }
+    
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .blue200
+        setTableViewConfig()
+    }
+    
+    // MARK: - Override Functions
+    override func setHierachy() {
+        self.view.addSubview(missionOverviewView)
+
+    }
+    
+    override func setLayout() {
+        missionOverviewView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
+
+// MARK: -
+
