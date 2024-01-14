@@ -11,9 +11,10 @@ import SnapKit
 import Then
 
 final class LoginViewController: BaseViewController {
-    
+
     // MARK: - UI Component
 
+    private let motivooTextLogo = UIImageView()
     private let kakaoLoginButton = UIButton()
     private let appleLoginButton = UIButton()
 
@@ -30,6 +31,9 @@ final class LoginViewController: BaseViewController {
     }
 
     override func setUI() {
+        motivooTextLogo.do {
+            $0.image = ImageLiterals.img.motivooTextLogo
+        }
         kakaoLoginButton.do {
             $0.setImage(ImageLiterals.img.kakaoLogin, for: .normal)
         }
@@ -39,7 +43,8 @@ final class LoginViewController: BaseViewController {
     }
 
     override func setHierachy() {
-        self.view.addSubviews(kakaoLoginButton, appleLoginButton)
+        self.view.addSubviews(motivooTextLogo, kakaoLoginButton, appleLoginButton)
+        self.view.bringSubviewToFront(self.motivooTextLogo)
     }
 
     override func setButtonEvent() {
@@ -47,17 +52,23 @@ final class LoginViewController: BaseViewController {
     }
 
     override func setLayout() {
+        motivooTextLogo.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.leading.equalToSuperview().inset(20.adjusted)
+            $0.height.equalTo(16.adjusted)
+            $0.width.equalTo(78.adjusted)
+        }
         kakaoLoginButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
-            $0.height.equalTo(53.adjusted)
+            $0.height.equalTo(52.adjusted)
+            $0.width.equalTo(335.adjusted)
             $0.bottom.equalTo(appleLoginButton.snp.top).offset(-20.adjusted)
         }
         appleLoginButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
-            $0.height.equalTo(53.adjusted)
-            $0.bottom.equalToSuperview().inset(91.adjusted)
+            $0.height.equalTo(52.adjusted)
+            $0.width.equalTo(335.adjusted)
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(44.adjusted)
         }
     }
 
