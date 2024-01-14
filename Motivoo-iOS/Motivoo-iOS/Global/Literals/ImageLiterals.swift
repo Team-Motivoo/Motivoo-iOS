@@ -22,6 +22,9 @@ enum ImageLiterals {
         static var child: UIImage { .load(named: "child")}
         static var parent: UIImage { .load(named: "parent")}
         static var missionMain: UIImage { .load(named: "mission_main")}
+        static var fitnessCircle: UIImage { .load(named: "img_onboarding_fitness")}
+        static var cameraCircle: UIImage { .load(named: "img_onboarding_camera")}
+        static var galleryCircle: UIImage { .load(named: "img_onboarding_gallery")}
 
     }
     
@@ -42,6 +45,7 @@ enum ImageLiterals {
         static var gallery: UIImage { .load(named: "icon_gallery")}
         static var shoes: UIImage { .load(named: "shoes")}
         static var notice: UIImage { .load(named: "notice")}
+        static var info: UIImage { .load(named: "icon_info")}
         static var checkActive: UIImage { .load(named: "check_active")}
 
         // MARK: - MyPage

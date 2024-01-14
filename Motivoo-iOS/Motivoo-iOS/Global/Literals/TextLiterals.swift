@@ -23,8 +23,8 @@ enum TextLiterals {
             static var cameraLabel = "카메라 기능으로 운동을 인증할 수 있어요"
             static var picture = "사진"
             static var pictureLabel = "사진 기능으로 운동을 인증할 수 있어요"
-            static var essential = "필수"
-            static var caution = "허용하지 않아도 앱을 이용할 수 있으나, 일부\n서비스 이용이 제한될 수 있어요. 거부 후 설정에서 다시\n허용할 수 있어요. "
+            static var essential = "(필수)"
+            static var caution = "허용하지 않아도 앱을 이용할 수 있으나, 일부\n서비스 이용이 제한될 수 있어요. 거부 후 설정에서\n다시 허용할 수 있어요. "
             static var allow = "허용하기"
         }
 
