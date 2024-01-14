@@ -14,6 +14,35 @@ enum TextLiterals {
         static var yes = "네"
         static var no = "아니요"
 
+        enum Authorization {
+            static var title = "접근 권한 안내"
+            static var introlLabel = "원활한 이용을 위해\n다음 권한의 허용이 필요해요."
+            static var action = "동작 및 피트니스"
+            static var actionLabel = "동작 및 피트니스 앱으로 걸음수를 측정할게요"
+            static var camera = "카메라"
+            static var cameraLabel = "카메라 기능으로 운동을 인증할 수 있어요"
+            static var picture = "사진"
+            static var pictureLabel = "사진 기능으로 운동을 인증할 수 있어요"
+            static var essential = "필수"
+            static var caution = "허용하지 않아도 앱을 이용할 수 있으나, 일부\n서비스 이용이 제한될 수 있어요. 거부 후 설정에서 다시\n허용할 수 있어요. "
+            static var allow = "허용하기"
+        }
+
+        enum Trems {
+            static var title = "이용약관"
+            static var allTerms = "원활한 이용을 위해\n다음 권한의 허용이 필요해요."
+            static var termsOfUse = "동작 및 피트니스"
+            static var termsOfInfoCollection = "동작 및 피트니스 앱으로 걸음수를 측정할게요"
+            static var termsOfInfoHangling = "카메라"
+            static var see = "카메라 기능으로 운동을 인증할 수 있어요"
+        }
+
+        enum Login {
+            static var slogan = "가족과 함께 만들어 나가는\n오늘의 운동 습관"
+            static var motivooStart = "모티부 시작하기"
+            static var invitationCode = "초대코드 입력하기"
+        }
+
         enum Q1 {
             static var patent = "부모"
             static var child = "자녀"
