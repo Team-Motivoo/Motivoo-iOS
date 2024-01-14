@@ -24,6 +24,12 @@
 		02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2D82B4D850B00657CF7 /* UILabel+.swift */; };
 		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
 		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
+		02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103CE2B538969003852A7 /* AuthorizationViewController.swift */; };
+		02E103D12B538A3C003852A7 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103D02B538A3C003852A7 /* TermsOfUseViewController.swift */; };
+		02E103D32B538A69003852A7 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103D22B538A69003852A7 /* AuthorizationView.swift */; };
+		02E103D52B539C6B003852A7 /* AuthorizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103D42B539C6B003852A7 /* AuthorizationTableViewCell.swift */; };
+		02E103D72B53A9AC003852A7 /* TermsOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103D62B53A9AC003852A7 /* TermsOfUseView.swift */; };
+		02E103D92B53A9BA003852A7 /* TermsOfUseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103D82B53A9BA003852A7 /* TermsOfUseTableViewCell.swift */; };
 		02E103DB2B543D4F003852A7 /* InputInvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */; };
 		02E103DD2B543D71003852A7 /* InputInvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103DC2B543D71003852A7 /* InputInvitationView.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
@@ -114,6 +120,12 @@
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationViewController.swift; sourceTree = "<group>"; };
 		02E103DC2B543D71003852A7 /* InputInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationView.swift; sourceTree = "<group>"; };
+		02E103CE2B538969003852A7 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		02E103D02B538A3C003852A7 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
+		02E103D22B538A69003852A7 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		02E103D42B539C6B003852A7 /* AuthorizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTableViewCell.swift; sourceTree = "<group>"; };
+		02E103D62B53A9AC003852A7 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
+		02E103D82B53A9BA003852A7 /* TermsOfUseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseTableViewCell.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
@@ -214,11 +226,14 @@
 			isa = PBXGroup;
 			children = (
 				05AAF8A02B3E5BB90079CEAB /* SplashViewController.swift */,
+				02E103CE2B538969003852A7 /* AuthorizationViewController.swift */,
 				02642C952B46960D00134D73 /* LoginViewController.swift */,
 				02F817322B46A22A00650E14 /* StartViewController.swift */,
 				025806812B50162D002DB50E /* OnboardingViewController.swift */,
 				029985742B51436600E88A4F /* InvitationViewController.swift */,
 				02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */,
+				02E103D02B538A3C003852A7 /* TermsOfUseViewController.swift */,
+				0280EA032B4D04210047215F /* OnboardingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -399,6 +414,10 @@
 				025806832B5020BF002DB50E /* Cells */,
 				0280EA052B4D04260047215F /* OnboardingIntro1View.swift */,
 				02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */,
+				02E103D22B538A69003852A7 /* AuthorizationView.swift */,
+				02E103D42B539C6B003852A7 /* AuthorizationTableViewCell.swift */,
+				02E103D62B53A9AC003852A7 /* TermsOfUseView.swift */,
+				02E103D82B53A9BA003852A7 /* TermsOfUseTableViewCell.swift */,
 				029985762B51437200E88A4F /* InvitationView.swift */,
 				02E103DC2B543D71003852A7 /* InputInvitationView.swift */,
 			);
@@ -693,10 +712,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E103D12B538A3C003852A7 /* TermsOfUseViewController.swift in Sources */,
 				05AAF8D52B3EAB8F0079CEAB /* SizeLiterals.swift in Sources */,
 				0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */,
+				02E103D72B53A9AC003852A7 /* TermsOfUseView.swift in Sources */,
 				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
 				05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */,
+				02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
 				34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */,
 				34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */,
@@ -713,6 +735,7 @@
 				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
 				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,
 				05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */,
+				02E103D92B53A9BA003852A7 /* TermsOfUseTableViewCell.swift in Sources */,
 				05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */,
 				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
 				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
@@ -731,6 +754,7 @@
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
+				02E103D32B538A69003852A7 /* AuthorizationView.swift in Sources */,
 				02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */,
 				05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */,
 				025806822B50162D002DB50E /* OnboardingViewController.swift in Sources */,
@@ -745,6 +769,7 @@
 				05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */,
 				34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */,
 				05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */,
+				02E103D52B539C6B003852A7 /* AuthorizationTableViewCell.swift in Sources */,
 				34BC14702B4FEBBB00636C81 /* MyInfoViewController.swift in Sources */,
 				029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */,
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
