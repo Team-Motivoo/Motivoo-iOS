@@ -21,7 +21,7 @@ final class HomeProveView: BaseView {
     
     var missionLabel = UILabel()
     private var subtitleLabel = UILabel()
-    private var galleryView = HomeProveMissionView()
+    var galleryView = HomeProveMissionView()
     private var cameraView = HomeProveMissionView()
     lazy var pictureStackView = UIStackView(arrangedSubviews: [cameraView,
                                                                galleryView])
