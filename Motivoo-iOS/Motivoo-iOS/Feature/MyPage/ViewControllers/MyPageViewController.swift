@@ -35,9 +35,10 @@ final class MyPageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewConfig()
-        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
     // MARK: - Override Functions
     override func setHierachy() {
         self.view.addSubview(mypageView)
@@ -59,6 +60,7 @@ final class MyPageViewController: BaseViewController {
     private func myInfoButtonDidTapped() {
         let myInfoViewController = MyInfoViewController()
         navigationController?.pushViewController(myInfoViewController, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
     }
 }
 
@@ -98,13 +100,13 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
                 cell.textLabel?.text = "\(TextLiterals.MyPage.AppInfoItems[indexPath.row-1])"
-                cell.textLabel?.font = UIFont.heading6
+                cell.textLabel?.font = UIFont.heading7
                 cell.textLabel?.textColor = .gray900
             }
         } else if indexPath.section == 2 {
             cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
             cell.textLabel?.text = "\(TextLiterals.MyPage.ToKakaoChannel)"
-            cell.textLabel?.font = UIFont.heading6
+            cell.textLabel?.font = UIFont.heading7
             cell.textLabel?.textColor = .gray900
         } else {
             cell = UITableViewCell()
