@@ -68,7 +68,6 @@ final class OnboardingView1Cell: UICollectionViewCell {
 
     @objc
     private func childButtonDidTap() {
-        print("123")
         if (childButton.isSelected) {
             if (!parentButton.isSelected) {
                 parentButton.isSelected = true

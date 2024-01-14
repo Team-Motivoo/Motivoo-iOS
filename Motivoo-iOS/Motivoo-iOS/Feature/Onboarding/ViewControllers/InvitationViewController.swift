@@ -55,11 +55,13 @@ final class InvitationViewController: BaseViewController {
 
     func showMatchingLabel(_ message : String, withDuration: Double, delay: Double) {
         let toastLabel = UILabel()
-        toastLabel.textColor = .pink
-        toastLabel.font = .caption1
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
+        toastLabel.do {
+            $0.textColor = .pink
+            $0.font = .caption1
+            $0.textAlignment = .center
+            $0.text = message
+            $0.alpha = 1.0
+        }
 
         self.view.addSubview(toastLabel)
 
@@ -79,14 +81,16 @@ final class InvitationViewController: BaseViewController {
 
     func showClipboardLabel(_ message : String, withDuration: Double, delay: Double) {
         let toastLabel = UILabel()
-        toastLabel.backgroundColor = .gray600
-        toastLabel.textColor = .white
-        toastLabel.font = .caption2
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 8
-        toastLabel.clipsToBounds = true
+        toastLabel.do {
+            $0.backgroundColor = .gray600
+            $0.textColor = .white
+            $0.font = .caption2
+            $0.textAlignment = .center
+            $0.text = message
+            $0.alpha = 1.0
+            $0.layer.cornerRadius = 8
+            $0.clipsToBounds = true
+        }
 
         self.view.addSubview(toastLabel)
 

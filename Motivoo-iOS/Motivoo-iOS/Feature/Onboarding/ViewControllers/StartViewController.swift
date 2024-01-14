@@ -49,7 +49,7 @@ final class StartViewController: BaseViewController {
 
     @objc
     private func startMotivooButtonDidTap() {
-        let OnboardingViewController = OnboardingViewController()
-        self.navigationController?.pushViewController(OnboardingViewController, animated: true)
+        let onboardingViewController = OnboardingViewController()
+        self.navigationController?.pushViewController(onboardingViewController, animated: true)
     }
 }

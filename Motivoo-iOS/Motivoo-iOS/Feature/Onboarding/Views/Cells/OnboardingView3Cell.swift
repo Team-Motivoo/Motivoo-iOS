@@ -15,9 +15,15 @@ final class OnboardingView3Cell: UICollectionViewCell {
     let question3Title = UILabel()
     let question3Subtitle = UILabel()
     var buttonStackView = UIStackView()
-    let highButton = MotivooBigButton(title: TextLiterals.Onboarding.Q3.highTitle, subtitle: TextLiterals.Onboarding.Q3.highSubtitle, buttonStyle: .borderGray100)
-    let mediumButton = MotivooBigButton(title: TextLiterals.Onboarding.Q3.middleTitle, subtitle: TextLiterals.Onboarding.Q3.middleSubtitle, buttonStyle: .borderGray100)
-    let lowButton = MotivooBigButton(title: TextLiterals.Onboarding.Q3.lowTitle, subtitle: TextLiterals.Onboarding.Q3.lowSubtitle, buttonStyle: .borderGray100)
+    let highButton = MotivooBigButton(title: TextLiterals.Onboarding.Q3.highTitle, 
+                                      subtitle: TextLiterals.Onboarding.Q3.highSubtitle,
+                                      buttonStyle: .borderGray100)
+    let mediumButton = MotivooBigButton(title: TextLiterals.Onboarding.Q3.middleTitle, 
+                                        subtitle: TextLiterals.Onboarding.Q3.middleSubtitle,
+                                        buttonStyle: .borderGray100)
+    let lowButton = MotivooBigButton(title: TextLiterals.Onboarding.Q3.lowTitle, 
+                                     subtitle: TextLiterals.Onboarding.Q3.lowSubtitle,
+                                     buttonStyle: .borderGray100)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

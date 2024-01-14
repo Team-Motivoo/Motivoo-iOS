@@ -13,6 +13,7 @@ import Then
 final class MotivooBigButton: UIButton {
 
     // MARK: - Properties
+    
     private let buttonTitle = UILabel()
     private let buttonSubtitle = UILabel()
 

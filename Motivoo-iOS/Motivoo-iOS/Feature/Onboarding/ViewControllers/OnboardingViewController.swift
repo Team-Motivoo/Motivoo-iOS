@@ -226,7 +226,7 @@ final class OnboardingViewController: BaseViewController {
         let indexPath = IndexPath(row: 5, section: 0)
         let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as! OnboardingView6Cell
         if (sender.isSelected) {
-            print("== 선택")
+            // print("=== 선택")
             if (choiceThreeButtonArray.count < 3) {
                 sender.isSelected = false
                 choiceThreeButtonArray.append(sender.accessibilityIdentifier ?? "Unknown")
@@ -244,12 +244,12 @@ final class OnboardingViewController: BaseViewController {
                 let nextIndexPath = IndexPath(row: currentIndexPath.row + 1, section: currentIndexPath.section)
                 self.onboardingCollectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
             }
-            print("== 선택 취소")
+            // print("=== 선택 취소")
             if let index = choiceThreeButtonArray.firstIndex(of: sender.accessibilityIdentifier ?? "Unknown") {
                 choiceThreeButtonArray.remove(at: index)
             }
         }
-        print("===choiceThreeButtonArray.count: \(choiceThreeButtonArray.count)")
+        // print("===choiceThreeButtonArray.count: \(choiceThreeButtonArray.count)")
     }
 
     @objc
@@ -275,8 +275,8 @@ final class OnboardingViewController: BaseViewController {
     @objc
     private func startMotivooButtonDidTap() {
         // print("== 모티부 시작하기 ==")
-        let InvitationViewController = InvitationViewController()
-        self.navigationController?.pushViewController(InvitationViewController, animated: true)
+        let invitationViewController = InvitationViewController()
+        self.navigationController?.pushViewController(invitationViewController, animated: true)
     }
 }
 
