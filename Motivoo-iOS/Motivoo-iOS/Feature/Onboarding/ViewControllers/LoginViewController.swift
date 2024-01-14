@@ -76,7 +76,7 @@ final class LoginViewController: BaseViewController {
 
     @objc
     private func kakaoLoginButtonDidTap() {
-        let startViewController = StartViewController()
-        self.navigationController?.pushViewController(startViewController, animated: true)
+        let TermsOfUseViewController = TermsOfUseViewController()
+        self.navigationController?.pushViewController(TermsOfUseViewController, animated: true)
     }
 }

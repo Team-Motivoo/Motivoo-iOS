@@ -27,7 +27,7 @@ final class SplashViewController: BaseViewController {
                 print("sceneDelegate가 할당 Error")
                 return
             }
-            let rootViewController = UINavigationController(rootViewController: LoginViewController())
+            let rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
             delegate.window?.rootViewController = rootViewController
         }
     }

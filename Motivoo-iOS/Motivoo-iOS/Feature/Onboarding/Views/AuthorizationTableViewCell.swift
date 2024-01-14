@@ -61,7 +61,7 @@ class AuthorizationTableViewCell: UITableViewCell {
     }
 
     func setHierachy() {
-        self.addSubviews(iconImageView, title, essential, subtitle)
+        contentView.addSubviews(iconImageView, title, essential, subtitle)
     }
 
     func setLayout() {

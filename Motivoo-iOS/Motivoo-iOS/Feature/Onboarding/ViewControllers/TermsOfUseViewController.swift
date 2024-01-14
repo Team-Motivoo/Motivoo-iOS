@@ -19,9 +19,24 @@ final class TermsOfUseViewController: BaseViewController {
         didSet {
             if (termsOfListButton == 3) {
                 termsOfUseView.checkButton.isSelected = true
+                isButtonEnabled = true
             } else {
                 termsOfUseView.checkButton.isSelected = false
+                isButtonEnabled = false
             }
+        }
+    }
+
+    var isButtonEnabled: Bool = false {
+        didSet {
+            if isButtonEnabled {
+                termsOfUseView.nextButton.setTitleColor(.white, for: .normal)
+                termsOfUseView.nextButton.backgroundColor = .gray900
+            } else {
+                termsOfUseView.nextButton.setTitleColor(.gray400, for: .normal)
+                termsOfUseView.nextButton.backgroundColor = .gray100
+            }
+            termsOfUseView.nextButton.isEnabled = isButtonEnabled
         }
     }
 
@@ -36,6 +51,10 @@ final class TermsOfUseViewController: BaseViewController {
         termsOfUseView.termsTableView.dataSource = self
         termsOfUseView.termsTableView.delegate = self
         termsOfUseView.termsTableView.separatorStyle = .none
+
+        termsOfUseView.nextButton.setTitleColor(.gray400, for: .normal)
+        termsOfUseView.nextButton.backgroundColor = .gray100
+        termsOfUseView.nextButton.isEnabled = false
     }
 
     // MARK: - Override Functions
@@ -52,6 +71,7 @@ final class TermsOfUseViewController: BaseViewController {
 
     override func setButtonEvent() {
         termsOfUseView.checkButton.addTarget(self, action: #selector(checkButtonDidTap), for: .touchUpInside)
+        termsOfUseView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
 
     // MARK: - Actions
@@ -89,22 +109,28 @@ final class TermsOfUseViewController: BaseViewController {
     @objc
     func seeTermsOfUse() {
         let notionUrl = NSURL(string: "https://www.notion.so/gayeong04/7f6097380a0b43d38ae265ea985152e7?pvs=4")
-        let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl as! URL)
+        let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl! as URL)
         self.present(notionSafariView, animated: true, completion: nil)
     }
 
     @objc
     func seeInfoCollection() {
         let notionUrl = NSURL(string: "https://www.notion.so/gayeong04/iOS-dc7e5c4540df40a298dba1ed15ef45d6?pvs=4")
-        let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl as! URL)
+        let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl! as URL)
         self.present(notionSafariView, animated: true, completion: nil)
     }
 
     @objc
     func seeInfoHandling() {
         let notionUrl = NSURL(string: "https://www.notion.so/gayeong04/Plan-0714f852799742d286ffe012b09262db?pvs=4")
-        let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl as! URL)
+        let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionUrl! as URL)
         self.present(notionSafariView, animated: true, completion: nil)
+    }
+
+    @objc
+    func nextButtonDidTap() {
+        let StartViewController = StartViewController()
+        self.navigationController?.pushViewController(StartViewController, animated: true)
     }
 }
 
@@ -127,6 +153,10 @@ extension TermsOfUseViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.checkButton.addTarget(self, action: #selector(checkButtonDidTap), for: .touchUpInside)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
     }
 }
 
