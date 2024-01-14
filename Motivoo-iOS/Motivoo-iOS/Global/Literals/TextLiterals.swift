@@ -10,7 +10,7 @@ import UIKit
 enum TextLiterals {
     
     enum Onboarding {
-        static var name = "다음"
+        static var next = "다음"
         static var yes = "네"
         static var no = "아니요"
 
@@ -28,13 +28,13 @@ enum TextLiterals {
             static var allow = "허용하기"
         }
 
-        enum Trems {
+        enum Terms {
             static var title = "이용약관"
-            static var allTerms = "원활한 이용을 위해\n다음 권한의 허용이 필요해요."
-            static var termsOfUse = "동작 및 피트니스"
-            static var termsOfInfoCollection = "동작 및 피트니스 앱으로 걸음수를 측정할게요"
-            static var termsOfInfoHangling = "카메라"
-            static var see = "카메라 기능으로 운동을 인증할 수 있어요"
+            static var allTerms = "약관 전체 동의"
+            static var termsOfUse = "이용약관 동의"
+            static var termsOfInfoCollection = "개인정보수집 및 이용 동의"
+            static var termsOfInfoHangling = "개인정보 처리방침 동의"
+            static var see = "보기"
         }
 
         enum Login {

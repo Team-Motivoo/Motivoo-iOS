@@ -29,7 +29,14 @@ enum ImageLiterals {
     }
     
     enum icon {
-        
+
+        // MARK: - OnBaording
+
+        static var info: UIImage { .load(named: "icon_info")}
+        static var checkbox_active: UIImage { .load(named: "checkbox_active")}
+        static var checkbox_default: UIImage { .load(named: "checkbox_default")}
+
+
         // MARK: - TabBar
         
         static var home: UIImage { .load(named: "home")}
