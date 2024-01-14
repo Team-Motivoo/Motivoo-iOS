@@ -65,10 +65,6 @@ class AuthorizationTableViewCell: UITableViewCell {
     }
 
     func setLayout() {
-        contentView.snp.makeConstraints{
-            $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(78.adjusted)
-        }
         iconImageView.snp.makeConstraints {
             $0.top.leading.equalToSuperview()
             $0.size.equalTo(44.adjusted)
