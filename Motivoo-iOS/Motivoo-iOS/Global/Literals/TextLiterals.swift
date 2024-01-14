@@ -178,7 +178,10 @@ enum TextLiterals {
         static var leaveDescription = "탈퇴 시 모든 정보가 삭제됩니다."
         static var name = "이름"
         static var age = "나이"
-        
+    }
+    enum NoComplete {
+        static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 엘범을 만들어봐요!"
+        static var goTodayExercise = "오늘의 운동 하러가기"
     }
 }
 
