@@ -129,7 +129,7 @@ final class OnboardingView6Cell: UICollectionViewCell {
             $0.height.equalTo(500.adjusted)
         }
         question6Title.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(33.6.adjusted)
+            $0.top.equalToSuperview().inset(33.6.adjusted)
             $0.leading.trailing.equalToSuperview()
         }
         question6Subtitle.snp.makeConstraints {

@@ -76,7 +76,7 @@ final class OnboardingView3Cell: UICollectionViewCell {
             $0.height.equalTo(500.adjusted)
         }
         question3Title.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(33.6.adjusted)
+            $0.top.equalToSuperview().inset(33.6.adjusted)
             $0.leading.trailing.equalToSuperview()
         }
         question3Subtitle.snp.makeConstraints {

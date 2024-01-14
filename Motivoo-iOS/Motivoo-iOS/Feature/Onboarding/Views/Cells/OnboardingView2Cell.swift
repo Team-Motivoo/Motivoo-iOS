@@ -67,7 +67,7 @@ final class OnboardingView2Cell: UICollectionViewCell {
             $0.height.equalTo(500.adjusted)
         }
         question2Title.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(33.6.adjusted)
+            $0.top.equalToSuperview().inset(33.6.adjusted)
             $0.leading.trailing.equalToSuperview()
         }
         buttonStackView.snp.makeConstraints {
