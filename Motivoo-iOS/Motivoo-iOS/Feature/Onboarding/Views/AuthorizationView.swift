@@ -14,7 +14,7 @@ final class AuthorizationView: BaseView {
 
     // MARK: - UI Component
 
-    private let introLabel = UILabel()
+    let introLabel = UILabel()
     var authorizatioTableView = UITableView()
     private let divider = UIView()
     private let cautionLabel = UILabel()
