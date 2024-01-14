@@ -87,6 +87,10 @@ enum TextLiterals {
             static var matchingCheck = "매칭 확인하기"
             static var checking = "아직 매칭을 확인하고 있어요"
             static var clipboard = "클립보드에 복사되었습니다"
+
+            static var input = "초대받은 코드를\n붙여넣거나 입력해주세요"
+            static var inputPalceholder = "초대코드를 입력해주세요"
+            static var wrongInvitation = "초대코드가 올바르지 않아요"
         }
     }
 

@@ -24,6 +24,8 @@
 		02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2D82B4D850B00657CF7 /* UILabel+.swift */; };
 		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
 		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
+		02E103DB2B543D4F003852A7 /* InputInvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */; };
+		02E103DD2B543D71003852A7 /* InputInvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103DC2B543D71003852A7 /* InputInvitationView.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		058A1AC42B49307500F170D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1AC32B49307500F170D0 /* HomeView.swift */; };
 		05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF85F2B3E58480079CEAB /* AppDelegate.swift */; };
@@ -95,6 +97,8 @@
 		02BAC2D82B4D850B00657CF7 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationViewController.swift; sourceTree = "<group>"; };
+		02E103DC2B543D71003852A7 /* InputInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationView.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		058A1AC32B49307500F170D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motivoo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +188,7 @@
 				02F817322B46A22A00650E14 /* StartViewController.swift */,
 				025806812B50162D002DB50E /* OnboardingViewController.swift */,
 				029985742B51436600E88A4F /* InvitationViewController.swift */,
+				02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				0280EA052B4D04260047215F /* OnboardingIntro1View.swift */,
 				02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */,
 				029985762B51437200E88A4F /* InvitationView.swift */,
+				02E103DC2B543D71003852A7 /* InputInvitationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -616,6 +622,7 @@
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
 				02642C942B46913B00134D73 /* UIImage+.swift in Sources */,
 				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,
+				02E103DD2B543D71003852A7 /* InputInvitationView.swift in Sources */,
 				0299856B2B504EBE00E88A4F /* OnboardingView2Cell.swift in Sources */,
 				02F817332B46A22A00650E14 /* StartViewController.swift in Sources */,
 				05AAF8B12B3E5C270079CEAB /* s.swift in Sources */,
@@ -640,6 +647,7 @@
 				025806822B50162D002DB50E /* OnboardingViewController.swift in Sources */,
 				029985732B506C1C00E88A4F /* OnboardingView6Cell.swift in Sources */,
 				05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */,
+				02E103DB2B543D4F003852A7 /* InputInvitationViewController.swift in Sources */,
 				05AAF8952B3E5B800079CEAB /* a.swift in Sources */,
 				05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */,
 				05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */,
