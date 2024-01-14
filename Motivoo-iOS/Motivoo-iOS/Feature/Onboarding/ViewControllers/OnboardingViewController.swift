@@ -45,8 +45,7 @@ final class OnboardingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.onboardingCollectionView.delegate = self
-        self.onboardingCollectionView.dataSource = self
+        setDelegate()
     }
 
     // MARK: - Override Functions
@@ -83,6 +82,11 @@ final class OnboardingViewController: BaseViewController {
     }
 
     // MARK: - Actions
+
+    func setDelegate() {
+        self.onboardingCollectionView.delegate = self
+        self.onboardingCollectionView.dataSource = self
+    }
 
     @objc
     private func selectButtonDidTap2(_ sender: UIButton) {

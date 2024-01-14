@@ -39,7 +39,7 @@ final class TermsOfUseView: BaseView {
             $0.textAlignment = .left
         }
         termsTableView.do {
-            $0.register(TermsOfUseTableViewCell.self, forCellReuseIdentifier: "TermsOfUseTableViewCell")
+            $0.register(TermsOfUseTableViewCell.self, forCellReuseIdentifier: TermsOfUseTableViewCell.cellIdentifier)
         }
     }
 

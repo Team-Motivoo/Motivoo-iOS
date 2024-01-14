@@ -19,15 +19,17 @@ final class AuthorizationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.topItem?.title = TextLiterals.Onboarding.Authorization.title
-        self.navigationItem.leftBarButtonItem?.isHidden = true
-
-        authorizationView.authorizatioTableView.dataSource = self
-        authorizationView.authorizatioTableView.delegate = self
-        authorizationView.authorizatioTableView.separatorStyle = .none
+        setDelegate()
     }
 
     // MARK: - Override Functions
+
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+
+        self.navigationController?.navigationBar.topItem?.title = TextLiterals.Onboarding.Authorization.title
+        self.navigationItem.leftBarButtonItem?.isHidden = true
+    }
 
     override func setHierachy() {
         self.view.addSubviews(authorizationView)
@@ -45,10 +47,16 @@ final class AuthorizationViewController: BaseViewController {
 
     // MARK: - Actions
 
+    func setDelegate() {
+        authorizationView.authorizatioTableView.dataSource = self
+        authorizationView.authorizatioTableView.delegate = self
+        authorizationView.authorizatioTableView.separatorStyle = .none
+    }
+
     @objc
     func allowButtonDidTap() {
-        let LoginViewController = LoginViewController()
-        self.navigationController?.pushViewController(LoginViewController, animated: true)
+        let loginViewController = LoginViewController()
+        self.navigationController?.pushViewController(loginViewController, animated: true)
     }
 }
 
@@ -68,6 +76,6 @@ extension AuthorizationViewController: UITableViewDataSource, UITableViewDelegat
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 78
+        return 78.adjusted
     }
 }
