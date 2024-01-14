@@ -50,7 +50,6 @@ final class OnboardingView4Cell: UICollectionViewCell {
             $0.axis = .vertical
             $0.spacing = 16
             $0.alignment = .center
-            $0.distribution = .fillEqually
         }
         day1Button.accessibilityIdentifier = "1day"
         day2Button.accessibilityIdentifier = "2day"

@@ -61,7 +61,6 @@ final class OnboardingView3Cell: UICollectionViewCell {
             $0.axis = .vertical
             $0.spacing = 17
             $0.alignment = .center
-            $0.distribution = .fillEqually
         }
         highButton.accessibilityIdentifier = "high"
         mediumButton.accessibilityIdentifier = "medium"

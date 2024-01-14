@@ -49,7 +49,6 @@ final class OnboardingView5Cell: UICollectionViewCell {
             $0.axis = .vertical
             $0.spacing = 16
             $0.alignment = .center
-            $0.distribution = .fillEqually
         }
         minutes30Button.accessibilityIdentifier = "thirtyMinutes"
         oneHourButton.accessibilityIdentifier = "oneHour"

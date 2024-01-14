@@ -80,25 +80,21 @@ final class OnboardingView6Cell: UICollectionViewCell {
             $0.axis = .vertical
             $0.spacing = 16
             $0.alignment = .center
-            $0.distribution = .fillEqually
         }
         stackView1.do {
             $0.axis = .horizontal
             $0.spacing = 12
             $0.alignment = .fill
-            $0.distribution = .fillEqually
         }
         stackView2.do {
             $0.axis = .horizontal
             $0.spacing = 12
             $0.alignment = .fill
-            $0.distribution = .fillEqually
         }
         stackView3.do {
             $0.axis = .horizontal
             $0.spacing = 12
             $0.alignment = .fill
-            $0.distribution = .fillEqually
         }
         neckButton.accessibilityIdentifier = "neck"
         shoulderButton.accessibilityIdentifier = "shoulderButton"

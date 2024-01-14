@@ -46,8 +46,7 @@ final class OnboardingView2Cell: UICollectionViewCell {
         buttonStackView.do {
             $0.axis = .vertical
             $0.spacing = 16
-            $0.alignment = .center
-            $0.distribution = .fillEqually
+            $0.alignment = .fill
         }
         yesButton.accessibilityIdentifier = "yes"
         noButton.accessibilityIdentifier = "no"

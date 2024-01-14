@@ -101,7 +101,6 @@ final class OnboardingView1Cell: UICollectionViewCell {
             $0.axis = .horizontal
             $0.spacing = 11
             $0.alignment = .fill
-            $0.distribution = .fillEqually
         }
     }
 
