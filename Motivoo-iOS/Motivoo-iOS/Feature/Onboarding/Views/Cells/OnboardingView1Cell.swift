@@ -17,7 +17,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
     var buttonStackView = UIStackView()
     let parentButton = MotivooButton(text: TextLiterals.Onboarding.Q1.patent, buttonStyle: .borderGray100Half)
     let childButton = MotivooButton(text: TextLiterals.Onboarding.Q1.child, buttonStyle: .borderGray100Half)
-    let nextButton = MotivooButton(text: TextLiterals.Onboarding.name, buttonStyle: .gray900)
+    let nextButton = MotivooButton(text: TextLiterals.Onboarding.next, buttonStyle: .gray900)
 
     private let onboardingIntro2View = OnboardingIntro2View()
 

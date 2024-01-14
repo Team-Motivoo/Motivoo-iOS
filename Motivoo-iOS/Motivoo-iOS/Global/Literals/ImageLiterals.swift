@@ -53,7 +53,6 @@ enum ImageLiterals {
         static var gallery: UIImage { .load(named: "icon_gallery")}
         static var shoes: UIImage { .load(named: "shoes")}
         static var notice: UIImage { .load(named: "notice")}
-        static var info: UIImage { .load(named: "icon_info")}
         static var checkActive: UIImage { .load(named: "check_active")}
 
         // MARK: - MyPage
