@@ -32,13 +32,18 @@ final class InputInvitationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem?.isHidden = true
         inputInvitationView.startMotivooButton.isEnabled = false
         inputInvitationView.startMotivooButton.setTitleColor(.gray400, for: .normal)
         inputInvitationView.startMotivooButton.backgroundColor = .gray100
     }
 
     // MARK: - Override Functions
+    
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+
+        self.navigationItem.leftBarButtonItem?.isHidden = true
+    }
 
     override func setHierachy() {
         self.view.addSubviews(inputInvitationView)

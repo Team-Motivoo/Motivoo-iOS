@@ -19,6 +19,10 @@ final class InvitationViewController: BaseViewController {
     // MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
 
         self.navigationItem.leftBarButtonItem?.isHidden = true
     }

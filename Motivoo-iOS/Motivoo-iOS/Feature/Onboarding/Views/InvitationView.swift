@@ -14,7 +14,6 @@ final class InvitationView: BaseView {
 
     // MARK: - UI Component
 
-    private let logoImageView = UIImageView()
     private let shareLabel = UILabel()
 
     private let grayBGView = UIView()
@@ -26,9 +25,6 @@ final class InvitationView: BaseView {
     // MARK: - Override Functions
 
     override func setUI() {
-        logoImageView.do {
-            $0.image = ImageLiterals.img.motivooLogo
-        }
         shareLabel.do {
             $0.text = TextLiterals.Onboarding.Invitation.share
             $0.font = .body1
@@ -63,19 +59,13 @@ final class InvitationView: BaseView {
     }
 
     override func setHierachy() {
-        self.addSubviews(logoImageView, shareLabel, grayBGView, matchingCheckButton)
+        self.addSubviews(shareLabel, grayBGView, matchingCheckButton)
         grayBGView.addSubviews(invitationCodeLabel, codeLabel, copyButton)
     }
 
     override func setLayout() {
-        logoImageView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(76.adjusted)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(124.adjusted)
-            $0.width.equalTo(128.adjusted)
-        }
         shareLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView.snp.bottom).offset(42.adjusted)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(60.adjusted)
             $0.centerX.equalToSuperview()
         }
         grayBGView.snp.makeConstraints {
