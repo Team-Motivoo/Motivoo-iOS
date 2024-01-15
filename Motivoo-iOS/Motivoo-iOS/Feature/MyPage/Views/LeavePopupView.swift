@@ -83,7 +83,7 @@ final class LeavePopupView: BaseView {
     override func setLayout() {
         popupView.snp.makeConstraints {
             $0.height.equalTo(272.adjusted)
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
             $0.centerY.equalToSuperview()
         }
         
@@ -100,15 +100,15 @@ final class LeavePopupView: BaseView {
         blackButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(131.adjusted)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(220)
-            $0.height.equalTo(52)
+            $0.width.equalTo(220.adjusted)
+            $0.height.equalTo(52.adjusted)
         }
         
         grayButton.snp.makeConstraints {
             $0.top.equalTo(blackButton.snp.bottom).offset(12.adjusted)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(220)
-            $0.height.equalTo(52)
+            $0.width.equalTo(220.adjusted)
+            $0.height.equalTo(52.adjusted)
         }
     }
 }

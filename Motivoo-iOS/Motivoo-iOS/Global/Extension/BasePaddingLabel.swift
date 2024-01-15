@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BasePaddingLabel: UILabel {
+final class BasePaddingLabel: UILabel {
     
     private var padding = UIEdgeInsets(top: 3.0, left: 8.0, bottom: 3.0, right: 8.0)
     
@@ -18,9 +18,13 @@ class BasePaddingLabel: UILabel {
     
     override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: padding))
+        setUI()
     }
     
-    //안의 내재되어있는 콘텐트의 사이즈에 따라 height와 width에 padding값을 더해줌
+    private func setUI(){
+        self.layer.cornerRadius = 12
+        self.clipsToBounds = true
+    }
     override var intrinsicContentSize: CGSize {
         var contentSize = super.intrinsicContentSize
         contentSize.height += padding.top + padding.bottom

@@ -82,7 +82,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else if indexPath.section == 1 {
             let cell: UITableViewCell
-            cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: DisclosureTableViewCell.cellIdentifier, for: indexPath)
             cell.textLabel?.text = TextLiterals.MyPage.logout
             cell.textLabel?.font = UIFont.heading7
             cell.textLabel?.textColor = .gray900
@@ -92,7 +92,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else{
             let cell: UITableViewCell
-            cell = tableView.dequeueReusableCell(withIdentifier: "LeaveTableViewCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: LeaveTableViewCell.cellIdentifier, for: indexPath)
             cell.selectionStyle = .none
             return cell
         }

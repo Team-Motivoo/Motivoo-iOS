@@ -5,21 +5,10 @@
 //  Created by Hyori Choi on 1/12/24.
 //
 
-//import Foundation
-//
-//struct OverView {
-//    let date: String
-//    let myImage: String
-//    let opponentImage: String
-//    let myMission: String
-//    let opponentMission: String
-//    let myStatusBadge: String
-//    let opponentStatusBadge: String
-//}
-
 import Foundation
 
 // MARK: - DataClass
+
 struct OverView: Codable {
     let userType: String
     let todayMission: TodayMission
@@ -33,6 +22,7 @@ struct OverView: Codable {
 }
 
 // MARK: - MissionHistory
+
 struct MissionHistory: Codable {
     let date, myMission, myImage, myStatusBadge: String
     let opponentMission, opponentImage, opponentStatusBadge: String
@@ -49,6 +39,7 @@ struct MissionHistory: Codable {
 }
 
 // MARK: - TodayMission
+
 struct TodayMission: Codable {
     let missionContent: String
 
