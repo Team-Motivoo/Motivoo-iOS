@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        StepCountManager.shared.stopCheckStepCount()
+    }
 
     // MARK: UISceneSession Lifecycle
 
