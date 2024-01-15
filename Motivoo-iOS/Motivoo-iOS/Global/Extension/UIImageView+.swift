@@ -21,5 +21,18 @@ extension UIImageView {
                         options: [.transition(.fade(1.0))], progressBlock: nil)
         }
     }
+    func setPlaceholderText(_ text: String) {
+        if self.image == nil {
+            let placeholderLabel = UILabel()
+            placeholderLabel.text = text
+            placeholderLabel.textColor = .gray500
+            placeholderLabel.textAlignment = .center
+            placeholderLabel.numberOfLines = 2
+            addSubview(placeholderLabel)
+            placeholderLabel.snp.makeConstraints {
+                $0.edges.equalToSuperview()
+            }
+        }
+    }
 }
 

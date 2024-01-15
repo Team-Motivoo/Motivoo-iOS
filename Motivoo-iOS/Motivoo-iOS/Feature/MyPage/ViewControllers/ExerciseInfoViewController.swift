@@ -40,6 +40,10 @@ final class ExerciseInfoViewController: BaseViewController {
         setTableViewConfig()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     // MARK: - Override Functions
     override func setHierachy() {
         self.view.addSubview(exerciseInfoView)

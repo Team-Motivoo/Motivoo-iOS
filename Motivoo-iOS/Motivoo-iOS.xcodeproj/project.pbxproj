@@ -88,6 +88,9 @@
 		05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */; };
 		348EB1AE2B4BE8790041BE5C /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB1AD2B4BE8790041BE5C /* MypageView.swift */; };
 		348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB1B02B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift */; };
+		34B8F2FB2B5103160023F1D5 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8F2FA2B5103160023F1D5 /* LabelCollectionViewCell.swift */; };
+		34B8F2FD2B53D67E0023F1D5 /* NoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8F2FC2B53D67E0023F1D5 /* NoCompleteView.swift */; };
+		34B8F3012B5446010023F1D5 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8F3002B5446010023F1D5 /* BasePaddingLabel.swift */; };
 		34BC14632B4EF7D900636C81 /* ExerciseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */; };
 		34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */; };
 		34BC14692B4F064800636C81 /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */; };
@@ -97,6 +100,8 @@
 		34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */; };
 		34BC14782B4FF8A700636C81 /* LeaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14772B4FF8A700636C81 /* LeaveTableViewCell.swift */; };
 		34BC147A2B5013BF00636C81 /* MissionOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14792B5013BF00636C81 /* MissionOverviewView.swift */; };
+		34EB38302B50480C00195743 /* OverViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB382F2B50480C00195743 /* OverViewCollectionViewCell.swift */; };
+		34EB38322B50521F00195743 /* OverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB38312B50521F00195743 /* OverView.swift */; };
 		34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3CBBD2B4D044500DF4C63 /* DisclosureTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +187,9 @@
 		05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+.swift"; sourceTree = "<group>"; };
 		348EB1AD2B4BE8790041BE5C /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		348EB1B02B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoTableViewCell.swift; sourceTree = "<group>"; };
+		34B8F2FA2B5103160023F1D5 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		34B8F2FC2B53D67E0023F1D5 /* NoCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCompleteView.swift; sourceTree = "<group>"; };
+		34B8F3002B5446010023F1D5 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoViewController.swift; sourceTree = "<group>"; };
 		34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoView.swift; sourceTree = "<group>"; };
 		34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +199,8 @@
 		34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		34BC14772B4FF8A700636C81 /* LeaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveTableViewCell.swift; sourceTree = "<group>"; };
 		34BC14792B5013BF00636C81 /* MissionOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewView.swift; sourceTree = "<group>"; };
+		34EB382F2B50480C00195743 /* OverViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		34EB38312B50521F00195743 /* OverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverView.swift; sourceTree = "<group>"; };
 		34F3CBBD2B4D044500DF4C63 /* DisclosureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -539,6 +549,7 @@
 				05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */,
 				02BAC2D82B4D850B00657CF7 /* UILabel+.swift */,
 				02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */,
+				34B8F3002B5446010023F1D5 /* BasePaddingLabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -566,6 +577,7 @@
 		05AAF9082B47EFF60079CEAB /* MissionOverview */ = {
 			isa = PBXGroup;
 			children = (
+				34EB382E2B5047E500195743 /* Cells */,
 				05AAF90A2B47F0950079CEAB /* ViewControllers */,
 				05AAF9092B47F08E0079CEAB /* Views */,
 			);
@@ -576,6 +588,7 @@
 			isa = PBXGroup;
 			children = (
 				34BC14792B5013BF00636C81 /* MissionOverviewView.swift */,
+				34B8F2FC2B53D67E0023F1D5 /* NoCompleteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -623,8 +636,18 @@
 			isa = PBXGroup;
 			children = (
 				34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */,
+				34EB38312B50521F00195743 /* OverView.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		34EB382E2B5047E500195743 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				34EB382F2B50480C00195743 /* OverViewCollectionViewCell.swift */,
+				34B8F2FA2B5103160023F1D5 /* LabelCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -713,10 +736,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E103D12B538A3C003852A7 /* TermsOfUseViewController.swift in Sources */,
+				34B8F2FD2B53D67E0023F1D5 /* NoCompleteView.swift in Sources */,
 				05AAF8D52B3EAB8F0079CEAB /* SizeLiterals.swift in Sources */,
 				0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */,
 				02E103D72B53A9AC003852A7 /* TermsOfUseView.swift in Sources */,
 				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
+				34EB38302B50480C00195743 /* OverViewCollectionViewCell.swift in Sources */,
 				05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */,
 				02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
@@ -753,12 +778,14 @@
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
+				34B8F3012B5446010023F1D5 /* BasePaddingLabel.swift in Sources */,
 				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
 				02E103D32B538A69003852A7 /* AuthorizationView.swift in Sources */,
 				02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */,
 				05AAF8912B3E5AA30079CEAB /* TextLiterals.swift in Sources */,
 				025806822B50162D002DB50E /* OnboardingViewController.swift in Sources */,
 				029985732B506C1C00E88A4F /* OnboardingView6Cell.swift in Sources */,
+				34B8F2FB2B5103160023F1D5 /* LabelCollectionViewCell.swift in Sources */,
 				05AAF88F2B3E5A860079CEAB /* ImageLiterals.swift in Sources */,
 				02E103DB2B543D4F003852A7 /* InputInvitationViewController.swift in Sources */,
 				05AAF8952B3E5B800079CEAB /* a.swift in Sources */,
@@ -787,6 +814,7 @@
 				34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */,
 				34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */,
 				348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */,
+				34EB38322B50521F00195743 /* OverView.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
 				05AAF8A92B3E5BE30079CEAB /* (null) in Sources */,
 				02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */,

@@ -41,6 +41,10 @@ final class MyInfoViewController: BaseViewController {
         setTableViewConfig()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     // MARK: - Override Functions
     override func setHierachy() {
         self.view.addSubview(myInfoView)
@@ -80,7 +84,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
             let cell: UITableViewCell
             cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
             cell.textLabel?.text = "로그아웃"
-            cell.textLabel?.font = UIFont.heading6
+            cell.textLabel?.font = UIFont.heading7
             cell.textLabel?.textColor = .gray900
             cell.selectionStyle = .none
             

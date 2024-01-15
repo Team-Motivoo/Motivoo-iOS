@@ -32,7 +32,7 @@ class SectionTitleTableViewCell: UITableViewCell {
             $0.textColor = .gray700
         }
         InfoLabel.do{
-            $0.font = .heading6 // 바꾸기 head 7
+            $0.font = .heading7
             $0.textColor = .gray900
         }
     }

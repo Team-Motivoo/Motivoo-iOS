@@ -30,7 +30,7 @@ class ExerciseInfoTableViewCell: UITableViewCell {
         exerciseInfoLabel.do{
             $0.text = TextLiterals.MyPage.exerciseInfo
             $0.textColor = .gray900
-            $0.font = .heading6
+            $0.font = .heading7
         }
         exerciseImage.do{
             $0.image = ImageLiterals.icon.shoes

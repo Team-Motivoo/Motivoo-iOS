@@ -83,7 +83,7 @@ class BaseViewController: UIViewController {
         guard let navigationBar = navigationController?.navigationBar else { return }
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = .gray100
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray900, NSAttributedString.Key.font: UIFont.heading7]
         navigationBar.standardAppearance = appearance
         navigationBar.compactAppearance = appearance
