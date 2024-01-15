@@ -94,4 +94,37 @@ extension UIViewController {
         self.view.endEditing(false)
         
     }
+    
+    func showAlertGoToSetting(title: String, message: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let cancelAlert = UIAlertAction(
+            title: "취소",
+            style: .cancel
+        ) { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        
+        let goToSettingAlert = UIAlertAction(
+            title: "설정으로 이동하기",
+            style: .default) { _ in
+                
+                // 설정 화면으로 이동
+                guard let settingURL = URL(string: UIApplication.openSettingsURLString),
+                      UIApplication.shared.canOpenURL(settingURL)
+                else { return }
+                UIApplication.shared.open(settingURL, options: [:])
+                
+            }
+        
+        [cancelAlert,
+         goToSettingAlert]
+            .forEach(alertController.addAction(_:))
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true) // must be used from main thread only
+        }
+    }
 }
