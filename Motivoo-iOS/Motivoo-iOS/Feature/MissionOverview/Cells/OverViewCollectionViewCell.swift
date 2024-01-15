@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OverViewCollectionViewCell: UICollectionViewCell {
+final class OverViewCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
@@ -33,11 +33,9 @@ class OverViewCollectionViewCell: UICollectionViewCell {
     let myStatusBadgeContainerView = UIView()
     let opponentStatusContainerView = UIView()
     let whoContainerView = UIView()
-
-
-    
     var badges: [BasePaddingLabel] = []
     
+    // MARK: - init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,6 +56,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
             $0.font = .body6
             $0.textColor = .gray600
         }
+        
         myExerciseImageView.do {
             $0.contentMode = .scaleAspectFit
             $0.layer.cornerRadius = 8
@@ -65,112 +64,107 @@ class OverViewCollectionViewCell: UICollectionViewCell {
             $0.backgroundColor = .gray100
             $0.contentMode =  .scaleAspectFill
         }
+        
         myMissionLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
             $0.numberOfLines = 1
         }
+        
         thumpIconImageView.do {
             $0.image = ImageLiterals.icon.thumb
         }
+        
         myExerciseBadge.do {
             $0.backgroundColor = .gray100
             $0.text = TextLiterals.MissionOverview.Myexercise
             $0.font = .caption2
             $0.textColor = .gray600
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         myDoingBadge.do {
             $0.backgroundColor = .pink100
             $0.text = TextLiterals.MissionOverview.doing
             $0.font = .caption2
             $0.textColor = .pink
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         opponentDoingBadge.do {
             $0.backgroundColor = .pink100
             $0.text = TextLiterals.MissionOverview.doing
             $0.font = .caption2
             $0.textColor = .pink
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         myFailBadge.do {
             $0.backgroundColor = .gray300
             $0.text = TextLiterals.MissionOverview.onlyfail
             $0.font = .caption2
             $0.textColor = .gray700
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         opponentFailBadge.do {
             $0.backgroundColor = .gray300
             $0.text = TextLiterals.MissionOverview.onlyfail
             $0.font = .caption2
             $0.textColor = .gray700
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         mySuccessBadge.do {
             $0.backgroundColor = .blue100
             $0.text = TextLiterals.MissionOverview.onlysuccess
             $0.font = .caption2
             $0.textColor = .blue600
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         opponentSuccessBadge.do {
             $0.backgroundColor = .blue100
             $0.text = TextLiterals.MissionOverview.onlysuccess
             $0.font = .caption2
             $0.textColor = .blue600
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         parentExerciseBadge.do {
             $0.backgroundColor = .gray100
             $0.text = TextLiterals.MissionOverview.parentExercise
             $0.font = .caption2
             $0.textColor = .gray600
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         opponentExerciseImageVIew.do {
             $0.contentMode = .scaleAspectFit
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
             $0.backgroundColor = .gray100
             $0.clipsToBounds = true
             $0.contentMode =  .scaleAspectFill
         }
+        
         opponentMissionLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
             $0.numberOfLines = 1
             $0.clipsToBounds = true
         }
+        
         childExerciseBadge.do {
             $0.backgroundColor = .gray100
             $0.text = TextLiterals.MissionOverview.childExercise
             $0.font = .caption2
             $0.textColor = .gray600
-            $0.layer.cornerRadius = 12
-            $0.clipsToBounds = true
         }
+        
         myStatusBadgeContainerView.do {
             $0.backgroundColor = .clear
         }
+        
         opponentStatusContainerView.do {
+            
             $0.backgroundColor = .clear
         }
+        
         whoContainerView.do {
             $0.backgroundColor = .clear
         }
     }
-    
-    
     func setHierachy() {
         myExerciseImageView.addSubview(noPlaceholderText)
         contentView.addSubviews(dateLabel,myExerciseImageView,myMissionLabel,opponentExerciseImageVIew,opponentMissionLabel,myExerciseBadge,myStatusBadgeContainerView,whoContainerView,opponentStatusContainerView)
@@ -223,6 +217,8 @@ class OverViewCollectionViewCell: UICollectionViewCell {
             $0.leading.equalTo(whoContainerView.snp.trailing).offset(4.adjusted)
         }
     }
+    
+    // MARK: - collectionViewConfigureCell
     
     func collectionViewConfigureCell(date: String, myImage: String, opponentImage: String, myMission: String, opponentMission: String, myStatusChip: String, opponentStatusChip: String){
         dateLabel.text = date
