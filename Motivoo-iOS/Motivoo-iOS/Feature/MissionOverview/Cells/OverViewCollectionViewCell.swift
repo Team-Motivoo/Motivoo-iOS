@@ -63,6 +63,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
             $0.layer.cornerRadius = 8
             $0.clipsToBounds = true
             $0.backgroundColor = .gray100
+            $0.contentMode =  .scaleAspectFill
         }
         myMissionLabel.do {
             $0.font = .body1
@@ -142,6 +143,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
             $0.clipsToBounds = true
             $0.backgroundColor = .gray100
             $0.clipsToBounds = true
+            $0.contentMode =  .scaleAspectFill
         }
         opponentMissionLabel.do {
             $0.font = .body1

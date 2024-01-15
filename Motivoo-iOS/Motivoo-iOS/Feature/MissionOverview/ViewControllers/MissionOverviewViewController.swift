@@ -13,7 +13,7 @@ import Then
 final class MissionOverviewViewController: BaseViewController {
     
     // MARK: - Properties
-    private var overViewDummy: OverView = OverView(userType: "PARENT", todayMission: TodayMission(missionContent: "러닝머신 50분 달리기"), missionHistory: [MissionHistory(date: "2024년 1월 12일 금요일", myMission: "내미션1", myImage: "https://mblogthumb-phinf.pstatic.net/MjAyMjAyMDdfMjEy/MDAxNjQ0MTk0Mzk2MzY3.WAeeVCu2V3vqEz_98aWMOjK2RUKI_yHYbuZxrokf-0Ug.sV3LNWlROCJTkeS14PMu2UBl5zTkwK70aKX8B1w2oKQg.JPEG.41minit/1643900851960.jpg?type=w800", myStatusBadge: "성공", opponentMission: "상대미션1", opponentImage: "", opponentStatusBadge: "실패"),
+    private var overViewDummy: OverView = OverView(userType: "PARENT", todayMission: TodayMission(missionContent: "러닝머신 50분 달리기"), missionHistory: [MissionHistory(date: "2024년 1월 12일 금요일", myMission: "내미션1", myImage: "https://postfiles.pstatic.net/MjAyMzA3MTlfMTI3/MDAxNjg5NzA3ODIxNTk5.seJYSUpdX98ikS-9vymoCfYMKi9R4ZPtEJxaQ5vpqCcg.Cat1KiWm6yBea43XDZYiCrq6Leub8h4QdpET21C2LZsg.JPEG.hyori030/IMG_9798.jpg?type=w966", myStatusBadge: "성공", opponentMission: "상대미션1", opponentImage: "", opponentStatusBadge: "실패"),
                                                                                                                                                    MissionHistory(date: "2024년 1월 11일 목요일", myMission: "내미션2", myImage: "https://mblogthumb-phinf.pstatic.net/MjAyMjAyMDdfMjEy/MDAxNjQ0MTk0Mzk2MzY3.WAeeVCu2V3vqEz_98aWMOjK2RUKI_yHYbuZxrokf-0Ug.sV3LNWlROCJTkeS14PMu2UBl5zTkwK70aKX8B1w2oKQg.JPEG.41minit/1643900851960.jpg?type=w800", myStatusBadge: "성공", opponentMission: "상대미션2", opponentImage: "", opponentStatusBadge: "진행중")])
     
     let missionOverviewView = MissionOverviewView()
