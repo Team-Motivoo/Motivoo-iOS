@@ -32,6 +32,15 @@
 		02E103D92B53A9BA003852A7 /* TermsOfUseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103D82B53A9BA003852A7 /* TermsOfUseTableViewCell.swift */; };
 		02E103DB2B543D4F003852A7 /* InputInvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */; };
 		02E103DD2B543D71003852A7 /* InputInvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103DC2B543D71003852A7 /* InputInvitationView.swift */; };
+		02E103F92B556433003852A7 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103F82B556433003852A7 /* APIConstants.swift */; };
+		02E103FB2B556452003852A7 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103FA2B556452003852A7 /* TokenManager.swift */; };
+		02E103FD2B55648B003852A7 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103FC2B55648B003852A7 /* BaseAPI.swift */; };
+		02E103FF2B5564A5003852A7 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E103FE2B5564A5003852A7 /* NetworkResult.swift */; };
+		02E104052B556958003852A7 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104042B556958003852A7 /* BaseTargetType.swift */; };
+		02E104072B5569C9003852A7 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104062B5569C9003852A7 /* MoyaLoggingPlugin.swift */; };
+		02E1040A2B556EC8003852A7 /* BlankDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104092B556EC8003852A7 /* BlankDataResponse.swift */; };
+		02E1040D2B557B3B003852A7 /* SimpleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1040C2B557B3B003852A7 /* SimpleResponse.swift */; };
+		02E1040F2B557C2E003852A7 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1040E2B557C2E003852A7 /* GenericResponse.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
 		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
@@ -123,14 +132,24 @@
 		02BAC2D82B4D850B00657CF7 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
-		02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationViewController.swift; sourceTree = "<group>"; };
-		02E103DC2B543D71003852A7 /* InputInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationView.swift; sourceTree = "<group>"; };
 		02E103CE2B538969003852A7 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		02E103D02B538A3C003852A7 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		02E103D22B538A69003852A7 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		02E103D42B539C6B003852A7 /* AuthorizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTableViewCell.swift; sourceTree = "<group>"; };
 		02E103D62B53A9AC003852A7 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
 		02E103D82B53A9BA003852A7 /* TermsOfUseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseTableViewCell.swift; sourceTree = "<group>"; };
+		02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationViewController.swift; sourceTree = "<group>"; };
+		02E103DC2B543D71003852A7 /* InputInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationView.swift; sourceTree = "<group>"; };
+		02E103F82B556433003852A7 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		02E103FA2B556452003852A7 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		02E103FC2B55648B003852A7 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		02E103FE2B5564A5003852A7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		02E104042B556958003852A7 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		02E104062B5569C9003852A7 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		02E104092B556EC8003852A7 /* BlankDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankDataResponse.swift; sourceTree = "<group>"; };
+		02E1040B2B55756A003852A7 /* SecretsConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SecretsConfig.xcconfig; sourceTree = "<group>"; };
+		02E1040C2B557B3B003852A7 /* SimpleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleResponse.swift; sourceTree = "<group>"; };
+		02E1040E2B557C2E003852A7 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
@@ -243,7 +262,6 @@
 				029985742B51436600E88A4F /* InvitationViewController.swift */,
 				02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */,
 				02E103D02B538A3C003852A7 /* TermsOfUseViewController.swift */,
-				0280EA032B4D04210047215F /* OnboardingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -256,6 +274,29 @@
 				05AAF8982B3E5B920079CEAB /* c.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		02E103F72B555F4A003852A7 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				02E103F82B556433003852A7 /* APIConstants.swift */,
+				02E103FA2B556452003852A7 /* TokenManager.swift */,
+				02E103FC2B55648B003852A7 /* BaseAPI.swift */,
+				02E103FE2B5564A5003852A7 /* NetworkResult.swift */,
+				02E104042B556958003852A7 /* BaseTargetType.swift */,
+				02E104062B5569C9003852A7 /* MoyaLoggingPlugin.swift */,
+				02E1040C2B557B3B003852A7 /* SimpleResponse.swift */,
+				02E1040E2B557C2E003852A7 /* GenericResponse.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		02E104082B556EBA003852A7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				02E104092B556EC8003852A7 /* BlankDataResponse.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		0586B5712B4F3C6B00E1D93F /* Main */ = {
@@ -322,6 +363,7 @@
 		05AAF8742B3E592D0079CEAB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				02E103F72B555F4A003852A7 /* Foundation */,
 				05AAF8832B3E59F30079CEAB /* Onboarding */,
 				05AAF8822B3E59ED0079CEAB /* Home */,
 				05AAF8812B3E59E70079CEAB /* MyPage */,
@@ -332,6 +374,7 @@
 		05AAF8752B3E59380079CEAB /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				02E104082B556EBA003852A7 /* Common */,
 				05AAF8862B3E5A1E0079CEAB /* Onboarding */,
 				05AAF8852B3E5A180079CEAB /* Home */,
 				05AAF8842B3E5A120079CEAB /* MyPage */,
@@ -507,6 +550,7 @@
 				05AAF8922B3E5AC20079CEAB /* Font */,
 				05AAF86D2B3E58490079CEAB /* Info.plist */,
 				05AAF8682B3E58490079CEAB /* Assets.xcassets */,
+				02E1040B2B55756A003852A7 /* SecretsConfig.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -743,6 +787,7 @@
 				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
 				34EB38302B50480C00195743 /* OverViewCollectionViewCell.swift in Sources */,
 				05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */,
+				02E104072B5569C9003852A7 /* MoyaLoggingPlugin.swift in Sources */,
 				02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
 				34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */,
@@ -759,6 +804,7 @@
 				05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */,
 				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
 				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,
+				02E103FF2B5564A5003852A7 /* NetworkResult.swift in Sources */,
 				05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */,
 				02E103D92B53A9BA003852A7 /* TermsOfUseTableViewCell.swift in Sources */,
 				05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */,
@@ -767,13 +813,12 @@
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				029985752B51436600E88A4F /* InvitationViewController.swift in Sources */,
-				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
+				02E103FB2B556452003852A7 /* TokenManager.swift in Sources */,
 				025806852B5020F9002DB50E /* OnboardingView1Cell.swift in Sources */,
 				0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */,
 				055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */,
-				0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
@@ -792,6 +837,7 @@
 				05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */,
 				05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */,
 				05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */,
+				02E1040F2B557C2E003852A7 /* GenericResponse.swift in Sources */,
 				05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */,
 				05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */,
 				34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */,
@@ -813,17 +859,22 @@
 				0299856F2B505FE400E88A4F /* OnboardingView4Cell.swift in Sources */,
 				34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */,
 				34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */,
+				02E103FD2B55648B003852A7 /* BaseAPI.swift in Sources */,
 				348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */,
 				34EB38322B50521F00195743 /* OverView.swift in Sources */,
+				02E104052B556958003852A7 /* BaseTargetType.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,
 				05AAF8A92B3E5BE30079CEAB /* (null) in Sources */,
 				02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */,
+				02E1040A2B556EC8003852A7 /* BlankDataResponse.swift in Sources */,
 				05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */,
 				05AAF8CF2B3EA9E30079CEAB /* UICollectionViewCell+.swift in Sources */,
 				05AAF8B32B3E5C320079CEAB /* BaseView.swift in Sources */,
 				029985712B50689600E88A4F /* OnboardingView5Cell.swift in Sources */,
 				05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */,
+				02E103F92B556433003852A7 /* APIConstants.swift in Sources */,
 				05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */,
+				02E1040D2B557B3B003852A7 /* SimpleResponse.swift in Sources */,
 				055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */,
 				02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */,
 			);
@@ -845,6 +896,7 @@
 /* Begin XCBuildConfiguration section */
 		05AAF86E2B3E58490079CEAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E1040B2B55756A003852A7 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -905,6 +957,7 @@
 		};
 		05AAF86F2B3E58490079CEAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E1040B2B55756A003852A7 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -968,6 +1021,8 @@
 				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 인증 사진을 찍어주세요!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범에서 인증 사진을 선택해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -996,6 +1051,8 @@
 				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 인증 사진을 찍어주세요!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범에서 인증 사진을 선택해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
