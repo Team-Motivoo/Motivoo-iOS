@@ -149,6 +149,13 @@ enum TextLiterals {
             static var subTitle = "오늘도 멋지게 운동을 해내셨군요"
             static var check = "확인"
         }
+        
+        enum Auth {
+            static var healthNoAuthTitle = "‘건강’ 설정이 꺼져있습니다."
+            static var healthNoAuthMessage = "설정 > 건강 > 데이터 접근 및 기기 > 모티부에서 걸음 읽기를 허용해주세요."
+            static var cameraNoAuthTitle = "‘카메라’ 설정이 꺼져있습니다."
+            static var cameraNoAuthMessage = "모티부에서 사용자가 기념 사진을 업로드하기 위해 해당 설정이 켜져있어야 합니다. 권한 허용을 위해 설정으로 이동합니다."
+        }
     }
     enum MissionOverview {
         static var todayExercise = "오늘의 운동"
