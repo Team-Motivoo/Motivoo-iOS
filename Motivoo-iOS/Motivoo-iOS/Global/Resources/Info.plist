@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMotionUsageDescription</key>
+	<string>걸음수 데이터 측정을 위해 데이터 접근 권한이 필요합니다.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>카메라로 인증 사진을 찍어주세요!</string>
 	<key>NSPhotoLibraryUsageDescription</key>

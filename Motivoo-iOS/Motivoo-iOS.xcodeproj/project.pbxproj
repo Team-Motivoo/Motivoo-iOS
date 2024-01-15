@@ -79,6 +79,7 @@
 		05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */; };
 		05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */; };
 		05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */; };
+		05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */; };
 		05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE442B493A8300A2838C /* DateLiterals.swift */; };
 		05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */; };
 		05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */; };
@@ -118,14 +119,14 @@
 		02BAC2D82B4D850B00657CF7 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
-		02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationViewController.swift; sourceTree = "<group>"; };
-		02E103DC2B543D71003852A7 /* InputInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationView.swift; sourceTree = "<group>"; };
 		02E103CE2B538969003852A7 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		02E103D02B538A3C003852A7 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		02E103D22B538A69003852A7 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		02E103D42B539C6B003852A7 /* AuthorizationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTableViewCell.swift; sourceTree = "<group>"; };
 		02E103D62B53A9AC003852A7 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
 		02E103D82B53A9BA003852A7 /* TermsOfUseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseTableViewCell.swift; sourceTree = "<group>"; };
+		02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationViewController.swift; sourceTree = "<group>"; };
+		02E103DC2B543D71003852A7 /* InputInvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputInvitationView.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooTabBarController.swift; sourceTree = "<group>"; };
 		05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewViewController.swift; sourceTree = "<group>"; };
+		05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountManager.swift; sourceTree = "<group>"; };
 		05C8FE442B493A8300A2838C /* DateLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLiterals.swift; sourceTree = "<group>"; };
 		05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionModel.swift; sourceTree = "<group>"; };
 		05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionView.swift; sourceTree = "<group>"; };
@@ -233,7 +235,6 @@
 				029985742B51436600E88A4F /* InvitationViewController.swift */,
 				02E103DA2B543D4F003852A7 /* InputInvitationViewController.swift */,
 				02E103D02B538A3C003852A7 /* TermsOfUseViewController.swift */,
-				0280EA032B4D04210047215F /* OnboardingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -487,6 +488,7 @@
 			children = (
 				05AAF8932B3E5B690079CEAB /* UIComponents */,
 				05AAF86A2B3E58490079CEAB /* LaunchScreen.storyboard */,
+				05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -740,15 +742,14 @@
 				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
 				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
+				05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */,
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				029985752B51436600E88A4F /* InvitationViewController.swift in Sources */,
-				05AAF90C2B47F0B70079CEAB /* t.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				025806852B5020F9002DB50E /* OnboardingView1Cell.swift in Sources */,
 				0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */,
 				055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */,
-				0280EA042B4D04210047215F /* OnboardingViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
