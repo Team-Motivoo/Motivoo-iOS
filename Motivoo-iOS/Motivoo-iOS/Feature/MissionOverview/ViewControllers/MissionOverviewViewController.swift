@@ -177,7 +177,6 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                    }
                 
 
-
             // 실패 플레이스홀더와 아이콘을 추가하는 함수
             func addFailurePlaceholder(to imageView: UIImageView) {
                 let failureIcon = UIImageView(image: UIImage(named: "thumb"))

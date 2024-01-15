@@ -95,6 +95,8 @@
 		05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */; };
 		05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE632B4D496A00A2838C /* HomeStepModel.swift */; };
 		05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */; };
+		3479FFAD2B557715002C3FBC /* LeavePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479FFAC2B557715002C3FBC /* LeavePopupView.swift */; };
+		3479FFAF2B558A3F002C3FBC /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479FFAE2B558A3F002C3FBC /* LeaveViewController.swift */; };
 		348EB1AE2B4BE8790041BE5C /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB1AD2B4BE8790041BE5C /* MypageView.swift */; };
 		348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348EB1B02B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift */; };
 		34B8F2FB2B5103160023F1D5 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8F2FA2B5103160023F1D5 /* LabelCollectionViewCell.swift */; };
@@ -204,6 +206,8 @@
 		05C8FE612B4D426A00A2838C /* HomeStepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepCountView.swift; sourceTree = "<group>"; };
 		05C8FE632B4D496A00A2838C /* HomeStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStepModel.swift; sourceTree = "<group>"; };
 		05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+.swift"; sourceTree = "<group>"; };
+		3479FFAC2B557715002C3FBC /* LeavePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeavePopupView.swift; sourceTree = "<group>"; };
+		3479FFAE2B558A3F002C3FBC /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
 		348EB1AD2B4BE8790041BE5C /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		348EB1B02B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		34B8F2FA2B5103160023F1D5 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -434,6 +438,7 @@
 		05AAF87B2B3E598F0079CEAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3479FFAC2B557715002C3FBC /* LeavePopupView.swift */,
 				34BC14712B4FEBDD00636C81 /* MyInfoView.swift */,
 				34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */,
 				348EB1AD2B4BE8790041BE5C /* MypageView.swift */,
@@ -448,6 +453,7 @@
 				05AAF8632B3E58480079CEAB /* MyPageViewController.swift */,
 				34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */,
 				34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */,
+				3479FFAE2B558A3F002C3FBC /* LeaveViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -844,6 +850,8 @@
 				05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */,
 				02E103D52B539C6B003852A7 /* AuthorizationTableViewCell.swift in Sources */,
 				34BC14702B4FEBBB00636C81 /* MyInfoViewController.swift in Sources */,
+				3479FFAF2B558A3F002C3FBC /* LeaveViewController.swift in Sources */,
+				3479FFAD2B557715002C3FBC /* LeavePopupView.swift in Sources */,
 				029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */,
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
 				0299856D2B5057C300E88A4F /* OnboardingView3Cell.swift in Sources */,
