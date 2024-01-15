@@ -54,7 +54,9 @@ enum ImageLiterals {
         static var shoes: UIImage { .load(named: "shoes")}
         static var notice: UIImage { .load(named: "notice")}
         static var checkActive: UIImage { .load(named: "check_active")}
+        static var thumb: UIImage { .load(named: "thumb")}
 
+        
         // MARK: - MyPage
         
         static var rightArrow: UIImage { .load(named: "new_right_arrow")}

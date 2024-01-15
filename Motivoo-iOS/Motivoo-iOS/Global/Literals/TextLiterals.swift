@@ -155,6 +155,13 @@ enum TextLiterals {
         static var alertMessage = "운동 기록은 30일간 보간 후 사라져요!"
         static var noImg = "운동을 완료하고\n사진을 등록해보세요!"
         static var fail = "다음 운동은\n완료해봐요!"
+        static var Myexercise = "내 운동"
+        static var doing = "진행중"
+        static var onlyfail = "실패"
+        static var onlysuccess = "실패"
+        static var parentExercise = "부모님 운동"
+        static var childExercise = "자녀 운동"
+
     }
     enum MyPage {
         static var exerciseInfo = "운동 정보"

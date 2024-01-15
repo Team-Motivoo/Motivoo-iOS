@@ -71,11 +71,11 @@ class OverViewCollectionViewCell: UICollectionViewCell {
             $0.numberOfLines = 1
         }
         thumpIconImageView.do {
-            $0.image = UIImage(named: "thumb")
+            $0.image = ImageLiterals.icon.thumb
         }
         myExerciseBadge.do {
             $0.backgroundColor = .gray100
-            $0.text = "내 운동"
+            $0.text = TextLiterals.MissionOverview.Myexercise
             $0.font = .caption2
             $0.textColor = .gray600
             $0.layer.cornerRadius = 12
@@ -83,7 +83,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         myDoingBadge.do {
             $0.backgroundColor = .pink100
-            $0.text = "진행중"
+            $0.text = TextLiterals.MissionOverview.doing
             $0.font = .caption2
             $0.textColor = .pink
             $0.layer.cornerRadius = 12
@@ -91,7 +91,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         opponentDoingBadge.do {
             $0.backgroundColor = .pink100
-            $0.text = "진행중"
+            $0.text = TextLiterals.MissionOverview.doing
             $0.font = .caption2
             $0.textColor = .pink
             $0.layer.cornerRadius = 12
@@ -99,7 +99,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         myFailBadge.do {
             $0.backgroundColor = .gray300
-            $0.text = "실패"
+            $0.text = TextLiterals.MissionOverview.onlyfail
             $0.font = .caption2
             $0.textColor = .gray700
             $0.layer.cornerRadius = 12
@@ -107,7 +107,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         opponentFailBadge.do {
             $0.backgroundColor = .gray300
-            $0.text = "실패"
+            $0.text = TextLiterals.MissionOverview.onlyfail
             $0.font = .caption2
             $0.textColor = .gray700
             $0.layer.cornerRadius = 12
@@ -115,7 +115,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         mySuccessBadge.do {
             $0.backgroundColor = .blue100
-            $0.text = "성공"
+            $0.text = TextLiterals.MissionOverview.onlysuccess
             $0.font = .caption2
             $0.textColor = .blue600
             $0.layer.cornerRadius = 12
@@ -123,7 +123,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         opponentSuccessBadge.do {
             $0.backgroundColor = .blue100
-            $0.text = "성공"
+            $0.text = TextLiterals.MissionOverview.onlysuccess
             $0.font = .caption2
             $0.textColor = .blue600
             $0.layer.cornerRadius = 12
@@ -131,7 +131,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         parentExerciseBadge.do {
             $0.backgroundColor = .gray100
-            $0.text = "부모님 운동"
+            $0.text = TextLiterals.MissionOverview.parentExercise
             $0.font = .caption2
             $0.textColor = .gray600
             $0.layer.cornerRadius = 12
@@ -153,7 +153,7 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         }
         childExerciseBadge.do {
             $0.backgroundColor = .gray100
-            $0.text = "자녀 운동"
+            $0.text = TextLiterals.MissionOverview.childExercise
             $0.font = .caption2
             $0.textColor = .gray600
             $0.layer.cornerRadius = 12
@@ -232,21 +232,5 @@ class OverViewCollectionViewCell: UICollectionViewCell {
         opponentMissionLabel.text = opponentMission
         myStatusBadge.text = myStatusChip
         opponentStatusBadge.text = opponentStatusChip
-    }
-}
-
-extension UIImageView {
-    func setPlaceholderText(_ text: String) {
-        if self.image == nil {
-            let placeholderLabel = UILabel()
-            placeholderLabel.text = text
-            placeholderLabel.textColor = .gray500
-            placeholderLabel.textAlignment = .center
-            placeholderLabel.numberOfLines = 2
-            addSubview(placeholderLabel)
-            placeholderLabel.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
-        }
     }
 }

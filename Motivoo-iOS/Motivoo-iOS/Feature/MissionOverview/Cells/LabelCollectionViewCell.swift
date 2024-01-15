@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LabelCollectionViewCell: UICollectionViewCell {
+final class LabelCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     private let todayMissionView = UIView()
