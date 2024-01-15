@@ -46,6 +46,7 @@
 		02E104162B55ABFD003852A7 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 02E104152B55ABFD003852A7 /* KakaoSDKCert */; };
 		02E104182B55ABFD003852A7 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 02E104172B55ABFD003852A7 /* KakaoSDKCertCore */; };
 		02E1041A2B55ABFD003852A7 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 02E104192B55ABFD003852A7 /* KakaoSDKCommon */; };
+		02E1041C2B55B46A003852A7 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1041B2B55B46A003852A7 /* JWTDecode.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
 		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
@@ -157,6 +158,7 @@
 		02E1040B2B55756A003852A7 /* SecretsConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SecretsConfig.xcconfig; sourceTree = "<group>"; };
 		02E1040C2B557B3B003852A7 /* SimpleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleResponse.swift; sourceTree = "<group>"; };
 		02E1040E2B557C2E003852A7 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		02E1041B2B55B46A003852A7 /* JWTDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 			children = (
 				05AAF8932B3E5B690079CEAB /* UIComponents */,
 				05AAF86A2B3E58490079CEAB /* LaunchScreen.storyboard */,
+				02E1041B2B55B46A003852A7 /* JWTDecode.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
+				02E1041C2B55B46A003852A7 /* JWTDecode.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				34B8F3012B5446010023F1D5 /* BasePaddingLabel.swift in Sources */,
 				05AAF8CD2B3EA9960079CEAB /* UITableViewCell+.swift in Sources */,
