@@ -5,55 +5,6 @@
 //  Created by 박윤빈 on 1/16/24.
 //
 
-import HealthKit
-import UIKit
-
-final class HealthKitManager {
-    
-    static let shared = HealthKitManager()
-    
-    private init(){}
-    
-    var step: Double?
-    var healthStore = HKHealthStore()
-    var read = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
-    var share = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
-    
-    func checkStepCountAuthorization() {
-        let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
-        
-        switch healthStore.authorizationStatus(for: stepType) {
-        case .notDetermined:
-            print("권한 상태: 결정되지 않음")
-        case .sharingDenied:
-            print("권한 상태: 사용자가 거부함")
-        case .sharingAuthorized:
-            print("권한 상태: 사용자가 허용함")
-        @unknown default:
-            print("권한 상태: 알 수없음")
-        }
-    }
-    
-    func getStepCount() {
-        guard let stepQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount) else { return }
-        let now = Date()
-        let startDate = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: now, options: .strictStartDate)
-        let query = HKStatisticsQuery(quantityType: stepQuantityType,
-                                      quantitySamplePredicate: predicate,
-                                      options: .cumulativeSum) { _, result, _ in
-            guard let result = result, let sum = result.sumQuantity() else {
-                print("Failed to fetch steps")
-                return
-            }
-            
-            self.step = sum.doubleValue(for: HKUnit.count())
-            print("오늘 걸음 수:\(self.step)")
-        }
-        healthStore.execute(query)
-    }
-}
-
 import Foundation
 import CoreMotion
 
@@ -72,14 +23,10 @@ final class StepCountManager {
     // MARK: - Properties
     
     static let shared = StepCountManager()
-//    private var db: Firestore!
     private var timer: Timer? = nil
     var pedoMeter = CMPedometer()
     var isAuthAllowed: Bool = false
-    var healthStore = HKHealthStore()
-    var read = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
-    var share = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
-    
+//    private var db: Firestore!
 //    private var snapShotListener: ListenerRegistration?
     
     var stepCountDataCompletion: ((StepCountData) -> Void)?
