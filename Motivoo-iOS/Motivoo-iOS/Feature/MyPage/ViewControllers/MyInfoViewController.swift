@@ -99,17 +99,20 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let leavePopupViewController = LeaveViewController()
         if indexPath.section == 1 {
-//            let leavePopupViewController = LeaveViewController()
+            let leavePopupViewController = LeaveViewController()
             leavePopupViewController.popupConfigureCell(title: TextLiterals.MyPage.logout, subtitle: TextLiterals.MyPage.realLogout, buttonTitle: TextLiterals.MyPage.logout)
+            leavePopupViewController.modalTransitionStyle = .coverVertical
+            leavePopupViewController.modalPresentationStyle = .overFullScreen
+            self.present(leavePopupViewController, animated: true)
         }
         if indexPath.section == 2 {
+            let leavePopupViewController = LeaveViewController()
             leavePopupViewController.popupConfigureCell(title: TextLiterals.MyPage.realLeave, subtitle: TextLiterals.MyPage.leaveSubtitle, buttonTitle: TextLiterals.MyPage.leaveTitle)
+            leavePopupViewController.modalTransitionStyle = .coverVertical
+            leavePopupViewController.modalPresentationStyle = .overFullScreen
+            self.present(leavePopupViewController, animated: true)
         }
-        leavePopupViewController.modalTransitionStyle = .coverVertical
-        leavePopupViewController.modalPresentationStyle = .overFullScreen
-        self.present(leavePopupViewController, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
