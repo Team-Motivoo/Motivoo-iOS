@@ -20,9 +20,4 @@ extension BaseTargetType{
     var headers: [String : String]? {
         return APIConstants.hasTokenHeader
     }
-
-//    var validationType: ValidationType {
-//        return .customCodes(Array(0...500).filter { $0 != 401 } )
-//    }
-
 }
