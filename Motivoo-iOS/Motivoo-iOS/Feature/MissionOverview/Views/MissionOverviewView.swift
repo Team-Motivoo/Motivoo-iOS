@@ -15,7 +15,6 @@ final class MissionOverviewView: BaseView {
     
     // MARK: - UI Components
     
-    // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
