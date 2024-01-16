@@ -27,6 +27,12 @@ final class HomeViewController: BaseViewController {
     
     // MARK: - Life Cycles
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        StepCountManager.shared.startCheckStepCount()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

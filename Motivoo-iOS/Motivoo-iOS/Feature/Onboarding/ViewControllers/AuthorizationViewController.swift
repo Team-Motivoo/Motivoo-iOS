@@ -74,7 +74,6 @@ final class AuthorizationViewController: BaseViewController {
 
     @objc
     func allowButtonDidTap() {
-        StepCountManager.shared.startCheckStepCount()
         cameraAuthorization()
     }
 }
