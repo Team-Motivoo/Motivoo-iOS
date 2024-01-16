@@ -234,10 +234,8 @@ final class OnboardingViewController: BaseViewController {
             if (choiceThreeButtonArray.count < 3) {
                 sender.isSelected = false
                 choiceThreeButtonArray.append(sender.accessibilityIdentifier ?? "Unknown")
-                if (choiceThreeButtonArray.count == 3) {
-                    cell.startMotivooButton.isEnabled = true
-                    cell.isButtonEnabled = true
-                }
+                cell.startMotivooButton.isEnabled = true
+                cell.isButtonEnabled = true
             }
         } else {
             sender.isSelected = true
