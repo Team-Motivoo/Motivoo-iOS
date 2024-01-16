@@ -15,8 +15,7 @@ struct APIConstants{
     static let multipartFormData = "multipart/form"
     static let auth = "Authorization"
     static let refresh = "RefreshToken"
-    static let accessToken = TokenManager.shared.getToken()
-
+    static let accessToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjoiMSIsImlhdCI6MTcwNTM0NzAyMywiZXhwIjoxNzA3MTQ3MDIzfQ.NGcZI4lyseER0MTCPAncDUzh_Kgb1IqDT_Da2Qpquk8"
 }
 
 extension APIConstants{

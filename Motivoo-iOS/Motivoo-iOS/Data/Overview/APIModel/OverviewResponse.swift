@@ -1,15 +1,21 @@
 //
-//  OverView.swift
+//  OverviewResponse.swift
 //  Motivoo-iOS
 //
-//  Created by Hyori Choi on 1/12/24.
+//  Created by Hyori Choi on 1/17/24.
 //
 
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let overviewResponse = try? JSONDecoder().decode(OverviewResponse.self, from: jsonData)
+
+// MARK: - DataClass
 import Foundation
 
 // MARK: - DataClass
 
-struct OverView: Codable {
+struct OverViewResponse: Codable {
     let userType: String
     let todayMission: TodayMission
     let missionHistory: [MissionHistory]
@@ -24,8 +30,9 @@ struct OverView: Codable {
 // MARK: - MissionHistory
 
 struct MissionHistory: Codable {
-    let date, myMission, myImage, myStatusBadge: String
-    let opponentMission, opponentImage, opponentStatusBadge: String
+    let date, myMission, myStatusBadge: String
+    let opponentMission, opponentStatusBadge: String
+    let myImage, opponentImage: String?
 
     enum CodingKeys: String, CodingKey {
         case date
