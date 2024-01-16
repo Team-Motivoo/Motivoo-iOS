@@ -17,6 +17,15 @@ final class MyPageViewController: BaseViewController {
     let mypageView = MyPageView()
     private var nextButton = UIButton()
     
+    var userInfo: MyInfoUserResponse? {
+        didSet {
+            myInfoView.myInfotableView.reloadData()
+            mypageView.tableView.reloadData()
+        }
+    }
+    
+    let myInfoView = MyInfoView()
+
     private func setTableViewConfig() {
         mypageView.tableView.register(ExerciseInfoTableViewCell.self,
                                       forCellReuseIdentifier: ExerciseInfoTableViewCell.cellIdentifier)
@@ -36,10 +45,14 @@ final class MyPageViewController: BaseViewController {
         super.viewDidLoad()
         setTableViewConfig()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        requestMyAPI()
     }
+    
     // MARK: - Override Functions
+    
     override func setHierachy() {
         self.view.addSubview(mypageView)
     }
@@ -59,6 +72,7 @@ final class MyPageViewController: BaseViewController {
     @objc
     private func myInfoButtonDidTapped() {
         let myInfoViewController = MyInfoViewController()
+        myInfoViewController.dataBind(data: self.userInfo ?? MyInfoUserResponse(userNickname: "", userAge: Int()))
         navigationController?.pushViewController(myInfoViewController, animated: true)
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -160,6 +174,17 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             return 0
         } else {
             return 16.adjusted
+        }
+    }
+}
+extension MyPageViewController {
+    func requestMyAPI() {
+        MyAPI.shared.getMyInfo() { result in
+            guard let result = self.validateResult(result) as? MyInfoUserResponse else {
+                return
+            }
+            self.userInfo = result
+            self.mypageView.nameLabel.text = result.userNickname
         }
     }
 }

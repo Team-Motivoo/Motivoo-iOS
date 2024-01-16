@@ -16,8 +16,12 @@ final class MyPageView: BaseView {
     
     private let parentLabel = UILabel()
     private let childLabel = UILabel()
-    private let nameLabel = UILabel()
+    var nameLabel = UILabel()
     let myInfoButton = UIButton()
+    
+    func configureNameLabel(with text: String) {
+          nameLabel.text = text
+      }
     
     // MARK: - Override Functions
     
@@ -33,9 +37,8 @@ final class MyPageView: BaseView {
             $0.font = .body5
         }
         nameLabel.do{
-            $0.text = "김뿡뿡"
             $0.textColor = .gray900
-            $0.font = .heading2
+            $0.font = .heading3
         }
         myInfoButton.do{
             $0.backgroundColor = .white
