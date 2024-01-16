@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //KakaoSDK.initSDK(appKey: "")
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        StepCountManager.shared.stopCheckStepCount()
+    }
 
     // onOpenURL()을 사용해 커스텀 URL 스킴 처리
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

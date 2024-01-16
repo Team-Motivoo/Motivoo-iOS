@@ -67,10 +67,20 @@ final class InputInvitationViewController: BaseViewController {
         // checking
         let text = inputInvitationView.inputTextField.text
         if (text == "123") {
-            // 모티부 시작하기 홈VC로 이동
+
             print("=== 모티부 시작하기 홈VC로 이동")
             inputInvitationView.inputTextField.layer.borderColor = UIColor.gray300.cgColor
             inputInvitationView.wrongLabel.isHidden = true
+            
+            // 모티부 시작하기 홈VC로 이동
+
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            guard let delegate = sceneDelegate else {
+                print("sceneDelegate가 할당 Error")
+                return
+            }
+            let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+            delegate.window?.rootViewController = rootViewController
         } else {
             inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor
             inputInvitationView.wrongLabel.isHidden = false

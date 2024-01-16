@@ -94,6 +94,7 @@
 		05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */; };
 		05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */; };
 		05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */; };
+		05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */; };
 		05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE442B493A8300A2838C /* DateLiterals.swift */; };
 		05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */; };
 		05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */; };
@@ -206,6 +207,7 @@
 		05AAF9042B47EE4E0079CEAB /* MotivooTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooTabBarController.swift; sourceTree = "<group>"; };
 		05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewViewController.swift; sourceTree = "<group>"; };
+		05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountManager.swift; sourceTree = "<group>"; };
 		05C8FE442B493A8300A2838C /* DateLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLiterals.swift; sourceTree = "<group>"; };
 		05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionModel.swift; sourceTree = "<group>"; };
 		05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionView.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 			children = (
 				05AAF8932B3E5B690079CEAB /* UIComponents */,
 				05AAF86A2B3E58490079CEAB /* LaunchScreen.storyboard */,
+				05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */,
 				02E1041B2B55B46A003852A7 /* JWTDecode.swift */,
 			);
 			path = SupportingFiles;
@@ -836,6 +839,7 @@
 				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
 				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
+				05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */,
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				029985752B51436600E88A4F /* InvitationViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,

@@ -5,12 +5,15 @@
 //  Created by 이조은 on 1/14/24.
 //
 
+import AVFoundation
 import UIKit
 
 import SnapKit
 import Then
 
 final class AuthorizationViewController: BaseViewController {
+    
+    // MARK: - Properties
 
     private let authorizationView = AuthorizationView()
 
@@ -44,6 +47,22 @@ final class AuthorizationViewController: BaseViewController {
     override func setButtonEvent() {
         authorizationView.allowButton.addTarget(self, action: #selector(allowButtonDidTap), for: .touchUpInside)
     }
+    
+    // MARK: - Authorization
+    
+    private func cameraAuthorization() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+            if granted {
+                DispatchQueue.main.async {
+                    let loginViewController = LoginViewController()
+                    self.navigationController?.pushViewController(loginViewController, animated: true)
+                }
+                print("Camera: 권한 허용")
+            } else {
+                print("Camera: 권한 거부")
+            }
+        })
+    }
 
     // MARK: - Actions
 
@@ -55,8 +74,8 @@ final class AuthorizationViewController: BaseViewController {
 
     @objc
     func allowButtonDidTap() {
-        let loginViewController = LoginViewController()
-        self.navigationController?.pushViewController(loginViewController, animated: true)
+        StepCountManager.shared.startCheckStepCount()
+        cameraAuthorization()
     }
 }
 
