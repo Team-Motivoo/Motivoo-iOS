@@ -61,7 +61,6 @@ final class StepCountManager {
     
     private init() {
         db = Database.database().reference()
-        self.db.child("users").setValue(["\(uid)": 0])
         self.getStepCount()
     }
     
@@ -132,7 +131,7 @@ final class StepCountManager {
         //여기서 collecion의 motivoo-test 는 안바뀌겠지만,,
         //"child1parent1" 는 사용자에 따라서 뭐 다르게 해줘도 되겠지?
         //중요한건 저 리스터 해제 안시켜주면 난리나니까, 앱 종료할때, 혹은 더이상 필요없을때 리스너 해제 잘 시켜줘
-        db.child("users/\(uid)").getData(completion:  { error, snapshot in
+        db.child("Users/\(uid)").getData(completion:  { error, snapshot in
           guard error == nil else {
             print(error!.localizedDescription)
             print("허허 에러네요")
@@ -141,7 +140,7 @@ final class StepCountManager {
             self.stepCountData.user = snapshot?.value as? Int ?? 0
         })
         
-        db.child("users/\(mid)").getData(completion:  { error, snapshot in
+        db.child("Users/\(mid)").getData(completion:  { error, snapshot in
           guard error == nil else {
             print(error!.localizedDescription)
             print("허허 에러네요")
@@ -153,6 +152,6 @@ final class StepCountManager {
     
     //    걸음수가 바꼇을때 값 업데이트 해주는 부분
     func updateStepCount(step: Int) {
-        self.db.child("users/\(uid)").setValue(self.stepCountData.user)
+        self.db.child("Users/\(uid)").setValue(self.stepCountData.user)
     }
 }
