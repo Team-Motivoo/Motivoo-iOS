@@ -16,20 +16,20 @@ final class MyInfoViewController: BaseViewController {
     
     private var exerciseInfoDummy: [ExerciseInfo] = [ExerciseInfo(title: TextLiterals.MyPage.name, info: "김뿡뿡"),
                                                      ExerciseInfo(title: TextLiterals.MyPage.age, info: "54")]
-    
     // MARK: - UI Components
     
     let myInfoView = MyInfoView()
     private var nextButton = UIButton()
+    private let logoutPopupView = LeavePopupView()
     
     
     private func setTableViewConfig() {
         myInfoView.myInfotableView.register(SectionTitleTableViewCell.self,
-                                      forCellReuseIdentifier: SectionTitleTableViewCell.cellIdentifier)
+                                            forCellReuseIdentifier: SectionTitleTableViewCell.cellIdentifier)
         myInfoView.myInfotableView.register(DisclosureTableViewCell.self,
-                                      forCellReuseIdentifier: DisclosureTableViewCell.cellIdentifier)
+                                            forCellReuseIdentifier: DisclosureTableViewCell.cellIdentifier)
         myInfoView.myInfotableView.register(LeaveTableViewCell.self,
-                                      forCellReuseIdentifier: LeaveTableViewCell.cellIdentifier)
+                                            forCellReuseIdentifier: LeaveTableViewCell.cellIdentifier)
         myInfoView.myInfotableView.dataSource = self
         myInfoView.myInfotableView.delegate = self
     }
@@ -39,6 +39,10 @@ final class MyInfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewConfig()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     // MARK: - Override Functions
@@ -78,9 +82,9 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else if indexPath.section == 1 {
             let cell: UITableViewCell
-            cell = tableView.dequeueReusableCell(withIdentifier: "DisclosureTableViewCell", for: indexPath)
-            cell.textLabel?.text = "로그아웃"
-            cell.textLabel?.font = UIFont.heading6
+            cell = tableView.dequeueReusableCell(withIdentifier: DisclosureTableViewCell.cellIdentifier, for: indexPath)
+            cell.textLabel?.text = TextLiterals.MyPage.logout
+            cell.textLabel?.font = UIFont.heading7
             cell.textLabel?.textColor = .gray900
             cell.selectionStyle = .none
             
@@ -88,9 +92,26 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else{
             let cell: UITableViewCell
-            cell = tableView.dequeueReusableCell(withIdentifier: "LeaveTableViewCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: LeaveTableViewCell.cellIdentifier, for: indexPath)
             cell.selectionStyle = .none
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let leavePopupViewController = LeaveViewController()
+            leavePopupViewController.popupConfigureCell(title: TextLiterals.MyPage.logout, subtitle: TextLiterals.MyPage.realLogout, buttonTitle: TextLiterals.MyPage.logout)
+            leavePopupViewController.modalTransitionStyle = .coverVertical
+            leavePopupViewController.modalPresentationStyle = .overFullScreen
+            self.present(leavePopupViewController, animated: true)
+        }
+        if indexPath.section == 2 {
+            let leavePopupViewController = LeaveViewController()
+            leavePopupViewController.popupConfigureCell(title: TextLiterals.MyPage.realLeave, subtitle: TextLiterals.MyPage.leaveSubtitle, buttonTitle: TextLiterals.MyPage.leaveTitle)
+            leavePopupViewController.modalTransitionStyle = .coverVertical
+            leavePopupViewController.modalPresentationStyle = .overFullScreen
+            self.present(leavePopupViewController, animated: true)
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

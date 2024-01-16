@@ -32,7 +32,7 @@ class LeaveTableViewCell: UITableViewCell {
         leaveLabel.do{
             $0.text = TextLiterals.MyPage.leave
             $0.textColor = .gray900
-            $0.font = .heading6 // 이거도 heafding7로 바꾸기
+            $0.font = .heading7
         }
         leaveDiscriptionLabel.do{
             $0.text = TextLiterals.MyPage.leaveDescription
@@ -63,5 +63,3 @@ class LeaveTableViewCell: UITableViewCell {
         }
     }
 }
-
-

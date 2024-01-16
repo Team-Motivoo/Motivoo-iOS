@@ -160,6 +160,15 @@ enum TextLiterals {
     enum MissionOverview {
         static var todayExercise = "오늘의 운동"
         static var alertMessage = "운동 기록은 30일간 보간 후 사라져요!"
+        static var noImg = "운동을 완료하고\n사진을 등록해보세요!"
+        static var fail = "다음 운동은\n완료해봐요!"
+        static var Myexercise = "내 운동"
+        static var doing = "진행중"
+        static var onlyfail = "실패"
+        static var onlysuccess = "성공"
+        static var parentExercise = "부모님 운동"
+        static var childExercise = "자녀 운동"
+
     }
     enum MyPage {
         static var exerciseInfo = "운동 정보"
@@ -180,10 +189,19 @@ enum TextLiterals {
         static var averageTimePerDay = "하루 평균 시간"
         static var pointsToNote = "주의할 곳"
         static var leave = "회원탈퇴"
+        static var logout = "로그아웃"
         static var leaveDescription = "탈퇴 시 모든 정보가 삭제됩니다."
         static var name = "이름"
         static var age = "나이"
-        
+        static var no = "안할래요"
+        static var realLogout = "정말 로그아웃 하실건가요?"
+        static var realLeave = "정말 탈퇴하시겠어요?"
+        static var leaveSubtitle = "회원 탈퇴 시, 모든 정보가\n삭제되며 복구가 불가능해요."
+        static var leaveTitle = "탈퇴하기"
+    }
+    enum NoComplete {
+        static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 엘범을 만들어봐요!"
+        static var goTodayExercise = "오늘의 운동 하러가기"
     }
 }
 
