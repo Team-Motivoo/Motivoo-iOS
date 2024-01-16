@@ -13,12 +13,20 @@ import Then
 final class ExerciseInfoViewController: BaseViewController {
     
     // MARK: - Properties
-    
+
     private var exerciseInfoDummy: [ExerciseInfo] = [ExerciseInfo(title: TextLiterals.MyPage.exercisestatus, info: "예"),
                                                      ExerciseInfo(title: TextLiterals.MyPage.intensity, info: "아니오"),
                                                      ExerciseInfo(title: TextLiterals.MyPage.weeklyaverageFrequency, info: "예"),
                                                      ExerciseInfo(title: TextLiterals.MyPage.averageTimePerDay, info: "아니오"),
                                                      ExerciseInfo(title: TextLiterals.MyPage.pointsToNote, info: "예")]
+    
+    var exerciseInfo: ExerciseInfoResponse? {
+        didSet {
+//            myInfoView.myInfotableView.reloadData()
+//            mypageView.tableView.reloadData()
+            exerciseInfoView.exerciseInfotableView.reloadData()
+        }
+    }
     
     // MARK: - UI Components
     
@@ -42,6 +50,7 @@ final class ExerciseInfoViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        requestExerciseAPI()
     }
     
     // MARK: - Override Functions
@@ -64,18 +73,50 @@ extension ExerciseInfoViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exerciseInfoDummy.count
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SectionTitleTableViewCell.cellIdentifier) as? SectionTitleTableViewCell else {return UITableViewCell()}
-        cell.configureCell(title: exerciseInfoDummy[indexPath.row].title, info: exerciseInfoDummy[indexPath.row].info)
-        print("cell: \(indexPath.row)")
+        if indexPath.row == 0 {
+            guard let isExercise = exerciseInfo?.isExercise else {return UITableViewCell() }
+            let answer: String
+               if isExercise == true {
+                   answer = "예"
+               } else {
+                   answer = "아니오"
+               }
+            cell.configureCell(title: TextLiterals.MyPage.exercisestatus, info: (answer))
+        }
+        else if indexPath.row  == 1 {
+            guard let intensity = exerciseInfo?.exerciseType else {return UITableViewCell() }
+            cell.configureCell(title: TextLiterals.MyPage.intensity, info: "\(intensity)")
+        }
+        else if indexPath.row == 2 {
+            guard let exerciseFrequency = exerciseInfo?.exerciseFrequency else {return UITableViewCell() }
+            cell.configureCell(title: TextLiterals.MyPage.weeklyaverageFrequency, info: "\(exerciseFrequency)")
+        }
+        else if indexPath.row == 3 {
+            guard let exerciseTime = exerciseInfo?.exerciseTime else {return UITableViewCell() }
+            cell.configureCell(title: TextLiterals.MyPage.intensity, info: "\(exerciseTime)")
+        }
+        else {
+            guard let healthNotes = exerciseInfo?.healthNotes else { return UITableViewCell() }
+               let joinedHealthNotes = healthNotes.joined(separator: ", ")
+               cell.configureCell(title: TextLiterals.MyPage.intensity, info: joinedHealthNotes)
+        }
         cell.selectionStyle = .none
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
     }
-   
+    func requestExerciseAPI() {
+        MyAPI.shared.getExerciseInfo()  { result in
+            guard let result = self.validateResult(result) as? ExerciseInfoResponse else {
+                return
+            }
+            self.exerciseInfo = result
+        }
+    }
 }
