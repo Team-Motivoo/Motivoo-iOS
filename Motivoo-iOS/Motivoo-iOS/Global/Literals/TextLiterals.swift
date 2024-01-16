@@ -203,6 +203,13 @@ enum TextLiterals {
         static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 엘범을 만들어봐요!"
         static var goTodayExercise = "오늘의 운동 하러가기"
     }
+    enum URL {
+        static var getMyInfo = "/user/me"
+        static var getExerciseInfo = "/user/exercise"
+        static var postLogout = "/oauth/logout"
+        static var deleteLeave = "/withdraw"
+        static var getMission = "/mission"
+    }
 }
 
 
