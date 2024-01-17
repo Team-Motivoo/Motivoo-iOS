@@ -13,7 +13,8 @@ import Then
 final class StartViewController: BaseViewController {
 
     //MARK: - Properties
-    lazy var isFinishedOnboarding: Bool = false
+    lazy var isMatched: Bool = false
+    lazy var isFinished: Bool = false
 
     // MARK: - UI Component
     private let motivooTextLogo = UIImageView()
@@ -28,6 +29,8 @@ final class StartViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("===StartVC ViewWillAppear: \(TokenManager.shared.getToken())")
         print("===StartVC ViewWillAppear: \(UserDefaultManager.shared.getFinishedOnboarding())")
+        isMatched = UserDefaultManager.shared.getUserMatcehd()
+        isFinished = UserDefaultManager.shared.getFinishedOnboarding()
 
         requestGetUserExercise()
     }
@@ -102,10 +105,15 @@ final class StartViewController: BaseViewController {
 
     @objc
     private func startMotivooButtonDidTap() {
-        if isFinishedOnboarding {
+        if !isMatched {
             // 온보딩 정보를 입력했다면
-            let invitationViewController = InvitationViewController()
-            self.navigationController?.pushViewController(invitationViewController, animated: true)
+            if isFinished {
+                let invitationViewController = InvitationViewController()
+                self.navigationController?.pushViewController(invitationViewController, animated: true)
+            } else {
+                let onboardingViewController = OnboardingViewController()
+                self.navigationController?.pushViewController(onboardingViewController, animated: true)
+            }
         } else {
             let onboardingViewController = OnboardingViewController()
             self.navigationController?.pushViewController(onboardingViewController, animated: true)
@@ -116,6 +124,7 @@ final class StartViewController: BaseViewController {
     private func invitationCodeButtonDidTap() {
         let inputInvitationViewController = InputInvitationViewController()
         self.navigationController?.pushViewController(inputInvitationViewController, animated: true)
+        self.navigationItem.leftBarButtonItem?.isHidden = false
     }
 }
 

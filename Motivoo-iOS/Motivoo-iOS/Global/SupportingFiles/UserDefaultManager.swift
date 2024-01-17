@@ -30,15 +30,6 @@ class UserDefaultManager {
         return defaults.bool(forKey: "isUserMatched")
     }
 
-    // userId
-    func saveUserId(userId: Int) {
-        defaults.set(userId, forKey: "userId")
-    }
-
-    func getUserId() -> Int {
-        return defaults.integer(forKey: "userId") 
-    }
-
     // isFinishedOnboarding
     func saveFinishedOnboarding(finished: Bool) {
         defaults.set(finished, forKey: "isFinishedOnboarding")

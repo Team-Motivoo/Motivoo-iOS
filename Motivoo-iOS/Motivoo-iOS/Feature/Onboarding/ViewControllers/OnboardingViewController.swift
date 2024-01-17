@@ -318,6 +318,13 @@ final class OnboardingViewController: BaseViewController {
             exerciseTime: questionArray["exerciseTime"] as? String ?? "",
             exerciseNote: questionArray["exerciseNote"] as? [String] ?? []
         )
+
+        if UserDefaultManager.shared.getUserMatcehd() {
+            if UserDefaultManager.shared.getFinishedOnboarding() {
+                
+            }
+        }
+
     }
 }
 
@@ -405,7 +412,13 @@ extension OnboardingViewController {
             let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
             if isMatched {
                 // 온보딩을 이전에 매칭이 완료된 경우
-                SceneDelegate.shared.changeRootViewToMain()
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
+                }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
             } else {
                 let invitationViewController = InvitationViewController()
                 self.navigationController?.pushViewController(invitationViewController, animated: true)

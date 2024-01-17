@@ -47,7 +47,7 @@ final class InvitationViewController: BaseViewController {
     override func setupNavigationBar() {
         super.setupNavigationBar()
 
-        self.navigationItem.leftBarButtonItem?.isHidden = true
+        self.navigationItem.leftBarButtonItem?.isHidden = false
     }
 
     override func setHierachy() {
@@ -145,7 +145,13 @@ extension InvitationViewController {
             }
             if result.isMatched {
                 UserDefaultManager.shared.saveUserMatcehd(match: result.isMatched)
-                SceneDelegate.shared.changeRootViewToMain()
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
+                }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
             }
         }
     }

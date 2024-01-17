@@ -48,7 +48,7 @@ final class InputInvitationViewController: BaseViewController {
     override func setupNavigationBar() {
         super.setupNavigationBar()
 
-        self.navigationItem.leftBarButtonItem?.isHidden = true
+        self.navigationItem.leftBarButtonItem?.isHidden = false
     }
 
     override func setHierachy() {
@@ -115,7 +115,7 @@ extension InputInvitationViewController {
                             print("sceneDelegate가 할당 Error")
                             return
                         }
-                        let rootViewController = OnboardingViewController()
+                        let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
                         delegate.window?.rootViewController = rootViewController
                     } else {
                         // 온보딩 안함
@@ -125,7 +125,8 @@ extension InputInvitationViewController {
                             print("sceneDelegate가 할당 Error")
                             return
                         }
-                        let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                        self.navigationItem.leftBarButtonItem?.isHidden = false
+                        let rootViewController = OnboardingViewController()
                         delegate.window?.rootViewController = rootViewController
                     }
                 } else {

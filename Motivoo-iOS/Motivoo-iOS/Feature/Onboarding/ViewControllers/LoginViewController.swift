@@ -92,9 +92,7 @@ final class LoginViewController: BaseViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    print("카카오 톡으로 로그인 성공")
-                    let startViewController = StartViewController()
-                    self.navigationController?.pushViewController(startViewController, animated: true)
+                    print("==== 카카오 톡으로 로그인 성공")
                     // 로그인 관련 메소드 추가
                     self.accesstoken = oauthToken?.accessToken ?? ""
                     self.requestPostLoginAPI(accesstoken: self.accesstoken, tokenType: self.loginPlatform)
@@ -106,7 +104,7 @@ final class LoginViewController: BaseViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    print("카카오 계정으로 로그인 성공 /n ===oauthToken: \(String(describing: oauthToken?.accessToken))")
+                    print("==== 카카오 계정으로 로그인 성공 /n ===oauthToken: \(String(describing: oauthToken?.accessToken))")
                     // 관련 메소드 추가
                     self.accesstoken = oauthToken?.accessToken ?? ""
                     self.requestPostLoginAPI(accesstoken: self.accesstoken, tokenType: self.loginPlatform)
@@ -168,7 +166,6 @@ extension LoginViewController {
         OnboardingAPI.shared.postLogin(param: param) { result in
             guard let result = self.validateResult(result) as? OnboardingLoginResponse 
             else {
-                
                 return
             }
 //            print("\n===0000======")
@@ -176,8 +173,8 @@ extension LoginViewController {
 //            print("이름: \(result.nickname)")
 //            print("accessToken: \(result.accessToken)")
 //            print("refreshToken: \(result.refreshToken)")
+            print("=========TokenManager===")
             TokenManager.shared.saveToken(token: "Bearer \(result.accessToken)")
-            UserDefaultManager.shared.saveUserId(userId: result.id)
 
             let termsOfUseViewController = TermsOfUseViewController()
             self.navigationController?.pushViewController(termsOfUseViewController, animated: true)
