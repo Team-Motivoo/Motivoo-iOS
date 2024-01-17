@@ -78,16 +78,10 @@ enum TextLiterals {
             static var lowSubtitle = "걷기, 요가, 스트레칭 등"
 
             static var howManyExercise = "일주일에 운동을\n몇 번 하시나요?"
-            static var one = "1일 이하"
-            static var two = "1일 - 3일 이내"
-            static var three = "3일 - 5일 이내"
-            static var five = "5일 - 매일"
-
-            // 디자이너한테 확인 후 수정
-//            static var one = "1일 미만"
-//            static var two = "1-2회"
-//            static var three = "3-4회"
-//            static var five = "5회 이상"
+            static var one = "1회 미만"
+            static var two = "1-2회"
+            static var three = "3-4회"
+            static var five = "5회 이상"
 
             static var howLongExercise = "하루에 몇 시간 정도\n운동하시나요?"
             static var thirtyMinutes = "30분 미만"
