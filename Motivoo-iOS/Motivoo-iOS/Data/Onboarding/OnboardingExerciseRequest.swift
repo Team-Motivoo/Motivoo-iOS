@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - OnboardingExerciseRequest
+
 struct OnboardingExerciseRequest: Codable {
     let type: String
     let age: Int

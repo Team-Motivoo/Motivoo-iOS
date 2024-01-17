@@ -21,15 +21,15 @@ extension OnboardingService: BaseTargetType {
     var path: String {
         switch self {
         case .postLogin:
-            return "/oauth/login"
+            return TextLiterals.URLs.postLogin
         case .postExercise:
-            return "/user/exercise"
+            return TextLiterals.URLs.postExercise
         case .getExercise:
-            return "/user/onboarding"
+            return TextLiterals.URLs.getExercise
         case .patchInviteCode:
-            return "/parentchild/match"
+            return TextLiterals.URLs.patchInviteCode
         case .getMatchingCheck:
-            return "/onboarding/match"
+            return TextLiterals.URLs.getMatchingCheck
         }
     }
 
