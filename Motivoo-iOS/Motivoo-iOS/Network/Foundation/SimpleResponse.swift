@@ -11,7 +11,7 @@ struct SimpleResponse: Codable {
     // response body 없는 모델
     let code: Int?
     let message: String?
-    let success: String?
+    let success: Bool?
     let data: Data?
 }
 

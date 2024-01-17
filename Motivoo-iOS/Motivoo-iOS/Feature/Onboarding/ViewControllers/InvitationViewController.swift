@@ -12,11 +12,34 @@ import Then
 
 final class InvitationViewController: BaseViewController {
 
+    //MARK: - Properties
+
+    var invitationCode: String = UserDefaults.standard.string(forKey: "inviteCode") ?? "Error"
+    lazy var invitationText: String = ""
+
+    // MARK: - UI Component
+
     private let invitationView = InvitationView()
 
-    // MARK: - Life Cycles
-
     // MARK: - Override Functions
+    override func viewWillAppear(_ animated: Bool) {
+        invitationView.codeLabel.text = invitationCode
+
+        invitationText =
+        """
+        자녀와 부모를 잇는 매일 한 걸음! 🏃‍♂️💚 '모티부'에 초대받았어요.
+        매일 운동 미션을 수행하며 가족과 함께 건강 습관을 만들어 보아요!
+
+        https://gayeong04.notion.site/7f6097380a0b43d38ae265ea985152e7?pvs=4
+
+        1.위 링크로 들어가 모티부를 설치해요.
+        2.설치가 완료되면 로그인 후 '초대코드 입력하기' 버튼을 누르고 아래 초대코드를 입력하세요.
+        3.주어진 질문들에 답하면 맞춤 운동과 함께 자녀와의 운동이 시작됩니다 :)
+
+        초대코드: \(invitationCode)
+        """
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,7 +47,7 @@ final class InvitationViewController: BaseViewController {
     override func setupNavigationBar() {
         super.setupNavigationBar()
 
-        self.navigationItem.leftBarButtonItem?.isHidden = true
+        self.navigationItem.leftBarButtonItem?.isHidden = false
     }
 
     override func setHierachy() {
@@ -48,13 +71,12 @@ final class InvitationViewController: BaseViewController {
     private func copyButtonDidTap() {
         showClipboardLabel(TextLiterals.Onboarding.Invitation.clipboard, withDuration: 0.5, delay: 1.0)
         // 클립보드 복사하기
-        UIPasteboard.general.string = invitationView.codeLabel.text
+        UIPasteboard.general.string = invitationText
     }
 
     @objc
     private func matchingCheckButtonDidTap() {
-        // checking
-        showMatchingLabel(TextLiterals.Onboarding.Invitation.checking, withDuration: 0.5, delay: 2.0)
+        requestGetMatchingCheck()
     }
 
     func showMatchingLabel(_ message : String, withDuration: Double, delay: Double) {
@@ -113,3 +135,24 @@ final class InvitationViewController: BaseViewController {
     }
 }
 
+extension InvitationViewController {
+    private func requestGetMatchingCheck() {
+        OnboardingAPI.shared.getMatchingCheck() { result in
+            guard let result = self.validateResult(result) as? MatchingCheckResponse 
+            else {
+                self.showMatchingLabel(TextLiterals.Onboarding.Invitation.checking, withDuration: 0.5, delay: 2.0)
+                return
+            }
+            if result.isMatched {
+                UserDefaultManager.shared.saveUserMatcehd(match: result.isMatched)
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
+                }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
+            }
+        }
+    }
+}

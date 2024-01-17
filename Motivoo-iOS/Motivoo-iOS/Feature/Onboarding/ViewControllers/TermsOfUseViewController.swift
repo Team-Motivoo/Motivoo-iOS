@@ -143,6 +143,8 @@ final class TermsOfUseViewController: BaseViewController {
     func nextButtonDidTap() {
         let startViewController = StartViewController()
         self.navigationController?.pushViewController(startViewController, animated: true)
+
+        UserDefaultManager.shared.saveUserLoggedIn(login: true)
     }
 }
 

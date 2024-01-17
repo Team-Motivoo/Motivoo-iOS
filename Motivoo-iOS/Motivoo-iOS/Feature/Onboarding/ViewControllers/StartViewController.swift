@@ -12,15 +12,28 @@ import Then
 
 final class StartViewController: BaseViewController {
 
+    //MARK: - Properties
+    lazy var isMatched: Bool = false
+    lazy var isFinished: Bool = false
+
     // MARK: - UI Component
     private let motivooTextLogo = UIImageView()
     private let sloganLabel = UILabel()
     private let imageView = UIImageView()
-    private let startMotivooButton = MotivooButton(text: "모티부 시작하기", buttonStyle: .gray900)
-    private let invitationCodeButton = MotivooButton(text: "초대코드 입력하기", buttonStyle: .gray100)
+    private let startMotivooButton = MotivooButton(text: TextLiterals.Onboarding.Login.motivooStart, buttonStyle: .gray900)
+    private let invitationCodeButton = MotivooButton(text: TextLiterals.Onboarding.Login.invitationCode, buttonStyle: .gray100)
 
 
     // MARK: - Life Cycles
+
+    override func viewWillAppear(_ animated: Bool) {
+        print("===StartVC ViewWillAppear: \(TokenManager.shared.getToken())")
+        print("===StartVC ViewWillAppear: \(UserDefaultManager.shared.getFinishedOnboarding())")
+        isMatched = UserDefaultManager.shared.getUserMatcehd()
+        isFinished = UserDefaultManager.shared.getFinishedOnboarding()
+
+        requestGetUserExercise()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,13 +105,37 @@ final class StartViewController: BaseViewController {
 
     @objc
     private func startMotivooButtonDidTap() {
-        let onboardingViewController = OnboardingViewController()
-        self.navigationController?.pushViewController(onboardingViewController, animated: true)
+        if !isMatched {
+            // 온보딩 정보를 입력했다면
+            if isFinished {
+                let invitationViewController = InvitationViewController()
+                self.navigationController?.pushViewController(invitationViewController, animated: true)
+            } else {
+                let onboardingViewController = OnboardingViewController()
+                self.navigationController?.pushViewController(onboardingViewController, animated: true)
+            }
+        } else {
+            let onboardingViewController = OnboardingViewController()
+            self.navigationController?.pushViewController(onboardingViewController, animated: true)
+        }
     }
 
     @objc
     private func invitationCodeButtonDidTap() {
         let inputInvitationViewController = InputInvitationViewController()
         self.navigationController?.pushViewController(inputInvitationViewController, animated: true)
+        self.navigationItem.leftBarButtonItem?.isHidden = false
+    }
+}
+
+extension StartViewController {
+    private func requestGetUserExercise() {
+        OnboardingAPI.shared.getExercise() { result in
+            guard let result = self.validateResult(result) as? UserExerciseResponse else {
+                return
+            }
+            UserDefaultManager.shared.saveFinishedOnboarding(finished: result.isFinishedOnboarding)
+            print("===Finish:  \(result.isFinishedOnboarding)")
+        }
     }
 }

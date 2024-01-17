@@ -12,11 +12,18 @@ import Then
 
 final class OnboardingViewController: BaseViewController {
 
+    //MARK: - Properties
+
     lazy var choiceThreeButtonArray: [String] = []
     lazy var selectButtonName2: String = ""
     lazy var selectButtonName3: String = ""
     lazy var selectButtonName4: String = ""
     lazy var selectButtonName5: String = ""
+
+    lazy var questionArray: [String: Any] = ["type": "", "age": 0, "isExercise": true,
+                                             "exerciseType":"", "exerciseCount":"", "exerciseTime":"", "exerciseNote":""]
+
+    // MARK: - UI Component
 
     private lazy var onboardingProgressView = UIProgressView()
     let onboardingCollectionView: UICollectionView = {
@@ -93,7 +100,13 @@ final class OnboardingViewController: BaseViewController {
         if (sender.isSelected) {
             if (selectButtonName2 == "") {
                 // 버튼 선택
+                selectButtonName2 = sender.accessibilityIdentifier ?? "Unknown"
                 sender.isSelected = false
+                if selectButtonName2 == "yes" {
+                    questionArray["isExercise"] = true
+                } else {
+                    questionArray["isExercise"] = false
+                }
             } else {
                 let indexPath = IndexPath(row: 1, section: 0)
                 if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView2Cell {
@@ -105,8 +118,8 @@ final class OnboardingViewController: BaseViewController {
                         cell.yesButton.isSelected = true
                     }
                 }
+                selectButtonName2 = sender.accessibilityIdentifier ?? "Unknown"
             }
-            selectButtonName2 = sender.accessibilityIdentifier ?? "Unknown"
             if (selectButtonName2 == "yes") {
                 TextLiterals.Onboarding.Q3.exerciseTitle = "평소 하는 운동을 알려주세요"
                 TextLiterals.Onboarding.Q3.exercisePowerSubtitle = "운동 강도에 따라 선택해주세요"
@@ -136,6 +149,7 @@ final class OnboardingViewController: BaseViewController {
         } else {
             sender.isSelected = true
             selectButtonName2 = ""
+            questionArray["isExercise"] = nil
         }
     }
 
@@ -160,10 +174,18 @@ final class OnboardingViewController: BaseViewController {
                 }
             }
             selectButtonName3 = sender.accessibilityIdentifier ?? "Unknown"
+            if selectButtonName3 == "high" {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q3.highTitle
+            } else if selectButtonName3 == "medium" {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q3.middleTitle
+            } else {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q3.lowTitle
+            }
             nextButtonDidTap()
         } else {
             sender.isSelected = true
             selectButtonName3 = ""
+            questionArray["exerciseType"] = ""
         }
     }
 
@@ -173,6 +195,7 @@ final class OnboardingViewController: BaseViewController {
             if (selectButtonName4 == "") {
                 // 버튼 선택
                 sender.isSelected = false
+                questionArray["exerciseCount"] = sender.titleLabel?.text
             } else {
                 let indexPath = IndexPath(row: 3, section: 0)
                 if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView4Cell {
@@ -186,6 +209,7 @@ final class OnboardingViewController: BaseViewController {
                         cell.day5Button.isSelected = true
                     }
                     sender.isSelected = false
+                    questionArray["exerciseCount"] = sender.titleLabel?.text
                 }
             }
             selectButtonName4 = sender.accessibilityIdentifier ?? "Unknown"
@@ -193,6 +217,7 @@ final class OnboardingViewController: BaseViewController {
         } else {
             sender.isSelected = true
             selectButtonName4 = ""
+            questionArray["exerciseCount"] = ""
         }
     }
 
@@ -202,6 +227,7 @@ final class OnboardingViewController: BaseViewController {
             if (selectButtonName5 == "") {
                 // 버튼 선택
                 sender.isSelected = false
+                questionArray["exerciseTime"] = sender.titleLabel?.text
             } else {
                 let indexPath = IndexPath(row: 4, section: 0)
                 if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView5Cell {
@@ -215,6 +241,7 @@ final class OnboardingViewController: BaseViewController {
                         cell.twoHoueOverButton.isSelected = true
                     }
                     sender.isSelected = false
+                    questionArray["exerciseTime"] = sender.titleLabel?.text
                 }
             }
             selectButtonName5 = sender.accessibilityIdentifier ?? "Unknown"
@@ -222,6 +249,7 @@ final class OnboardingViewController: BaseViewController {
         } else {
             sender.isSelected = true
             selectButtonName5 = ""
+            questionArray["exerciseTime"] = ""
         }
     }
 
@@ -234,15 +262,15 @@ final class OnboardingViewController: BaseViewController {
             if (choiceThreeButtonArray.count < 3) {
                 sender.isSelected = false
                 choiceThreeButtonArray.append(sender.accessibilityIdentifier ?? "Unknown")
-                if (choiceThreeButtonArray.count == 3) {
-                    cell.startMotivooButton.isEnabled = true
-                    cell.isButtonEnabled = true
-                }
+                cell.startMotivooButton.isEnabled = true
+                cell.isButtonEnabled = true
             }
         } else {
             sender.isSelected = true
             cell.startMotivooButton.isEnabled = false
-            cell.isButtonEnabled = false
+            if (choiceThreeButtonArray.count <= 1) {
+                cell.isButtonEnabled = false
+            }
             let currentIndexPath = self.onboardingCollectionView.indexPathsForVisibleItems.first
             if let currentIndexPath = currentIndexPath, currentIndexPath.row + 1 < self.onboardingCollectionView.numberOfItems(inSection: 0) {
                 let nextIndexPath = IndexPath(row: currentIndexPath.row + 1, section: currentIndexPath.section)
@@ -278,9 +306,25 @@ final class OnboardingViewController: BaseViewController {
 
     @objc
     private func startMotivooButtonDidTap() {
-        // print("== 모티부 시작하기 ==")
-        let invitationViewController = InvitationViewController()
-        self.navigationController?.pushViewController(invitationViewController, animated: true)
+        print("\n")
+        questionArray["exerciseNote"] = choiceThreeButtonArray
+        print(questionArray)
+        requestPostExerciseAPI(
+            type: questionArray["type"] as? String ?? "",
+            age: questionArray["age"] as? Int ?? 0,
+            isExercise: questionArray["isExercise"] != nil,
+            exerciseType: questionArray["exerciseType"] as? String ?? "",
+            exerciseCount: questionArray["exerciseCount"] as? String ?? "",
+            exerciseTime: questionArray["exerciseTime"] as? String ?? "",
+            exerciseNote: questionArray["exerciseNote"] as? [String] ?? []
+        )
+
+        if UserDefaultManager.shared.getUserMatcehd() {
+            if UserDefaultManager.shared.getFinishedOnboarding() {
+                
+            }
+        }
+
     }
 }
 
@@ -338,6 +382,13 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.kneeButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.startMotivooButton.addTarget(self, action: #selector(startMotivooButtonDidTap), for: .touchUpInside)
             onboardingProgressView.setProgress(1.0, animated: true)
+            let cellInfo = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
+            if (!cellInfo.childButton.isSelected) { // 자식 버튼 클릭
+                questionArray["type"] = "자녀"
+            } else {
+                questionArray["type"] = "부모"
+            }
+            questionArray["age"] = cellInfo.ageInfo
             return cell
         }
         else {
@@ -346,6 +397,32 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
             cell.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
             return cell
+        }
+    }
+}
+
+extension OnboardingViewController {
+    func requestPostExerciseAPI(type: String, age: Int, isExercise: Bool, exerciseType: String, exerciseCount: String,
+                                exerciseTime: String, exerciseNote: [String]) {
+        let param = OnboardingExerciseRequest(type: type, age: age, isExercise: isExercise, exerciseType: exerciseType, exerciseCount: exerciseCount, exerciseTime: exerciseTime, exerciseNote: exerciseNote)
+        OnboardingAPI.shared.postExercise(param: param) { result in
+            guard let result = self.validateResult(result) as? OnboardingExerciseResponse else { return }
+            // UserDefault에 inviteCode 저장
+            UserDefaultManager.shared.saveInviteCode(inviteCode: result.inviteCode ?? "")
+            let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
+            if isMatched {
+                // 온보딩을 이전에 매칭이 완료된 경우
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
+                }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
+            } else {
+                let invitationViewController = InvitationViewController()
+                self.navigationController?.pushViewController(invitationViewController, animated: true)
+            }
         }
     }
 }

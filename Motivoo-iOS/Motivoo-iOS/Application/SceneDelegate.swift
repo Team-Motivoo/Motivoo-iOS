@@ -10,7 +10,7 @@ import UIKit
 import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+    static let shared = SceneDelegate()
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -30,5 +30,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 _ = AuthController.handleOpenUrl(url: url)
             }
         }
+    }
+
+    func changeRootViewToMain() {
+        guard let window = window else { return }
+        window.rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+        UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil)
     }
 }
