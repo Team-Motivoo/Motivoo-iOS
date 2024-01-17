@@ -14,6 +14,11 @@ import KakaoSDKUser
 
 final class LoginViewController: BaseViewController {
 
+    //MARK: - Properties
+
+    var accesstoken: String = ""
+    var loginPlatform: String = ""
+
     // MARK: - UI Component
 
     private let motivooTextLogo = UIImageView()
@@ -79,7 +84,8 @@ final class LoginViewController: BaseViewController {
 
     @objc
     private func kakaoLoginButtonDidTap() {
-        print("kakaoLoginButtonDidTap")
+        self.loginPlatform = "kakao"
+
         if (UserApi.isKakaoTalkLoginAvailable()) {
             //카톡 설치되어있으면 -> 카톡으로 로그인
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
@@ -89,8 +95,9 @@ final class LoginViewController: BaseViewController {
                     print("카카오 톡으로 로그인 성공")
                     let startViewController = StartViewController()
                     self.navigationController?.pushViewController(startViewController, animated: true)
-                    _ = oauthToken
                     // 로그인 관련 메소드 추가
+                    self.accesstoken = oauthToken?.accessToken ?? ""
+                    self.requestPostLoginAPI(accesstoken: self.accesstoken, tokenType: self.loginPlatform)
                 }
             }
         } else {
@@ -99,11 +106,10 @@ final class LoginViewController: BaseViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    print("카카오 계정으로 로그인 성공 /n ===oauthToken: \(String(describing: oauthToken))")
-                    let StartViewController = StartViewController()
-                    self.navigationController?.pushViewController(StartViewController, animated: true)
-                    _ = oauthToken
+                    print("카카오 계정으로 로그인 성공 /n ===oauthToken: \(String(describing: oauthToken?.accessToken))")
                     // 관련 메소드 추가
+                    self.accesstoken = oauthToken?.accessToken ?? ""
+                    self.requestPostLoginAPI(accesstoken: self.accesstoken, tokenType: self.loginPlatform)
                 }
             }
         }
@@ -119,6 +125,8 @@ final class LoginViewController: BaseViewController {
         controller.delegate = self
         controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
         controller.performRequests()
+        loginPlatform = "apple"
+        // requestGetLoginAPI(accesstoken: accesstoken, tokenType: loginPlatform)
     }
 }
 
@@ -151,5 +159,25 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     // 실패 후 동작
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("apple login failed")
+    }
+}
+
+extension LoginViewController {
+    func requestPostLoginAPI(accesstoken: String, tokenType: String) {
+        let param = OnboardingLoginRequest(socialAccessToken: accesstoken, tokenType: loginPlatform)
+        OnboardingAPI.shared.postLogin(param: param) { result in
+            guard let result = self.validateResult(result) as? OnboardingLoginResponse else { return }
+//            print("\n===0000======")
+//            print("result: \(result)")
+//            print("이름: \(result.nickname)")
+//            print("accessToken: \(result.accessToken)")
+//            print("refreshToken: \(result.refreshToken)")
+            TokenManager.shared.saveToken(token: "Bearer \(result.accessToken)")
+            UserDefaults.standard.set(result.nickname, forKey: "nickname")
+
+            let startViewController = StartViewController()
+            self.navigationController?.pushViewController(startViewController, animated: true)
+
+        }
     }
 }
