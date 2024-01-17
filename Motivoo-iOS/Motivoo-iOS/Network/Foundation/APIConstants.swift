@@ -16,7 +16,6 @@ struct APIConstants{
     static let auth = "Authorization"
     static let refresh = "RefreshToken"
     static let accessToken = TokenManager.shared.getToken()
-
 }
 
 extension APIConstants{

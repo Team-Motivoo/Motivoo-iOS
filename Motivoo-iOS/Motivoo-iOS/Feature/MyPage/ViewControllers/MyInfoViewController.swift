@@ -16,12 +16,19 @@ final class MyInfoViewController: BaseViewController {
     
     private var exerciseInfoDummy: [ExerciseInfo] = [ExerciseInfo(title: TextLiterals.MyPage.name, info: "김뿡뿡"),
                                                      ExerciseInfo(title: TextLiterals.MyPage.age, info: "54")]
+    
+    private var userInfo: MyInfoUserResponse? {
+        didSet {
+            myInfoView.myInfotableView.reloadData()
+        }
+    }
+    
     // MARK: - UI Components
     
     let myInfoView = MyInfoView()
     private var nextButton = UIButton()
     private let logoutPopupView = LeavePopupView()
-    
+    let mypageView = MyPageView()
     
     private func setTableViewConfig() {
         myInfoView.myInfotableView.register(SectionTitleTableViewCell.self,
@@ -39,6 +46,10 @@ final class MyInfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewConfig()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,7 +77,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return exerciseInfoDummy.count
+            return 2
         } else {
             return 1
         }
@@ -75,9 +86,14 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SectionTitleTableViewCell.cellIdentifier) as? SectionTitleTableViewCell else {return UITableViewCell()}
-            cell.configureCell(title: exerciseInfoDummy[indexPath.row].title, info: exerciseInfoDummy[indexPath.row].info)
-            print("cell: \(indexPath.row)")
             cell.selectionStyle = .none
+            if indexPath.row == 0 {
+                cell.configureCell(title: TextLiterals.MyPage.name, info: userInfo?.userNickname ?? String())
+            } else if indexPath.row == 1 {
+                
+                guard let age = userInfo?.userAge else { return UITableViewCell() }
+                cell.configureCell(title: TextLiterals.MyPage.age, info: "\(age)")
+            }
             return cell
         }
         else if indexPath.section == 1 {
@@ -155,4 +171,8 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
             return 16.adjusted
         }
     }
+    func dataBind(data: MyInfoUserResponse) {
+        self.userInfo = data
+       }
 }
+

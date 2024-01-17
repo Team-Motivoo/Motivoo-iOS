@@ -212,6 +212,13 @@ enum TextLiterals {
         static var patchInviteCode = "/parentchild/match"
         static var getMatchingCheck = "/onboarding/match"
     }
+    enum URL {
+        static var getMyInfo = "/user/me"
+        static var getExerciseInfo = "/user/exercise"
+        static var postLogout = "/oauth/logout"
+        static var deleteLeave = "/withdraw"
+        static var getMission = "/mission"
+    }
 }
 
 

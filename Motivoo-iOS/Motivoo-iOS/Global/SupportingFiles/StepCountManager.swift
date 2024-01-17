@@ -9,13 +9,14 @@ import Foundation
 import CoreMotion
 
 import UIKit
-//import FirebaseCore
-//import FirebaseFirestore
-//import FirebaseFirestoreSwift
+
+import FirebaseDatabase
+import FirebaseDatabaseSwift
+import FirebaseDatabaseInternal
 
 struct StepCountData {
-    var parent: Int = 0
-    var child: Int = 0
+    var mate: Int = 0
+    var user: Int = 0
 }
 
 final class StepCountManager {
@@ -23,32 +24,32 @@ final class StepCountManager {
     // MARK: - Properties
     
     static let shared = StepCountManager()
+    
+    private var db: DatabaseReference!
     private var timer: Timer? = nil
+    
     var pedoMeter = CMPedometer()
-    var isAuthAllowed: Bool = false
-//    private var db: Firestore!
-//    private var snapShotListener: ListenerRegistration?
+    var uid: Int?
+    var mid: Int?
     
     var stepCountDataCompletion: ((StepCountData) -> Void)?
-    
-    var tempParent: Int = 0 {
+    var mateStep: Int = 0 {
         didSet {
             //새로 업데이트된 값이 다를때만, 값 증가시켜주기
-            if tempParent != stepCountData.parent {
-                self.stepCountData.parent = tempParent
-//                self.updateStepCount(step: tempParent)
+            if mateStep != stepCountData.mate {
+                self.stepCountData.mate = mateStep
+                self.updateStepCount(step: mateStep)
             }
         }
     }
     var tempChild: Int = 0 {
         didSet {
-            if tempChild != stepCountData.child {
-                self.stepCountData.child = tempChild
-//                self.updateStepCount(step: tempChild)
+            if tempChild != stepCountData.user {
+                self.stepCountData.user = tempChild
+                self.updateStepCount(step: tempChild)
             }
         }
     }
-    
     var stepCountData = StepCountData() {
         didSet {
             guard let stepCountDataCompletion else {return}
@@ -59,12 +60,12 @@ final class StepCountManager {
     // MARK: - inits
     
     private init() {
-//        db = Firestore.firestore()
-//        self.getStepCount()
+        db = Database.database().reference()
+        self.getStepCount()
     }
     
     deinit {
-//        snapShotListener?.remove()
+        db.removeAllObservers()
     }
     
     // MARK: - Custom Functions
@@ -79,14 +80,19 @@ final class StepCountManager {
                                               repeats: true)
         }
         print("타이머 시작")
-
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        db.removeAllObservers()
+        db = nil
+        print("타이머 멈춤")
     }
     
     @objc private func runLoop() {
-        //        self.snapShotListener?.remove()
-        //        self.snapShotListener = nil
         self.getHealth()
-        //        self.getStepCount()
+        self.getStepCount()
     }
     
     func getHealth() {
@@ -111,12 +117,6 @@ final class StepCountManager {
         }
     }
     
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        print("타이머 멈춤")
-    }
-    
     func startCheckStepCount() {
         self.startTimer()
     }
@@ -125,42 +125,33 @@ final class StepCountManager {
         self.stopTimer()
     }
     
+    func getStepCount() {
+        
+        //한번만 쿼리 리스너 달아두면, 지속적으로 받아짐
+        //여기서 collecion의 motivoo-test 는 안바뀌겠지만,,
+        //"child1parent1" 는 사용자에 따라서 뭐 다르게 해줘도 되겠지?
+        //중요한건 저 리스터 해제 안시켜주면 난리나니까, 앱 종료할때, 혹은 더이상 필요없을때 리스너 해제 잘 시켜줘
+        db.child("Users/\(uid)").getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            print("허허 에러네요")
+            return
+          }
+            self.stepCountData.user = snapshot?.value as? Int ?? 0
+        })
+        
+        db.child("Users/\(mid)").getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            print("허허 에러네요")
+            return
+          }
+            self.stepCountData.mate = snapshot?.value as? Int ?? 0
+        })
+    }
     
-//    func getStepCount() {
-//        //한번만 쿼리 리스너 달아두면, 지속적으로 받아짐
-//        //여기서 collecion의 motivoo-test 는 안바뀌겠지만,,
-//        //"child1parent1" 는 사용자에 따라서 뭐 다르게 해줘도 되겠지?
-//        //중요한건 저 리스터 해제 안시켜주면 난리나니까, 앱 종료할때, 혹은 더이상 필요없을때 리스너 해제 잘 시켜줘
-//        self.snapShotListener = db.collection("motivoo-test").document("child2parent2")
-//            .addSnapshotListener { documentSnapshot, error in
-//                guard let document = documentSnapshot else {
-//                    print("Error fetching document: \(error!)")
-//                    return
-//                }
-//                guard let data = document.data() else {
-//                    print("Document data was empty.")
-//                    return
-//                }
-//                if let parentStepCount = data["parentCount"] as? Int,
-//                   let childStepCount = data["childCount"] as? Int {
-//                    self.stepCountData.parent = parentStepCount
-//                    self.stepCountData.child = childStepCount
-//                }
-//                print("Current data: \(data)")
-//            }
-//    }
-    
-    //걸음수가 바꼇을때 값 업데이트 해주는 부분
-//    func updateStepCount(step: Int) {
-//        db.collection("motivoo-test").document("child2parent2")
-//            .addSnapshotListener { documentSnapshot, error in
-//                guard let document = documentSnapshot else {
-//                    print("Error fetching document: \(error!)")
-//                    return
-//                }
-//                document.reference.updateData(["childCount": self.stepCountData.child,
-//                                               "parentCount": self.stepCountData.parent])
-//            }
-//    }
+    //    걸음수가 바꼇을때 값 업데이트 해주는 부분
+    func updateStepCount(step: Int) {
+        self.db.child("Users/\(uid)").setValue(self.stepCountData.user)
+    }
 }
-
