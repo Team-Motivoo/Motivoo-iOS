@@ -68,7 +68,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         myMissionLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
-            $0.numberOfLines = 1
+            $0.numberOfLines = 2
         }
         
         thumpIconImageView.do {
@@ -141,7 +141,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         opponentMissionLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
-            $0.numberOfLines = 1
+            $0.numberOfLines = 2
             $0.clipsToBounds = true
         }
         
