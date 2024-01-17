@@ -24,6 +24,9 @@ final class StartViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print(TokenManager.shared.getToken())
+        requestGetUserExercise()
     }
 
     // MARK: - Override Functions
@@ -100,5 +103,16 @@ final class StartViewController: BaseViewController {
     private func invitationCodeButtonDidTap() {
         let inputInvitationViewController = InputInvitationViewController()
         self.navigationController?.pushViewController(inputInvitationViewController, animated: true)
+    }
+}
+
+extension StartViewController {
+    private func requestGetUserExercise() {
+        OnboardingAPI.shared.getExercise() { result in
+            guard let result = self.validateResult(result) as? UserExerciseResponse else {
+                return
+            }
+            print("===Finish:  \(result.isFinishedOnboarding)")
+        }
     }
 }
