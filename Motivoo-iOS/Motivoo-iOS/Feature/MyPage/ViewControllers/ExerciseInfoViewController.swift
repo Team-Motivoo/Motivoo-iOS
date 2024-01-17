@@ -13,17 +13,9 @@ import Then
 final class ExerciseInfoViewController: BaseViewController {
     
     // MARK: - Properties
-
-    private var exerciseInfoDummy: [ExerciseInfo] = [ExerciseInfo(title: TextLiterals.MyPage.exercisestatus, info: "예"),
-                                                     ExerciseInfo(title: TextLiterals.MyPage.intensity, info: "아니오"),
-                                                     ExerciseInfo(title: TextLiterals.MyPage.weeklyaverageFrequency, info: "예"),
-                                                     ExerciseInfo(title: TextLiterals.MyPage.averageTimePerDay, info: "아니오"),
-                                                     ExerciseInfo(title: TextLiterals.MyPage.pointsToNote, info: "예")]
     
     var exerciseInfo: ExerciseInfoResponse? {
         didSet {
-//            myInfoView.myInfotableView.reloadData()
-//            mypageView.tableView.reloadData()
             exerciseInfoView.exerciseInfotableView.reloadData()
         }
     }
