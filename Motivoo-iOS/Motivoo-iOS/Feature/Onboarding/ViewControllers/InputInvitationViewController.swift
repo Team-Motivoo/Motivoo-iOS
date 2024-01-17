@@ -12,6 +12,12 @@ import Then
 
 final class InputInvitationViewController: BaseViewController {
 
+    //MARK: - Properties
+
+    private lazy var textFieldValue: String = ""
+
+    // MARK: - UI Component
+
     private let inputInvitationView = InputInvitationView()
 
     var isButtonEnabled: Bool = false {
@@ -64,27 +70,9 @@ final class InputInvitationViewController: BaseViewController {
 
     @objc
     private func startMotivooButtonDidTap() {
-        // checking
-        let text = inputInvitationView.inputTextField.text
-        if (text == "123") {
-
-            print("=== 모티부 시작하기 홈VC로 이동")
-            inputInvitationView.inputTextField.layer.borderColor = UIColor.gray300.cgColor
-            inputInvitationView.wrongLabel.isHidden = true
-            
-            // 모티부 시작하기 홈VC로 이동
-
-            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-            guard let delegate = sceneDelegate else {
-                print("sceneDelegate가 할당 Error")
-                return
-            }
-            let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
-            delegate.window?.rootViewController = rootViewController
-        } else {
-            inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor
-            inputInvitationView.wrongLabel.isHidden = false
-        }
+        textFieldValue = inputInvitationView.inputTextField.text ?? ""
+        print("textFieldValue= \(textFieldValue)")
+        requestPatchInviteCodeAPI(inviteCode: textFieldValue)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -102,6 +90,34 @@ final class InputInvitationViewController: BaseViewController {
             }
             inputInvitationView.inputTextField.layer.borderColor = UIColor.blue500.cgColor
             inputInvitationView.wrongLabel.isHidden = true
+        }
+    }
+}
+
+extension InputInvitationViewController {
+    func requestPatchInviteCodeAPI(inviteCode: String) {
+        let param = InviteCodeRequest(inviteCode: inviteCode)
+        OnboardingAPI.shared.patchInviteCode(param: param) { result in
+            guard let result = self.validateResult(result) as? InviteCodeResponse else { return }
+            print(result)
+            if (result.isMatched && !result.myInviteCode) {
+                print("=== 모티부 시작하기 홈VC로 이동")
+                self.inputInvitationView.inputTextField.layer.borderColor = UIColor.gray300.cgColor
+                self.inputInvitationView.wrongLabel.isHidden = true
+
+                // 모티부 시작하기 홈VC로 이동
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
+                }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
+            } else {
+                print("실패에에")
+                self.inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor
+                self.inputInvitationView.wrongLabel.isHidden = false
+            }
         }
     }
 }
