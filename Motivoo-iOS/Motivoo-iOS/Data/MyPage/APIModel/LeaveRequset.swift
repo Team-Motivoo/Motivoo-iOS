@@ -1,8 +1,8 @@
 //
-//  LeaveRequsetl.swift
+//  LeaveRequset.swift
 //  Motivoo-iOS
 //
-//  Created by Hyori Choi on 1/16/24.
+//  Created by Hyori Choi on 1/17/24.
 //
 
 import Foundation

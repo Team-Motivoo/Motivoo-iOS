@@ -1,4 +1,3 @@
-//
 //  MyService.swift
 //  Motivoo-iOS
 //
