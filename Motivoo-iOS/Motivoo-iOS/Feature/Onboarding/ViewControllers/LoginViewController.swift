@@ -166,17 +166,21 @@ extension LoginViewController {
     func requestPostLoginAPI(accesstoken: String, tokenType: String) {
         let param = OnboardingLoginRequest(socialAccessToken: accesstoken, tokenType: loginPlatform)
         OnboardingAPI.shared.postLogin(param: param) { result in
-            guard let result = self.validateResult(result) as? OnboardingLoginResponse else { return }
+            guard let result = self.validateResult(result) as? OnboardingLoginResponse 
+            else {
+                
+                return
+            }
 //            print("\n===0000======")
 //            print("result: \(result)")
 //            print("이름: \(result.nickname)")
 //            print("accessToken: \(result.accessToken)")
 //            print("refreshToken: \(result.refreshToken)")
             TokenManager.shared.saveToken(token: "Bearer \(result.accessToken)")
-            UserDefaults.standard.set(result.nickname, forKey: "nickname")
+            UserDefaultManager.shared.saveUserId(userId: result.id)
 
-            let startViewController = StartViewController()
-            self.navigationController?.pushViewController(startViewController, animated: true)
+            let termsOfUseViewController = TermsOfUseViewController()
+            self.navigationController?.pushViewController(termsOfUseViewController, animated: true)
 
         }
     }

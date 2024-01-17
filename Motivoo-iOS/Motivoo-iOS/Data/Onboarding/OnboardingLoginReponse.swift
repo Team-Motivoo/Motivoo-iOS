@@ -9,7 +9,8 @@ import Foundation
 
 // MARK: - OnboardingLoginResponse
 struct OnboardingLoginResponse: Codable {
-    let tokenType, accessToken, refreshToken, id: String
+    let tokenType, accessToken, refreshToken: String
+    let id: Int
     let nickname: String
 
     enum CodingKeys: String, CodingKey {

@@ -400,10 +400,16 @@ extension OnboardingViewController {
         let param = OnboardingExerciseRequest(type: type, age: age, isExercise: isExercise, exerciseType: exerciseType, exerciseCount: exerciseCount, exerciseTime: exerciseTime, exerciseNote: exerciseNote)
         OnboardingAPI.shared.postExercise(param: param) { result in
             guard let result = self.validateResult(result) as? OnboardingExerciseResponse else { return }
-            UserDefaults.standard.set(result.inviteCode, forKey: "inviteCode")
-            let invitationViewController = InvitationViewController()
-            self.navigationController?.pushViewController(invitationViewController, animated: true)
-
+            // UserDefault에 inviteCode 저장
+            UserDefaultManager.shared.saveInviteCode(inviteCode: result.inviteCode ?? "")
+            let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
+            if isMatched {
+                // 온보딩을 이전에 매칭이 완료된 경우
+                SceneDelegate.shared.changeRootViewToMain()
+            } else {
+                let invitationViewController = InvitationViewController()
+                self.navigationController?.pushViewController(invitationViewController, animated: true)
+            }
         }
     }
 }
