@@ -37,9 +37,9 @@ final class SplashViewController: BaseViewController {
         super.viewDidLoad()
 
         self.lottieView.play()
-        self.lottieView.loopMode = .loop
+        self.lottieView.loopMode = .playOnce
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
             guard let delegate = sceneDelegate else {
                 print("sceneDelegate가 할당 Error")
