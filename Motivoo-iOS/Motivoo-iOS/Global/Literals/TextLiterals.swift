@@ -140,6 +140,7 @@ enum TextLiterals {
             static var parentWalk = "부모님 걸음"
             static var clearPercent = "운동 달성률"
             static var checkMission = "운동 인증하기"
+            static var completedMission = "인증 완료"
         }
         
         enum Prove {
