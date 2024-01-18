@@ -992,7 +992,6 @@
 				02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
 				34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */,
-				34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */,
 				02E104222B568493003852A7 /* OnboardingLoginRequest.swift in Sources */,
 				02642C942B46913B00134D73 /* UIImage+.swift in Sources */,
 				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,

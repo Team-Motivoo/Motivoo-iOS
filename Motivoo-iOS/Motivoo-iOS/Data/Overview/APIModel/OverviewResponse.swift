@@ -17,8 +17,8 @@ import Foundation
 
 struct OverViewResponse: Codable {
     let userType: String
-    let todayMission: TodayMission
-    let missionHistory: [MissionHistory]
+    let todayMission: TodayMission?
+    let missionHistory: [MissionHistory]?
 
     enum CodingKeys: String, CodingKey {
         case userType = "user_type"

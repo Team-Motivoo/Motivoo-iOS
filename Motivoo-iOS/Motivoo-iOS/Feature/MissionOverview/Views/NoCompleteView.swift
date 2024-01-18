@@ -53,21 +53,19 @@ final class NoCompleteView: BaseView {
     
     override func setLayout() {
         sleepIconImageView.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().inset(225.adjusted)
             $0.width.equalTo(120.adjusted)
             $0.height.equalTo(120.adjusted)
+            $0.bottom.equalTo(noExerciseMsgLable.snp.top)
+            $0.centerX.equalToSuperview()
         }
         noExerciseMsgLable.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(sleepIconImageView.snp.bottom)
+            $0.center.equalToSuperview()
         }
         goExerciseButton.snp.makeConstraints {
             $0.top.equalTo(noExerciseMsgLable.snp.bottom).offset(80.adjusted)
-            $0.centerX.equalToSuperview()
             $0.width.equalTo(220.adjusted)
             $0.height.equalTo(52.adjusted)
+            $0.centerX.equalToSuperview()
         }
     }
-    
 }

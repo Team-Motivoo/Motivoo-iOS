@@ -20,13 +20,13 @@ final class MissionOverviewViewController: BaseViewController {
         }
     }
     
+    // MARK: - UI Components
     
-    let missionOverviewView = MissionOverviewView()
-    let noCompleteView = NoCompleteView()
+    lazy var missionOverviewView = MissionOverviewView()
+    lazy var noCompleteView = NoCompleteView()
     let overViewCell = OverViewCollectionViewCell()
     let bigMissionCell = LabelCollectionViewCell()
     static let identifier: String = "ImageCollectionViewCell"
-    // MARK: - UI Components
     
     private func setCollectionViewConfig() {
         missionOverviewView.collectionView.register(LabelCollectionViewCell.self,
@@ -35,6 +35,27 @@ final class MissionOverviewViewController: BaseViewController {
                                                     forCellWithReuseIdentifier: OverViewCollectionViewCell.identifier)
         missionOverviewView.collectionView.delegate = self
         missionOverviewView.collectionView.dataSource = self
+    }
+    
+    override func setButtonEvent() {
+        noCompleteView.goExerciseButton.addTarget(self, action: #selector(goExerciseButtonDidTapped), for: .touchUpInside)
+    }
+    
+    @objc private func goExerciseButtonDidTapped() {
+//        let homeViewController = HomeViewController()
+//        if let navigationController = self.navigationController {
+//            navigationController.pushViewController(homeViewController, animated: true)
+//        } else {
+//            print("Navigation controller is nil")
+//        }
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else {
+            print("sceneDelegate가 할당 Error")
+            return
+        }
+        let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+        delegate.window?.rootViewController = rootViewController
+        
     }
     //
     //    // MARK: - Life Cycles
@@ -46,8 +67,15 @@ final class MissionOverviewViewController: BaseViewController {
     }
     
     // MARK: - Override Functions
+    
+    override func setUI() {
+        noCompleteView.do {
+            $0.isHidden = true
+        }
+    }
+    
     override func setHierachy() {
-        self.view.addSubview(missionOverviewView)
+        self.view.addSubviews(missionOverviewView, noCompleteView)
         //        self.view.addSubview(noCompleteView)
         
     }
@@ -56,29 +84,17 @@ final class MissionOverviewViewController: BaseViewController {
         missionOverviewView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        noCompleteView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
-   
 }
 
-
-
-
-//    override func setButtonEvent() {
-//        noCompleteView.goExerciseButton.addTarget(self, action: #selector(goExerciseButtonDidTapped), for: .touchUpInside)
-//    }
-
-//    // MARK: - Custom Method
-//
-//    @objc
-//    private func goExerciseButtonDidTapped() {
-//        let homeViewController = HomeViewController()
-//        navigationController?.pushViewController(homeViewController, animated: true)
-//        self.navigationController?.navigationBar.isHidden = false
 
 //// MARK: -ImageViewController
 extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // 섹션의 수를 반환합니다. 여기서는 2개의 섹션을 사용하고 있습니다.
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,7 +102,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
             print("=== section == 0")
             return 1
         } else {
-            return mission?.missionHistory.count ?? 0
+            return mission?.missionHistory?.count ?? 0
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -95,7 +111,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                 return UICollectionViewCell()
             }
             
-            if let todayMissionTitle = mission?.todayMission.missionContent {
+            if let todayMissionTitle = mission?.todayMission?.missionContent {
                 cell.todayMissionLabel.text = todayMissionTitle
                 print(todayMissionTitle)
             }
@@ -105,13 +121,13 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
             print("=== OverViewCollectionViewCell")
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverViewCollectionViewCell.cellIdentifier, for: IndexPath()) as? OverViewCollectionViewCell else {return UICollectionViewCell()}
             
-            let date = mission?.missionHistory[indexPath.row].date ?? ""
-            let myImage = mission?.missionHistory[indexPath.row].myImage ?? ""
-            let opponentImage = mission?.missionHistory[indexPath.row].opponentImage ?? ""
-            let myMission = mission?.missionHistory[indexPath.row].myMission ?? ""
-            let opponentMission = mission?.missionHistory[indexPath.row].opponentMission ?? ""
-            let myStatusChip = mission?.missionHistory[indexPath.row].myStatusBadge ?? ""
-            let opponentStatusChip = mission?.missionHistory[indexPath.row].opponentStatusBadge ?? ""
+            let date = mission?.missionHistory?[indexPath.row].date ?? ""
+            let myImage = mission?.missionHistory?[indexPath.row].myImage ?? ""
+            let opponentImage = mission?.missionHistory?[indexPath.row].opponentImage ?? ""
+            let myMission = mission?.missionHistory?[indexPath.row].myMission ?? ""
+            let opponentMission = mission?.missionHistory?[indexPath.row].opponentMission ?? ""
+            let myStatusChip = mission?.missionHistory?[indexPath.row].myStatusBadge ?? ""
+            let opponentStatusChip = mission?.missionHistory?[indexPath.row].opponentStatusBadge ?? ""
             
             cell.collectionViewConfigureCell(date: date,
                                              myImage: myImage,
@@ -121,13 +137,13 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                                              myStatusChip: myStatusChip,
                                              opponentStatusChip: opponentStatusChip)
             
-            let currentOverView = mission?.missionHistory[indexPath.row]
+            let currentOverView = mission?.missionHistory?[indexPath.row]
             let oppoentStatusChip = currentOverView?.opponentStatusBadge
             print(myStatusChip)
             print(oppoentStatusChip)
             switch myStatusChip {
             case "진행중":
-                if mission?.missionHistory[indexPath.row].myImage == nil {
+                if mission?.missionHistory?[indexPath.row].myImage == nil {
                     cell.myExerciseImageView.setPlaceholderText(TextLiterals.MissionOverview.noImg)
                 }
                 cell.myStatusBadgeContainerView.addSubview(cell.myDoingBadge)
@@ -136,7 +152,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                 }
                 
             case "실패":
-                if mission?.missionHistory[indexPath.row].myImage == nil {
+                if mission?.missionHistory?[indexPath.row].myImage == nil {
                     addFailurePlaceholder(to: cell.myExerciseImageView)
                 }
                 cell.myStatusBadgeContainerView.addSubview(cell.myFailBadge)
@@ -144,7 +160,6 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                     $0.edges.equalToSuperview()
                 }
                 
-                // 실패 플레이스홀더와 아이콘을 추가하는 함수
                 func addFailurePlaceholder(to imageView: UIImageView) {
                     let failureIcon = UIImageView(image: ImageLiterals.icon.thumb)
                     failureIcon.contentMode = .center
@@ -175,7 +190,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
             }
             switch oppoentStatusChip {
             case "진행중":
-                if mission?.missionHistory[indexPath.row].opponentImage == nil {
+                if mission?.missionHistory?[indexPath.row].opponentImage == nil {
                     cell.opponentExerciseImageVIew.setPlaceholderText(TextLiterals.MissionOverview.noImg)
                 }
                 cell.opponentStatusContainerView.addSubview(cell.opponentDoingBadge)
@@ -183,7 +198,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                     $0.edges.equalToSuperview()
                 }
             case "실패":
-                if mission?.missionHistory[indexPath.row].opponentImage == nil {
+                if mission?.missionHistory?[indexPath.row].opponentImage == nil {
                     addFailurePlaceholder(to: cell.opponentExerciseImageVIew)
                 }
                 cell.opponentStatusContainerView.addSubview(cell.myFailBadge)
@@ -191,8 +206,6 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                     $0.edges.equalToSuperview()
                 }
                 
-                
-                // 실패 플레이스홀더와 아이콘을 추가하는 함수
                 func addFailurePlaceholder(to imageView: UIImageView) {
                     let failureIcon = UIImageView(image: ImageLiterals.icon.thumb)
                     failureIcon.contentMode = .center
@@ -258,6 +271,16 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
             }
             self.mission = result
             print(self.mission)
+            if self.mission?.missionHistory?.isEmpty ?? true {
+                // 미션 히스토리가 비어 있을 때
+                self.noCompleteView.isHidden = false
+                self.missionOverviewView.isHidden = true
+            } else {
+                // 미션 히스토리가 비어 있지 않을 때
+                self.noCompleteView.isHidden = true
+                self.missionOverviewView.isHidden = false
+            }
+            
         }
     }
 }

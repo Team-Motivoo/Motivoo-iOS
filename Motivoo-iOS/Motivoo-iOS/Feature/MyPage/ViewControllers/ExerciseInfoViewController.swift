@@ -90,12 +90,12 @@ extension ExerciseInfoViewController: UITableViewDataSource, UITableViewDelegate
         }
         else if indexPath.row == 3 {
             guard let exerciseTime = exerciseInfo?.exerciseTime else {return UITableViewCell() }
-            cell.configureCell(title: TextLiterals.MyPage.intensity, info: "\(exerciseTime)")
+            cell.configureCell(title: TextLiterals.MyPage.averageTimePerDay, info: "\(exerciseTime)")
         }
         else {
             guard let healthNotes = exerciseInfo?.healthNotes else { return UITableViewCell() }
                let joinedHealthNotes = healthNotes.joined(separator: ", ")
-               cell.configureCell(title: TextLiterals.MyPage.intensity, info: joinedHealthNotes)
+               cell.configureCell(title: TextLiterals.MyPage.pointsToNote, info: joinedHealthNotes)
         }
         cell.selectionStyle = .none
         return cell
