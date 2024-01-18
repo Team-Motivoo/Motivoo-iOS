@@ -27,7 +27,7 @@ final class StartViewController: BaseViewController {
     // MARK: - Life Cycles
 
     override func viewWillAppear(_ animated: Bool) {
-        setupNavigationBar()
+        self.navigationController?.isNavigationBarHidden = true
 
         print("===StartVC ViewWillAppear: \(TokenManager.shared.getToken())")
         print("===StartVC ViewWillAppear: \(UserDefaultManager.shared.getFinishedOnboarding())")
@@ -46,7 +46,7 @@ final class StartViewController: BaseViewController {
     override func setupNavigationBar() {
         super.setupNavigationBar()
 
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
     }
 
     override func setUI() {
@@ -120,13 +120,14 @@ final class StartViewController: BaseViewController {
             let onboardingViewController = OnboardingViewController()
             self.navigationController?.pushViewController(onboardingViewController, animated: true)
         }
+        setupNavigationBar()
     }
 
     @objc
     private func invitationCodeButtonDidTap() {
         let inputInvitationViewController = InputInvitationViewController()
         self.navigationController?.pushViewController(inputInvitationViewController, animated: true)
-        self.navigationItem.leftBarButtonItem?.isHidden = false
+        setupNavigationBar()
     }
 }
 
