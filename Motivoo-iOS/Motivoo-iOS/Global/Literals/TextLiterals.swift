@@ -14,6 +14,7 @@ enum TextLiterals {
         static var yes = "네"
         static var no = "아니요"
         static var slogan = "가족과 함께 만들어 나가는\n오늘의 운동 습관 "
+        static var loginRetry = "로그인을 다시 한 번 시도해주세요."
 
         enum Authorization {
             static var title = "접근 권한 안내"

@@ -17,6 +17,7 @@ enum ImageLiterals {
         static var motivooLogo: UIImage { .load(named: "motivooLogo")}
         static var motivooTextLogo: UIImage { .load(named: "img_logo")}
         static var loginAfter: UIImage { .load(named: "img_login_after")}
+        static var login: UIImage { .load(named: "img_login")}
         static var kakaoLogin: UIImage { .load(named: "solid_btn_kakao")}
         static var appleLogin: UIImage { .load(named: "solid_btn_apple")}
         static var missionTree: UIImage { .load(named: "mission_tree")}
@@ -37,6 +38,7 @@ enum ImageLiterals {
         static var info: UIImage { .load(named: "icon_info")}
         static var checkbox_active: UIImage { .load(named: "checkbox_active")}
         static var checkbox_default: UIImage { .load(named: "checkbox_default")}
+        static var code: UIImage { .load(named: "img_code")}
 
         // MARK: - TabBar
         

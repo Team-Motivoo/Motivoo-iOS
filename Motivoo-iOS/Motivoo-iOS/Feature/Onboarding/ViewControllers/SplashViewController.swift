@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Lottie
 import SnapKit
 import Then
 
@@ -14,7 +15,7 @@ final class SplashViewController: BaseViewController {
 
     // MARK: - UI Component
 
-    private let logoImage = UIImageView()
+    let lottieView = LottieAnimationView(name: "splash")
 
     // MARK: - Life Cycles
 
@@ -28,12 +29,17 @@ final class SplashViewController: BaseViewController {
         print("===isUserLoggedIn: \(isUserLoggedIn)")
         print("===token: \(token)")
         print("===isFinished: \(isFinished)")
+
+        navigationController?.isNavigationBarHidden = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+
+        self.lottieView.play()
+        self.lottieView.loopMode = .loop
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
             guard let delegate = sceneDelegate else {
                 print("sceneDelegate가 할당 Error")
@@ -81,6 +87,10 @@ final class SplashViewController: BaseViewController {
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
+
     // MARK: - Override Functions
     override func setupNavigationBar() {
         super.setupNavigationBar()
@@ -89,20 +99,20 @@ final class SplashViewController: BaseViewController {
     }
 
     override func setUI() {
-        logoImage.do {
-            $0.image = ImageLiterals.img.motivooLogo
+        lottieView.do {
+            $0.frame = self.view.bounds
+            $0.center = self.view.center
+            $0.contentMode = .scaleAspectFit
         }
     }
 
     override func setHierachy() {
-        self.view.addSubview(logoImage)
+        self.view.addSubview(lottieView)
     }
 
     override func setLayout() {
-        logoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(240.adjusted)
-            $0.centerX.equalToSuperview()
-            $0.size.equalTo(252.adjusted)
+        lottieView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }
