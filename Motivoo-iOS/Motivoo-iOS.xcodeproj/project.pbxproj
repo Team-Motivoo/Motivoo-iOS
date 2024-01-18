@@ -12,6 +12,7 @@
 		025806852B5020F9002DB50E /* OnboardingView1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025806842B5020F9002DB50E /* OnboardingView1Cell.swift */; };
 		02642C942B46913B00134D73 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C932B46913B00134D73 /* UIImage+.swift */; };
 		02642C962B46960D00134D73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C952B46960D00134D73 /* LoginViewController.swift */; };
+		027151E92B59A3C600949BA4 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 027151E82B59A3C600949BA4 /* splash.json */; };
 		0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA052B4D04260047215F /* OnboardingIntro1View.swift */; };
 		0299856B2B504EBE00E88A4F /* OnboardingView2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0299856A2B504EBE00E88A4F /* OnboardingView2Cell.swift */; };
 		0299856D2B5057C300E88A4F /* OnboardingView3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0299856C2B5057C300E88A4F /* OnboardingView3Cell.swift */; };
@@ -20,7 +21,9 @@
 		029985732B506C1C00E88A4F /* OnboardingView6Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029985722B506C1C00E88A4F /* OnboardingView6Cell.swift */; };
 		029985752B51436600E88A4F /* InvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029985742B51436600E88A4F /* InvitationViewController.swift */; };
 		029985772B51437200E88A4F /* InvitationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029985762B51437200E88A4F /* InvitationView.swift */; };
+		029AFC702B5911EA0002E6C7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 029AFC6F2B5911EA0002E6C7 /* Lottie */; };
 		029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029CA3C22B4EF4F30007784D /* MotivooButton.swift */; };
+		02B44E862B57E164004EE1B9 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B44E852B57E164004EE1B9 /* UserDefaultManager.swift */; };
 		02BAC2D92B4D850B00657CF7 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2D82B4D850B00657CF7 /* UILabel+.swift */; };
 		02BAC2DB2B4DA2C200657CF7 /* OnboardingIntro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */; };
 		02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */; };
@@ -47,6 +50,16 @@
 		02E104182B55ABFD003852A7 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 02E104172B55ABFD003852A7 /* KakaoSDKCertCore */; };
 		02E1041A2B55ABFD003852A7 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 02E104192B55ABFD003852A7 /* KakaoSDKCommon */; };
 		02E1041C2B55B46A003852A7 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1041B2B55B46A003852A7 /* JWTDecode.swift */; };
+		02E1041E2B567B77003852A7 /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1041D2B567B77003852A7 /* OnboardingService.swift */; };
+		02E104202B567EB9003852A7 /* OnboardingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1041F2B567EB9003852A7 /* OnboardingAPI.swift */; };
+		02E104222B568493003852A7 /* OnboardingLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104212B568493003852A7 /* OnboardingLoginRequest.swift */; };
+		02E104242B568615003852A7 /* OnboardingLoginReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104232B568615003852A7 /* OnboardingLoginReponse.swift */; };
+		02E104262B56E5A6003852A7 /* OnboardingExerciseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104252B56E5A6003852A7 /* OnboardingExerciseRequest.swift */; };
+		02E104282B56E5CE003852A7 /* OnboardingExerciseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104272B56E5CE003852A7 /* OnboardingExerciseResponse.swift */; };
+		02E1042A2B570598003852A7 /* UserExerciseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E104292B570598003852A7 /* UserExerciseResponse.swift */; };
+		02E1042C2B570B0C003852A7 /* InviteCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */; };
+		02E1042E2B570B30003852A7 /* InviteCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */; };
+		02E104302B57916C003852A7 /* MatchingCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
 		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
@@ -164,6 +177,7 @@
 		025806842B5020F9002DB50E /* OnboardingView1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1Cell.swift; sourceTree = "<group>"; };
 		02642C932B46913B00134D73 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		02642C952B46960D00134D73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		027151E82B59A3C600949BA4 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		0280EA052B4D04260047215F /* OnboardingIntro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro1View.swift; sourceTree = "<group>"; };
 		0299856A2B504EBE00E88A4F /* OnboardingView2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2Cell.swift; sourceTree = "<group>"; };
 		0299856C2B5057C300E88A4F /* OnboardingView3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3Cell.swift; sourceTree = "<group>"; };
@@ -173,6 +187,7 @@
 		029985742B51436600E88A4F /* InvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationViewController.swift; sourceTree = "<group>"; };
 		029985762B51437200E88A4F /* InvitationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationView.swift; sourceTree = "<group>"; };
 		029CA3C22B4EF4F30007784D /* MotivooButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooButton.swift; sourceTree = "<group>"; };
+		02B44E852B57E164004EE1B9 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		02BAC2D82B4D850B00657CF7 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro2View.swift; sourceTree = "<group>"; };
 		02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -194,6 +209,16 @@
 		02E1040C2B557B3B003852A7 /* SimpleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleResponse.swift; sourceTree = "<group>"; };
 		02E1040E2B557C2E003852A7 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		02E1041B2B55B46A003852A7 /* JWTDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
+		02E1041D2B567B77003852A7 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
+		02E1041F2B567EB9003852A7 /* OnboardingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAPI.swift; sourceTree = "<group>"; };
+		02E104212B568493003852A7 /* OnboardingLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginRequest.swift; sourceTree = "<group>"; };
+		02E104232B568615003852A7 /* OnboardingLoginReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginReponse.swift; sourceTree = "<group>"; };
+		02E104252B56E5A6003852A7 /* OnboardingExerciseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExerciseRequest.swift; sourceTree = "<group>"; };
+		02E104272B56E5CE003852A7 /* OnboardingExerciseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExerciseResponse.swift; sourceTree = "<group>"; };
+		02E104292B570598003852A7 /* UserExerciseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExerciseResponse.swift; sourceTree = "<group>"; };
+		02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeRequest.swift; sourceTree = "<group>"; };
+		02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeResponse.swift; sourceTree = "<group>"; };
+		02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingCheckResponse.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +323,7 @@
 				02E104182B55ABFD003852A7 /* KakaoSDKCertCore in Frameworks */,
 				05AAF8C72B3EA8620079CEAB /* Kingfisher in Frameworks */,
 				05BAB7B72B5690AC0016ECE5 /* FirebaseAppCheck in Frameworks */,
+				029AFC702B5911EA0002E6C7 /* Lottie in Frameworks */,
 				05BAB7D52B5690AC0016ECE5 /* FirebaseInstallations in Frameworks */,
 				05BAB7C72B5690AC0016ECE5 /* FirebaseFirestore in Frameworks */,
 				05BAB7B12B5690AC0016ECE5 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -367,7 +393,6 @@
 			isa = PBXGroup;
 			children = (
 				02E103F82B556433003852A7 /* APIConstants.swift */,
-				02E103FA2B556452003852A7 /* TokenManager.swift */,
 				02E103FC2B55648B003852A7 /* BaseAPI.swift */,
 				02E103FE2B5564A5003852A7 /* NetworkResult.swift */,
 				02E104042B556958003852A7 /* BaseTargetType.swift */,
@@ -587,6 +612,8 @@
 			isa = PBXGroup;
 			children = (
 				05AAF89A2B3E5B9C0079CEAB /* d.swift */,
+				02E1041D2B567B77003852A7 /* OnboardingService.swift */,
+				02E1041F2B567EB9003852A7 /* OnboardingAPI.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -614,6 +641,14 @@
 			isa = PBXGroup;
 			children = (
 				05AAF8942B3E5B800079CEAB /* a.swift */,
+				02E104212B568493003852A7 /* OnboardingLoginRequest.swift */,
+				02E104232B568615003852A7 /* OnboardingLoginReponse.swift */,
+				02E104252B56E5A6003852A7 /* OnboardingExerciseRequest.swift */,
+				02E104272B56E5CE003852A7 /* OnboardingExerciseResponse.swift */,
+				02E104292B570598003852A7 /* UserExerciseResponse.swift */,
+				02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */,
+				02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */,
+				02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -631,6 +666,8 @@
 		05AAF8892B3E5A4B0079CEAB /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				02E103FA2B556452003852A7 /* TokenManager.swift */,
+				02B44E852B57E164004EE1B9 /* UserDefaultManager.swift */,
 				05AAF8932B3E5B690079CEAB /* UIComponents */,
 				05AAF86A2B3E58490079CEAB /* LaunchScreen.storyboard */,
 				05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */,
@@ -642,6 +679,7 @@
 		05AAF88A2B3E5A580079CEAB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				027151E82B59A3C600949BA4 /* splash.json */,
 				05BAB7AB2B568F780016ECE5 /* GoogleService-Info.plist */,
 				05AAF8922B3E5AC20079CEAB /* Font */,
 				05AAF86D2B3E58490079CEAB /* Info.plist */,
@@ -869,6 +907,7 @@
 				05BAB7DE2B5690AC0016ECE5 /* FirebaseRemoteConfigSwift */,
 				05BAB7E02B5690AC0016ECE5 /* FirebaseStorage */,
 				05BAB7E22B5690AC0016ECE5 /* FirebaseStorageCombine-Community */,
+				029AFC6F2B5911EA0002E6C7 /* Lottie */,
 			);
 			productName = "Motivoo-iOS";
 			productReference = 05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */;
@@ -905,6 +944,7 @@
 				05AAF8C52B3EA8620079CEAB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				02E104102B55ABFD003852A7 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				05BAB7AD2B5690AC0016ECE5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				029AFC6E2B5911EA0002E6C7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 05AAF85D2B3E58480079CEAB /* Products */;
 			projectDirPath = "";
@@ -926,6 +966,7 @@
 				05AAF8FB2B44F3FC0079CEAB /* Pretendard-SemiBold.otf in Resources */,
 				05AAF8692B3E58490079CEAB /* Assets.xcassets in Resources */,
 				05AAF8F92B44F3FC0079CEAB /* Pretendard-Medium.otf in Resources */,
+				027151E92B59A3C600949BA4 /* splash.json in Resources */,
 				05BAB7AC2B568F780016ECE5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -940,6 +981,7 @@
 				02E103D12B538A3C003852A7 /* TermsOfUseViewController.swift in Sources */,
 				34B8F2FD2B53D67E0023F1D5 /* NoCompleteView.swift in Sources */,
 				05AAF8D52B3EAB8F0079CEAB /* SizeLiterals.swift in Sources */,
+				02E104202B567EB9003852A7 /* OnboardingAPI.swift in Sources */,
 				0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */,
 				02E103D72B53A9AC003852A7 /* TermsOfUseView.swift in Sources */,
 				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
@@ -950,6 +992,8 @@
 				02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
 				34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */,
+				34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */,
+				02E104222B568493003852A7 /* OnboardingLoginRequest.swift in Sources */,
 				02642C942B46913B00134D73 /* UIImage+.swift in Sources */,
 				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,
 				02E103DD2B543D71003852A7 /* InputInvitationView.swift in Sources */,
@@ -963,12 +1007,15 @@
 				05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */,
 				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
 				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,
+				02E104302B57916C003852A7 /* MatchingCheckResponse.swift in Sources */,
 				02E103FF2B5564A5003852A7 /* NetworkResult.swift in Sources */,
 				05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */,
 				02E103D92B53A9BA003852A7 /* TermsOfUseTableViewCell.swift in Sources */,
+				02E104282B56E5CE003852A7 /* OnboardingExerciseResponse.swift in Sources */,
 				05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */,
 				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
 				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
+				02E1041E2B567B77003852A7 /* OnboardingService.swift in Sources */,
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */,
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
@@ -980,8 +1027,11 @@
 				0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */,
 				055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
+				02E104262B56E5A6003852A7 /* OnboardingExerciseRequest.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
+				02B44E862B57E164004EE1B9 /* UserDefaultManager.swift in Sources */,
+				02E1042A2B570598003852A7 /* UserExerciseResponse.swift in Sources */,
 				02E1041C2B55B46A003852A7 /* JWTDecode.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				34B8F3012B5446010023F1D5 /* BasePaddingLabel.swift in Sources */,
@@ -1009,11 +1059,13 @@
 				3479FFAD2B557715002C3FBC /* LeavePopupView.swift in Sources */,
 				029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */,
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
+				02E1042E2B570B30003852A7 /* InviteCodeResponse.swift in Sources */,
 				349D53EC2B58200A004E6B8C /* ExerciseInfoResponse.swift in Sources */,
 				0299856D2B5057C300E88A4F /* OnboardingView3Cell.swift in Sources */,
 				05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */,
 				349D53FA2B582117004E6B8C /* OverviewResponse.swift in Sources */,
 				0258067E2B4FEFA8002DB50E /* MotivooBigButton.swift in Sources */,
+				02E1042C2B570B0C003852A7 /* InviteCodeRequest.swift in Sources */,
 				34209C4E2B581B070065547C /* MyAPI.swift in Sources */,
 				029985772B51437200E88A4F /* InvitationView.swift in Sources */,
 				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
@@ -1045,6 +1097,7 @@
 				02E1040D2B557B3B003852A7 /* SimpleResponse.swift in Sources */,
 				055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */,
 				02BAC2DD2B4DA99900657CF7 /* UITextField+.swift in Sources */,
+				02E104242B568615003852A7 /* OnboardingLoginReponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,6 +1117,7 @@
 /* Begin XCBuildConfiguration section */
 		05AAF86E2B3E58490079CEAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1124,6 +1178,7 @@
 		};
 		05AAF86F2B3E58490079CEAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1262,6 +1317,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		029AFC6E2B5911EA0002E6C7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.4;
+			};
+		};
 		02E104102B55ABFD003852A7 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk.git";
@@ -1313,6 +1376,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		029AFC6F2B5911EA0002E6C7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 029AFC6E2B5911EA0002E6C7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		02E104112B55ABFD003852A7 /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02E104102B55ABFD003852A7 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;

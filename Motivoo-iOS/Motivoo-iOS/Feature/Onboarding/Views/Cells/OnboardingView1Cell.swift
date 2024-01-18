@@ -11,6 +11,13 @@ import SnapKit
 import Then
 
 final class OnboardingView1Cell: UICollectionViewCell {
+
+    //MARK: - Properties
+
+    lazy var ageInfo: Int = 0
+
+    // MARK: - UI Component
+
     private let bgView = UIView()
     let introTitle = UILabel()
     let introSubtitle = UILabel()
@@ -169,6 +176,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
     func textFieldDidChanacge(_ sender: Any?) {
         if let text = onboardingIntro2View.ageTextField.text {
             let age: Int = Int(text) ?? 0
+            self.ageInfo = age
             // age에는 변환된 Int 값 또는 0이 저장됩니다.
             if (age >= 14 && age <= 99) {
                 onboardingIntro2View.ageTextField.layer.borderColor = UIColor.blue500.cgColor

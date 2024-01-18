@@ -41,7 +41,8 @@ final class MotivooTabBarController: UITabBarController {
 
     private func setNavigationController() {
         homeNavigationController.setNavigationBarHidden(true, animated: true)
-        missionOverviewNavigationController.setNavigationBarHidden(true, animated: true)
+        //missionOverviewNavigationController.setNavigationBarHidden(true, animated: true)
+        missionOverviewNavigationController.navigationController?.isNavigationBarHidden = true
         myPageNavigationController.setNavigationBarHidden(true, animated: true)
     }
     

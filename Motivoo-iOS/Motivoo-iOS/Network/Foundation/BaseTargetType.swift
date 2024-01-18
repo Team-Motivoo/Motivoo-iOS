@@ -13,7 +13,7 @@ protocol BaseTargetType: TargetType{ }
 extension BaseTargetType{
 
     var baseURL: URL {
-        let baseURL = Bundle.main.infoDictionary?["BASE_URL"] as! String
+        let baseURL = Bundle.main.infoDictionary?["BASE_URL"] as? String ?? ""
         return URL(string: baseURL)!
     }
 

@@ -7,19 +7,37 @@
 
 import UIKit
 
+import Lottie
 import SnapKit
 import Then
 
 final class SplashViewController: BaseViewController {
-    
+
     // MARK: - UI Component
 
-    private let logoImage = UIImageView()
+    let lottieView = LottieAnimationView(name: "splash")
 
     // MARK: - Life Cycles
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
+        let token = TokenManager.shared.getToken()
+        let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
+        print("\n========================")
+        print("===isUserLoggedIn: \(isUserLoggedIn)")
+        print("===token: \(token)")
+        print("===isFinished: \(isFinished)")
+
+        navigationController?.isNavigationBarHidden = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.lottieView.play()
+        self.lottieView.loopMode = .playOnce
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
@@ -27,9 +45,50 @@ final class SplashViewController: BaseViewController {
                 print("sceneDelegate가 할당 Error")
                 return
             }
-            let rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
-            delegate.window?.rootViewController = rootViewController
+
+            print("\n==========================")
+            print(TokenManager.shared.getToken())
+            print("==========================\n")
+
+            let isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
+            let token = TokenManager.shared.getToken()
+            let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
+            let isMached: Bool = UserDefaultManager.shared.getUserMatcehd()
+
+            if token == "" {
+                // token이 없다면
+                // 회원가입을 한 적이 없으므로 권한 허용 페이지로 진입
+                let rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
+                delegate.window?.rootViewController = rootViewController
+            } else {
+                // token이 있다면
+                if isUserLoggedIn {
+                    // 로그인 = true
+                    // splash에서 바로 홈으로 진입
+                    if isFinished {
+                        if isMached {
+                            let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                            delegate.window?.rootViewController = rootViewController
+                        } else {
+                            let rootViewController = UINavigationController(rootViewController: StartViewController())
+                            delegate.window?.rootViewController = rootViewController
+                        }
+                    } else {
+                        let rootViewController = UINavigationController(rootViewController: StartViewController())
+                        delegate.window?.rootViewController = rootViewController
+                    }
+                    return
+                }
+                // token는 있지만, 로그인 = false라면
+                // 카카오톡 회원가입은 했지만, 이용약관 허용을 아직 진행하지 않았음으로 이용 약관 페이지로 이동
+                let rootViewController = UINavigationController(rootViewController: TermsOfUseViewController())
+                delegate.window?.rootViewController = rootViewController
+            }
         }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
     }
 
     // MARK: - Override Functions
@@ -40,20 +99,20 @@ final class SplashViewController: BaseViewController {
     }
 
     override func setUI() {
-        logoImage.do {
-            $0.image = ImageLiterals.img.motivooLogo
+        lottieView.do {
+            $0.frame = self.view.bounds
+            $0.center = self.view.center
+            $0.contentMode = .scaleAspectFit
         }
     }
 
     override func setHierachy() {
-        self.view.addSubview(logoImage)
+        self.view.addSubview(lottieView)
     }
 
     override func setLayout() {
-        logoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(240.adjusted)
-            $0.centerX.equalToSuperview()
-            $0.size.equalTo(252.adjusted)
+        lottieView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }

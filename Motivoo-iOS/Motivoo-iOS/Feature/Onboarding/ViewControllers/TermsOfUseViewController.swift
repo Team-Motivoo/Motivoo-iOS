@@ -41,6 +41,9 @@ final class TermsOfUseViewController: BaseViewController {
     }
 
     // MARK: - Life Cycles
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBar()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +53,17 @@ final class TermsOfUseViewController: BaseViewController {
     }
 
     // MARK: - Override Functions
+    
     override func setupNavigationBar() {
         super.setupNavigationBar()
 
         self.navigationController?.navigationBar.topItem?.title = TextLiterals.Onboarding.Terms.title
-        self.navigationItem.leftBarButtonItem?.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 
     override func setHierachy() {
@@ -143,6 +152,8 @@ final class TermsOfUseViewController: BaseViewController {
     func nextButtonDidTap() {
         let startViewController = StartViewController()
         self.navigationController?.pushViewController(startViewController, animated: true)
+
+        UserDefaultManager.shared.saveUserLoggedIn(login: true)
     }
 }
 

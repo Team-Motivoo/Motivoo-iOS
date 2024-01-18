@@ -12,11 +12,32 @@ import Then
 
 final class OnboardingViewController: BaseViewController {
 
+    //MARK: - Properties
+
     lazy var choiceThreeButtonArray: [String] = []
     lazy var selectButtonName2: String = ""
     lazy var selectButtonName3: String = ""
     lazy var selectButtonName4: String = ""
     lazy var selectButtonName5: String = ""
+
+    lazy var questionArray: [String: Any] = ["type": "", "age": 0, "isExercise": true,
+                                             "exerciseType":"", "exerciseCount":"", "exerciseTime":"", "exerciseNote":""]
+
+    var progressIndex: Float = 1.0 {
+        didSet (progressIndex) {
+            // print("=================progressIndex: \(progressIndex)")
+            var step: Float = (progressIndex+1)/6
+            if progressIndex < 0 {
+                step = 1/6
+            } else {
+                step = (progressIndex+1)/6
+            }
+            onboardingProgressView.setProgress(step, animated: true)
+            // print("=\(step)")
+        }
+    }
+
+    // MARK: - UI Component
 
     private lazy var onboardingProgressView = UIProgressView()
     let onboardingCollectionView: UICollectionView = {
@@ -42,18 +63,40 @@ final class OnboardingViewController: BaseViewController {
 
     // MARK: - Life Cycles
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+
+        setupNavigationBar()
+        self.customBackButton.removeTarget(self, action: #selector(backViewController), for: .touchUpInside)
+        self.customBackButton.addTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setDelegate()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+
+        // 네비게이션 스택에서 온보딩VC 제거하기
+        if let navigationController = self.navigationController {
+            var navigationArray = navigationController.viewControllers // 현재 네비게이션 스택을 가져옵니다.
+            navigationArray.remove(at: navigationArray.count - 2) // 두 번째로 마지막인 FirstVC를 제거합니다.
+            self.navigationController?.viewControllers = navigationArray // 수정된 스택을 다시 설정합니다.
+        }
+        self.customBackButton.removeTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
+        self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
+    }
+
     // MARK: - Override Functions
+
     override func setUI() {
         onboardingProgressView.do {
             $0.trackTintColor = .gray100  // progress 배경 색상
             $0.progressTintColor = .blue400  // progress 진행 색상
-            $0.progress = 0.25
+            $0.progress = 1/6
         }
     }
 
@@ -73,8 +116,14 @@ final class OnboardingViewController: BaseViewController {
         }
     }
 
-    override func setButtonEvent() {
-        // onboardingIntro1View.parentButton.addTarget(self, action: #selector(parentButtonButtonDidTap), for: .touchUpInside)
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+        self.navigationController?.isNavigationBarHidden = false
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -93,7 +142,13 @@ final class OnboardingViewController: BaseViewController {
         if (sender.isSelected) {
             if (selectButtonName2 == "") {
                 // 버튼 선택
+                selectButtonName2 = sender.accessibilityIdentifier ?? "Unknown"
                 sender.isSelected = false
+                if selectButtonName2 == "yes" {
+                    questionArray["isExercise"] = true
+                } else {
+                    questionArray["isExercise"] = false
+                }
             } else {
                 let indexPath = IndexPath(row: 1, section: 0)
                 if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView2Cell {
@@ -105,8 +160,8 @@ final class OnboardingViewController: BaseViewController {
                         cell.yesButton.isSelected = true
                     }
                 }
+                selectButtonName2 = sender.accessibilityIdentifier ?? "Unknown"
             }
-            selectButtonName2 = sender.accessibilityIdentifier ?? "Unknown"
             if (selectButtonName2 == "yes") {
                 TextLiterals.Onboarding.Q3.exerciseTitle = "평소 하는 운동을 알려주세요"
                 TextLiterals.Onboarding.Q3.exercisePowerSubtitle = "운동 강도에 따라 선택해주세요"
@@ -136,6 +191,7 @@ final class OnboardingViewController: BaseViewController {
         } else {
             sender.isSelected = true
             selectButtonName2 = ""
+            questionArray["isExercise"] = nil
         }
     }
 
@@ -160,10 +216,18 @@ final class OnboardingViewController: BaseViewController {
                 }
             }
             selectButtonName3 = sender.accessibilityIdentifier ?? "Unknown"
+            if selectButtonName3 == "high" {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q3.highTitle
+            } else if selectButtonName3 == "medium" {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q3.middleTitle
+            } else {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q3.lowTitle
+            }
             nextButtonDidTap()
         } else {
             sender.isSelected = true
             selectButtonName3 = ""
+            questionArray["exerciseType"] = ""
         }
     }
 
@@ -173,6 +237,7 @@ final class OnboardingViewController: BaseViewController {
             if (selectButtonName4 == "") {
                 // 버튼 선택
                 sender.isSelected = false
+                questionArray["exerciseCount"] = sender.titleLabel?.text
             } else {
                 let indexPath = IndexPath(row: 3, section: 0)
                 if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView4Cell {
@@ -186,6 +251,7 @@ final class OnboardingViewController: BaseViewController {
                         cell.day5Button.isSelected = true
                     }
                     sender.isSelected = false
+                    questionArray["exerciseCount"] = sender.titleLabel?.text
                 }
             }
             selectButtonName4 = sender.accessibilityIdentifier ?? "Unknown"
@@ -193,6 +259,7 @@ final class OnboardingViewController: BaseViewController {
         } else {
             sender.isSelected = true
             selectButtonName4 = ""
+            questionArray["exerciseCount"] = ""
         }
     }
 
@@ -202,6 +269,7 @@ final class OnboardingViewController: BaseViewController {
             if (selectButtonName5 == "") {
                 // 버튼 선택
                 sender.isSelected = false
+                questionArray["exerciseTime"] = sender.titleLabel?.text
             } else {
                 let indexPath = IndexPath(row: 4, section: 0)
                 if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView5Cell {
@@ -215,6 +283,7 @@ final class OnboardingViewController: BaseViewController {
                         cell.twoHoueOverButton.isSelected = true
                     }
                     sender.isSelected = false
+                    questionArray["exerciseTime"] = sender.titleLabel?.text
                 }
             }
             selectButtonName5 = sender.accessibilityIdentifier ?? "Unknown"
@@ -222,6 +291,7 @@ final class OnboardingViewController: BaseViewController {
         } else {
             sender.isSelected = true
             selectButtonName5 = ""
+            questionArray["exerciseTime"] = ""
         }
     }
 
@@ -234,20 +304,16 @@ final class OnboardingViewController: BaseViewController {
             if (choiceThreeButtonArray.count < 3) {
                 sender.isSelected = false
                 choiceThreeButtonArray.append(sender.accessibilityIdentifier ?? "Unknown")
-                if (choiceThreeButtonArray.count == 3) {
-                    cell.startMotivooButton.isEnabled = true
-                    cell.isButtonEnabled = true
-                }
+                cell.startMotivooButton.isEnabled = true
+                cell.isButtonEnabled = true
             }
         } else {
             sender.isSelected = true
             cell.startMotivooButton.isEnabled = false
-            cell.isButtonEnabled = false
-            let currentIndexPath = self.onboardingCollectionView.indexPathsForVisibleItems.first
-            if let currentIndexPath = currentIndexPath, currentIndexPath.row + 1 < self.onboardingCollectionView.numberOfItems(inSection: 0) {
-                let nextIndexPath = IndexPath(row: currentIndexPath.row + 1, section: currentIndexPath.section)
-                self.onboardingCollectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+            if (choiceThreeButtonArray.count <= 1) {
+                cell.isButtonEnabled = false
             }
+            nextButtonDidTap()
             // print("=== 선택 취소")
             if let index = choiceThreeButtonArray.firstIndex(of: sender.accessibilityIdentifier ?? "Unknown") {
                 choiceThreeButtonArray.remove(at: index)
@@ -264,6 +330,8 @@ final class OnboardingViewController: BaseViewController {
             let nextIndexPath = IndexPath(row: currentIndexPath.row + 1, section: currentIndexPath.section)
             self.onboardingCollectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
         }
+        progressIndex = Float(currentIndexPath?.row ?? 0) + 2
+        print("== 2 :\(progressIndex)")
     }
 
     @objc
@@ -271,16 +339,32 @@ final class OnboardingViewController: BaseViewController {
         // print("indexpath - 1")
         let currentIndexPath = self.onboardingCollectionView.indexPathsForVisibleItems.first
         if let currentIndexPath = currentIndexPath, currentIndexPath.row - 1 < self.onboardingCollectionView.numberOfItems(inSection: 0) {
-            let nextIndexPath = IndexPath(row: currentIndexPath.row - 1, section: currentIndexPath.section)
-            self.onboardingCollectionView.scrollToItem(at: nextIndexPath, at: .right, animated: true)
+            let prevIndexPath = IndexPath(row: currentIndexPath.row - 1, section: currentIndexPath.section)
+            self.onboardingCollectionView.scrollToItem(at: prevIndexPath, at: .right, animated: true)
+        }
+        print("==berfore: \(Float(currentIndexPath?.row ?? 0))")
+        progressIndex = Float(currentIndexPath?.row ?? 0)-1
+        if (progressIndex <= 0.0) {
+            progressIndex = 1.0
+            print("==after: \(progressIndex)")
+        } else if (progressIndex == 6) {
+            progressIndex = Float(currentIndexPath?.row ?? 0)-3
         }
     }
 
     @objc
     private func startMotivooButtonDidTap() {
-        // print("== 모티부 시작하기 ==")
-        let invitationViewController = InvitationViewController()
-        self.navigationController?.pushViewController(invitationViewController, animated: true)
+        questionArray["exerciseNote"] = choiceThreeButtonArray
+        print(questionArray)
+        requestPostExerciseAPI(
+            type: questionArray["type"] as? String ?? "",
+            age: questionArray["age"] as? Int ?? 0,
+            isExercise: questionArray["isExercise"] != nil,
+            exerciseType: questionArray["exerciseType"] as? String ?? "",
+            exerciseCount: questionArray["exerciseCount"] as? String ?? "",
+            exerciseTime: questionArray["exerciseTime"] as? String ?? "",
+            exerciseNote: questionArray["exerciseNote"] as? [String] ?? []
+        )
     }
 }
 
@@ -295,14 +379,12 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        self.customBackButton.removeTarget(self, action: #selector(backViewController), for: .touchUpInside)
-        self.customBackButton.addTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
+        print("=====index: \(indexPath.row)")
         if indexPath.row == 1 {
             // indexPath.row가 1일 경우 OnboardingView2Cell을 반환
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView2Cell.cellIdentifier, for: indexPath) as! OnboardingView2Cell
             cell.yesButton.addTarget(self, action: #selector(selectButtonDidTap2), for: .touchUpInside)
             cell.noButton.addTarget(self, action: #selector(selectButtonDidTap2), for: .touchUpInside)
-            onboardingProgressView.setProgress(2/6, animated: true)
             // 필요한 설정을 추가합니다.
             return cell
         } else if indexPath.row == 2 {
@@ -310,7 +392,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.highButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
             cell.mediumButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
             cell.lowButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
-            onboardingProgressView.setProgress(3/6, animated: true)
             return cell
         } else if indexPath.row == 3 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView4Cell.identifier, for: indexPath) as! OnboardingView4Cell
@@ -318,7 +399,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.day2Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
             cell.day3Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
             cell.day5Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
-            onboardingProgressView.setProgress(4/6, animated: true)
             return cell
         } else if indexPath.row == 4 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView5Cell.identifier, for: indexPath) as! OnboardingView5Cell
@@ -326,7 +406,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.oneHourButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
             cell.twoHourButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
             cell.twoHoueOverButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
-            onboardingProgressView.setProgress(5/6, animated: true)
             return cell
         } else if indexPath.row == 5 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView6Cell.identifier, for: indexPath) as! OnboardingView6Cell
@@ -337,15 +416,46 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.ankleButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.kneeButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.startMotivooButton.addTarget(self, action: #selector(startMotivooButtonDidTap), for: .touchUpInside)
-            onboardingProgressView.setProgress(1.0, animated: true)
+            let cellInfo = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
+            if (!cellInfo.childButton.isSelected) { // 자식 버튼 클릭
+                questionArray["type"] = "자녀"
+            } else {
+                questionArray["type"] = "부모"
+            }
+            questionArray["age"] = cellInfo.ageInfo
             return cell
-        }
-        else {
+        } else {
             // OnboardingView1Cell을 반환
             self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
             cell.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
             return cell
+        }
+    }
+}
+
+extension OnboardingViewController {
+    func requestPostExerciseAPI(type: String, age: Int, isExercise: Bool, exerciseType: String, exerciseCount: String,
+                                exerciseTime: String, exerciseNote: [String]) {
+        let param = OnboardingExerciseRequest(type: type, age: age, isExercise: isExercise, exerciseType: exerciseType, exerciseCount: exerciseCount, exerciseTime: exerciseTime, exerciseNote: exerciseNote)
+        OnboardingAPI.shared.postExercise(param: param) { result in
+            guard let result = self.validateResult(result) as? OnboardingExerciseResponse else { return }
+            // UserDefault에 inviteCode 저장
+            UserDefaultManager.shared.saveInviteCode(inviteCode: result.inviteCode ?? "")
+            let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
+            if isMatched {
+                // 온보딩을 이전에 매칭이 완료된 경우
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
+                }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
+            } else {
+                let invitationViewController = InvitationViewController()
+                self.navigationController?.pushViewController(invitationViewController, animated: true)
+            }
         }
     }
 }

@@ -31,7 +31,13 @@ final class AuthorizationViewController: BaseViewController {
         super.setupNavigationBar()
 
         self.navigationController?.navigationBar.topItem?.title = TextLiterals.Onboarding.Authorization.title
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.leftBarButtonItem?.isHidden = true
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 
     override func setHierachy() {

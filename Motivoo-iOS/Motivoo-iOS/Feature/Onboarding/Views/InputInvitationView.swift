@@ -30,7 +30,7 @@ final class InputInvitationView: BaseView {
 
     override func setUI() {
         logoImageView.do {
-            $0.image = ImageLiterals.img.motivooLogo
+            $0.image = ImageLiterals.icon.code
         }
         inputLabel.do {
             $0.text = TextLiterals.Onboarding.Invitation.input
@@ -66,10 +66,10 @@ final class InputInvitationView: BaseView {
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(32.adjusted)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(124.adjusted)
-            $0.width.equalTo(128.adjusted)
+            $0.width.equalTo(234.adjusted)
         }
         inputLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView.snp.bottom).offset(42.adjusted)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(28.adjusted)
             $0.centerX.equalToSuperview()
         }
         inputTextField.snp.makeConstraints {

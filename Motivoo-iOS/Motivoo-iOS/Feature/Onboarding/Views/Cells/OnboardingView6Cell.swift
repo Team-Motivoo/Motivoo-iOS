@@ -96,12 +96,12 @@ final class OnboardingView6Cell: UICollectionViewCell {
             $0.spacing = 12
             $0.alignment = .fill
         }
-        neckButton.accessibilityIdentifier = "neck"
-        shoulderButton.accessibilityIdentifier = "shoulderButton"
-        waistButton.accessibilityIdentifier = "waist"
-        kneeButton.accessibilityIdentifier = "knee"
-        wristButton.accessibilityIdentifier = "wrist"
-        ankleButton.accessibilityIdentifier = "ankle"
+        neckButton.accessibilityIdentifier = "목"
+        shoulderButton.accessibilityIdentifier = "어깨"
+        waistButton.accessibilityIdentifier = "허리"
+        kneeButton.accessibilityIdentifier = "무릎"
+        wristButton.accessibilityIdentifier = "손목"
+        ankleButton.accessibilityIdentifier = "발목"
     }
 
     func setHierachy() {
