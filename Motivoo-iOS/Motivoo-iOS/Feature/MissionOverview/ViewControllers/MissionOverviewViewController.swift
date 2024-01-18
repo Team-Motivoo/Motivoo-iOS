@@ -120,11 +120,8 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                                              opponentMission: opponentMission,
                                              myStatusChip: myStatusChip,
                                              opponentStatusChip: opponentStatusChip)
-            print(date)
-            print(opponentImage)
             
             let currentOverView = mission?.missionHistory[indexPath.row]
-//            let myStatusChip = currentOverView?.myStatusBadge
             let oppoentStatusChip = currentOverView?.opponentStatusBadge
             print(myStatusChip)
             print(oppoentStatusChip)
@@ -249,7 +246,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
         case 0:
             return CGSize(width: collectionView.bounds.width, height: 226.adjusted)
         case 1:
-            return CGSize(width: collectionView.bounds.width, height: 291.adjusted)
+            return CGSize(width: collectionView.bounds.width, height: 320.adjusted)
         default:
             return CGSize(width: collectionView.bounds.width, height: 0)
         }

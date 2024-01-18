@@ -149,7 +149,6 @@
 		34BC14632B4EF7D900636C81 /* ExerciseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */; };
 		34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */; };
 		34BC14692B4F064800636C81 /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */; };
-		34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */; };
 		34BC14702B4FEBBB00636C81 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */; };
 		34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14712B4FEBDD00636C81 /* MyInfoView.swift */; };
 		34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */; };
@@ -270,7 +269,6 @@
 		34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoViewController.swift; sourceTree = "<group>"; };
 		34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoView.swift; sourceTree = "<group>"; };
 		34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
-		34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfo.swift; sourceTree = "<group>"; };
 		34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		34BC14712B4FEBDD00636C81 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -805,7 +803,6 @@
 		34BC146C2B4FDA5C00636C81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -953,7 +950,6 @@
 				02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
 				34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */,
-				34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */,
 				02642C942B46913B00134D73 /* UIImage+.swift in Sources */,
 				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,
 				02E103DD2B543D71003852A7 /* InputInvitationView.swift in Sources */,
@@ -1188,7 +1184,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 인증 사진을 찍어주세요!";
@@ -1219,7 +1215,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 인증 사진을 찍어주세요!";
