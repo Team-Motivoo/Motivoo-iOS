@@ -44,6 +44,7 @@ final class HomeProveView: BaseView {
         missionLabel.do {
             $0.font = .heading3
             $0.textColor = .black
+            $0.numberOfLines = 2
             $0.addLineHeight(lineHeight: 33.6.adjusted)
         }
         

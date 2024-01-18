@@ -67,6 +67,7 @@
 		0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */; };
 		0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */; };
 		058A1AC42B49307500F170D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1AC32B49307500F170D0 /* HomeView.swift */; };
+		058B98AD2B59656E00C1757D /* HomeMissionImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058B98AC2B59656E00C1757D /* HomeMissionImageResponse.swift */; };
 		05AAF8602B3E58480079CEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF85F2B3E58480079CEAB /* AppDelegate.swift */; };
 		05AAF8622B3E58480079CEAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8612B3E58480079CEAB /* SceneDelegate.swift */; };
 		05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF8632B3E58480079CEAB /* MyPageViewController.swift */; };
@@ -137,6 +138,15 @@
 		05BAB7DF2B5690AC0016ECE5 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAB7DE2B5690AC0016ECE5 /* FirebaseRemoteConfigSwift */; };
 		05BAB7E12B5690AC0016ECE5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAB7E02B5690AC0016ECE5 /* FirebaseStorage */; };
 		05BAB7E32B5690AC0016ECE5 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAB7E22B5690AC0016ECE5 /* FirebaseStorageCombine-Community */; };
+		05BAB7E82B570B770016ECE5 /* HomeIntroReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7E72B570B770016ECE5 /* HomeIntroReponse.swift */; };
+		05BAB7EA2B570D270016ECE5 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7E92B570D270016ECE5 /* HomeService.swift */; };
+		05BAB7EC2B570D2F0016ECE5 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7EB2B570D2F0016ECE5 /* HomeAPI.swift */; };
+		05BAB7EE2B570DE60016ECE5 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7ED2B570DE60016ECE5 /* URLs.swift */; };
+		05BAB7F02B5716910016ECE5 /* HomeChoiceMissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7EF2B5716910016ECE5 /* HomeChoiceMissionRequest.swift */; };
+		05BAB7F22B571BC00016ECE5 /* HomeMissionImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7F12B571BC00016ECE5 /* HomeMissionImageRequest.swift */; };
+		05BAB7F42B571F3A0016ECE5 /* HomeMissionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7F32B571F3A0016ECE5 /* HomeMissionsResponse.swift */; };
+		05BAB7F82B5722660016ECE5 /* HomeMissionCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7F72B5722660016ECE5 /* HomeMissionCheckResponse.swift */; };
+		05BAB7FA2B5733370016ECE5 /* HomeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7F92B5733370016ECE5 /* HomeRequest.swift */; };
 		05C8FE452B493A8300A2838C /* DateLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE442B493A8300A2838C /* DateLiterals.swift */; };
 		05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */; };
 		05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */; };
@@ -226,6 +236,7 @@
 		0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveView.swift; sourceTree = "<group>"; };
 		0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveMissionView.swift; sourceTree = "<group>"; };
 		058A1AC32B49307500F170D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		058B98AC2B59656E00C1757D /* HomeMissionImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionImageResponse.swift; sourceTree = "<group>"; };
 		05AAF85C2B3E58480079CEAB /* Motivoo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motivoo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AAF85F2B3E58480079CEAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05AAF8612B3E58480079CEAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +280,15 @@
 		05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountManager.swift; sourceTree = "<group>"; };
 		05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SecretsConfig.xcconfig; sourceTree = "<group>"; };
 		05BAB7AB2B568F780016ECE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05BAB7E72B570B770016ECE5 /* HomeIntroReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIntroReponse.swift; sourceTree = "<group>"; };
+		05BAB7E92B570D270016ECE5 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		05BAB7EB2B570D2F0016ECE5 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
+		05BAB7ED2B570DE60016ECE5 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		05BAB7EF2B5716910016ECE5 /* HomeChoiceMissionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChoiceMissionRequest.swift; sourceTree = "<group>"; };
+		05BAB7F12B571BC00016ECE5 /* HomeMissionImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionImageRequest.swift; sourceTree = "<group>"; };
+		05BAB7F32B571F3A0016ECE5 /* HomeMissionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionsResponse.swift; sourceTree = "<group>"; };
+		05BAB7F72B5722660016ECE5 /* HomeMissionCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionCheckResponse.swift; sourceTree = "<group>"; };
+		05BAB7F92B5733370016ECE5 /* HomeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequest.swift; sourceTree = "<group>"; };
 		05C8FE442B493A8300A2838C /* DateLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLiterals.swift; sourceTree = "<group>"; };
 		05C8FE582B4AA2A700A2838C /* HomeMissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionModel.swift; sourceTree = "<group>"; };
 		05C8FE5B2B4C25A600A2838C /* HomeMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMissionView.swift; sourceTree = "<group>"; };
@@ -604,6 +624,8 @@
 			isa = PBXGroup;
 			children = (
 				05AAF89C2B3E5BAC0079CEAB /* e.swift */,
+				05BAB7E92B570D270016ECE5 /* HomeService.swift */,
+				05BAB7EB2B570D2F0016ECE5 /* HomeAPI.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -632,6 +654,7 @@
 		05AAF8852B3E5A180079CEAB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				05BAB7E62B570AE70016ECE5 /* APIModel */,
 				05C8FE572B4AA29400A2838C /* Model */,
 			);
 			path = Home;
@@ -700,10 +723,12 @@
 		05AAF88C2B3E5A660079CEAB /* Literals */ = {
 			isa = PBXGroup;
 			children = (
+				05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */,
 				05AAF8902B3E5AA30079CEAB /* TextLiterals.swift */,
 				05AAF8D42B3EAB8F0079CEAB /* SizeLiterals.swift */,
 				05AAF8F22B44F18D0079CEAB /* FontLiterals.swift */,
 				05C8FE442B493A8300A2838C /* DateLiterals.swift */,
+				05BAB7ED2B570DE60016ECE5 /* URLs.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -724,7 +749,6 @@
 				05AAF8F42B44F2950079CEAB /* UIColor+.swift */,
 				02642C932B46913B00134D73 /* UIImage+.swift */,
 				05C8FE662B4EDB2600A2838C /* UIBezierPath+.swift */,
-				05AAF88E2B3E5A860079CEAB /* ImageLiterals.swift */,
 				02BAC2D82B4D850B00657CF7 /* UILabel+.swift */,
 				02BAC2DC2B4DA99900657CF7 /* UITextField+.swift */,
 				34B8F3002B5446010023F1D5 /* BasePaddingLabel.swift */,
@@ -777,6 +801,20 @@
 				05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		05BAB7E62B570AE70016ECE5 /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				05BAB7E72B570B770016ECE5 /* HomeIntroReponse.swift */,
+				05BAB7EF2B5716910016ECE5 /* HomeChoiceMissionRequest.swift */,
+				05BAB7F12B571BC00016ECE5 /* HomeMissionImageRequest.swift */,
+				05BAB7F32B571F3A0016ECE5 /* HomeMissionsResponse.swift */,
+				05BAB7F72B5722660016ECE5 /* HomeMissionCheckResponse.swift */,
+				05BAB7F92B5733370016ECE5 /* HomeRequest.swift */,
+				058B98AC2B59656E00C1757D /* HomeMissionImageResponse.swift */,
+			);
+			path = APIModel;
 			sourceTree = "<group>";
 		};
 		05C8FE572B4AA29400A2838C /* Model */ = {
@@ -985,7 +1023,9 @@
 				0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */,
 				02E103D72B53A9AC003852A7 /* TermsOfUseView.swift in Sources */,
 				05AAF8C92B3EA8750079CEAB /* UIImageView+.swift in Sources */,
+				05BAB7FA2B5733370016ECE5 /* HomeRequest.swift in Sources */,
 				34EB38302B50480C00195743 /* OverViewCollectionViewCell.swift in Sources */,
+				05BAB7EC2B570D2F0016ECE5 /* HomeAPI.swift in Sources */,
 				05AAF8D12B3EAA000079CEAB /* UICollectionReusableView+.swift in Sources */,
 				34209C502B581B7B0065547C /* MyService.swift in Sources */,
 				02E104072B5569C9003852A7 /* MoyaLoggingPlugin.swift in Sources */,
@@ -1021,6 +1061,7 @@
 				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				029985752B51436600E88A4F /* InvitationViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
+				05BAB7F42B571F3A0016ECE5 /* HomeMissionsResponse.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				02E103FB2B556452003852A7 /* TokenManager.swift in Sources */,
 				025806852B5020F9002DB50E /* OnboardingView1Cell.swift in Sources */,
@@ -1032,6 +1073,7 @@
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
 				02B44E862B57E164004EE1B9 /* UserDefaultManager.swift in Sources */,
 				02E1042A2B570598003852A7 /* UserExerciseResponse.swift in Sources */,
+				05BAB7F02B5716910016ECE5 /* HomeChoiceMissionRequest.swift in Sources */,
 				02E1041C2B55B46A003852A7 /* JWTDecode.swift in Sources */,
 				05C8FE672B4EDB2600A2838C /* UIBezierPath+.swift in Sources */,
 				34B8F3012B5446010023F1D5 /* BasePaddingLabel.swift in Sources */,
@@ -1054,13 +1096,16 @@
 				34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */,
 				05AAF89B2B3E5B9C0079CEAB /* d.swift in Sources */,
 				02E103D52B539C6B003852A7 /* AuthorizationTableViewCell.swift in Sources */,
+				058B98AD2B59656E00C1757D /* HomeMissionImageResponse.swift in Sources */,
 				34BC14702B4FEBBB00636C81 /* MyInfoViewController.swift in Sources */,
 				3479FFAF2B558A3F002C3FBC /* LeaveViewController.swift in Sources */,
+				05BAB7F82B5722660016ECE5 /* HomeMissionCheckResponse.swift in Sources */,
 				3479FFAD2B557715002C3FBC /* LeavePopupView.swift in Sources */,
 				029CA3C32B4EF4F30007784D /* MotivooButton.swift in Sources */,
 				05AAF8B52B3E5C410079CEAB /* BaseViewController.swift in Sources */,
 				02E1042E2B570B30003852A7 /* InviteCodeResponse.swift in Sources */,
 				349D53EC2B58200A004E6B8C /* ExerciseInfoResponse.swift in Sources */,
+				05BAB7E82B570B770016ECE5 /* HomeIntroReponse.swift in Sources */,
 				0299856D2B5057C300E88A4F /* OnboardingView3Cell.swift in Sources */,
 				05AAF89D2B3E5BAC0079CEAB /* e.swift in Sources */,
 				349D53FA2B582117004E6B8C /* OverviewResponse.swift in Sources */,
@@ -1074,11 +1119,14 @@
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				34BC14782B4FF8A700636C81 /* LeaveTableViewCell.swift in Sources */,
 				349D53F82B5820FB004E6B8C /* OverviewService.swift in Sources */,
+				05BAB7F22B571BC00016ECE5 /* HomeMissionImageRequest.swift in Sources */,
 				05C8FE602B4D39C400A2838C /* HomeCircularProgressView.swift in Sources */,
+				05BAB7EE2B570DE60016ECE5 /* URLs.swift in Sources */,
 				0299856F2B505FE400E88A4F /* OnboardingView4Cell.swift in Sources */,
 				34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */,
 				34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */,
 				02E103FD2B55648B003852A7 /* BaseAPI.swift in Sources */,
+				05BAB7EA2B570D270016ECE5 /* HomeService.swift in Sources */,
 				348EB1B12B4BEA760041BE5C /* ExerciseInfoTableViewCell.swift in Sources */,
 				02E104052B556958003852A7 /* BaseTargetType.swift in Sources */,
 				02642C962B46960D00134D73 /* LoginViewController.swift in Sources */,

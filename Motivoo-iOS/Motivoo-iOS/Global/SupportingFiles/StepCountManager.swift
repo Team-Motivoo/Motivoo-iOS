@@ -25,7 +25,7 @@ final class StepCountManager {
     
     static let shared = StepCountManager()
     
-    private var db: DatabaseReference!
+    var db: DatabaseReference!
     private var timer: Timer? = nil
     
     var pedoMeter = CMPedometer()
@@ -36,7 +36,7 @@ final class StepCountManager {
     var mateStep: Int = 0 {
         didSet {
             //새로 업데이트된 값이 다를때만, 값 증가시켜주기
-            if mateStep != stepCountData.mate {
+            if mateStep > stepCountData.mate {
                 self.stepCountData.mate = mateStep
                 self.updateStepCount(step: mateStep)
             }
@@ -44,7 +44,7 @@ final class StepCountManager {
     }
     var tempChild: Int = 0 {
         didSet {
-            if tempChild != stepCountData.user {
+            if tempChild > stepCountData.user {
                 self.stepCountData.user = tempChild
                 self.updateStepCount(step: tempChild)
             }
@@ -111,7 +111,8 @@ final class StepCountManager {
                 self.tempChild = Int(truncating: steps)
 
                 DispatchQueue.main.async {
-                    print(self.tempChild)
+                    print("\n🧡🧡")
+                    print("\(self.tempChild)\n")
                 }
             }
         }
@@ -127,31 +128,31 @@ final class StepCountManager {
     
     func getStepCount() {
         
-        //한번만 쿼리 리스너 달아두면, 지속적으로 받아짐
-        //여기서 collecion의 motivoo-test 는 안바뀌겠지만,,
-        //"child1parent1" 는 사용자에 따라서 뭐 다르게 해줘도 되겠지?
-        //중요한건 저 리스터 해제 안시켜주면 난리나니까, 앱 종료할때, 혹은 더이상 필요없을때 리스너 해제 잘 시켜줘
+        /// uid와 mid 들어왔을 때만돌아가도록
+        guard let uid else { return }
+        guard let mid else { return }
         db.child("Users/\(uid)").getData(completion:  { error, snapshot in
-          guard error == nil else {
-            print(error!.localizedDescription)
-            print("허허 에러네요")
-            return
-          }
+            guard error == nil else {
+                print(error!.localizedDescription)
+                print("허허 에러네요")
+                return
+            }
             self.stepCountData.user = snapshot?.value as? Int ?? 0
         })
         
         db.child("Users/\(mid)").getData(completion:  { error, snapshot in
-          guard error == nil else {
-            print(error!.localizedDescription)
-            print("허허 에러네요")
-            return
-          }
+            guard error == nil else {
+                print(error!.localizedDescription)
+                print("허허 에러네요")
+                return
+            }
             self.stepCountData.mate = snapshot?.value as? Int ?? 0
         })
     }
     
     //    걸음수가 바꼇을때 값 업데이트 해주는 부분
     func updateStepCount(step: Int) {
-        self.db.child("Users/\(uid)").setValue(self.stepCountData.user)
+        guard let uid else { return }
+            self.db.child("Users/\(uid)").setValue(self.stepCountData.user)
     }
 }
