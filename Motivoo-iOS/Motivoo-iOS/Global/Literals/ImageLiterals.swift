@@ -28,6 +28,7 @@ enum ImageLiterals {
         static var fitnessCircle: UIImage { .load(named: "img_onboarding_fitness")}
         static var cameraCircle: UIImage { .load(named: "img_onboarding_camera")}
         static var galleryCircle: UIImage { .load(named: "img_onboarding_gallery")}
+        static var missionCompleted: UIImage { .load(named: "img_home_mission_complete")}
 
     }
     
