@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChoiceMissionRequest: Codable {
+struct HomeChoiceMissionRequest: Codable {
     let missionID: Int
 
     enum CodingKeys: String, CodingKey {

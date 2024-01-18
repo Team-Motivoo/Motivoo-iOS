@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+// MARK: - DataClass
+
+struct HomeMissionImageResponse: Codable {
+    let imgPresignedURL: String
+    let fileName: String
+
+    enum CodingKeys: String, CodingKey {
+        case imgPresignedURL = "img_presigned_url"
+        case fileName = "file_name"
+    }
+}

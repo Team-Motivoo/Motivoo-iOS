@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - DataClass
 
-struct HomeMissionUnchoiceResponse: Codable {
+struct HomeMissionsResponse: Codable {
     let isChoiceFinished: Bool
-    let date: String
-    let missionChoiceList: [MissionChoiceList]
-    let todayMission: String?
+    let date: String?
+    let missionChoiceList: [MissionChoiceList]?
+    let todayMission: HomeTodayMissions?
 
     enum CodingKeys: String, CodingKey {
         case isChoiceFinished = "is_choice_finished"
@@ -34,5 +34,21 @@ struct MissionChoiceList: Codable {
         case missionID = "mission_id"
         case missionContent = "mission_content"
         case missionIconURL = "mission_icon_url"
+    }
+}
+
+// MARK: - TodayMission
+
+struct HomeTodayMissions: Codable {
+    let missionContent: String
+    let missionDescription: String
+    let missionStepCount: Int
+    let missionQuest: String
+
+    enum CodingKeys: String, CodingKey {
+        case missionContent = "mission_content"
+        case missionDescription = "mission_description"
+        case missionStepCount = "mission_step_count"
+        case missionQuest = "mission_quest"
     }
 }

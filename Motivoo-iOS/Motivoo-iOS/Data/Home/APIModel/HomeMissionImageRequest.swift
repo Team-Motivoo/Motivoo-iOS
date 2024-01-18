@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct HomeMissionImageRequest: Codable {
+    let imgPrefix: String
+
+    enum CodingKeys: String, CodingKey {
+        case imgPrefix = "img_prefix"
+    }
+}
