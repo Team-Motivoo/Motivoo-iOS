@@ -77,10 +77,8 @@ final class OnboardingViewController: BaseViewController {
         setDelegate()
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(false)
-
-        self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
         self.customBackButton.removeTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
     }
 
@@ -379,7 +377,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView2Cell.cellIdentifier, for: indexPath) as! OnboardingView2Cell
             cell.yesButton.addTarget(self, action: #selector(selectButtonDidTap2), for: .touchUpInside)
             cell.noButton.addTarget(self, action: #selector(selectButtonDidTap2), for: .touchUpInside)
-            //self.onboardingProgressView.setProgress(0.3, animated: true)
             // 필요한 설정을 추가합니다.
             return cell
         } else if indexPath.row == 2 {
@@ -387,7 +384,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.highButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
             cell.mediumButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
             cell.lowButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
-            //self.onboardingProgressView.setProgress(0.5, animated: true)
             return cell
         } else if indexPath.row == 3 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView4Cell.identifier, for: indexPath) as! OnboardingView4Cell
@@ -395,7 +391,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.day2Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
             cell.day3Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
             cell.day5Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
-            //self.onboardingProgressView.setProgress(0.7, animated: true)
             return cell
         } else if indexPath.row == 4 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView5Cell.identifier, for: indexPath) as! OnboardingView5Cell
@@ -403,7 +398,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.oneHourButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
             cell.twoHourButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
             cell.twoHoueOverButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
-            //self.onboardingProgressView.setProgress(0.8, animated: true)
             return cell
         } else if indexPath.row == 5 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView6Cell.identifier, for: indexPath) as! OnboardingView6Cell
@@ -414,7 +408,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.ankleButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.kneeButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.startMotivooButton.addTarget(self, action: #selector(startMotivooButtonDidTap), for: .touchUpInside)
-            //onboardingProgressView.setProgress(1.0, animated: true)
             let cellInfo = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
             if (!cellInfo.childButton.isSelected) { // 자식 버튼 클릭
                 questionArray["type"] = "자녀"
