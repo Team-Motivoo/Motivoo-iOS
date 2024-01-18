@@ -17,11 +17,11 @@ final class HomeCircularProgressView: BaseView {
     
     // MARK: - UI Components
     
-    private var myProgressLayer = CAShapeLayer()
-    private var parentProgressLayer = CAShapeLayer()
+    var myProgressLayer = CAShapeLayer()
+    var parentProgressLayer = CAShapeLayer()
     private var trackLayer = CAShapeLayer()
-    private var mainImageView = UIImageView()
-    private var clearPercentLabel = UILabel()
+    var mainImageView = UIImageView()
+    var clearPercentLabel = UILabel()
 //    private var childImageView = UIImageView()
 
     // MARK: - inits
@@ -137,7 +137,6 @@ final class HomeCircularProgressView: BaseView {
             $0.width.equalTo(244.adjusted)
             $0.height.equalTo(184.adjusted)
             $0.center.equalToSuperview()
-//            $0.centerY.equalToSuperview().offset(-20.adjusted)
         }
         
         clearPercentLabel.snp.makeConstraints {
@@ -145,42 +144,6 @@ final class HomeCircularProgressView: BaseView {
             $0.centerX.equalTo(mainImageView)
         }
     }
-
-//    func setMyProgress(to value: Float, withAnimation: Bool) {
-//        let newValue = value > 1.0 ? 1.0 : (value < 0.0 ? 0.0 : value)
-//        let newProgress = CGFloat(newValue)
-//        if withAnimation {
-//            CATransaction.begin()
-//
-//            let trackAnimation = CABasicAnimation(keyPath: "strokeEnd")
-//            trackAnimation.duration = 2
-//            trackAnimation.fromValue = myProgressLayer.strokeEnd
-//            trackAnimation.toValue = newProgress
-//            trackAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-//
-//            let imageAnimation = CABasicAnimation(keyPath: "position")
-//            imageAnimation.duration = 2
-//            // Calculate the new position for the image view
-//            let newPoint = UIBezierPath.point(atPercent: newProgress, withRadius: (frame.size.width - 1.5) / 2, andCenter: CGPoint(x: frame.size.width / 2, y: frame.size.height / 2))
-//            imageAnimation.toValue = NSValue(cgPoint: newPoint)
-//            imageAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-//
-//            CATransaction.setCompletionBlock {
-//                // Update the final position of the image view
-//                self.childImageView.center = newPoint
-//            }
-//
-//            myProgressLayer.strokeEnd = newProgress
-//            myProgressLayer.add(trackAnimation, forKey: "animateprogress")
-//            childImageView.layer.add(imageAnimation, forKey: "positionAnimation")
-//
-//            CATransaction.commit()
-//        } else {
-//            myProgressLayer.strokeEnd = newProgress
-//            // Update the position of the image view without animation
-//            updateImageViewPosition(to: newProgress)
-//        }
-//    }
 
     func updateImageViewPosition(to progress: CGFloat) {
         let radius = (frame.size.width - 1.5) / 2
@@ -191,9 +154,39 @@ final class HomeCircularProgressView: BaseView {
         let newPoint = UIBezierPath.point(atPercent: progress, withRadius: radius, andCenter: centerPoint)
 //        childImageView.center = newPoint
     }
-
+    
     func setMyProgress(to value: Float, withAnimation: Bool) {
-        let newValue = value > 1.0 ? 1.0 : (value < 0.0 ? 0.0 : value)
+        let adjustedValue = (value > 1.0 ? 1.0 : (value < 0.0 ? 0.0 : value)) / 2.0
+        let newValue = CGFloat(adjustedValue)
+        if withAnimation {
+            // 진행률에 따른 이미지 뷰 위치 업데이트 로직 추가
+            let displayLink = CADisplayLink(target: self, selector: #selector(updateImageViewPositionDuringAnimation))
+            displayLink.add(to: .main, forMode: .default)
+            
+            let trackAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            trackAnimation.duration = 2
+            trackAnimation.fromValue = myProgressLayer.strokeEnd
+            trackAnimation.toValue = newValue
+            trackAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+            myProgressLayer.strokeEnd = CGFloat(newValue)
+            myProgressLayer.add(trackAnimation, forKey: "animateprogress")
+        } else {
+            myProgressLayer.strokeEnd = CGFloat(newValue)
+            updateImageViewPosition(to: CGFloat(newValue))
+        }
+    }
+    
+    func setMyProgress(currentStep: Int, finalStep: Int, withAnimation: Bool) {
+        var value: Double = Double()
+        var adjustedValue = Double()
+
+        if finalStep == 0 {
+            value = 0
+        } else {
+            value = Double(currentStep) / Double(finalStep)
+        }
+        adjustedValue = (value > 1.0 ? 1.0 : (value < 0.0 ? 0.0 : value)) / 2.0
+        let newValue = CGFloat(adjustedValue)
         if withAnimation {
             // 진행률에 따른 이미지 뷰 위치 업데이트 로직 추가
             let displayLink = CADisplayLink(target: self, selector: #selector(updateImageViewPositionDuringAnimation))
@@ -217,13 +210,32 @@ final class HomeCircularProgressView: BaseView {
         let progress = myProgressLayer.presentation()?.strokeEnd ?? 0 - 200
         updateImageViewPosition(to: progress)
     }
+    
+    func setParentProgress(currentStep: Int, finalStep: Int, withAnimation: Bool) {
+        var value: Double = Double()
+        var adjustedValue = Double()
 
-//    func updateImageViewPosition(to progress: CGFloat) {
-//        let radius = (frame.size.width - 1.5) / 2
-//        let centerPoint = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-//        let newPoint = UIBezierPath.point(atPercent: progress, withRadius: radius, andCenter: centerPoint)
-//        childImageView.center = newPoint
-//    }
+        if finalStep == 0 {
+            value = 0
+        } else {
+            value = Double(currentStep) / Double(finalStep)
+        }
+        adjustedValue = (value > 1.0 ? 1.0 : (value < 0.0 ? 0.0 : value)) * 0.5
+        let newValue = CGFloat(adjustedValue)
+        if withAnimation {
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            animation.do {
+                $0.duration = 2
+                $0.fromValue = parentProgressLayer.strokeEnd
+                $0.toValue = newValue
+                $0.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+            }
+            parentProgressLayer.strokeEnd = CGFloat(newValue)
+            parentProgressLayer.add(animation, forKey: "animateReverseProgress")
+        } else {
+            parentProgressLayer.strokeEnd = CGFloat(newValue)
+        }
+    }
 
     func setParentProgress(to value: Float, withAnimation: Bool) {
         let newValue = value > 1.0 ? 1.0 : (value < 0.0 ? 0.0 : value)

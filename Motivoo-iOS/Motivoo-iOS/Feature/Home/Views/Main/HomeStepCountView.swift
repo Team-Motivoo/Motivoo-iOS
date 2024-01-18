@@ -17,9 +17,9 @@ final class HomeStepCountView: BaseView {
     // MARK: - UI Components
     
     private var myWalkLabel = UILabel()
-    private var parentWalkLabel = UILabel()
-    private var myWalkCountLabel = UILabel()
-    private var parentWalkCountLabel = UILabel()
+    var parentWalkLabel = UILabel()
+    var myWalkCountLabel = UILabel()
+    var parentWalkCountLabel = UILabel()
     private var divideLineView = UIView()
     private lazy var myWalkStackView = UIStackView(arrangedSubviews: [myWalkLabel,
                                                                       myWalkCountLabel])
@@ -62,11 +62,13 @@ final class HomeStepCountView: BaseView {
         
         myWalkCountLabel.do {
             $0.font = .heading1
+            $0.text = "0"
             $0.textColor = .blue800
         }
         
         parentWalkCountLabel.do {
             $0.font = .heading2
+            $0.text = "0"
             $0.textColor = .gray600
         }
         

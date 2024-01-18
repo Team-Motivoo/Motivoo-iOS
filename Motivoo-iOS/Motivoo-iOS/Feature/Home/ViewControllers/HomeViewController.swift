@@ -20,6 +20,70 @@ final class HomeViewController: BaseViewController {
                                                                      mission: TextLiterals.Home.Main.secondMission)]
     private var stepCountDummy: HomeStepModel = HomeStepModel(myStep: 1900,
                                                               parentStep: 4900)
+    private var goalStep: Int = 0
+    private var mateGoalStep: Int = 0
+    private var isFireBaseRegistered = false
+    /// 나중에 인증 완료 API 들어오면 바인딩
+    private var isMissionCompleted: Bool = true
+    private var isStepCountCompleted: Bool = false {
+        didSet {
+            if isStepCountCompleted && isMateStepCountCompleted {
+                homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
+                self.homeView.homeCircularProgressView.clearPercentLabel.text = "하이파이브 성공!"
+
+            }
+        }
+    }
+    private var isMateStepCountCompleted: Bool = false {
+        didSet {
+            if isStepCountCompleted && isMateStepCountCompleted {
+                homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
+                self.homeView.homeCircularProgressView.clearPercentLabel.text = "하이파이브 성공!"
+            }
+        }
+    }
+    private var dummyUID: Int = 1
+    private var dummyMID: Int = 2
+    
+    /// 걸음수 깜빡임 현상 해결 ->  걸음수 변화할 때 마다 숫자 맟 그래프 변화
+    private var tempUserStep: Int = 0 {
+        didSet {
+            if oldValue < tempUserStep {
+                if !isStepCountCompleted {
+                    requestPatchHome()
+                }
+                
+                DispatchQueue.main.async {
+                    self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
+                                                                         finalStep: self.goalStep ,
+                                                                         withAnimation: true)
+                    self.homeView.homeStepCountView.myWalkCountLabel.text = "\(self.tempUserStep)"
+                    
+                    /// 나중에 미션 인증 여부 들어오면 이거 감싸서 미션 인증 된건 굳이 판단하지 않도록
+                    self.judgeButtonStyle(goal: self.goalStep, now: self.tempUserStep)
+                }
+            }
+        }
+    }
+    private var tempMateStep: Int = 0 {
+        didSet {
+            if oldValue < tempMateStep {
+                if mateGoalStep <= tempMateStep {
+                    self.isMateStepCountCompleted = true
+                }
+                DispatchQueue.main.async {
+                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep, finalStep: self.mateGoalStep , withAnimation: true)
+                    self.homeView.homeStepCountView.parentWalkCountLabel.text = "\(self.tempMateStep)"
+                }
+            }
+        }
+    }
+    private var firstMissionData = MissionChoiceList(missionID: Int(),
+                                                     missionContent: String(),
+                                                     missionIconURL: String())
+    private var secondMissionData = MissionChoiceList(missionID: Int(),
+                                                      missionContent: String(),
+                                                      missionIconURL: String())
     
     // MARK: - UI Components
     
@@ -30,14 +94,23 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /// 접근권한 페이지로 옮기기
         StepCountManager.shared.startCheckStepCount()
+                
+        /// 파이어베이스 테이블에 유저아이디: 만보수 등록하는 코드  ->  나중에 삭제
+//        StepCountManager.shared.db.child("Users").setValue(["\(self.dummyUID)": 0])
+//        StepCountManager.shared.db.child("Users").setValue(["\(self.dummyMID)": 0])
+        configureStepCount()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configureMissionView(dataList: self.missionDummy)
-        configureStepCountView(data: self.stepCountDummy)
+        
+        // 네트워크 통신
+        requestPatchHome()
+        requestPostMission()
+        configureMissionTapGesture()
     }
     
     // MARK: - Override Functions
@@ -60,55 +133,197 @@ final class HomeViewController: BaseViewController {
         homeView.checkMissionButton.addTarget(self, action: #selector(checkButtonDidTapped), for: .touchUpInside)
     }
     
-    // MARK: - Custom Method
-    
-    private func configureMissionView(dataList: [HomeMissionModel]) {
-        homeView.firstMissionView.configureView(image: dataList[0].image,
-                                                mission: dataList[0].mission)
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
         
-        homeView.secondMissionView.configureView(image: dataList[1].image,
-                                                 mission: dataList[1].mission)
+//        navigationController?.isNavigationBarHidden = true
     }
     
-    private func configureStepCountView(data: HomeStepModel) {
-        homeView.homeStepCountView.configureView(myWalk: data.myStep,
-                                                 parentWalk: data.parentStep)
+    // MARK: - Custom Method
+    
+    private func configureMissionTapGesture() {
+        let firstMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(firstMissionViewDidTapped))
+        let secondMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(secondMissionViewDidTapped))
+        
+        homeView.firstMissionView.addGestureRecognizer(firstMissionViewTappedGesture)
+        homeView.secondMissionView.addGestureRecognizer(secondMissionViewTappedGesture)
+    }
+    
+    @objc
+    private func firstMissionViewDidTapped() {
+        if !homeView.isMissionSelected {
+            homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
+            requestPostMissionChoice(param: HomeChoiceMissionRequest(missionID: firstMissionData.missionID))
+            homeView.pickMissionLabel.text = firstMissionData.missionContent
+        }
+    }
+    
+    @objc
+    private func secondMissionViewDidTapped() {
+        if !homeView.isMissionSelected {
+            homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
+            requestPostMissionChoice(param: HomeChoiceMissionRequest(missionID: secondMissionData.missionID))
+            homeView.pickMissionLabel.text = secondMissionData.missionContent
+            
+            
+        }
+    }
+    
+    private func configureStepCountView(user: Int, mate: Int) {
+        homeView.homeStepCountView.configureView(myWalk: user,
+                                                 parentWalk: mate)
     }
     
     
     @objc
     private func checkButtonDidTapped() {
-        let homeProveViewController = HomeProveViewController()
         
-        /// BottomSheet의 PanGesture 제거
-        let noopPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: nil)
-        noopPanGestureRecognizer.cancelsTouchesInView = false
-        homeProveViewController.view.addGestureRecognizer(noopPanGestureRecognizer)
-        
-        ///BottomSheet의 높이 조정
-        if let proveSheet = homeProveViewController.sheetPresentationController {
-            proveSheet.detents = [
-                .custom { _ in
-                    return 356.adjusted
-                }
-            ]
-            proveSheet.preferredCornerRadius = 20
+        ///인증하기 버튼 활성화 됐을 때 터치이벤트
+        if isMissionCompleted == false && isStepCountCompleted == true  {
+            let homeProveViewController = HomeProveViewController()
+            
+            /// BottomSheet의 PanGesture 제거
+            let noopPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: nil)
+            noopPanGestureRecognizer.cancelsTouchesInView = false
+            homeProveViewController.view.addGestureRecognizer(noopPanGestureRecognizer)
+            
+            ///BottomSheet의 높이 조정
+            if let proveSheet = homeProveViewController.sheetPresentationController {
+                proveSheet.detents = [
+                    .custom { _ in
+                        return 356.adjusted
+                    }
+                ]
+                proveSheet.preferredCornerRadius = 20
+            }
+            
+            /// Main에서 고른 미션 text를 전달하는 closure
+            homeProveViewController.missionHandler = { [weak self] in
+                guard let self else { return }
+                homeView.dimmView.isHidden = false
+                homeProveViewController.mission = self.homeView.pickMissionLabel.text ?? String()
+            }
+            
+            /// present 됐을 때 뒷배경을 더 어둡게 하기 위한 View 보이게 해주기
+            /// 이때, closure를 사용하여 dismiss 됐을 때, 어둡게 보이는 View를 숨기기
+            homeProveViewController.onDismissHandler = { [weak self] in
+                guard let self else { return }
+                self.homeView.dimmView.isHidden = true
+            }
+            
+            self.present(homeProveViewController, animated: true)
         }
-        
-        /// Main에서 고른 미션 text를 전달하는 closure
-        homeProveViewController.missionHandler = { [weak self] in
-            guard let self else { return }
-            homeView.dimmView.isHidden = false
-            homeProveViewController.mission = self.homeView.pickMissionLabel.text ?? String()
+    }
+    
+    private func configureStepCount() {
+        StepCountManager.shared.stepCountDataCompletion = { [weak self] newData in
+            print("\n🚀🚀")
+            print("\(newData.user)\n")
+            self?.tempUserStep = newData.user
+            self?.tempMateStep = newData.mate
         }
-        
-        /// present 됐을 때 뒷배경을 더 어둡게 하기 위한 View 보이게 해주기
-        /// 이때, closure를 사용하여 dismiss 됐을 때, 어둡게 보이는 View를 숨기기
-        homeProveViewController.onDismissHandler = { [weak self] in
-            guard let self else { return }
-            self.homeView.dimmView.isHidden = true
+    }
+    
+    ///비활성화 된 상태에서, 화면 밖으로 나가지 않고 즉시 걸음수 충족 및 인증 완료를 확인하기 위한 처리.
+    ///화면으로부터 나간 후, 다시 들어왔을 때는 서버에서 isMissionCompleted 값을 준다.
+    private func judgeButtonStyle(goal goalStep: Int, now currentStep: Int) {
+        if goalStep > currentStep {
+            homeView.configureCheckButtonStyle(state: .unCompleted)
+        } else { /// 목표 걸음수를 채웠을 때의 두 가지 경우.
+            self.isStepCountCompleted = true
+            if isMissionCompleted {
+                homeView.configureCheckButtonStyle(state: .checkCompleted)
+            } else {
+                homeView.configureCheckButtonStyle(state: .completed)
+            }
         }
-        
-        self.present(homeProveViewController, animated: true)
+    }
+    
+    func checkDataAndPerformAction(id: Int) {
+        let childPath = "Users" // 여기에 확인하고자 하는 child의 경로를 설정합니다.
+
+        StepCountManager.shared.db.child(childPath).getData(completion: { [weak self] error, snapshot in
+            guard let strongSelf = self else { return }
+
+            if let error = error {
+                print("Error getting data \(error)")
+            } else if ((snapshot?.exists()) != nil) {
+                // 데이터가 존재하는 경우
+                print("이미 존재하는 유저!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            } else {
+                // 데이터가 존재하지 않는 경우
+                // 새로운 child 등록 또는 기본값 설정
+                StepCountManager.shared.db.child(childPath).setValue(["\(id)": 0])
+            }
+        })
+    }
+}
+
+// MARK: - Network Functions
+
+extension HomeViewController {
+    private func requestPatchHome() {
+        HomeAPI.shared.patchHome(param: HomeRequest(myStepCount: StepCountManager.shared.stepCountData.user,
+                                                    opponentStepCount: StepCountManager.shared.stepCountData.mate)) { result in
+            guard let result = self.validateResult(result) as? HomeIntroResponse else { return }
+            
+            /// StepCountManager에 uid와 mid를 매칭.
+            /// uid와 mid가 있어야 파이어베이스에서 값을 읽어오고, 저장 할 수 있도록 로직을 구생했기 때문
+            StepCountManager.shared.uid = result.userID
+            StepCountManager.shared.mid = result.opponentUserID
+            
+            /// 이미 가입이 완료되어서 table이 등록 되어있는 유저라면, 다시 레코드를 추가해주면 안되므로
+            /// uid로 데이터를 받아오는 요청을 한번 보낸 후, 에러가 난다면 table에 uid로 등록하도록 하는 함수
+            self.checkDataAndPerformAction(id: result.userID)
+
+            /// 서버한테서 오는 목표걸음 수 낮아지면 주석 해제
+//            self.goalStep = result.userGoalStepCount
+//            self.mateGoalStep = result.opponentUserGoalStepCount
+//            self.isStepCountCompleted = result.isStepCountCompleted
+
+            
+            /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
+            self.goalStep = 300
+            self.mateGoalStep = 350
+
+            if result.userType == "자녀" {
+                self.homeView.homeStepCountView.parentWalkLabel.text = "부모님 걸음"
+                self.homeView.homeCircularProgressView.myProgressLayer.strokeColor = UIColor.blue400.cgColor
+                self.homeView.homeCircularProgressView.parentProgressLayer.strokeColor = UIColor.gray600.cgColor
+
+            } else if result.userType == "부모" {
+                self.homeView.homeStepCountView.parentWalkLabel.text = "자녀 걸음"
+                self.homeView.homeCircularProgressView.myProgressLayer.strokeColor = UIColor.gray600.cgColor
+                self.homeView.homeCircularProgressView.parentProgressLayer.strokeColor = UIColor.blue400.cgColor
+
+            }
+        }
+    }
+    
+    private func requestPostMission() {
+        HomeAPI.shared.postMission{ result in
+            guard let result = self.validateResult(result) as? HomeMissionsResponse else { return }
+            
+            // TODO: - 미션 완료 여부(isMissionCompleted) 서버에서 들어오도록 수정되면 바꾸기
+            self.isMissionCompleted = false
+            self.homeView.configureView(data: result)
+            if result.missionChoiceList != nil {
+                /// 미션을 고르자마자 뷰가 변함 -> 이 뷰에 대한 데이터 바인딩을 위해 VC에 받은 정보를 저장
+                self.firstMissionData = result.missionChoiceList?[0] ?? MissionChoiceList(missionID: Int(),
+                                                                                          missionContent: String(),
+                                                                                          missionIconURL: String())
+                self.secondMissionData = result.missionChoiceList?[1] ?? MissionChoiceList(missionID: Int(),
+                                                                                           missionContent: String(),
+                                                                                           missionIconURL: String())
+            }
+        }
+    }
+    
+    private func requestPostMissionChoice(param: HomeChoiceMissionRequest) {
+        HomeAPI.shared.postMissionChoice(param: param) { result in
+            guard let result = self.validateResult(result) as? BlankDataResponse else { return }
+            
+            self.requestPatchHome()
+        }
     }
 }

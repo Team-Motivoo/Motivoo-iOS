@@ -19,7 +19,7 @@ final class HomeProveSuccessView: BaseView {
     private var popupView = UIView()
     private var titleLabel = UILabel()
     private var subTitleLabel = UILabel()
-    private var proveImageView = UIImageView()
+    var proveImageView = UIImageView()
     private var checkImageView = UIImageView()
     var checkButton = UIButton()
     private lazy var bottomStackView = UIStackView(arrangedSubviews: [subTitleLabel,
