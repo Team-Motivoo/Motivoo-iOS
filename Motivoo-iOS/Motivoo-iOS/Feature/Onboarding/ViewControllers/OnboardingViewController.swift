@@ -77,9 +77,17 @@ final class OnboardingViewController: BaseViewController {
         setDelegate()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(false)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+
+        // 네비게이션 스택에서 온보딩VC 제거하기
+        if let navigationController = self.navigationController {
+            var navigationArray = navigationController.viewControllers // 현재 네비게이션 스택을 가져옵니다.
+            navigationArray.remove(at: navigationArray.count - 2) // 두 번째로 마지막인 FirstVC를 제거합니다.
+            self.navigationController?.viewControllers = navigationArray // 수정된 스택을 다시 설정합니다.
+        }
         self.customBackButton.removeTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
+        self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
     }
 
     // MARK: - Override Functions
