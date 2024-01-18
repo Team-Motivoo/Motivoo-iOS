@@ -11,13 +11,13 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
-    private let dateLabel = UILabel()
-    let myExerciseImageView = UIImageView()
-    let opponentExerciseImageVIew = UIImageView()
-    private let myMissionLabel = UILabel()
-    private let opponentMissionLabel = UILabel()
-    let noPlaceholderText = UILabel()
-    let nextPlacehoderTextLabel = UILabel()
+    var dateLabel = UILabel()
+    var myExerciseImageView = UIImageView()
+    var opponentExerciseImageVIew = UIImageView()
+    var myMissionLabel = UILabel()
+    var opponentMissionLabel = UILabel()
+    var noPlaceholderText = UILabel()
+    var nextPlacehoderTextLabel = UILabel()
     let thumpIconImageView = UIImageView()
     let myExerciseBadge = BasePaddingLabel()
     let parentExerciseBadge = BasePaddingLabel()
@@ -134,6 +134,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         opponentExerciseImageVIew.do {
             $0.contentMode = .scaleAspectFit
             $0.backgroundColor = .gray100
+            $0.layer.cornerRadius = 8
             $0.clipsToBounds = true
             $0.contentMode =  .scaleAspectFill
         }
@@ -224,6 +225,8 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         dateLabel.text = date
         myExerciseImageView.kfSetImage(url: myImage)
         opponentExerciseImageVIew.kfSetImage(url: opponentImage)
+        print(myImage)
+        print(opponentImage)
         myMissionLabel.text = myMission
         opponentMissionLabel.text = opponentMission
         myStatusBadge.text = myStatusChip

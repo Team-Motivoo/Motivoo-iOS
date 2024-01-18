@@ -11,8 +11,8 @@ final class LabelCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     private let todayMissionView = UIView()
-    private let todayExerciseLabel = UILabel()
-    private let todayMissonLabel = UILabel()
+    private var todayExerciseLabel = UILabel()
+    var todayMissionLabel = UILabel()
     private let noticeView = UIView()
     private let noticeLabel = UILabel()
     private let noticeIcon = UIImageView()
@@ -39,8 +39,7 @@ final class LabelCollectionViewCell: UICollectionViewCell {
             $0.textColor = .gray600
             $0.font = .caption1
         }
-        todayMissonLabel.do {
-            $0.text = "8천걸음 걷고\n스쿼트 10번하기"
+        todayMissionLabel.do {
             $0.font = .heading3
             $0.textColor = .black
             $0.numberOfLines = 2
@@ -62,7 +61,7 @@ final class LabelCollectionViewCell: UICollectionViewCell {
     
     func setHierachy() {
         self.addSubviews(todayMissionView,noticeView)
-        todayMissionView.addSubviews(todayExerciseLabel,todayMissonLabel)
+        todayMissionView.addSubviews(todayExerciseLabel,todayMissionLabel)
         noticeView.addSubviews(noticeIcon,noticeLabel)
     }
     
@@ -75,7 +74,7 @@ final class LabelCollectionViewCell: UICollectionViewCell {
         todayExerciseLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(20.adjusted)
         }
-        todayMissonLabel.snp.makeConstraints {
+        todayMissionLabel.snp.makeConstraints {
             $0.leading.equalTo(todayExerciseLabel.snp.leading)
             $0.top.equalTo(todayExerciseLabel.snp.bottom).offset(8.adjusted)
             $0.bottom.equalToSuperview().inset(20.adjusted)

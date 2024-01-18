@@ -12,12 +12,12 @@ import Then
 
 final class LeaveViewController: BaseViewController {
     
-    // MARK: - Properties
-    
-    
+
     // MARK: - UI Components
     
-    private let popupView: LeavePopupView
+    let popupView: LeavePopupView
+    
+    
     
     // MARK: - Life Cycles
     
