@@ -30,7 +30,7 @@ final class InputInvitationView: BaseView {
 
     override func setUI() {
         logoImageView.do {
-            $0.image = ImageLiterals.img.motivooLogo
+            $0.image = ImageLiterals.icon.code
         }
         inputLabel.do {
             $0.text = TextLiterals.Onboarding.Invitation.input
