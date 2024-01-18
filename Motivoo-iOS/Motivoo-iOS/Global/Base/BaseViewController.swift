@@ -50,7 +50,7 @@ class BaseViewController: UIViewController {
         //customNavigationBar()
         setupNavigationBar()
         customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
     }
 
     //MARK: - Functions
@@ -83,7 +83,7 @@ class BaseViewController: UIViewController {
         guard let navigationBar = navigationController?.navigationBar else { return }
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
-        appearance.backgroundColor = .gray100
+        appearance.backgroundColor = .clear
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray900, NSAttributedString.Key.font: UIFont.heading7]
         navigationBar.standardAppearance = appearance
         navigationBar.compactAppearance = appearance

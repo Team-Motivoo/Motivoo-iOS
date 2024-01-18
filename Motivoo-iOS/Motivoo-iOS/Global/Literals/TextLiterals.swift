@@ -38,9 +38,9 @@ enum TextLiterals {
             static var termsOfInfoHangling = "개인정보 처리방침 동의"
             static var see = "보기"
 
-            static var termOfUserURL = "https://www.notion.so/gayeong04/7f6097380a0b43d38ae265ea985152e7?pvs=4"
-            static var termOfInfoCollectionURL = "https://www.notion.so/gayeong04/iOS-dc7e5c4540df40a298dba1ed15ef45d6?pvs=4"
-            static var termOfInfoHandlingURL = "https://www.notion.so/gayeong04/Plan-0714f852799742d286ffe012b09262db?pvs=4"
+            static var termOfUserURL = "https://gayeong04.notion.site/82b7d6d8cc3f4091aa0a3b41bbfc6c62?pvs=4"
+            static var termOfInfoCollectionURL = "https://gayeong04.notion.site/e85e6a92bcce43bbac61c0de4e79cd14?pvs=4"
+            static var termOfInfoHandlingURL = "https://gayeong04.notion.site/df1e215e4b2248d28a913ea27788a777?pvs=4"
         }
 
         enum Login {
