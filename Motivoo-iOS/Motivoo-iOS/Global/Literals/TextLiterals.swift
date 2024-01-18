@@ -39,7 +39,7 @@ enum TextLiterals {
 
             static var termOfUserURL = "https://www.notion.so/gayeong04/7f6097380a0b43d38ae265ea985152e7?pvs=4"
             static var termOfInfoCollectionURL = "https://www.notion.so/gayeong04/iOS-dc7e5c4540df40a298dba1ed15ef45d6?pvs=4"
-            static var termOfInfoHandlingURL = "https://www.notion.so/gayeong04/Plan-0714f852799742d286ffe012b09262db?pvs=4"
+            static var termOfInfoHandlingURL = "https://gayeong04.notion.site/df1e215e4b2248d28a913ea27788a777"
         }
 
         enum Login {
@@ -198,6 +198,10 @@ enum TextLiterals {
         static var realLeave = "정말 탈퇴하시겠어요?"
         static var leaveSubtitle = "회원 탈퇴 시, 모든 정보가\n삭제되며 복구가 불가능해요."
         static var leaveTitle = "탈퇴하기"
+        static var opensource = "https://gayeong04.notion.site/c78b181acf8a41f28f2ed653db998650"
+        static var developer =  "https://gayeong04.notion.site/39aa420262384587957479ca4da2ba2e"
+        static var kakao = "https://gayeong04.notion.site/08592ddcf3bf4a3b80e3c54110444ebf"
+      
     }
     enum NoComplete {
         static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 엘범을 만들어봐요!"

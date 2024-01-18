@@ -16,7 +16,7 @@ final class LeavePopupView: BaseView {
     
     // MARK: - UI Components
     
-    private var popupView = UIView()
+    var popupView = UIView()
     var mainTitleLabel = UILabel()
     var subTitleLabel = UILabel()
     var blackButton = UIButton()
