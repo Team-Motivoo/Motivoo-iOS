@@ -14,9 +14,6 @@ final class MyInfoViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private var exerciseInfoDummy: [ExerciseInfo] = [ExerciseInfo(title: TextLiterals.MyPage.name, info: "김뿡뿡"),
-                                                     ExerciseInfo(title: TextLiterals.MyPage.age, info: "54")]
-    
     private var userInfo: MyInfoUserResponse? {
         didSet {
             myInfoView.myInfotableView.reloadData()
@@ -47,6 +44,7 @@ final class MyInfoViewController: BaseViewController {
         super.viewDidLoad()
         setTableViewConfig()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -118,6 +116,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 1 {
             let leavePopupViewController = LeaveViewController()
             leavePopupViewController.popupConfigureCell(title: TextLiterals.MyPage.logout, subtitle: TextLiterals.MyPage.realLogout, buttonTitle: TextLiterals.MyPage.logout)
+            leavePopupViewController.popupView.blackButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
             leavePopupViewController.modalTransitionStyle = .coverVertical
             leavePopupViewController.modalPresentationStyle = .overFullScreen
             self.present(leavePopupViewController, animated: true)
@@ -125,6 +124,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 2 {
             let leavePopupViewController = LeaveViewController()
             leavePopupViewController.popupConfigureCell(title: TextLiterals.MyPage.realLeave, subtitle: TextLiterals.MyPage.leaveSubtitle, buttonTitle: TextLiterals.MyPage.leaveTitle)
+            leavePopupViewController.popupView.blackButton.addTarget(self, action: #selector(deleteUser), for: .touchUpInside)
             leavePopupViewController.modalTransitionStyle = .coverVertical
             leavePopupViewController.modalPresentationStyle = .overFullScreen
             self.present(leavePopupViewController, animated: true)
@@ -173,6 +173,36 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func dataBind(data: MyInfoUserResponse) {
         self.userInfo = data
-       }
+    }
+    
+    @objc private func logout() {
+        // 서버에 로그아웃 요청
+        MyAPI.shared.postLogout() { result in
+            guard let result = self.validateResult(result) as? SimpleResponse else { return }
+            
+            print(result)
+            TokenManager.shared.removeToken()
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            guard let delegate = sceneDelegate else {
+                print("sceneDelegate가 할당 Error")
+                return
+            }
+            let rootViewController = UINavigationController(rootViewController: SplashViewController())
+            delegate.window?.rootViewController = rootViewController
+        }
+    }
+    @objc private func deleteUser() {
+        MyAPI.shared.deleteLeave() { result in
+            guard let result = self.validateResult(result) as? SimpleResponse else {
+                return
+            }
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            guard let delegate = sceneDelegate else {
+                print("sceneDelegate가 할당 Error")
+                return
+            }
+            let rootViewController = UINavigationController(rootViewController: SplashViewController())
+            delegate.window?.rootViewController = rootViewController
+        }
+    }
 }
-

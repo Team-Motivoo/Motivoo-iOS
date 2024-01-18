@@ -162,7 +162,6 @@
 		34BC14632B4EF7D900636C81 /* ExerciseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */; };
 		34BC14672B4EFA9800636C81 /* ExerciseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */; };
 		34BC14692B4F064800636C81 /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */; };
-		34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */; };
 		34BC14702B4FEBBB00636C81 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */; };
 		34BC14722B4FEBDD00636C81 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14712B4FEBDD00636C81 /* MyInfoView.swift */; };
 		34BC14762B4FF24800636C81 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */; };
@@ -295,7 +294,6 @@
 		34BC14622B4EF7D900636C81 /* ExerciseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoViewController.swift; sourceTree = "<group>"; };
 		34BC14662B4EFA9800636C81 /* ExerciseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoView.swift; sourceTree = "<group>"; };
 		34BC14682B4F064700636C81 /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
-		34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfo.swift; sourceTree = "<group>"; };
 		34BC146F2B4FEBBB00636C81 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		34BC14712B4FEBDD00636C81 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		34BC14752B4FF24800636C81 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -623,6 +621,8 @@
 		05AAF8842B3E5A120079CEAB /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				34209C4F2B581B7B0065547C /* MyService.swift */,
+				34209C4D2B581B070065547C /* MyAPI.swift */,
 				34209C522B581BC00065547C /* APIModel */,
 				34BC146C2B4FDA5C00636C81 /* Model */,
 			);
@@ -841,9 +841,6 @@
 		34BC146C2B4FDA5C00636C81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */,
-				34209C4D2B581B070065547C /* MyAPI.swift */,
-				34209C4F2B581B7B0065547C /* MyService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

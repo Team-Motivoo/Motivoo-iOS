@@ -7,15 +7,19 @@
 
 import UIKit
 
+import SafariServices
 import SnapKit
 import Then
 
 final class MyPageViewController: BaseViewController {
     
     // MARK: - UI Components
-    
+//    private let notionUrl = NSURL(string: AppInfoLink[Int])
     let mypageView = MyPageView()
     private var nextButton = UIButton()
+    
+    let AppInfoLink: [String] = [TextLiterals.Onboarding.Terms.termOfUserURL , TextLiterals.Onboarding.Terms.termOfInfoHandlingURL , TextLiterals.MyPage.opensource, TextLiterals.MyPage.developer]
+    
     
     var userInfo: MyInfoUserResponse? {
         didSet {
@@ -100,6 +104,20 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
             let exerciseInfoViewController = ExerciseInfoViewController()
             navigationController?.pushViewController(exerciseInfoViewController, animated: true)
         }
+        if indexPath.section == 1 {
+            let notionUrlString = AppInfoLink[indexPath.row - 1]
+                       if let notionUrl = NSURL(string: notionUrlString) {
+                           let notionSafariView = SFSafariViewController(url: notionUrl as URL)
+                           present(notionSafariView, animated: true, completion: nil)
+                       }
+        }
+        if indexPath.section == 2 {
+            let kakaoUrlString = TextLiterals.MyPage.kakao
+                       if let notionUrl = NSURL(string: kakaoUrlString) {
+                           let notionSafariView = SFSafariViewController(url: notionUrl as URL)
+                           present(notionSafariView, animated: true, completion: nil)
+                       }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -181,8 +199,10 @@ extension MyPageViewController {
     func requestMyAPI() {
         MyAPI.shared.getMyInfo() { result in
             guard let result = self.validateResult(result) as? MyInfoUserResponse else {
+                print(result)
                 return
             }
+            print(result)
             self.userInfo = result
             self.mypageView.nameLabel.text = result.userNickname
         }

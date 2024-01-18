@@ -43,8 +43,8 @@ extension MyAPI{
             )
         }
     }
-    public func deleteLeave(socialPlatform: LeaveRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        myProvider.request(.deleteLeave(param: socialPlatform)) { (result) in
+    public func deleteLeave(completion: @escaping (NetworkResult<Any>) -> Void) {
+        myProvider.request(.deleteLeave) { (result) in
             self.disposeNetwork(
                 result,
                 dataModel: BlankDataResponse.self,

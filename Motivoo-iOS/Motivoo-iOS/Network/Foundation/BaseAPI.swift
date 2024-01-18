@@ -43,7 +43,7 @@ class BaseAPI{
             print("⛔️ \(self)에서 디코딩 오류가 발생했습니다 ⛔️")
             return .decodedErr
         }
-
+        
         switch statusCode {
         case 200..<205:
             return .success(decodedData)

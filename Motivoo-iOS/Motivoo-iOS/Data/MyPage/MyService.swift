@@ -12,7 +12,7 @@ enum MyService {
     case getMyInfo
     case getExerciseInfo
     case postLogout
-    case deleteLeave(param: LeaveRequest)
+    case deleteLeave
 }
 
 extension MyService: BaseTargetType {
@@ -49,8 +49,8 @@ extension MyService: BaseTargetType {
             return .requestPlain
         case .postLogout:
             return .requestPlain
-        case .deleteLeave(let param):
-            return .requestJSONEncodable(param)
+        case .deleteLeave:
+            return .requestPlain
         }
     }
 }
