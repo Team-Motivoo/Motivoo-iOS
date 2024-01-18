@@ -596,6 +596,8 @@
 		05AAF8842B3E5A120079CEAB /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				34209C4F2B581B7B0065547C /* MyService.swift */,
+				34209C4D2B581B070065547C /* MyAPI.swift */,
 				34209C522B581BC00065547C /* APIModel */,
 				34BC146C2B4FDA5C00636C81 /* Model */,
 			);
@@ -804,8 +806,6 @@
 			isa = PBXGroup;
 			children = (
 				34BC146D2B4FDA8B00636C81 /* ExerciseInfo.swift */,
-				34209C4D2B581B070065547C /* MyAPI.swift */,
-				34209C4F2B581B7B0065547C /* MyService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1188,7 +1188,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DGF5D388H;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 인증 사진을 찍어주세요!";
@@ -1219,7 +1219,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Motivoo-iOS/Motivoo-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DGF5D388H;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Motivoo-iOS/Global/Resources/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 인증 사진을 찍어주세요!";
