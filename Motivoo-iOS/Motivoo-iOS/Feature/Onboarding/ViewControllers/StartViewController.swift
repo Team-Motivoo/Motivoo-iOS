@@ -27,6 +27,8 @@ final class StartViewController: BaseViewController {
     // MARK: - Life Cycles
 
     override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBar()
+
         print("===StartVC ViewWillAppear: \(TokenManager.shared.getToken())")
         print("===StartVC ViewWillAppear: \(UserDefaultManager.shared.getFinishedOnboarding())")
         isMatched = UserDefaultManager.shared.getUserMatcehd()
@@ -44,7 +46,7 @@ final class StartViewController: BaseViewController {
     override func setupNavigationBar() {
         super.setupNavigationBar()
 
-        self.navigationItem.leftBarButtonItem?.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func setUI() {
@@ -71,7 +73,7 @@ final class StartViewController: BaseViewController {
 
     override func setLayout() {
         motivooTextLogo.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(32.adjusted)
             $0.leading.equalToSuperview().inset(20.adjusted)
             $0.height.equalTo(16.adjusted)
             $0.width.equalTo(78.adjusted)
