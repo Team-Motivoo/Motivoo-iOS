@@ -102,7 +102,7 @@ enum TextLiterals {
         }
 
         enum Q4 {
-            static var exerciseTitle = "일상생활 중 자주 하는 활동을 알려주세요"
+            static var exerciseTitle = "일상생활 중 자주 하는\n활동을 알려주세요"
             static var exercisePowerSubtitle = "가장 많이 하는 활동을 기준으로 선택해주세요"
             static var highTitle = "고강도 활동"
             static var highSubtitle = "무거운 물건 나르기, 육아 등"
