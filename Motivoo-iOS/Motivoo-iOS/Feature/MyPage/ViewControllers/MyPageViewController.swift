@@ -29,7 +29,7 @@ final class MyPageViewController: BaseViewController {
     }
     
     let myInfoView = MyInfoView()
-
+    
     private func setTableViewConfig() {
         mypageView.tableView.register(ExerciseInfoTableViewCell.self,
                                       forCellReuseIdentifier: ExerciseInfoTableViewCell.cellIdentifier)
@@ -76,7 +76,7 @@ final class MyPageViewController: BaseViewController {
     @objc
     private func myInfoButtonDidTapped() {
         let myInfoViewController = MyInfoViewController()
-        myInfoViewController.dataBind(data: self.userInfo ?? MyInfoUserResponse(userNickname: "", userAge: Int()))
+        myInfoViewController.dataBind(data: self.userInfo ?? MyInfoUserResponse(userNickname: "", userAge: 0, userType: ""))
         navigationController?.pushViewController(myInfoViewController, animated: true)
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -205,6 +205,12 @@ extension MyPageViewController {
             print(result)
             self.userInfo = result
             self.mypageView.nameLabel.text = result.userNickname
+            print(self.userInfo)
+            if self.userInfo?.userType == "자녀" {
+                self.mypageView.parentLabel.text = TextLiterals.MyPage.child
+            } else {
+                self.mypageView.parentLabel.text = TextLiterals.MyPage.parent
+            }
         }
     }
 }
