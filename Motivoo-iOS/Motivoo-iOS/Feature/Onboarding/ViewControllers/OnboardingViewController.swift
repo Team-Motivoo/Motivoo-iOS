@@ -423,6 +423,7 @@ extension OnboardingViewController {
             guard let result = self.validateResult(result) as? OnboardingExerciseResponse else { return }
             // UserDefault에 inviteCode 저장
             UserDefaultManager.shared.saveInviteCode(inviteCode: result.inviteCode ?? "")
+            UserDefaultManager.shared.saveFinishedOnboarding(finished: true)
             let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
             if isMatched {
                 // 온보딩을 이전에 매칭이 완료된 경우
