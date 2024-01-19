@@ -66,7 +66,7 @@ final class HomeViewController: BaseViewController {
     private var tempMateStep: Int = 0 {
         didSet {
             if oldValue < tempMateStep {
-                if mateGoalStep <= tempMateStep {
+                if mateGoalStep > 0 && mateGoalStep <= tempMateStep {
                     self.isMateStepCountCompleted = true
                 }
                 DispatchQueue.main.async {
@@ -234,7 +234,7 @@ final class HomeViewController: BaseViewController {
     ///비활성화 된 상태에서, 화면 밖으로 나가지 않고 즉시 걸음수 충족 및 인증 완료를 확인하기 위한 처리.
     ///화면으로부터 나간 후, 다시 들어왔을 때는 서버에서 isMissionCompleted 값을 준다.
     private func judgeButtonStyle(goal goalStep: Int, now currentStep: Int) {
-        if goalStep >= currentStep {
+        if goalStep >= 0 && goalStep >= currentStep {
             homeView.configureCheckButtonStyle(state: .unCompleted)
         } else { /// 목표 걸음수를 채웠을 때의 두 가지 경우.
             self.isStepCountCompleted = true
