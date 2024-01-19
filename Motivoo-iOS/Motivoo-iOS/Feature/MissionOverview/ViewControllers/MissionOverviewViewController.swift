@@ -36,15 +36,20 @@ final class MissionOverviewViewController: BaseViewController {
         missionOverviewView.collectionView.delegate = self
         missionOverviewView.collectionView.dataSource = self
     }
-    //
-    //    // MARK: - Life Cycles
-    //
+    
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionViewConfig()
-        requestOverviewAPI()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestOverviewAPI()
+
+    }
+
     // MARK: - Override Functions
     override func setHierachy() {
         self.view.addSubview(missionOverviewView)

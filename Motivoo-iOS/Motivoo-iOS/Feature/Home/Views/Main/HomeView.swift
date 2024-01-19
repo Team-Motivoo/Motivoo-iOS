@@ -42,6 +42,7 @@ final class HomeView: BaseView {
     lazy var homeCircularProgressView = HomeCircularProgressView()
     var checkMissionButton = UIButton()
     var dimmView = UIView()
+    var guideButton = UIButton()
     
     // MARK: - Override Method
     
@@ -93,11 +94,17 @@ final class HomeView: BaseView {
             $0.backgroundColor = .gray900.withAlphaComponent(0.7)
             $0.isHidden = true
         }
+        
+        guideButton.do {
+            $0.setImage(ImageLiterals.img.exerciseGuide, for: .normal)
+            $0.isHidden = true
+        }
     }
     
     override func setHierachy() {
         self.addSubviews(dateLabel,
                          pickMissionLabel,
+                         guideButton,
                          missionStackView,
                          stepTitleLabel,
                          homeStepCountView,
@@ -115,6 +122,13 @@ final class HomeView: BaseView {
         pickMissionLabel.snp.makeConstraints {
             $0.top.equalTo(dateLabel.snp.bottom).offset(8.adjusted)
             $0.leading.equalTo(dateLabel)
+        }
+        
+        guideButton.snp.makeConstraints {
+            $0.height.equalTo(36.adjusted)
+            $0.width.equalTo(96.adjusted)
+            $0.top.equalTo(dateLabel)
+            $0.trailing.equalToSuperview().inset(19.adjusted)
         }
         
         missionStackView.snp.makeConstraints {
@@ -187,9 +201,9 @@ final class HomeView: BaseView {
         if isSelected {
             firstMissionView.isHidden = true
             secondMissionView.isHidden = true
-        
             UIView.animate(withDuration: 0.5, animations: {
                 self.checkMissionButton.isHidden = false
+                self.guideButton.isHidden = false
                 self.stepTitleLabel.isHidden = true
                 self.homeCircularProgressView.isHidden = false
                 self.homeStepCountView.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
@@ -201,6 +215,7 @@ final class HomeView: BaseView {
             self.checkMissionButton.isHidden = true
             self.stepTitleLabel.isHidden = false
             self.homeCircularProgressView.isHidden = true
+            self.guideButton.isHidden = true
         }
     }
     
