@@ -50,9 +50,6 @@ final class OnboardingView6Cell: UICollectionViewCell {
         kneeButton.isSelected = true
         wristButton.isSelected = true
         ankleButton.isSelected = true
-        startMotivooButton.isEnabled = isButtonEnabled
-        startMotivooButton.setTitleColor(.gray400, for: .normal)
-        startMotivooButton.backgroundColor = .gray100
     }
 
     required init?(coder: NSCoder) {
@@ -63,7 +60,7 @@ final class OnboardingView6Cell: UICollectionViewCell {
 
     func setUI() {
         question6Title.do {
-            $0.text = TextLiterals.Onboarding.Q3.howLongExercise
+            $0.text = TextLiterals.Onboarding.Q3.usuallyWorryExercise
             $0.font = .heading3
             $0.textColor = .gray900
             $0.textAlignment = .left

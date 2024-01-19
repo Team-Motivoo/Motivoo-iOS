@@ -125,14 +125,8 @@ extension InputInvitationViewController {
                     } else {
                         // 온보딩 안함
                         // 온보딩 VC로 이동
-                        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-                        guard let delegate = sceneDelegate else {
-                            print("sceneDelegate가 할당 Error")
-                            return
-                        }
-                        self.navigationItem.leftBarButtonItem?.isHidden = false
-                        let rootViewController = OnboardingViewController()
-                        delegate.window?.rootViewController = rootViewController
+                        let onboardingViewController = OnboardingViewController()
+                        self.navigationController?.pushViewController(onboardingViewController, animated: true)
                     }
                 } else {
                     self.inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor

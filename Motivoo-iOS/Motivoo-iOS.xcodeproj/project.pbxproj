@@ -13,7 +13,6 @@
 		02642C942B46913B00134D73 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C932B46913B00134D73 /* UIImage+.swift */; };
 		02642C962B46960D00134D73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02642C952B46960D00134D73 /* LoginViewController.swift */; };
 		027151E92B59A3C600949BA4 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 027151E82B59A3C600949BA4 /* splash.json */; };
-		0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280EA052B4D04260047215F /* OnboardingIntro1View.swift */; };
 		0299856B2B504EBE00E88A4F /* OnboardingView2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0299856A2B504EBE00E88A4F /* OnboardingView2Cell.swift */; };
 		0299856D2B5057C300E88A4F /* OnboardingView3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0299856C2B5057C300E88A4F /* OnboardingView3Cell.swift */; };
 		0299856F2B505FE400E88A4F /* OnboardingView4Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0299856E2B505FE400E88A4F /* OnboardingView4Cell.swift */; };
@@ -60,6 +59,7 @@
 		02E1042C2B570B0C003852A7 /* InviteCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */; };
 		02E1042E2B570B30003852A7 /* InviteCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */; };
 		02E104302B57916C003852A7 /* MatchingCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */; };
+		02F383182B5A404F00631BE9 /* OnboardingView3SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F383172B5A404F00631BE9 /* OnboardingView3SecondCell.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
 		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
@@ -188,7 +188,6 @@
 		02642C932B46913B00134D73 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		02642C952B46960D00134D73 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		027151E82B59A3C600949BA4 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
-		0280EA052B4D04260047215F /* OnboardingIntro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro1View.swift; sourceTree = "<group>"; };
 		0299856A2B504EBE00E88A4F /* OnboardingView2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2Cell.swift; sourceTree = "<group>"; };
 		0299856C2B5057C300E88A4F /* OnboardingView3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3Cell.swift; sourceTree = "<group>"; };
 		0299856E2B505FE400E88A4F /* OnboardingView4Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView4Cell.swift; sourceTree = "<group>"; };
@@ -229,6 +228,7 @@
 		02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeRequest.swift; sourceTree = "<group>"; };
 		02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeResponse.swift; sourceTree = "<group>"; };
 		02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingCheckResponse.swift; sourceTree = "<group>"; };
+		02F383172B5A404F00631BE9 /* OnboardingView3SecondCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView3SecondCell.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +377,7 @@
 				025806842B5020F9002DB50E /* OnboardingView1Cell.swift */,
 				0299856A2B504EBE00E88A4F /* OnboardingView2Cell.swift */,
 				0299856C2B5057C300E88A4F /* OnboardingView3Cell.swift */,
+				02F383172B5A404F00631BE9 /* OnboardingView3SecondCell.swift */,
 				0299856E2B505FE400E88A4F /* OnboardingView4Cell.swift */,
 				029985702B50689600E88A4F /* OnboardingView5Cell.swift */,
 				029985722B506C1C00E88A4F /* OnboardingView6Cell.swift */,
@@ -600,7 +601,6 @@
 			isa = PBXGroup;
 			children = (
 				025806832B5020BF002DB50E /* Cells */,
-				0280EA052B4D04260047215F /* OnboardingIntro1View.swift */,
 				02BAC2DA2B4DA2C200657CF7 /* OnboardingIntro2View.swift */,
 				02E103D22B538A69003852A7 /* AuthorizationView.swift */,
 				02E103D42B539C6B003852A7 /* AuthorizationTableViewCell.swift */,
@@ -1032,7 +1032,6 @@
 				02E103CF2B538969003852A7 /* AuthorizationViewController.swift in Sources */,
 				05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */,
 				34F3CBBE2B4D044500DF4C63 /* DisclosureTableViewCell.swift in Sources */,
-				34BC146E2B4FDA8B00636C81 /* ExerciseInfo.swift in Sources */,
 				02E104222B568493003852A7 /* OnboardingLoginRequest.swift in Sources */,
 				02642C942B46913B00134D73 /* UIImage+.swift in Sources */,
 				05AAF8C42B3EA83F0079CEAB /* UIStackView+.swift in Sources */,
@@ -1058,7 +1057,6 @@
 				02E1041E2B567B77003852A7 /* OnboardingService.swift in Sources */,
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */,
-				0280EA062B4D04260047215F /* OnboardingIntro1View.swift in Sources */,
 				029985752B51436600E88A4F /* InvitationViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
 				05BAB7F42B571F3A0016ECE5 /* HomeMissionsResponse.swift in Sources */,
@@ -1071,6 +1069,7 @@
 				02E104262B56E5A6003852A7 /* OnboardingExerciseRequest.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */,
+				02F383182B5A404F00631BE9 /* OnboardingView3SecondCell.swift in Sources */,
 				02B44E862B57E164004EE1B9 /* UserDefaultManager.swift in Sources */,
 				02E1042A2B570598003852A7 /* UserExerciseResponse.swift in Sources */,
 				05BAB7F02B5716910016ECE5 /* HomeChoiceMissionRequest.swift in Sources */,
