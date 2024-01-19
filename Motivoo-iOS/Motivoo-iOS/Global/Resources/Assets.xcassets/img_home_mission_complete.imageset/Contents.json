@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "img_home_mission_complete.svg",
-      "idiom" : "universal"
+      "filename" : "img_home_mission_complete.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "img_home_mission_complete@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "img_home_mission_complete@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

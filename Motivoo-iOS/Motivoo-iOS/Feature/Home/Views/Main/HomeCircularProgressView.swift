@@ -119,13 +119,12 @@ final class HomeCircularProgressView: BaseView {
     }
     
     override func setHierachy() {
+        addSubviews(mainImageView, clearPercentLabel)
         [trackLayer,
          myProgressLayer,
          parentProgressLayer].forEach {
             layer.addSublayer($0)
         }
-        
-        addSubviews(mainImageView, clearPercentLabel)
     }
     
     override func setLayout() {
