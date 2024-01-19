@@ -24,8 +24,11 @@ final class HomeViewController: BaseViewController {
         didSet {
             if isStepCountCompleted && isMateStepCountCompleted {
                 homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
-                self.homeView.homeCircularProgressView.clearPercentLabel.text = "하이파이브 성공!"
-
+                self.homeView.homeCircularProgressView.clearPercentLabel.do {
+                    $0.text = "하이파이브 성공!"
+                    $0.textColor = .blue700
+                    $0.font = .caption1
+                }
             }
         }
     }
@@ -33,7 +36,11 @@ final class HomeViewController: BaseViewController {
         didSet {
             if isStepCountCompleted && isMateStepCountCompleted {
                 homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
-                self.homeView.homeCircularProgressView.clearPercentLabel.text = "하이파이브 성공!"
+                self.homeView.homeCircularProgressView.clearPercentLabel.do {
+                    $0.text = "하이파이브 성공!"
+                    $0.textColor = .blue700
+                    $0.font = .caption1
+                }
             }
         }
     }

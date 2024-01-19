@@ -136,11 +136,12 @@ final class HomeCircularProgressView: BaseView {
         mainImageView.snp.makeConstraints {
             $0.width.equalTo(244.adjusted)
             $0.height.equalTo(184.adjusted)
-            $0.center.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-20.adjusted)
         }
         
         clearPercentLabel.snp.makeConstraints {
-            $0.bottom.equalTo(mainImageView)
+            $0.bottom.equalTo(mainImageView).offset(10.adjusted)
             $0.centerX.equalTo(mainImageView)
         }
     }
