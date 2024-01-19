@@ -70,7 +70,7 @@ extension HomeService: BaseTargetType {
             return .requestJSONEncodable(param)
         case .patchMissionImage(let param):
             return .requestJSONEncodable(param)
-        case .putimageWithPreSignedURL(let url, let image):
+        case .putimageWithPreSignedURL(_, let image):
             let imageData = image.jpegData(compressionQuality: 0.8) ?? Data()
             return .requestData(imageData)
         }

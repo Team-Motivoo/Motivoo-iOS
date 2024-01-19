@@ -9,28 +9,26 @@ import UIKit
 
 import SnapKit
 import Then
+import SafariServices
 
 final class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private var missionDummy: [HomeMissionModel] = [HomeMissionModel(image: ImageLiterals.img.motivooLogo,
-                                                                     mission: TextLiterals.Home.Main.firstMission),
-                                                    HomeMissionModel(image: ImageLiterals.img.motivooLogo,
-                                                                     mission: TextLiterals.Home.Main.secondMission)]
-    private var stepCountDummy: HomeStepModel = HomeStepModel(myStep: 1900,
-                                                              parentStep: 4900)
     private var goalStep: Int = 0
     private var mateGoalStep: Int = 0
-    private var isFireBaseRegistered = false
+    private var guideURL = String()
     /// 나중에 인증 완료 API 들어오면 바인딩
     private var isMissionCompleted: Bool = true
     private var isStepCountCompleted: Bool = false {
         didSet {
             if isStepCountCompleted && isMateStepCountCompleted {
                 homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
-                self.homeView.homeCircularProgressView.clearPercentLabel.text = "하이파이브 성공!"
-
+                self.homeView.homeCircularProgressView.clearPercentLabel.do {
+                    $0.text = "하이파이브 성공!"
+                    $0.textColor = .blue700
+                    $0.font = .caption1
+                }
             }
         }
     }
@@ -38,14 +36,14 @@ final class HomeViewController: BaseViewController {
         didSet {
             if isStepCountCompleted && isMateStepCountCompleted {
                 homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
-                self.homeView.homeCircularProgressView.clearPercentLabel.text = "하이파이브 성공!"
+                self.homeView.homeCircularProgressView.clearPercentLabel.do {
+                    $0.text = "하이파이브 성공!"
+                    $0.textColor = .blue700
+                    $0.font = .caption1
+                }
             }
         }
     }
-    private var dummyUID: Int = 1
-    private var dummyMID: Int = 2
-    
-    /// 걸음수 깜빡임 현상 해결 ->  걸음수 변화할 때 마다 숫자 맟 그래프 변화
     private var tempUserStep: Int = 0 {
         didSet {
             if oldValue < tempUserStep {
@@ -93,19 +91,14 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /// 접근권한 페이지로 옮기기
         StepCountManager.shared.startCheckStepCount()
-                
-        /// 파이어베이스 테이블에 유저아이디: 만보수 등록하는 코드  ->  나중에 삭제
-//        StepCountManager.shared.db.child("Users").setValue(["\(self.dummyUID)": 0])
-//        StepCountManager.shared.db.child("Users").setValue(["\(self.dummyMID)": 0])
         configureStepCount()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // TODO: - 권한 허용 안되어있으면 Alert 띄우기
         
         // 네트워크 통신
         requestPatchHome()
@@ -131,6 +124,7 @@ final class HomeViewController: BaseViewController {
     
     override func setButtonEvent() {
         homeView.checkMissionButton.addTarget(self, action: #selector(checkButtonDidTapped), for: .touchUpInside)
+        homeView.guideButton.addTarget(self, action: #selector(guideButtonDidTapped), for: .touchUpInside)
     }
     
     override func setupNavigationBar() {
@@ -169,11 +163,19 @@ final class HomeViewController: BaseViewController {
         }
     }
     
+    @objc
+    private func guideButtonDidTapped() {
+        if guideURL != "" {
+            let notionURL = NSURL(string: guideURL)
+            let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionURL! as URL)
+            self.present(notionSafariView, animated: true, completion: nil)
+        }
+    }
+    
     private func configureStepCountView(user: Int, mate: Int) {
         homeView.homeStepCountView.configureView(myWalk: user,
                                                  parentWalk: mate)
     }
-    
     
     @objc
     private func checkButtonDidTapped() {
@@ -283,8 +285,8 @@ extension HomeViewController {
 
             
             /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
-            self.goalStep = 300
-            self.mateGoalStep = 350
+            self.goalStep = 800
+            self.mateGoalStep = 500
 
             if result.userType == "자녀" {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "부모님 걸음"
@@ -315,6 +317,8 @@ extension HomeViewController {
                 self.secondMissionData = result.missionChoiceList?[1] ?? MissionChoiceList(missionID: Int(),
                                                                                            missionContent: String(),
                                                                                            missionIconURL: String())
+            } else {
+                self.guideURL = result.todayMission?.missionDescription ?? ""
             }
         }
     }
