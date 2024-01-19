@@ -55,6 +55,11 @@ final class SplashViewController: BaseViewController {
             let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
             let isMached: Bool = UserDefaultManager.shared.getUserMatcehd()
 
+            print("isUserLoggedIn: \(isUserLoggedIn)")
+            print("token: \(token)")
+            print("isFinished: \(isFinished)")
+            print("isMached: \(isMached)")
+
             if token == "" {
                 // token이 없다면
                 // 회원가입을 한 적이 없으므로 권한 허용 페이지로 진입
