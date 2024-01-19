@@ -159,9 +159,21 @@ extension LoginViewController {
             print("=========TokenManager===")
             TokenManager.shared.saveToken(token: "Bearer \(result.accessToken)")
 
-            let termsOfUseViewController = TermsOfUseViewController()
-            self.navigationController?.pushViewController(termsOfUseViewController, animated: true)
-
+            let isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
+            if isUserLoggedIn {
+                // 로그인한 적이 있었다면 바아로 홈으로 진입
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
+                }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
+            } else {
+                // 로그인한 적이 없다면 -> 이용약관에 동의한 적이 없다.
+                let termsOfUseViewController = TermsOfUseViewController()
+                self.navigationController?.pushViewController(termsOfUseViewController, animated: true)
+            }
         }
     }
 }

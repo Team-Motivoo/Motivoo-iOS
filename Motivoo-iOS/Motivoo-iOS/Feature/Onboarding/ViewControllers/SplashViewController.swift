@@ -58,8 +58,15 @@ final class SplashViewController: BaseViewController {
             if token == "" {
                 // token이 없다면
                 // 회원가입을 한 적이 없으므로 권한 허용 페이지로 진입
-                let rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
-                delegate.window?.rootViewController = rootViewController
+                if isFinished {
+                    // 로그아웃한 유저
+                    let rootViewController = UINavigationController(rootViewController: LoginViewController())
+                    delegate.window?.rootViewController = rootViewController
+                } else {
+                    // 회원가입 처음하는 유저
+                    let rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
+                    delegate.window?.rootViewController = rootViewController
+                }
             } else {
                 // token이 있다면
                 if isUserLoggedIn {
