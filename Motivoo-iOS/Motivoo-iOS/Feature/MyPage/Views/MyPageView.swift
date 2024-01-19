@@ -14,7 +14,7 @@ final class MyPageView: BaseView {
     
     // MARK: - UI Components
     
-    private let parentLabel = UILabel()
+    var parentLabel = UILabel()
     private let childLabel = UILabel()
     var nameLabel = UILabel()
     let myInfoButton = UIButton()
@@ -27,7 +27,6 @@ final class MyPageView: BaseView {
     
     override func setUI() {
         parentLabel.do{
-            $0.text = TextLiterals.MyPage.parent
             $0.textColor = .gray900
             $0.font = .body5
         }

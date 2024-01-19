@@ -161,7 +161,7 @@ enum TextLiterals {
     }
     enum MissionOverview {
         static var todayExercise = "오늘의 운동"
-        static var alertMessage = "운동 기록은 30일간 보간 후 사라져요!"
+        static var alertMessage = "운동 기록은 30일간 보관 후 사라져요!"
         static var noImg = "운동을 완료하고\n사진을 등록해보세요!"
         static var fail = "다음 운동은\n완료해봐요!"
         static var Myexercise = "내 운동"
@@ -206,7 +206,7 @@ enum TextLiterals {
       
     }
     enum NoComplete {
-        static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 엘범을 만들어봐요!"
+        static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 앨범을 만들어봐요!"
         static var goTodayExercise = "오늘의 운동 하러가기"
     }
 
