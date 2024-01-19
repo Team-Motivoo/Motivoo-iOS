@@ -51,7 +51,7 @@ class UserDefaultManager {
     // MARK: - 로그아웃, 탈퇴 및 로그인 테스트시 사용
 
     func removeUserInfo() {
-        print("유저 정보를 삭제했습니다.")
+        print("유저가 탈퇴하여 UserDefault 정보를 삭제했습니다.")
         defaults.removeObject(forKey: "isUserLoggedIn")
         defaults.removeObject(forKey: "isUserMatched")
         defaults.removeObject(forKey: "userId")

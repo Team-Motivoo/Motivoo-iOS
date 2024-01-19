@@ -179,8 +179,6 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         // 서버에 로그아웃 요청
         MyAPI.shared.postLogout() { result in
             guard let result = self.validateResult(result) as? SimpleResponse else { return }
-            
-            print(result)
             TokenManager.shared.removeToken()
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
             guard let delegate = sceneDelegate else {
@@ -191,11 +189,12 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
             delegate.window?.rootViewController = rootViewController
         }
     }
+
     @objc private func deleteUser() {
+        // 회원 탈퇴하기
         MyAPI.shared.deleteLeave() { result in
-            guard let result = self.validateResult(result) as? SimpleResponse else {
-                return
-            }
+            guard let result = self.validateResult(result) as? SimpleResponse else { return }
+            TokenManager.shared.removeToken()
             UserDefaultManager.shared.removeUserInfo()
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
             guard let delegate = sceneDelegate else {
