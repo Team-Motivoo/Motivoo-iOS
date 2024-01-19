@@ -15,6 +15,30 @@ final class OnboardingView1Cell: UICollectionViewCell {
     //MARK: - Properties
 
     lazy var ageInfo: Int = 0
+    var buttonClickCount: Int = 0
+    var moveBool: Bool = false {
+        willSet (moveBool) {
+            if moveBool { //true
+                UIView.animate(withDuration: 0.4,
+                               delay: 0,
+                               options: [.curveEaseInOut]) { [self] in
+                    var frame = buttonStackView.frame
+                    frame.origin.y = 286.adjusted
+                    buttonStackView.frame = frame
+                    onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+                }
+            } else {
+                UIView.animate(withDuration: 0.4,
+                               delay: 0,
+                               options: [.curveEaseInOut]) { [self] in
+                    var frame = buttonStackView.frame
+                    frame.origin.y = 308.adjusted
+                    buttonStackView.frame = frame
+                    onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 22.adjusted)
+                }
+            }
+        }
+    }
 
     // MARK: - UI Component
 
@@ -66,10 +90,12 @@ final class OnboardingView1Cell: UICollectionViewCell {
                 childButton.isSelected = true
             }
             parentButton.isSelected = false
-            changeViewAnimation()
         } else {
             parentButton.isSelected = true
+        }
+        if buttonClickCount == 0 {
             changeViewAnimation()
+            buttonClickCount += 1
         }
     }
 
@@ -80,10 +106,12 @@ final class OnboardingView1Cell: UICollectionViewCell {
                 parentButton.isSelected = true
             }
             childButton.isSelected = false
-            changeViewAnimation()
         } else {
             childButton.isSelected = true
+        }
+        if buttonClickCount == 0 {
             changeViewAnimation()
+            buttonClickCount += 1
         }
     }
 
@@ -141,7 +169,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
         }
         onboardingIntro2View.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(350)
+            $0.height.equalTo(285.adjusted)
         }
     }
 
@@ -156,17 +184,20 @@ final class OnboardingView1Cell: UICollectionViewCell {
         introTitle.isHidden = true
         introSubtitle.isHidden = true
         onboardingIntro2View.isHidden = false
+        onboardingIntro2View.alpha = 0.3
 
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.2,
+        UIView.animate(withDuration: 0.4,
+                       delay: 0.0,
                        options: [.curveEaseInOut]) { [self] in
             onboardingIntro2View.alpha = 1
             onboardingIntro2View.transform = CGAffineTransform(translationX: 0, y: 0)
         }
-        UIView.animate(withDuration: 0.4,
-                       delay: 0,
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
                        options: [.curveEaseInOut]) { [self] in
-            buttonStackView.transform = CGAffineTransform(translationX: 0, y: 114)
+            var frame = buttonStackView.frame
+            frame.origin.y = 286.adjusted
+            buttonStackView.frame = frame
         }
         isButtonEnabled = false
         nextButton.isEnabled = isButtonEnabled
@@ -179,26 +210,16 @@ final class OnboardingView1Cell: UICollectionViewCell {
             self.ageInfo = age
             // age에는 변환된 Int 값 또는 0이 저장됩니다.
             if (age >= 14 && age <= 99) {
+                moveBool = true
                 onboardingIntro2View.ageTextField.layer.borderColor = UIColor.blue500.cgColor
                 onboardingIntro2View.ageTextField.textColor = .blue500
                 onboardingIntro2View.ageInputLabel.isHidden = true
-                UIView.animate(withDuration: 0.2,
-                               delay: 0,
-                               options: [.curveEaseInOut]) { [self] in
-                    buttonStackView.transform = CGAffineTransform(translationX: 0, y: 114.adjusted)
-                    onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 0)
-                }
                 isButtonEnabled = true
             } else {
+                moveBool = false
                 onboardingIntro2View.ageTextField.layer.borderColor = UIColor.pink.cgColor
                 onboardingIntro2View.ageTextField.textColor = .gray900
                 onboardingIntro2View.ageInputLabel.isHidden = false
-                UIView.animate(withDuration: 0.2,
-                               delay: 0,
-                               options: [.curveEaseInOut]) { [self] in
-                    buttonStackView.transform = CGAffineTransform(translationX: 0, y: 136.adjusted)
-                    onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 22.adjusted)
-                }
                 isButtonEnabled = false
             }
             nextButton.isEnabled = isButtonEnabled

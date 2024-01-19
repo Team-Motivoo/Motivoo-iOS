@@ -27,7 +27,7 @@ final class InvitationViewController: BaseViewController {
 
         invitationText =
         """
-        자녀와 부모를 잇는 매일 한 걸음! 🏃‍♂️💚 '모티부'에 초대받았어요.
+        자녀와 부모를 잇는 매일 한 걸음! 🏃‍♂️🩵 '모티부'에 초대받았어요.
         매일 운동 미션을 수행하며 가족과 함께 건강 습관을 만들어 보아요!
 
         https://gayeong04.notion.site/7f6097380a0b43d38ae265ea985152e7?pvs=4
