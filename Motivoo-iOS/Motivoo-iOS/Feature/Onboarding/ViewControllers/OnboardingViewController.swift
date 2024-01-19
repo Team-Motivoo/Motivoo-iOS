@@ -70,6 +70,7 @@ final class OnboardingViewController: BaseViewController {
 
         // 네비게이션 스택에서 온보딩VC 제거하기
         if let navigationController = self.navigationController {
+            //print("삭제삭제삭제")
             var navigationArray = navigationController.viewControllers // 현재 네비게이션 스택을 가져옵니다.
             navigationArray.remove(at: navigationArray.count - 2) // 두 번째로 마지막인 FirstVC를 제거합니다.
             self.navigationController?.viewControllers = navigationArray // 수정된 스택을 다시 설정합니다.
@@ -150,6 +151,8 @@ final class OnboardingViewController: BaseViewController {
                 }
                 selectButtonName2 = sender.accessibilityIdentifier ?? "Unknown"
             }
+            let reloadIndexPath = IndexPath(item: 2, section: 0)
+            onboardingCollectionView.reloadItems(at: [reloadIndexPath])
             nextButtonDidTap()
         } else {
             sender.isSelected = true
@@ -293,6 +296,7 @@ final class OnboardingViewController: BaseViewController {
     @objc
     private func prevButtonDidTap() {
         // print("indexpath - 1")
+        print("prevButtonDidTapprevButtonDidTapprevButtonDidTapprevButtonDidTap")
         let currentIndexPath = self.onboardingCollectionView.indexPathsForVisibleItems.first
         if let currentIndexPath = currentIndexPath, currentIndexPath.row - 1 < self.onboardingCollectionView.numberOfItems(inSection: 0) {
             let prevIndexPath = IndexPath(row: currentIndexPath.row - 1, section: currentIndexPath.section)
@@ -332,15 +336,6 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
         // print("Cell at \(indexPath.row/6) will display")
         let cellIndex = Float(indexPath.row + 1)
         onboardingProgressView.setProgress(cellIndex/6, animated: true)
-//        if indexPath.row == 2 {
-//            print("reload")
-//            let reloadIndexPath = IndexPath(item: 2, section: 0)
-//            collectionView.reloadItems(at: [reloadIndexPath])
-//        } else if cellIndex == 4 {
-//
-//        } else if cellIndex == 5 {
-//
-//        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

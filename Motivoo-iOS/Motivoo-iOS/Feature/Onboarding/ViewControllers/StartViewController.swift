@@ -22,6 +22,7 @@ final class StartViewController: BaseViewController {
     private let imageView = UIImageView()
     private let startMotivooButton = MotivooButton(text: TextLiterals.Onboarding.Login.motivooStart, buttonStyle: .gray900)
     private let invitationCodeButton = MotivooButton(text: TextLiterals.Onboarding.Login.invitationCode, buttonStyle: .gray100)
+    lazy var nextViewController: UIViewController = OnboardingViewController()
 
 
     // MARK: - Life Cycles
@@ -29,12 +30,23 @@ final class StartViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
 
+        requestGetUserExercise()
+        self.isMatched = UserDefaultManager.shared.getUserMatcehd()
+        self.isFinished = UserDefaultManager.shared.getFinishedOnboarding()
+
         print("===StartVC ViewWillAppear: \(TokenManager.shared.getToken())")
         print("===StartVC ViewWillAppear: \(UserDefaultManager.shared.getFinishedOnboarding())")
-        isMatched = UserDefaultManager.shared.getUserMatcehd()
-        isFinished = UserDefaultManager.shared.getFinishedOnboarding()
 
-        requestGetUserExercise()
+        if !isMatched {
+            // 온보딩 정보를 입력했다면
+            if isFinished {
+                nextViewController = InvitationViewController()
+            } else {
+                nextViewController = OnboardingViewController()
+            }
+        } else {
+            nextViewController = OnboardingViewController()
+        }
     }
 
     override func viewDidLoad() {
@@ -107,19 +119,8 @@ final class StartViewController: BaseViewController {
 
     @objc
     private func startMotivooButtonDidTap() {
-        if !isMatched {
-            // 온보딩 정보를 입력했다면
-            if isFinished {
-                let invitationViewController = InvitationViewController()
-                self.navigationController?.pushViewController(invitationViewController, animated: true)
-            } else {
-                let onboardingViewController = OnboardingViewController()
-                self.navigationController?.pushViewController(onboardingViewController, animated: true)
-            }
-        } else {
-            let onboardingViewController = OnboardingViewController()
-            self.navigationController?.pushViewController(onboardingViewController, animated: true)
-        }
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+
         setupNavigationBar()
     }
 
