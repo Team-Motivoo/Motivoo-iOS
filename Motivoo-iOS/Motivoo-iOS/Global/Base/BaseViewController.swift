@@ -15,6 +15,8 @@ class BaseViewController: UIViewController {
         return type(of: self).description().components(separatedBy: ".").last ?? ""
     }()
 
+    var swipeRecognizer: UISwipeGestureRecognizer!
+
     let customBackButton: UIButton = {
         let button = UIButton()
         button.setTitle("이전", for: .normal)
@@ -49,6 +51,7 @@ class BaseViewController: UIViewController {
         setButtonEvent()
         //customNavigationBar()
         setupNavigationBar()
+        setBackSwipeGesture()
         customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
         view.backgroundColor = .white
     }
@@ -88,12 +91,24 @@ class BaseViewController: UIViewController {
         navigationBar.standardAppearance = appearance
         navigationBar.compactAppearance = appearance
         navigationBar.scrollEdgeAppearance = appearance
-        
+
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: customBackButton)
     }
 
     @objc func backViewController(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+
+    func setBackSwipeGesture() {
+        swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
+        swipeRecognizer.direction = .right
+        self.view.addGestureRecognizer(swipeRecognizer)
+    }
+
+    @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .right {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     func validateResult(_ result: NetworkResult<Any>) -> Any?{
