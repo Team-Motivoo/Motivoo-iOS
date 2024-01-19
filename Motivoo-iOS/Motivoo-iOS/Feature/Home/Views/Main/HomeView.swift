@@ -174,6 +174,7 @@ final class HomeView: BaseView {
                             for: .normal)
                 $0.setTitleColor(.gray400, for: .normal)
                 $0.titleLabel?.font = .body5
+                $0.isEnabled = false
             }
         case .completed:
             checkMissionButton.do {
@@ -191,6 +192,7 @@ final class HomeView: BaseView {
                             for: .normal)
                 $0.setTitleColor(.gray400, for: .normal)
                 $0.titleLabel?.font = .body5
+                $0.isEnabled = false
             }
         }
     }

@@ -104,6 +104,9 @@ final class HomeViewController: BaseViewController {
         requestPatchHome()
         requestPostMission()
         configureMissionTapGesture()
+        if isMissionCompleted {
+            homeView.configureCheckButtonStyle(state: .checkCompleted)
+        }
     }
     
     // MARK: - Override Functions
@@ -169,6 +172,8 @@ final class HomeViewController: BaseViewController {
             let notionURL = NSURL(string: guideURL)
             let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionURL! as URL)
             self.present(notionSafariView, animated: true, completion: nil)
+        } else {
+            showMatchingLabel("운동방법 링크가 존재하지 않아요", withDuration: 0.5, delay: 2.0)
         }
     }
     
@@ -229,7 +234,7 @@ final class HomeViewController: BaseViewController {
     ///비활성화 된 상태에서, 화면 밖으로 나가지 않고 즉시 걸음수 충족 및 인증 완료를 확인하기 위한 처리.
     ///화면으로부터 나간 후, 다시 들어왔을 때는 서버에서 isMissionCompleted 값을 준다.
     private func judgeButtonStyle(goal goalStep: Int, now currentStep: Int) {
-        if goalStep > currentStep {
+        if goalStep >= currentStep {
             homeView.configureCheckButtonStyle(state: .unCompleted)
         } else { /// 목표 걸음수를 채웠을 때의 두 가지 경우.
             self.isStepCountCompleted = true
@@ -259,6 +264,32 @@ final class HomeViewController: BaseViewController {
             }
         })
     }
+    
+    func showMatchingLabel(_ message : String, withDuration: Double, delay: Double) {
+        let toastLabel = UILabel()
+        toastLabel.do {
+            $0.textColor = .pink
+            $0.font = .caption1
+            $0.textAlignment = .center
+            $0.text = message
+            $0.alpha = 1.0
+        }
+
+        self.view.addSubview(toastLabel)
+
+        toastLabel.snp.makeConstraints {
+            $0.bottom.equalTo(homeView.homeStepCountView.snp.top).offset(-2.adjusted)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(192.adjusted)
+            $0.height.equalTo(44.adjusted)
+        }
+
+        UIView.animate(withDuration: withDuration, delay: delay, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
 }
 
 // MARK: - Network Functions
@@ -279,14 +310,15 @@ extension HomeViewController {
             self.checkDataAndPerformAction(id: result.userID)
 
             /// 서버한테서 오는 목표걸음 수 낮아지면 주석 해제
-//            self.goalStep = result.userGoalStepCount
-//            self.mateGoalStep = result.opponentUserGoalStepCount
-//            self.isStepCountCompleted = result.isStepCountCompleted
+            self.goalStep = result.userGoalStepCount
+            self.mateGoalStep = result.opponentUserGoalStepCount
+            self.isStepCountCompleted = result.isStepCountCompleted
+            self.isMissionCompleted = result.isMissionImgCompleted
 
             
             /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
-            self.goalStep = 800
-            self.mateGoalStep = 500
+//            self.goalStep = 700
+//            self.mateGoalStep = 1000
 
             if result.userType == "자녀" {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "부모님 걸음"
@@ -297,7 +329,6 @@ extension HomeViewController {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "자녀 걸음"
                 self.homeView.homeCircularProgressView.myProgressLayer.strokeColor = UIColor.gray600.cgColor
                 self.homeView.homeCircularProgressView.parentProgressLayer.strokeColor = UIColor.blue400.cgColor
-
             }
         }
     }
