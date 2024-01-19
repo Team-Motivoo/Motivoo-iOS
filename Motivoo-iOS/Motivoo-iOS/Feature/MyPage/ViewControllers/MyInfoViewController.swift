@@ -196,6 +196,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
             guard let result = self.validateResult(result) as? SimpleResponse else {
                 return
             }
+            UserDefaultManager.shared.removeUserInfo()
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
             guard let delegate = sceneDelegate else {
                 print("sceneDelegate가 할당 Error")
