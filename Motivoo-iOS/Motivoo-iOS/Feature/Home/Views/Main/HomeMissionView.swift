@@ -13,6 +13,9 @@ import Then
 final class HomeMissionView: BaseView {
     
     // MARK: - Properties
+    
+    var missionID: Int = Int()
+    var missionSelectedHandler: (() -> (Void))?
             
     // MARK: - UI Components
     
@@ -43,7 +46,8 @@ final class HomeMissionView: BaseView {
         missionLabel.do {
             $0.font = .body6
             $0.textColor = .black
-            $0.numberOfLines = 2
+            $0.addLineHeight(lineHeight: 23.68.adjusted)
+            $0.numberOfLines = 3
         }
         
         totalStackView.do {
@@ -59,23 +63,24 @@ final class HomeMissionView: BaseView {
     
     override func setLayout() {
         self.snp.makeConstraints {
-            $0.height.equalTo(146.adjusted)
+            $0.height.equalTo(162.adjusted)
         }
         missionImageView.snp.makeConstraints {
             $0.height.width.equalTo(48.adjusted)
         }
         
         totalStackView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
-            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20.adjusted)
+            $0.trailing.equalToSuperview().inset(10.adjusted)
+            $0.top.equalToSuperview().inset(16.adjusted)
         }
     }
     
     // MARK: - Custom Functions
     
-    func configureView(image: UIImage, mission: String) {
-        missionImageView.image = image
+    func configureView(imageURL: String, mission: String, id: Int) {
+        missionImageView.kfSetImage(url: imageURL)
         missionLabel.text = mission
+        self.missionID = id
     }
-    
 }

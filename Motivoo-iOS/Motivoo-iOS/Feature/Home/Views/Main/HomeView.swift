@@ -10,7 +10,24 @@ import UIKit
 import SnapKit
 import Then
 
+enum MissionButtonState {
+    case unCompleted
+    case completed
+    case checkCompleted
+}
+
 final class HomeView: BaseView {
+    
+    // MARK: - Properties
+    
+    var isMissionSelected: Bool = false {
+        didSet {
+            configureMissionSelectedView(isSelected: isMissionSelected)
+        }
+    }
+    
+    var responseData: HomeMissionsResponse?
+    var missionSelectedHandler: ((Int) -> Void)?
     
     // MARK: - UI Components
     
@@ -25,18 +42,7 @@ final class HomeView: BaseView {
     lazy var homeCircularProgressView = HomeCircularProgressView()
     var checkMissionButton = UIButton()
     var dimmView = UIView()
-    
-    // MARK: - Life Cycle
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        configureMissionTapGesture()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var guideButton = UIButton()
     
     // MARK: - Override Method
     
@@ -47,11 +53,13 @@ final class HomeView: BaseView {
             $0.text = TextLiterals.Home.Main.date
             $0.font = .caption1
             $0.textColor = .gray600
+            $0.addLineHeight(lineHeight: 28.adjusted)
         }
         
         pickMissionLabel.do {
             $0.text = TextLiterals.Home.Main.pick
             $0.font = .heading4
+            $0.numberOfLines = 2
             $0.textColor = .black
         }
         
@@ -86,11 +94,17 @@ final class HomeView: BaseView {
             $0.backgroundColor = .gray900.withAlphaComponent(0.7)
             $0.isHidden = true
         }
+        
+        guideButton.do {
+            $0.setImage(ImageLiterals.img.exerciseGuide, for: .normal)
+            $0.isHidden = true
+        }
     }
     
     override func setHierachy() {
         self.addSubviews(dateLabel,
                          pickMissionLabel,
+                         guideButton,
                          missionStackView,
                          stepTitleLabel,
                          homeStepCountView,
@@ -108,6 +122,13 @@ final class HomeView: BaseView {
         pickMissionLabel.snp.makeConstraints {
             $0.top.equalTo(dateLabel.snp.bottom).offset(8.adjusted)
             $0.leading.equalTo(dateLabel)
+        }
+        
+        guideButton.snp.makeConstraints {
+            $0.height.equalTo(36.adjusted)
+            $0.width.equalTo(96.adjusted)
+            $0.top.equalTo(dateLabel)
+            $0.trailing.equalToSuperview().inset(19.adjusted)
         }
         
         missionStackView.snp.makeConstraints {
@@ -144,31 +165,87 @@ final class HomeView: BaseView {
     
     // MARK: - Custom Method
     
-    private func configureMissionTapGesture() {
-        let firstMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(missionViewDidTapped))
-        let secondMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(missionViewDidTapped))
-
-        firstMissionView.addGestureRecognizer(firstMissionViewTappedGesture)
-        secondMissionView.addGestureRecognizer(secondMissionViewTappedGesture)
-    }
-    
-    @objc
-    private func missionViewDidTapped() {
-        configureMissionSelectedView()
+    func configureCheckButtonStyle(state: MissionButtonState) {
+        switch state {
+        case .unCompleted:
+            checkMissionButton.do {
+                $0.backgroundColor = .gray100
+                $0.setTitle(TextLiterals.Home.Main.checkMission,
+                            for: .normal)
+                $0.setTitleColor(.gray400, for: .normal)
+                $0.titleLabel?.font = .body5
+            }
+        case .completed:
+            checkMissionButton.do {
+                $0.backgroundColor = .gray900
+                $0.setTitle(TextLiterals.Home.Main.checkMission,
+                            for: .normal)
+                $0.setTitleColor(.white, for: .normal)
+                $0.titleLabel?.font = .body5
+                $0.isEnabled = true
+            }
+        case .checkCompleted:
+            checkMissionButton.do {
+                $0.backgroundColor = .gray100
+                $0.setTitle(TextLiterals.Home.Main.completedMission,
+                            for: .normal)
+                $0.setTitleColor(.gray400, for: .normal)
+                $0.titleLabel?.font = .body5
+            }
+        }
     }
     
     /// 나중에 아래 작업을 enum으로 처리하기! -> 서버 명세 참고
-    private func configureMissionSelectedView() {
-        firstMissionView.isHidden = true
-        secondMissionView.isHidden = true
-        homeCircularProgressView.setMyProgress(to: 0.5, withAnimation: true)
-        homeCircularProgressView.setParentProgress(to: 0.3, withAnimation: true)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.checkMissionButton.isHidden = false
-            self.stepTitleLabel.isHidden = true
-            self.homeCircularProgressView.isHidden = false
-            self.homeStepCountView.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
-            self.checkMissionButton.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
-        })
+    /// 여기서 아이디 받아서 서버통신 함수 쏘기
+    func configureMissionSelectedView(isSelected: Bool) {
+        if isSelected {
+            firstMissionView.isHidden = true
+            secondMissionView.isHidden = true
+            UIView.animate(withDuration: 0.5, animations: {
+                self.checkMissionButton.isHidden = false
+                self.guideButton.isHidden = false
+                self.stepTitleLabel.isHidden = true
+                self.homeCircularProgressView.isHidden = false
+                self.homeStepCountView.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
+                self.checkMissionButton.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
+            })
+        } else {
+            firstMissionView.isHidden = false
+            secondMissionView.isHidden = false
+            self.checkMissionButton.isHidden = true
+            self.stepTitleLabel.isHidden = false
+            self.homeCircularProgressView.isHidden = true
+            self.guideButton.isHidden = true
+        }
+    }
+    
+    func configureView(data: HomeMissionsResponse) {
+        isMissionSelected = data.isChoiceFinished
+        ///오늘의 날짜가 nil값이 들어오는 경우
+        if data.date == nil {
+            dateLabel.text = TextLiterals.Home.Main.date
+        } else {
+            dateLabel.text = data.date
+        }
+        
+        /// 오늘의 미션 구조체가 존재하는 경우(미션 선택 후)
+        if data.todayMission != nil {
+            pickMissionLabel.text = data.todayMission?.missionContent
+        }
+        
+        /// 미션 선택 전
+        if data.missionChoiceList != nil {
+            let firstMission = data.missionChoiceList?[0]
+            let secondMission = data.missionChoiceList?[1]
+
+
+            firstMissionView.configureView(imageURL: firstMission?.missionIconURL ?? "",
+                                           mission: firstMission?.missionContent ?? "",
+                                           id: firstMission?.missionID ?? Int())
+            
+            secondMissionView.configureView(imageURL: secondMission?.missionIconURL ?? "",
+                                            mission: secondMission?.missionContent ?? "",
+                                            id: secondMission?.missionID ?? Int())
+        }
     }
 }

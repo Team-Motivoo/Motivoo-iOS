@@ -37,6 +37,7 @@ final class MissionOverviewViewController: BaseViewController {
         missionOverviewView.collectionView.dataSource = self
     }
     
+
     override func setButtonEvent() {
         noCompleteView.goExerciseButton.addTarget(self, action: #selector(goExerciseButtonDidTapped), for: .touchUpInside)
     }
@@ -57,15 +58,21 @@ final class MissionOverviewViewController: BaseViewController {
         delegate.window?.rootViewController = rootViewController
         
     }
-    //
-    //    // MARK: - Life Cycles
-    //
+
+    // MARK: - Life Cycles
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionViewConfig()
-        requestOverviewAPI()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestOverviewAPI()
+
+    }
+
     // MARK: - Override Functions
     
     override func setUI() {

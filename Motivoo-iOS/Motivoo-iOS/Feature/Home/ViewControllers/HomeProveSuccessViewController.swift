@@ -58,6 +58,26 @@ final class HomeProveSuccessViewController: BaseViewController {
     
     @objc
     private func checkButtonDidTapped() {
+        requestPatchMissionImage(image: popupView.proveImageView.image ?? UIImage())
         dismiss(animated: true)
+    }
+}
+
+// MARK: - Network Functions
+
+extension HomeProveSuccessViewController {
+    private func requestPatchMissionImage(image: UIImage) {
+        let param = HomeMissionImageRequest(imgPrefix: "mission/")
+        HomeAPI.shared.patchMissionImage(param: param) { result in
+            guard let result = self.validateResult(result) as? HomeMissionCheckResponse else { return }
+            self.requestPutAtPreSignedURL(url: result.imgPresignedURL, image: image)
+        }
+    }
+
+    private func requestPutAtPreSignedURL(url: String, image: UIImage) {
+        HomeAPI.shared.putAtPreSignedURL(url: url, image: image) { result in
+            guard let result = self.validateResult(result) as? SimpleResponse else { return }
+            print("🐰", result)
+        }
     }
 }
