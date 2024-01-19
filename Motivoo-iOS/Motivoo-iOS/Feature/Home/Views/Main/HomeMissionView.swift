@@ -46,7 +46,7 @@ final class HomeMissionView: BaseView {
         missionLabel.do {
             $0.font = .body6
             $0.textColor = .black
-            $0.addLineHeight(lineHeight: 23.68.adjusted)
+            $0.setLineSpacing(lineSpacing: 1.24.adjusted)
             $0.numberOfLines = 3
         }
         

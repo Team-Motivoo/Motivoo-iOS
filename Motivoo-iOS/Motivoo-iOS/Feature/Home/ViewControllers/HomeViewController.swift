@@ -19,7 +19,13 @@ final class HomeViewController: BaseViewController {
     private var mateGoalStep: Int = 0
     private var guideURL = String()
     /// 나중에 인증 완료 API 들어오면 바인딩
-    private var isMissionCompleted: Bool = true
+    private var isMissionCompleted: Bool = false {
+        didSet {
+            if isMissionCompleted {
+                homeView.configureCheckButtonStyle(state: .checkCompleted)
+            }
+        }
+    }
     private var isStepCountCompleted: Bool = false {
         didSet {
             if isStepCountCompleted && isMateStepCountCompleted {
@@ -69,10 +75,14 @@ final class HomeViewController: BaseViewController {
                 if mateGoalStep > 0 && mateGoalStep <= tempMateStep {
                     self.isMateStepCountCompleted = true
                 }
+                
                 DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep, finalStep: self.mateGoalStep , withAnimation: true)
+                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
+                                                                             finalStep: self.mateGoalStep,
+                                                                             withAnimation: true)
                     self.homeView.homeStepCountView.parentWalkCountLabel.text = "\(self.tempMateStep)"
                 }
+
             }
         }
     }
@@ -91,7 +101,9 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        StepCountManager.shared.startCheckStepCount()
+        if !StepCountManager.shared.isStepCountStarted {
+            StepCountManager.shared.startCheckStepCount()
+        }
         configureStepCount()
     }
     
@@ -104,9 +116,7 @@ final class HomeViewController: BaseViewController {
         requestPatchHome()
         requestPostMission()
         configureMissionTapGesture()
-        if isMissionCompleted {
-            homeView.configureCheckButtonStyle(state: .checkCompleted)
-        }
+
     }
     
     // MARK: - Override Functions
@@ -149,9 +159,10 @@ final class HomeViewController: BaseViewController {
     @objc
     private func firstMissionViewDidTapped() {
         if !homeView.isMissionSelected {
-            homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
             requestPostMissionChoice(param: HomeChoiceMissionRequest(missionID: firstMissionData.missionID))
+            homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
             homeView.pickMissionLabel.text = firstMissionData.missionContent
+            homeView.dateLabel.text = "오늘의 운동"
         }
     }
     
@@ -161,8 +172,7 @@ final class HomeViewController: BaseViewController {
             homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
             requestPostMissionChoice(param: HomeChoiceMissionRequest(missionID: secondMissionData.missionID))
             homeView.pickMissionLabel.text = secondMissionData.missionContent
-            
-            
+            homeView.dateLabel.text = "오늘의 운동"
         }
     }
     
@@ -234,7 +244,7 @@ final class HomeViewController: BaseViewController {
     ///비활성화 된 상태에서, 화면 밖으로 나가지 않고 즉시 걸음수 충족 및 인증 완료를 확인하기 위한 처리.
     ///화면으로부터 나간 후, 다시 들어왔을 때는 서버에서 isMissionCompleted 값을 준다.
     private func judgeButtonStyle(goal goalStep: Int, now currentStep: Int) {
-        if goalStep >= 0 && goalStep >= currentStep {
+        if goalStep > 0 && goalStep >= currentStep {
             homeView.configureCheckButtonStyle(state: .unCompleted)
         } else { /// 목표 걸음수를 채웠을 때의 두 가지 경우.
             self.isStepCountCompleted = true
@@ -314,7 +324,9 @@ extension HomeViewController {
             self.mateGoalStep = result.opponentUserGoalStepCount
             self.isStepCountCompleted = result.isStepCountCompleted
             self.isMissionCompleted = result.isMissionImgCompleted
-
+            if result.isMissionImgCompleted {
+                self.homeView.configureCheckButtonStyle(state: .checkCompleted)
+            }
             
             /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
 //            self.goalStep = 700
@@ -322,13 +334,9 @@ extension HomeViewController {
 
             if result.userType == "자녀" {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "부모님 걸음"
-                self.homeView.homeCircularProgressView.myProgressLayer.strokeColor = UIColor.blue400.cgColor
-                self.homeView.homeCircularProgressView.parentProgressLayer.strokeColor = UIColor.gray600.cgColor
 
             } else if result.userType == "부모" {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "자녀 걸음"
-                self.homeView.homeCircularProgressView.myProgressLayer.strokeColor = UIColor.gray600.cgColor
-                self.homeView.homeCircularProgressView.parentProgressLayer.strokeColor = UIColor.blue400.cgColor
             }
         }
     }
@@ -349,6 +357,7 @@ extension HomeViewController {
                                                                                            missionContent: String(),
                                                                                            missionIconURL: String())
             } else {
+                self.homeView.dateLabel.text = "오늘의 운동"
                 self.guideURL = result.todayMission?.missionDescription ?? ""
             }
         }
