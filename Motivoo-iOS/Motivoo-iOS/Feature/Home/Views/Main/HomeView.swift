@@ -31,7 +31,7 @@ final class HomeView: BaseView {
     
     // MARK: - UI Components
     
-    private var dateLabel = UILabel()
+    var dateLabel = UILabel()
     var pickMissionLabel = UILabel()
     var firstMissionView = HomeMissionView()
     var secondMissionView = HomeMissionView()
@@ -61,6 +61,7 @@ final class HomeView: BaseView {
             $0.font = .heading4
             $0.numberOfLines = 2
             $0.textColor = .black
+            $0.setLineSpacing(lineSpacing: 1.17.adjusted)
         }
         
         missionStackView.do {

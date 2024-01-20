@@ -27,7 +27,7 @@ final class StepCountManager {
     
     var db: DatabaseReference!
     private var timer: Timer? = nil
-    
+    var isStepCountStarted = false
     var pedoMeter = CMPedometer()
     var uid: Int?
     var mid: Int?
@@ -80,6 +80,7 @@ final class StepCountManager {
                                               repeats: true)
         }
         print("타이머 시작")
+        isStepCountStarted = true
     }
     
     private func stopTimer() {
@@ -87,6 +88,7 @@ final class StepCountManager {
         timer = nil
         db.removeAllObservers()
         db = nil
+        isStepCountStarted = false
         print("타이머 멈춤")
     }
     
