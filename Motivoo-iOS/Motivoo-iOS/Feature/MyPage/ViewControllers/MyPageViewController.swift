@@ -172,6 +172,9 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         
         return clearView
     }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+            tableView.isScrollEnabled = false
+    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0

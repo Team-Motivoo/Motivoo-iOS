@@ -1,3 +1,4 @@
+
 //
 //  MissionOverviewViewController.swift
 //  Motivoo-iOS
@@ -17,9 +18,11 @@ final class MissionOverviewViewController: BaseViewController {
     var mission: OverViewResponse? {
         didSet {
             missionOverviewView.collectionView.reloadData()
+            print("ddddð")
         }
     }
-    
+  
+
     // MARK: - UI Components
     
     lazy var missionOverviewView = MissionOverviewView()
@@ -43,12 +46,6 @@ final class MissionOverviewViewController: BaseViewController {
     }
     
     @objc private func goExerciseButtonDidTapped() {
-//        let homeViewController = HomeViewController()
-//        if let navigationController = self.navigationController {
-//            navigationController.pushViewController(homeViewController, animated: true)
-//        } else {
-//            print("Navigation controller is nil")
-//        }
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         guard let delegate = sceneDelegate else {
             print("sceneDelegate가 할당 Error")
@@ -65,12 +62,14 @@ final class MissionOverviewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionViewConfig()
+        print("==viewDidLoad==")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         requestOverviewAPI()
-
+        print("==viewWillAppear==")
+        missionOverviewView.collectionView.reloadData()
     }
 
     // MARK: - Override Functions
@@ -83,8 +82,6 @@ final class MissionOverviewViewController: BaseViewController {
     
     override func setHierachy() {
         self.view.addSubviews(missionOverviewView, noCompleteView)
-        //        self.view.addSubview(noCompleteView)
-        
     }
     
     override func setLayout() {
@@ -118,6 +115,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                 return UICollectionViewCell()
             }
             
+            
             if let todayMissionTitle = mission?.todayMission?.missionContent {
                 cell.todayMissionLabel.text = todayMissionTitle
                 print(todayMissionTitle)
@@ -126,7 +124,8 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
         }
         else {
             print("=== OverViewCollectionViewCell")
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverViewCollectionViewCell.cellIdentifier, for: IndexPath()) as? OverViewCollectionViewCell else {return UICollectionViewCell()}
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverViewCollectionViewCell.cellIdentifier, for: indexPath) as? OverViewCollectionViewCell else { return UICollectionViewCell() }
             
             let date = mission?.missionHistory?[indexPath.row].date ?? ""
             let myImage = mission?.missionHistory?[indexPath.row].myImage ?? ""
@@ -136,6 +135,7 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
             let myStatusChip = mission?.missionHistory?[indexPath.row].myStatusBadge ?? ""
             let opponentStatusChip = mission?.missionHistory?[indexPath.row].opponentStatusBadge ?? ""
             
+            
             cell.collectionViewConfigureCell(date: date,
                                              myImage: myImage,
                                              opponentImage: opponentImage,
@@ -144,106 +144,68 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
                                              myStatusChip: myStatusChip,
                                              opponentStatusChip: opponentStatusChip)
             
-            let currentOverView = mission?.missionHistory?[indexPath.row]
-            let oppoentStatusChip = currentOverView?.opponentStatusBadge
-            print(myStatusChip)
-            print(oppoentStatusChip)
+       
             switch myStatusChip {
             case "진행중":
-                if mission?.missionHistory?[indexPath.row].myImage == nil {
-                    cell.myExerciseImageView.setPlaceholderText(TextLiterals.MissionOverview.noImg)
-                }
+                if !cell.myStatusBadgeContainerView.subviews.isEmpty {
+                     cell.myStatusBadgeContainerView.subviews.forEach { $0.removeFromSuperview() }
+                 }
+                cell.myExerciseImageView.image = UIImage(named: "img_mission_doing")
                 cell.myStatusBadgeContainerView.addSubview(cell.myDoingBadge)
                 cell.myDoingBadge.snp.makeConstraints{
                     $0.edges.equalToSuperview()
                 }
                 
             case "실패":
-                if mission?.missionHistory?[indexPath.row].myImage == nil {
-                    addFailurePlaceholder(to: cell.myExerciseImageView)
-                }
+                if !cell.myStatusBadgeContainerView.subviews.isEmpty {
+                     cell.myStatusBadgeContainerView.subviews.forEach { $0.removeFromSuperview() }
+                 }
+                cell.myExerciseImageView.image = UIImage(named: "img_mission_fail")
                 cell.myStatusBadgeContainerView.addSubview(cell.myFailBadge)
                 cell.myFailBadge.snp.makeConstraints{
                     $0.edges.equalToSuperview()
                 }
-                
-                func addFailurePlaceholder(to imageView: UIImageView) {
-                    let failureIcon = UIImageView(image: ImageLiterals.icon.thumb)
-                    failureIcon.contentMode = .center
-                    
-                    let placeholderLabel = UILabel()
-                    placeholderLabel.text = TextLiterals.MissionOverview.fail
-                    placeholderLabel.textColor = .gray500
-                    placeholderLabel.numberOfLines = 2
-                    let placeholderStackView = UIStackView()
-                    placeholderStackView.axis = .vertical
-                    placeholderStackView.alignment = .center
-                    placeholderStackView.spacing = 8
-                    
-                    placeholderStackView.addArrangedSubview(failureIcon)
-                    placeholderStackView.addArrangedSubview(placeholderLabel)
-                    
-                    imageView.addSubview(placeholderStackView)
-                    
-                    placeholderStackView.snp.makeConstraints {
-                        $0.center.equalToSuperview()
-                    }
-                }
-            default:
+
+            case "성공":
+                if !cell.myStatusBadgeContainerView.subviews.isEmpty {
+                     cell.myStatusBadgeContainerView.subviews.forEach { $0.removeFromSuperview() }
+                 }
                 cell.myStatusBadgeContainerView.addSubview(cell.mySuccessBadge)
                 cell.mySuccessBadge.snp.makeConstraints{
                     $0.edges.equalToSuperview()
                 }
+            case "없음":
+                cell.myStatusBadgeContainerView.isHidden = true
+
+            default:
+                cell.myExerciseImageView.image = UIImage(named: "img_mission_doing")
             }
-            switch oppoentStatusChip {
+            switch opponentStatusChip {
             case "진행중":
-                if mission?.missionHistory?[indexPath.row].opponentImage == nil {
-                    cell.opponentExerciseImageVIew.setPlaceholderText(TextLiterals.MissionOverview.noImg)
-                }
+                if !cell.opponentStatusContainerView.subviews.isEmpty {
+                     cell.opponentStatusContainerView.subviews.forEach { $0.removeFromSuperview() }
+                 }
+                cell.opponentExerciseImageVIew.image = UIImage(named: "img_mission_doing")
                 cell.opponentStatusContainerView.addSubview(cell.opponentDoingBadge)
                 cell.opponentDoingBadge.snp.makeConstraints{
                     $0.edges.equalToSuperview()
                 }
             case "실패":
-                if mission?.missionHistory?[indexPath.row].opponentImage == nil {
-                    addFailurePlaceholder(to: cell.opponentExerciseImageVIew)
-                }
-                cell.opponentStatusContainerView.addSubview(cell.myFailBadge)
-                cell.myFailBadge.snp.makeConstraints{
+                cell.opponentExerciseImageVIew.image = UIImage(named: "img_mission_fail")
+                cell.opponentStatusContainerView.addSubview(cell.opponentFailBadge)
+                cell.opponentFailBadge.snp.makeConstraints{
                     $0.edges.equalToSuperview()
                 }
-                
-                func addFailurePlaceholder(to imageView: UIImageView) {
-                    let failureIcon = UIImageView(image: ImageLiterals.icon.thumb)
-                    failureIcon.contentMode = .center
-                    
-                    let placeholderLabel = UILabel()
-                    placeholderLabel.text = TextLiterals.MissionOverview.fail
-                    placeholderLabel.textColor = .gray500
-                    placeholderLabel.numberOfLines = 2
-                    let placeholderStackView = UIStackView()
-                    placeholderStackView.axis = .vertical
-                    placeholderStackView.alignment = .center
-                    placeholderStackView.spacing = 8 // 실패 아이콘과 텍스트 사이의 간격 조절
-                    
-                    // 실패 아이콘과 텍스트를 스택뷰에 추가
-                    placeholderStackView.addArrangedSubview(failureIcon)
-                    placeholderStackView.addArrangedSubview(placeholderLabel)
-                    
-                    // 스택뷰를 셀의 이미지뷰에 추가
-                    imageView.addSubview(placeholderStackView)
-                    
-                    placeholderStackView.snp.makeConstraints {
-                        $0.center.equalToSuperview()
-                    }
-                    
-                }
-                
-            default:
+            case "성공":
                 cell.opponentStatusContainerView.addSubview(cell.opponentSuccessBadge)
                 cell.opponentSuccessBadge.snp.makeConstraints{
                     $0.edges.equalToSuperview()
                 }
+            case "없음":
+                cell.opponentStatusContainerView.isHidden = true
+
+            default:
+                cell.opponentExerciseImageVIew.image = UIImage(named: "img_mission_doing")
             }
             if mission?.userType == "자녀" {
                 cell.whoContainerView.addSubview(cell.parentExerciseBadge)
@@ -276,8 +238,8 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
             guard let result = self.validateResult(result) as? OverViewResponse else {
                 return
             }
+            self.missionOverviewView.collectionView.reloadData()
             self.mission = result
-            print(self.mission)
             if self.mission?.missionHistory?.isEmpty ?? true {
                 // 미션 히스토리가 비어 있을 때
                 self.noCompleteView.isHidden = false
@@ -291,6 +253,3 @@ extension MissionOverviewViewController: UICollectionViewDelegateFlowLayout, UIC
         }
     }
 }
-
-
-

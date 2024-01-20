@@ -21,20 +21,20 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
     let thumpIconImageView = UIImageView()
     let myExerciseBadge = BasePaddingLabel()
     let parentExerciseBadge = BasePaddingLabel()
-    let myDoingBadge = BasePaddingLabel()
-    let opponentDoingBadge = BasePaddingLabel()
-    let myFailBadge = BasePaddingLabel()
-    let opponentFailBadge = BasePaddingLabel()
-    let mySuccessBadge = BasePaddingLabel()
-    let opponentSuccessBadge = BasePaddingLabel()
+    var myDoingBadge = BasePaddingLabel()
+    var opponentDoingBadge = BasePaddingLabel()
+    var myFailBadge = BasePaddingLabel()
+    var opponentFailBadge = BasePaddingLabel()
+    var mySuccessBadge = BasePaddingLabel()
+    var opponentSuccessBadge = BasePaddingLabel()
     let childExerciseBadge = BasePaddingLabel()
     let myStatusBadge = BasePaddingLabel()
     let opponentStatusBadge = BasePaddingLabel()
     let myStatusBadgeContainerView = UIView()
     let opponentStatusContainerView = UIView()
     let whoContainerView = UIView()
-    var badges: [BasePaddingLabel] = []
-    
+    //    var badges: [BasePaddingLabel] = []
+    let blankBadge = BasePaddingLabel()
     // MARK: - init
     
     override init(frame: CGRect) {
@@ -49,8 +49,9 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func setUI() {
-        badges = [myDoingBadge, opponentDoingBadge, myFailBadge, opponentFailBadge, mySuccessBadge, opponentSuccessBadge, myExerciseBadge]
+        //        badges = [myDoingBadge, opponentDoingBadge, myFailBadge, opponentFailBadge, mySuccessBadge, opponentSuccessBadge, myExerciseBadge]
         
         dateLabel.do {
             $0.font = .body6
@@ -68,7 +69,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         myMissionLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
-            $0.numberOfLines = 2
+            $0.numberOfLines = 3
         }
         
         thumpIconImageView.do {
@@ -105,7 +106,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         
         opponentFailBadge.do {
             $0.backgroundColor = .gray300
-            $0.text = TextLiterals.MissionOverview.onlyfail
+            $0.text = TextLiterals.MissionOverview.failfail
             $0.font = .caption2
             $0.textColor = .gray700
         }
@@ -142,7 +143,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         opponentMissionLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
-            $0.numberOfLines = 2
+            $0.numberOfLines = 3
             $0.clipsToBounds = true
         }
         
@@ -151,6 +152,11 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
             $0.text = TextLiterals.MissionOverview.childExercise
             $0.font = .caption2
             $0.textColor = .gray600
+        }
+        childExerciseBadge.do {
+            $0.text = "세글자"
+            $0.textColor = .clear
+            $0.backgroundColor = .white
         }
         
         myStatusBadgeContainerView.do {
@@ -166,10 +172,12 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
             $0.backgroundColor = .clear
         }
     }
+    
     func setHierachy() {
         myExerciseImageView.addSubview(noPlaceholderText)
         contentView.addSubviews(dateLabel,myExerciseImageView,myMissionLabel,opponentExerciseImageVIew,opponentMissionLabel,myExerciseBadge,myStatusBadgeContainerView,whoContainerView,opponentStatusContainerView)
     }
+    
     func setLayout() {
         contentView.snp.makeConstraints {
             $0.width.equalTo(Size.width)
@@ -188,6 +196,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
         myMissionLabel.snp.makeConstraints {
+            $0.width.equalTo(164.adjusted)
             $0.leading.equalTo(myExerciseImageView.snp.leading)
             $0.top.equalTo(myExerciseImageView.snp.bottom).offset(8.adjusted)
         }
@@ -206,6 +215,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
             $0.leading.equalTo(myExerciseImageView.snp.trailing).offset(7.adjusted)
         }
         opponentMissionLabel.snp.makeConstraints {
+            $0.width.equalTo(164.adjusted)
             $0.leading.equalTo(opponentExerciseImageVIew.snp.leading)
             $0.top.equalTo(opponentExerciseImageVIew.snp.bottom).offset(8.adjusted)
         }
@@ -214,9 +224,10 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
             $0.leading.equalTo(opponentExerciseImageVIew.snp.leading)
         }
         opponentStatusContainerView.snp.makeConstraints {
-            $0.top.equalTo(opponentMissionLabel.snp.bottom).offset(6.adjusted)
+            $0.top.equalTo(whoContainerView.snp.top)
             $0.leading.equalTo(whoContainerView.snp.trailing).offset(4.adjusted)
         }
+        
     }
     
     // MARK: - collectionViewConfigureCell
@@ -225,8 +236,6 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         dateLabel.text = date
         myExerciseImageView.kfSetImage(url: myImage)
         opponentExerciseImageVIew.kfSetImage(url: opponentImage)
-        print(myImage)
-        print(opponentImage)
         myMissionLabel.text = myMission
         opponentMissionLabel.text = opponentMission
         myStatusBadge.text = myStatusChip
