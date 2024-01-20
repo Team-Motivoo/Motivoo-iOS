@@ -20,13 +20,15 @@ final class HomeView: BaseView {
     
     // MARK: - Properties
     
-    var isMissionSelected: Bool = false {
+    var isMissionSelected: Bool = false 
+    {
         didSet {
             configureMissionSelectedView(isSelected: isMissionSelected)
         }
     }
     
     var responseData: HomeMissionsResponse?
+    var isBlinking: Bool = false
     var missionSelectedHandler: ((Int) -> Void)?
     
     // MARK: - UI Components
@@ -219,6 +221,10 @@ final class HomeView: BaseView {
             self.stepTitleLabel.isHidden = false
             self.homeCircularProgressView.isHidden = true
             self.guideButton.isHidden = true
+            if isBlinking {
+                self.homeStepCountView.transform = CGAffineTransform(translationX: 0, y: -102.adjusted)
+                self.checkMissionButton.transform = CGAffineTransform(translationX: 0, y: -102.adjusted)
+            }
         }
     }
     

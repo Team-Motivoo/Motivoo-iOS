@@ -63,6 +63,7 @@
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
 		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
+		055BE4C62B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */; };
 		0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */; };
 		0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */; };
 		0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */; };
@@ -232,6 +233,7 @@
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
+		055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMateGoalStepRequest.swift; sourceTree = "<group>"; };
 		0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveViewController.swift; sourceTree = "<group>"; };
 		0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveView.swift; sourceTree = "<group>"; };
 		0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveMissionView.swift; sourceTree = "<group>"; };
@@ -813,6 +815,7 @@
 				05BAB7F72B5722660016ECE5 /* HomeMissionCheckResponse.swift */,
 				05BAB7F92B5733370016ECE5 /* HomeRequest.swift */,
 				058B98AC2B59656E00C1757D /* HomeMissionImageResponse.swift */,
+				055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */,
 			);
 			path = APIModel;
 			sourceTree = "<group>";
@@ -1134,6 +1137,7 @@
 				02E1040A2B556EC8003852A7 /* BlankDataResponse.swift in Sources */,
 				349D53F62B5820DB004E6B8C /* OverviewAPI.swift in Sources */,
 				05AAF8AD2B3E5C190079CEAB /* q.swift in Sources */,
+				055BE4C62B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift in Sources */,
 				349D53EE2B582022004E6B8C /* LeaveRequset.swift in Sources */,
 				05AAF8CF2B3EA9E30079CEAB /* UICollectionViewCell+.swift in Sources */,
 				05AAF8B32B3E5C320079CEAB /* BaseView.swift in Sources */,

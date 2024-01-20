@@ -107,6 +107,10 @@ final class HomeProveViewController: BaseViewController {
             }
         }
     }
+    
+    func bindQuest(content: String) {
+        homeProveView.missionLabel.text = content
+    }
 }
 
 // MARK: - UIImagePickerControllerDelegate

@@ -11,12 +11,51 @@ import SnapKit
 import Then
 import SafariServices
 
+
+/// 본인의 프로그래스 바가 변경되는 기준
+///  -> 미션을 선택한 직후
+///  -> 걸음수가 업데이트 되었을 때 -----> 완료
+///
+/// 상대의 프로그래스 바가 변경되는 기준
+/// -> 미션을 선택한 직후 : 이슈 발생! -> 내가 홈에 계속 머물러있으면, 상대가 미션을 선택해도 API를 호출하기 전 까지는 모르는 상황
+/// 상대의 걸음수 받아오는 API 호출하는 타이머 제작
+/// 해당 타이머를 false로 초기화되는 boolean타입으로 감싸기
+/// mateGoalStep에 didset 세팅
+/// didSet 들어오면 불리언 값을 true로 변경
+/// -> 걸음수가 업데이트 되었을 때 -----> 완료
+
 final class HomeViewController: BaseViewController {
     
     // MARK: - Properties
-    
-    private var goalStep: Int = 0
-    private var mateGoalStep: Int = 0
+    private var timer: Timer? = nil
+    private var quest: String = String()
+    private var goalStep: Int = 0 {
+        didSet {
+            if goalStep != 0 {
+                print("들어옴시발!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                DispatchQueue.main.async {
+                    self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
+                                                                         finalStep: self.goalStep ,
+                                                                         withAnimation: true)
+                }
+            }
+        }
+    }
+    private var mateGoalStep: Int = 0 {
+        didSet {
+            if mateGoalStep != 0 {
+                print("들어옴!!!!!!!!!💗💗💗💗💗💗💗💗💗")
+                DispatchQueue.main.async {
+                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
+                                                                             finalStep: self.mateGoalStep,
+                                                                             withAnimation: true)
+                }
+                isStepZero = false
+                isMateStepCountCompleted = true
+            }
+        }
+    }
+    private var isStepZero: Bool = true
     private var guideURL = String()
     /// 나중에 인증 완료 API 들어오면 바인딩
     private var isMissionCompleted: Bool = false {
@@ -54,7 +93,7 @@ final class HomeViewController: BaseViewController {
         didSet {
             if oldValue < tempUserStep {
                 if !isStepCountCompleted {
-//                    requestPatchHome()
+                    requestPatchHome()
                 }
                 
                 DispatchQueue.main.async {
@@ -76,7 +115,7 @@ final class HomeViewController: BaseViewController {
                     self.isMateStepCountCompleted = true
                 }
                 
-//                requestPatchHome()
+                requestPatchHome()
                 DispatchQueue.main.async {
                     self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
                                                                              finalStep: self.mateGoalStep,
@@ -106,7 +145,9 @@ final class HomeViewController: BaseViewController {
             StepCountManager.shared.startCheckStepCount()
         }
         configureStepCount()
-//        requestPatchHome()
+        requestPatchHome()
+        
+        startTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,7 +156,6 @@ final class HomeViewController: BaseViewController {
         // TODO: - 권한 허용 안되어있으면 Alert 띄우기
         
         // 네트워크 통신
-//        requestPatchHome()
         requestPostMission()
         configureMissionTapGesture()
 
@@ -166,6 +206,7 @@ final class HomeViewController: BaseViewController {
             homeView.pickMissionLabel.text = firstMissionData.missionContent
             homeView.dateLabel.text = "오늘의 운동"
             requestPostMission()
+//            requestPatchHome()
         }
     }
     
@@ -177,6 +218,7 @@ final class HomeViewController: BaseViewController {
             homeView.pickMissionLabel.text = secondMissionData.missionContent
             homeView.dateLabel.text = "오늘의 운동"
             requestPostMission()
+//            requestPatchHome()
         }
     }
     
@@ -231,7 +273,7 @@ final class HomeViewController: BaseViewController {
                 guard let self else { return }
                 self.homeView.dimmView.isHidden = true
             }
-            
+            homeProveViewController.bindQuest(content: self.quest)
             self.present(homeProveViewController, animated: true)
         }
     }
@@ -242,7 +284,6 @@ final class HomeViewController: BaseViewController {
             print("\(newData.user)\n")
             self?.tempUserStep = newData.user
             self?.tempMateStep = newData.mate
-            self?.requestPatchHome()
         }
     }
     
@@ -305,6 +346,32 @@ final class HomeViewController: BaseViewController {
             toastLabel.removeFromSuperview()
         })
     }
+    
+    private func startTimer() {
+        guard self.timer == nil else { return }
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 3,
+                                              target: self,
+                                              selector: #selector(self.runLoop),
+                                              userInfo: nil,
+                                              repeats: true)
+        }
+        print("걸음수 타이머 시작")
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        print("걸음수 타이머 멈춤")
+    }
+    
+    @objc private func runLoop() {
+        if isStepZero {
+            self.requestPostMateGoalStep()
+        } else {
+            self.stopTimer()
+        }
+    }
 }
 
 // MARK: - Network Functions
@@ -338,9 +405,9 @@ extension HomeViewController {
                                                                      finalStep: self.goalStep ,
                                                                      withAnimation: true)
                 
-//                self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
-//                                                                         finalStep: self.mateGoalStep,
-//                                                                         withAnimation: true)
+                self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
+                                                                         finalStep: self.mateGoalStep,
+                                                                         withAnimation: true)
             }
             /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
 //            self.goalStep = 700
@@ -359,8 +426,6 @@ extension HomeViewController {
         HomeAPI.shared.postMission{ result in
             guard let result = self.validateResult(result) as? HomeMissionsResponse else { return }
             
-            // TODO: - 미션 완료 여부(isMissionCompleted) 서버에서 들어오도록 수정되면 바꾸기
-            self.isMissionCompleted = false
             self.homeView.configureView(data: result)
             if result.missionChoiceList != nil {
                 /// 미션을 고르자마자 뷰가 변함 -> 이 뷰에 대한 데이터 바인딩을 위해 VC에 받은 정보를 저장
@@ -373,6 +438,8 @@ extension HomeViewController {
             } else {
                 self.homeView.dateLabel.text = "오늘의 운동"
                 self.guideURL = result.todayMission?.missionDescription ?? ""
+                self.quest = result.todayMission?.missionQuest ?? ""
+                self.requestPatchHome()
             }
         }
     }
@@ -381,7 +448,15 @@ extension HomeViewController {
         HomeAPI.shared.postMissionChoice(param: param) { result in
             guard let result = self.validateResult(result) as? BlankDataResponse else { return }
             
-//            self.requestPatchHome()
+            self.requestPatchHome()
+        }
+    }
+    
+    private func requestPostMateGoalStep() {
+        HomeAPI.shared.postMateGoalStep { result in
+            guard let result = self.validateResult(result) as? HomeMateGoalStepResponse else { return }
+            self.mateGoalStep = result.opponentGoalStepCount
+            
         }
     }
 }

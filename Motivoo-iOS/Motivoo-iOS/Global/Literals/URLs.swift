@@ -13,5 +13,6 @@ enum URLs {
         static var mission = "/mission/today/choice"
         static var missionChoice = "/mission/today"
         static var missionImage = "/mission/image"
+        static var mateGoalStep = "/mission/opponent"
     }
 }

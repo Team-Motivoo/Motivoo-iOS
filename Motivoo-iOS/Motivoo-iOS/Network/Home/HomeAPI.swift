@@ -65,4 +65,14 @@ extension HomeAPI{
             )
         }
     }
+    
+    public func postMateGoalStep(completion: @escaping (NetworkResult<Any>) -> Void) {
+        homeProvider.request(.postMateGoalStep) { (result) in
+            self.disposeNetwork(
+                result,
+                dataModel: HomeMateGoalStepResponse.self,
+                completion: completion
+            )
+        }
+    }
 }

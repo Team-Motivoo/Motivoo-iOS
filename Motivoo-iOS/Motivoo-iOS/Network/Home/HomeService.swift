@@ -14,6 +14,7 @@ enum HomeService {
     case postMission
     case postMissionChoice(param: HomeChoiceMissionRequest)
     case patchMissionImage(param: HomeMissionImageRequest)
+    case postMateGoalStep
     case putimageWithPreSignedURL(url: String, image: UIImage)
 }
 
@@ -42,6 +43,8 @@ extension HomeService: BaseTargetType {
             return URLs.Home.missionImage
         case .putimageWithPreSignedURL:
             return ""
+        case .postMateGoalStep:
+            return URLs.Home.mateGoalStep
         }
     }
     
@@ -57,6 +60,8 @@ extension HomeService: BaseTargetType {
             return .patch
         case .putimageWithPreSignedURL:
             return .put
+        case .postMateGoalStep:
+            return .get
         }
     }
     
@@ -73,6 +78,8 @@ extension HomeService: BaseTargetType {
         case .putimageWithPreSignedURL(_, let image):
             let imageData = image.jpegData(compressionQuality: 0.8) ?? Data()
             return .requestData(imageData)
+        case .postMateGoalStep:
+            return .requestPlain
         }
     }
     
