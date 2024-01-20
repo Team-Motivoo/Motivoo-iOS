@@ -167,6 +167,7 @@ enum TextLiterals {
         static var Myexercise = "내 운동"
         static var doing = "진행중"
         static var onlyfail = "실패"
+        static var failfail = "실패"
         static var onlysuccess = "성공"
         static var parentExercise = "부모님 운동"
         static var childExercise = "자녀 운동"
