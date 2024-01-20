@@ -54,7 +54,7 @@ final class HomeViewController: BaseViewController {
         didSet {
             if oldValue < tempUserStep {
                 if !isStepCountCompleted {
-                    requestPatchHome()
+//                    requestPatchHome()
                 }
                 
                 DispatchQueue.main.async {
@@ -76,6 +76,7 @@ final class HomeViewController: BaseViewController {
                     self.isMateStepCountCompleted = true
                 }
                 
+//                requestPatchHome()
                 DispatchQueue.main.async {
                     self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
                                                                              finalStep: self.mateGoalStep,
@@ -105,6 +106,7 @@ final class HomeViewController: BaseViewController {
             StepCountManager.shared.startCheckStepCount()
         }
         configureStepCount()
+//        requestPatchHome()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,7 +115,7 @@ final class HomeViewController: BaseViewController {
         // TODO: - 권한 허용 안되어있으면 Alert 띄우기
         
         // 네트워크 통신
-        requestPatchHome()
+//        requestPatchHome()
         requestPostMission()
         configureMissionTapGesture()
 
@@ -163,6 +165,7 @@ final class HomeViewController: BaseViewController {
             homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
             homeView.pickMissionLabel.text = firstMissionData.missionContent
             homeView.dateLabel.text = "오늘의 운동"
+            requestPostMission()
         }
     }
     
@@ -173,6 +176,7 @@ final class HomeViewController: BaseViewController {
             requestPostMissionChoice(param: HomeChoiceMissionRequest(missionID: secondMissionData.missionID))
             homeView.pickMissionLabel.text = secondMissionData.missionContent
             homeView.dateLabel.text = "오늘의 운동"
+            requestPostMission()
         }
     }
     
@@ -238,6 +242,7 @@ final class HomeViewController: BaseViewController {
             print("\(newData.user)\n")
             self?.tempUserStep = newData.user
             self?.tempMateStep = newData.mate
+            self?.requestPatchHome()
         }
     }
     
@@ -328,6 +333,15 @@ extension HomeViewController {
                 self.homeView.configureCheckButtonStyle(state: .checkCompleted)
             }
             
+            DispatchQueue.main.async {
+                self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
+                                                                     finalStep: self.goalStep ,
+                                                                     withAnimation: true)
+                
+//                self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
+//                                                                         finalStep: self.mateGoalStep,
+//                                                                         withAnimation: true)
+            }
             /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
 //            self.goalStep = 700
 //            self.mateGoalStep = 1000
@@ -367,7 +381,7 @@ extension HomeViewController {
         HomeAPI.shared.postMissionChoice(param: param) { result in
             guard let result = self.validateResult(result) as? BlankDataResponse else { return }
             
-            self.requestPatchHome()
+//            self.requestPatchHome()
         }
     }
 }
