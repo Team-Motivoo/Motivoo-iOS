@@ -62,9 +62,9 @@ final class OnboardingView3SecondCell: UICollectionViewCell {
             $0.spacing = 17
             $0.alignment = .center
         }
-        highButton.accessibilityIdentifier = "high"
-        mediumButton.accessibilityIdentifier = "medium"
-        lowButton.accessibilityIdentifier = "low"
+        highButton.accessibilityIdentifier = "high2"
+        mediumButton.accessibilityIdentifier = "medium2"
+        lowButton.accessibilityIdentifier = "low2"
     }
 
     func setHierachy() {

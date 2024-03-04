@@ -17,6 +17,7 @@ final class OnboardingViewController: BaseViewController {
     lazy var choiceThreeButtonArray: [String] = []
     lazy var selectButtonName2: String = ""
     lazy var selectButtonName3: String = ""
+    lazy var selectButtonName3Second: String = ""
     lazy var selectButtonName4: String = ""
     lazy var selectButtonName5: String = ""
 
@@ -168,6 +169,7 @@ final class OnboardingViewController: BaseViewController {
             if (selectButtonName3 == "") {
                 // 버튼 선택
                 sender.isSelected = false
+                selectButtonName3 = sender.accessibilityIdentifier ?? "Unknown"
             } else {
                 let indexPath = IndexPath(row: 2, section: 0)
                 if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView3Cell {
@@ -180,9 +182,9 @@ final class OnboardingViewController: BaseViewController {
                         cell.lowButton.isSelected = true
                     }
                     sender.isSelected = false
+                    selectButtonName3 = sender.accessibilityIdentifier ?? "Unknown"
                 }
             }
-            selectButtonName3 = sender.accessibilityIdentifier ?? "Unknown"
             if selectButtonName3 == "high" {
                 questionArray["exerciseType"] = TextLiterals.Onboarding.Q3.highTitle
             } else if selectButtonName3 == "medium" {
@@ -194,6 +196,43 @@ final class OnboardingViewController: BaseViewController {
         } else {
             sender.isSelected = true
             selectButtonName3 = ""
+            questionArray["exerciseType"] = ""
+        }
+    }
+
+    @objc
+    private func selectButtonDidTap3Second(_ sender: UIButton) {
+        if (sender.isSelected) {
+            if (selectButtonName3Second == "") {
+                // 버튼 선택
+                sender.isSelected = false
+                selectButtonName3Second = sender.accessibilityIdentifier ?? "Unknown"
+            } else {
+                let indexPath = IndexPath(row: 2, section: 0)
+                if let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as? OnboardingView3SecondCell {
+                    if (selectButtonName3Second == "high2") { // 선택 되었던걸 true로 선택 취소
+                        cell.highButton.isSelected = true
+                    } else if (selectButtonName3Second == "medium2") {
+                        cell.mediumButton.isSelected = true
+                    }
+                    else {
+                        cell.lowButton.isSelected = true
+                    }
+                    sender.isSelected = false
+                    selectButtonName3Second = sender.accessibilityIdentifier ?? "Unknown"
+                }
+            }
+            if selectButtonName3Second == "high2" {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q4.highTitle
+            } else if selectButtonName3Second == "medium2" {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q4.middleTitle
+            } else {
+                questionArray["exerciseType"] = TextLiterals.Onboarding.Q4.lowTitle
+            }
+            nextButtonDidTap()
+        } else {
+            sender.isSelected = true
+            selectButtonName3Second = ""
             questionArray["exerciseType"] = ""
         }
     }
@@ -296,7 +335,8 @@ final class OnboardingViewController: BaseViewController {
     @objc
     private func prevButtonDidTap() {
         // print("indexpath - 1")
-        print("prevButtonDidTapprevButtonDidTapprevButtonDidTapprevButtonDidTap")
+        print("=== prevButtonDidTap ===")
+        //print("prevButtonDidTapprevButtonDidTapprevButtonDidTapprevButtonDidTap")
         let currentIndexPath = self.onboardingCollectionView.indexPathsForVisibleItems.first
         if let currentIndexPath = currentIndexPath, currentIndexPath.row - 1 < self.onboardingCollectionView.numberOfItems(inSection: 0) {
             let prevIndexPath = IndexPath(row: currentIndexPath.row - 1, section: currentIndexPath.section)
@@ -354,14 +394,14 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
                 cell.highButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
                 cell.mediumButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
                 cell.lowButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
-                print("yesyesyesyesyesyesyesyesyesyes")
+                // print("yesyesyesyesyesyesyesyesyesyes")
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView3SecondCell.identifier, for: indexPath) as! OnboardingView3SecondCell
-                cell.highButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
-                cell.mediumButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
-                cell.lowButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
-                print("nononononononononono")
+                cell.highButton.addTarget(self, action: #selector(selectButtonDidTap3Second), for: .touchUpInside)
+                cell.mediumButton.addTarget(self, action: #selector(selectButtonDidTap3Second), for: .touchUpInside)
+                cell.lowButton.addTarget(self, action: #selector(selectButtonDidTap3Second), for: .touchUpInside)
+                // print("nononononononononono")
                 return cell
             }
         } else if indexPath.row == 3 {
