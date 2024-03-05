@@ -106,40 +106,22 @@ extension InputInvitationViewController {
             guard let result = self.validateResult(result) as? InviteCodeResponse else { return }
             print(result)
 
-            if !result.myInviteCode {
-                if result.isMatched {
-                    // 매치 O
-                    UserDefaultManager.shared.saveUserMatcehd(match: result.isMatched)
-                    self.inputInvitationView.inputTextField.layer.borderColor = UIColor.gray300.cgColor
-                    self.inputInvitationView.wrongLabel.isHidden = true
-                    if result.isFinishedOnboarding {
-                        // 온보딩 완료
-                        // 모티부 시작하기 홈VC로 이동
-                        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-                        guard let delegate = sceneDelegate else {
-                            print("sceneDelegate가 할당 Error")
-                            return
-                        }
-                        let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
-                        delegate.window?.rootViewController = rootViewController
-                    } else {
-                        // 온보딩 안함
-                        // 온보딩 VC로 이동
-                        let onboardingViewController = OnboardingViewController()
-                        self.navigationController?.pushViewController(onboardingViewController, animated: true)
-                    }
-                } else {
-                    self.inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor
-                    self.inputInvitationView.wrongLabel.isHidden = false
+            // myInviteCode: 내 코드인지 아닌지는 백엔드에서 검사하는건가? 이제?
+            if result.isMatched {
+                // 매치 O
+                UserDefaultManager.shared.saveUserMatcehd(match: result.isMatched)
+                self.inputInvitationView.inputTextField.layer.borderColor = UIColor.gray300.cgColor
+                self.inputInvitationView.wrongLabel.isHidden = true
+                // 온보딩 완료
+                // 모티부 시작하기 홈VC로 이동
+                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+                guard let delegate = sceneDelegate else {
+                    print("sceneDelegate가 할당 Error")
+                    return
                 }
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
             } else {
-                self.inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor
-                self.inputInvitationView.wrongLabel.isHidden = false
-            }
-
-            if (result.isMatched && !result.myInviteCode) {
-            } else {
-                print("실패에에")
                 self.inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor
                 self.inputInvitationView.wrongLabel.isHidden = false
             }
