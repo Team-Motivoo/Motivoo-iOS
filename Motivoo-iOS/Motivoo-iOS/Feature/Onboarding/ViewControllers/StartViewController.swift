@@ -20,33 +20,15 @@ final class StartViewController: BaseViewController {
     private let motivooTextLogo = UIImageView()
     private let sloganLabel = UILabel()
     private let imageView = UIImageView()
+    // 버튼 TextLiterals 수정 및 디자인 변경 반영 필요
     private let startMotivooButton = MotivooButton(text: TextLiterals.Onboarding.Login.motivooStart, buttonStyle: .gray900)
     private let invitationCodeButton = MotivooButton(text: TextLiterals.Onboarding.Login.invitationCode, buttonStyle: .gray100)
-    lazy var nextViewController: UIViewController = OnboardingViewController()
-
 
     // MARK: - Life Cycles
 
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-
-        requestGetUserExercise()
-        self.isMatched = UserDefaultManager.shared.getUserMatcehd()
-        self.isFinished = UserDefaultManager.shared.getFinishedOnboarding()
-
-        print("===StartVC ViewWillAppear: \(TokenManager.shared.getToken())")
-        print("===StartVC ViewWillAppear: \(UserDefaultManager.shared.getFinishedOnboarding())")
-
-        if !isMatched {
-            // 온보딩 정보를 입력했다면
-            if isFinished {
-                nextViewController = InvitationViewController()
-            } else {
-                nextViewController = OnboardingViewController()
-            }
-        } else {
-            nextViewController = OnboardingViewController()
-        }
+        setupNavigationBar()
+        requestPostInviteCode()
     }
 
     override func viewDidLoad() {
@@ -58,7 +40,7 @@ final class StartViewController: BaseViewController {
     override func setupNavigationBar() {
         super.setupNavigationBar()
 
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func setUI() {
@@ -119,27 +101,24 @@ final class StartViewController: BaseViewController {
 
     @objc
     private func startMotivooButtonDidTap() {
-        self.navigationController?.pushViewController(nextViewController, animated: true)
-
-        setupNavigationBar()
+        let invitationViewController = InvitationViewController()
+        self.navigationController?.pushViewController(invitationViewController, animated: true)
     }
 
     @objc
     private func invitationCodeButtonDidTap() {
         let inputInvitationViewController = InputInvitationViewController()
         self.navigationController?.pushViewController(inputInvitationViewController, animated: true)
-        setupNavigationBar()
     }
 }
 
 extension StartViewController {
-    private func requestGetUserExercise() {
-        OnboardingAPI.shared.getExercise() { result in
-            guard let result = self.validateResult(result) as? UserExerciseResponse else {
-                return
-            }
-            UserDefaultManager.shared.saveFinishedOnboarding(finished: result.isFinishedOnboarding)
-            print("===Finish:  \(result.isFinishedOnboarding)")
+    private func requestPostInviteCode() {
+        OnboardingAPI.shared.postInviteCode() { result in
+            guard let result = self.validateResult(result) as? NewInviteCodeResponse else { return }
+
+            UserDefaultManager.shared.saveInviteCode(inviteCode: result.inviteCode)
+            // print("==== invitationCode: \(self.invitationCode)")
         }
     }
 }
