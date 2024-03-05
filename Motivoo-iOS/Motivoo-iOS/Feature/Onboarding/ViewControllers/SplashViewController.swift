@@ -16,15 +16,18 @@ final class SplashViewController: BaseViewController {
     // MARK: - UI Component
 
     let lottieView = LottieAnimationView(name: "splash")
+    var isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
+    var token = TokenManager.shared.getToken()
+    var isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
 
     // MARK: - Life Cycles
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
-        let token = TokenManager.shared.getToken()
-        let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
+        self.isUserLoggedIn = UserDefaultManager.shared.getUserLoggedIn()
+        self.token = TokenManager.shared.getToken()
+        self.isFinished = UserDefaultManager.shared.getFinishedOnboarding()
         print("\n========================")
         print("===isUserLoggedIn: \(isUserLoggedIn)")
         print("===token: \(token)")
@@ -62,35 +65,24 @@ final class SplashViewController: BaseViewController {
 
             if token == "" {
                 // token이 없다면
-                // 회원가입을 한 적이 없으므로 권한 허용 페이지로 진입
-                if isFinished {
-                    // 로그아웃한 유저
-                    let rootViewController = UINavigationController(rootViewController: LoginViewController())
-                    delegate.window?.rootViewController = rootViewController
-                } else {
-                    // 회원가입 처음하는 유저
-                    let rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
-                    delegate.window?.rootViewController = rootViewController
-                }
+                // 소셜로그인 화면으로 이동 (이후 이용약관)
+                let rootViewController = UINavigationController(rootViewController: LoginViewController())
+                delegate.window?.rootViewController = rootViewController
             } else {
                 // token이 있다면
-                if isUserLoggedIn {
-                    // 로그인 = true
-                    // splash에서 바로 홈으로 진입
-                    if isFinished {
-                        if isMached {
-                            let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
-                            delegate.window?.rootViewController = rootViewController
-                        } else {
-                            let rootViewController = UINavigationController(rootViewController: StartViewController())
-                            delegate.window?.rootViewController = rootViewController
-                        }
+                if isFinished {
+                    if isMached {
+                        let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                        delegate.window?.rootViewController = rootViewController
                     } else {
                         let rootViewController = UINavigationController(rootViewController: StartViewController())
                         delegate.window?.rootViewController = rootViewController
                     }
-                    return
+                } else {
+                    let rootViewController = UINavigationController(rootViewController: OnboardingViewController())
+                    delegate.window?.rootViewController = rootViewController
                 }
+                return
                 // token는 있지만, 로그인 = false라면
                 // 카카오톡 회원가입은 했지만, 이용약관 허용을 아직 진행하지 않았음으로 이용 약관 페이지로 이동
                 let rootViewController = UINavigationController(rootViewController: TermsOfUseViewController())
@@ -99,9 +91,11 @@ final class SplashViewController: BaseViewController {
         }
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        navigationController?.isNavigationBarHidden = true
+//
+//        print("== spalsh: viewDidDisappear")
+//    }
 
     // MARK: - Override Functions
     override func setupNavigationBar() {
@@ -125,6 +119,19 @@ final class SplashViewController: BaseViewController {
     override func setLayout() {
         lottieView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+    }
+}
+
+extension SplashViewController {
+    private func requestGetUserExercise() {
+        OnboardingAPI.shared.getExercise() { result in
+            guard let result = self.validateResult(result) as? UserExerciseResponse else {
+                return
+            }
+            UserDefaultManager.shared.saveFinishedOnboarding(finished: result.isFinishedOnboarding)
+            print("===Finish:  \(result.isFinishedOnboarding)")
+            self.isFinished = UserDefaultManager.shared.getFinishedOnboarding()
         }
     }
 }

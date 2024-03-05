@@ -461,23 +461,11 @@ extension OnboardingViewController {
         let param = OnboardingExerciseRequest(type: type, age: age, isExercise: isExercise, exerciseType: exerciseType, exerciseCount: exerciseCount, exerciseTime: exerciseTime, exerciseNote: exerciseNote)
         OnboardingAPI.shared.postExercise(param: param) { result in
             guard let result = self.validateResult(result) as? OnboardingExerciseResponse else { return }
-            // UserDefault에 inviteCode 저장
-            UserDefaultManager.shared.saveInviteCode(inviteCode: result.inviteCode ?? "")
+            // 온보딩 완료 저장
             UserDefaultManager.shared.saveFinishedOnboarding(finished: true)
-            let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
-            if isMatched {
-                // 온보딩을 이전에 매칭이 완료된 경우
-                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-                guard let delegate = sceneDelegate else {
-                    print("sceneDelegate가 할당 Error")
-                    return
-                }
-                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
-                delegate.window?.rootViewController = rootViewController
-            } else {
-                let invitationViewController = InvitationViewController()
-                self.navigationController?.pushViewController(invitationViewController, animated: true)
-            }
+            // 모티부 시작하기 페이지로 이동
+            let startViewController = StartViewController()
+            self.navigationController?.pushViewController(startViewController, animated: true)
         }
     }
 }
