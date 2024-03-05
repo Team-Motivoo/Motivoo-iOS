@@ -56,4 +56,13 @@ extension OnboardingAPI {
             )
         }
     }
+
+    public func postInviteCode(completion: @escaping (NetworkResult<Any>) -> Void) {
+        onboardingProvider.request(.postInviteCode) { (result) in
+            self.disposeNetwork(result,
+                                dataModel: NewInviteCodeResponse.self,
+                                completion: completion
+            )
+        }
+    }
 }
