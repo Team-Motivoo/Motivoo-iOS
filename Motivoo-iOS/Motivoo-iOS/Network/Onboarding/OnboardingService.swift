@@ -15,6 +15,7 @@ enum OnboardingService {
     case getExercise
     case patchInviteCode(param: InviteCodeRequest)
     case getMatchingCheck
+    case postInviteCode
 }
 
 extension OnboardingService: BaseTargetType {
@@ -30,12 +31,14 @@ extension OnboardingService: BaseTargetType {
             return TextLiterals.URLs.patchInviteCode
         case .getMatchingCheck:
             return TextLiterals.URLs.getMatchingCheck
+        case .postInviteCode:
+            return TextLiterals.URLs.postInviteCode
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .postLogin, .postExercise:
+        case .postLogin, .postExercise, .postInviteCode:
             return .post
         case .getExercise, .getMatchingCheck:
             return .get
@@ -50,7 +53,7 @@ extension OnboardingService: BaseTargetType {
             return .requestJSONEncodable(param) // body로 request를 넘기기
         case .postExercise(let param):
             return .requestJSONEncodable(param)
-        case .getExercise, .getMatchingCheck:
+        case .getExercise, .getMatchingCheck, .postInviteCode:
             return .requestPlain
         case .patchInviteCode(let param):
             return .requestJSONEncodable(param)
@@ -61,7 +64,7 @@ extension OnboardingService: BaseTargetType {
         switch self {
         case .postLogin:
             return APIConstants.noTokenHeader
-        case .postExercise, .getExercise, .patchInviteCode, .getMatchingCheck:
+        case .postExercise, .getExercise, .patchInviteCode, .getMatchingCheck, .postInviteCode:
             return APIConstants.hasTokenHeader
         }
     }
