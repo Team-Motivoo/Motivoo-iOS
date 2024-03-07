@@ -59,6 +59,7 @@
 		02E1042C2B570B0C003852A7 /* InviteCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */; };
 		02E1042E2B570B30003852A7 /* InviteCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */; };
 		02E104302B57916C003852A7 /* MatchingCheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */; };
+		02E8704C2B960F9B00DD4B38 /* NewInviteCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E8704B2B960F9B00DD4B38 /* NewInviteCodeResponse.swift */; };
 		02F383182B5A404F00631BE9 /* OnboardingView3SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F383172B5A404F00631BE9 /* OnboardingView3SecondCell.swift */; };
 		02F817332B46A22A00650E14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F817322B46A22A00650E14 /* StartViewController.swift */; };
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
@@ -229,6 +230,7 @@
 		02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeRequest.swift; sourceTree = "<group>"; };
 		02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCodeResponse.swift; sourceTree = "<group>"; };
 		02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingCheckResponse.swift; sourceTree = "<group>"; };
+		02E8704B2B960F9B00DD4B38 /* NewInviteCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInviteCodeResponse.swift; sourceTree = "<group>"; };
 		02F383172B5A404F00631BE9 /* OnboardingView3SecondCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView3SecondCell.swift; sourceTree = "<group>"; };
 		02F817322B46A22A00650E14 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 				02E104292B570598003852A7 /* UserExerciseResponse.swift */,
 				02E1042B2B570B0C003852A7 /* InviteCodeRequest.swift */,
 				02E1042D2B570B30003852A7 /* InviteCodeResponse.swift */,
+				02E8704B2B960F9B00DD4B38 /* NewInviteCodeResponse.swift */,
 				02E1042F2B57916C003852A7 /* MatchingCheckResponse.swift */,
 			);
 			path = Onboarding;
@@ -1092,6 +1095,7 @@
 				05AAF8D32B3EAA350079CEAB /* UITableViewHeaderFooterView+.swift in Sources */,
 				05C8FE592B4AA2A700A2838C /* HomeMissionModel.swift in Sources */,
 				05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */,
+				02E8704C2B960F9B00DD4B38 /* NewInviteCodeResponse.swift in Sources */,
 				02E1040F2B557C2E003852A7 /* GenericResponse.swift in Sources */,
 				05AAF8F32B44F18D0079CEAB /* FontLiterals.swift in Sources */,
 				05AAF8AB2B3E5BFE0079CEAB /* UIView+.swift in Sources */,
