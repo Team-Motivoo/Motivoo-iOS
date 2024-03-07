@@ -75,7 +75,7 @@ final class OnboardingView3Cell: UICollectionViewCell {
 
     func setLayout() {
         bgView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(20.adjusted)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(335.adjusted)
             $0.height.equalTo(500.adjusted)

@@ -67,7 +67,7 @@ final class OnboardingView5Cell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         bgView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(20.adjusted)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(335.adjusted)
             $0.height.equalTo(400.adjusted)
