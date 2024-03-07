@@ -20,13 +20,21 @@ final class OnboardingViewController: BaseViewController {
     lazy var selectButtonName3Second: String = ""
     lazy var selectButtonName4: String = ""
     lazy var selectButtonName5: String = ""
-
     lazy var questionArray: [String: Any] = ["type": "", "age": 0, "isExercise": true,
                                              "exerciseType":"", "exerciseCount":"", "exerciseTime":"", "exerciseNote":""]
 
     // MARK: - UI Component
 
     private lazy var onboardingProgressView = UIProgressView()
+
+    private let onboardingBackButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("이전", for: .normal)
+        button.setTitleColor(.gray700, for: .normal)
+        button.titleLabel?.font = .body6
+        return button
+    }()
+
     let onboardingCollectionView: UICollectionView = {
         var layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -56,14 +64,14 @@ final class OnboardingViewController: BaseViewController {
         super.viewWillAppear(false)
 
         setupNavigationBar()
-        self.customBackButton.removeTarget(self, action: #selector(backViewController), for: .touchUpInside)
-        self.customBackButton.addTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setDelegate()
+        self.onboardingBackButton.isHidden = true
+        self.onboardingBackButton.addTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -76,8 +84,6 @@ final class OnboardingViewController: BaseViewController {
             navigationArray.remove(at: navigationArray.count - 2) // 두 번째로 마지막인 FirstVC를 제거합니다.
             self.navigationController?.viewControllers = navigationArray // 수정된 스택을 다시 설정합니다.
         }
-        self.customBackButton.removeTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
-        self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
     }
 
     // MARK: - Override Functions
@@ -91,15 +97,21 @@ final class OnboardingViewController: BaseViewController {
     }
 
     override func setHierachy() {
-        self.view.addSubviews(onboardingProgressView, onboardingCollectionView)
+        self.view.addSubviews(onboardingBackButton, onboardingProgressView, onboardingCollectionView)
     }
 
     override func setLayout() {
+        onboardingBackButton.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(12)
+            $0.leading.equalToSuperview().inset(20)
+        }
+
         onboardingProgressView.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(onboardingBackButton.snp.bottom).offset(20.adjusted)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(2.adjusted)
         }
+
         onboardingCollectionView.snp.makeConstraints {
             $0.top.equalTo(onboardingProgressView.snp.bottom).offset(44.adjusted)
             $0.leading.trailing.bottom.equalToSuperview()
@@ -108,12 +120,8 @@ final class OnboardingViewController: BaseViewController {
 
     override func setupNavigationBar() {
         super.setupNavigationBar()
-        self.navigationController?.isNavigationBarHidden = false
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -160,7 +168,7 @@ final class OnboardingViewController: BaseViewController {
             selectButtonName2 = ""
             questionArray["isExercise"] = nil
         }
-        print("buttonTap: \(selectButtonName2)")
+        // print("buttonTap: \(selectButtonName2)")
     }
 
     @objc
@@ -334,9 +342,6 @@ final class OnboardingViewController: BaseViewController {
 
     @objc
     private func prevButtonDidTap() {
-        // print("indexpath - 1")
-        print("=== prevButtonDidTap ===")
-        //print("prevButtonDidTapprevButtonDidTapprevButtonDidTapprevButtonDidTap")
         let currentIndexPath = self.onboardingCollectionView.indexPathsForVisibleItems.first
         if let currentIndexPath = currentIndexPath, currentIndexPath.row - 1 < self.onboardingCollectionView.numberOfItems(inSection: 0) {
             let prevIndexPath = IndexPath(row: currentIndexPath.row - 1, section: currentIndexPath.section)
@@ -347,7 +352,7 @@ final class OnboardingViewController: BaseViewController {
     @objc
     private func startMotivooButtonDidTap() {
         questionArray["exerciseNote"] = choiceThreeButtonArray
-        print(questionArray)
+        // print(questionArray)
         requestPostExerciseAPI(
             type: questionArray["type"] as? String ?? "",
             age: questionArray["age"] as? Int ?? 0,
@@ -376,6 +381,11 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
         // print("Cell at \(indexPath.row/6) will display")
         let cellIndex = Float(indexPath.row + 1)
         onboardingProgressView.setProgress(cellIndex/6, animated: true)
+        if cellIndex == 1.0 {
+            self.onboardingBackButton.isHidden = true
+        } else {
+            self.onboardingBackButton.isHidden = false
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -388,7 +398,7 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             // 필요한 설정을 추가합니다.
             return cell
         } else if indexPath.row == 2 {
-            print("=====selectButtonName2: \(selectButtonName2)")
+            // print("=====selectButtonName2: \(selectButtonName2)")
             if (selectButtonName2 == "yes") {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView3Cell.identifier, for: indexPath) as! OnboardingView3Cell
                 cell.highButton.addTarget(self, action: #selector(selectButtonDidTap3), for: .touchUpInside)
@@ -447,7 +457,7 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             return cell
         } else {
             // OnboardingView1Cell을 반환
-            self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
+            //self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
             cell.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
             return cell
