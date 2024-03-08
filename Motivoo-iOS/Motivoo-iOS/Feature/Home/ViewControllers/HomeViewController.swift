@@ -29,29 +29,11 @@ final class HomeViewController: BaseViewController {
     // MARK: - Properties
     private var timer: Timer? = nil
     private var quest: String = String()
-    private var goalStep: Int = 0 {
-        didSet {
-            if goalStep != 0 {
-                print("들어옴시발!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
-                                                                         finalStep: self.goalStep ,
-                                                                         withAnimation: true)
-                }
-            }
-        }
-    }
+    private var goalStep: Int = 0
     private var mateGoalStep: Int = 0 {
         didSet {
             if mateGoalStep != 0 {
-                print("들어옴!!!!!!!!!💗💗💗💗💗💗💗💗💗")
-                DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
-                                                                             finalStep: self.mateGoalStep,
-                                                                             withAnimation: true)
-                }
                 isStepZero = false
-                isMateStepCountCompleted = true
             }
         }
     }
@@ -399,19 +381,6 @@ extension HomeViewController {
             if result.isMissionImgCompleted {
                 self.homeView.configureCheckButtonStyle(state: .checkCompleted)
             }
-            
-            DispatchQueue.main.async {
-                self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
-                                                                     finalStep: self.goalStep ,
-                                                                     withAnimation: true)
-                
-                self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
-                                                                         finalStep: self.mateGoalStep,
-                                                                         withAnimation: true)
-            }
-            /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
-//            self.goalStep = 700
-//            self.mateGoalStep = 1000
 
             if result.userType == "자녀" {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "부모님 걸음"
@@ -435,6 +404,15 @@ extension HomeViewController {
                 self.secondMissionData = result.missionChoiceList?[1] ?? MissionChoiceList(missionID: Int(),
                                                                                            missionContent: String(),
                                                                                            missionIconURL: String())
+                DispatchQueue.main.async {
+                    self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
+                                                                         finalStep: self.goalStep ,
+                                                                         withAnimation: true)
+                    
+                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
+                                                                             finalStep: self.mateGoalStep,
+                                                                             withAnimation: true)
+                }
             } else {
                 self.homeView.dateLabel.text = "오늘의 운동"
                 self.guideURL = result.todayMission?.missionDescription ?? ""
