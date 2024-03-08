@@ -12,7 +12,8 @@ enum URLs {
         static var home = "/home"
         static var mission = "/mission/today/choice"
         static var missionChoice = "/mission/today"
-        static var missionImage = "/mission/image"
+        static var missionImage = "/mission/image/mission"
         static var mateGoalStep = "/mission/opponent"
+        static var patchMissionImage = "/mission/image"
     }
 }

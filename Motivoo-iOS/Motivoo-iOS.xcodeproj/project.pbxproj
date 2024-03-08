@@ -64,6 +64,7 @@
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
 		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
 		055BE4C62B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */; };
+		05760F3F2B9B071200A6528D /* HomePatchMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05760F3E2B9B071200A6528D /* HomePatchMission.swift */; };
 		0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */; };
 		0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */; };
 		0586B5762B4F3F1600E1D93F /* HomeProveMissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */; };
@@ -234,6 +235,7 @@
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
 		055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMateGoalStepRequest.swift; sourceTree = "<group>"; };
+		05760F3E2B9B071200A6528D /* HomePatchMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatchMission.swift; sourceTree = "<group>"; };
 		0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveViewController.swift; sourceTree = "<group>"; };
 		0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveView.swift; sourceTree = "<group>"; };
 		0586B5752B4F3F1600E1D93F /* HomeProveMissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveMissionView.swift; sourceTree = "<group>"; };
@@ -434,6 +436,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		055BE4CB2B68DFA80002C0D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		0586B5712B4F3C6B00E1D93F /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,6 +561,7 @@
 		05AAF8792B3E596E0079CEAB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				055BE4CB2B68DFA80002C0D3 /* ViewModels */,
 				05C8FE5A2B4C259300A2838C /* ViewControllers */,
 				05AAF87E2B3E59B20079CEAB /* Views */,
 			);
@@ -816,6 +826,7 @@
 				05BAB7F92B5733370016ECE5 /* HomeRequest.swift */,
 				058B98AC2B59656E00C1757D /* HomeMissionImageResponse.swift */,
 				055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */,
+				05760F3E2B9B071200A6528D /* HomePatchMission.swift */,
 			);
 			path = APIModel;
 			sourceTree = "<group>";
@@ -1057,6 +1068,7 @@
 				05C8FE5C2B4C25A600A2838C /* HomeMissionView.swift in Sources */,
 				058A1AC42B49307500F170D0 /* HomeView.swift in Sources */,
 				05C8FE622B4D426A00A2838C /* HomeStepCountView.swift in Sources */,
+				05760F3F2B9B071200A6528D /* HomePatchMission.swift in Sources */,
 				02E1041E2B567B77003852A7 /* OnboardingService.swift in Sources */,
 				05AAF8C02B3EA7FC0079CEAB /* Adjust+.swift in Sources */,
 				05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */,
