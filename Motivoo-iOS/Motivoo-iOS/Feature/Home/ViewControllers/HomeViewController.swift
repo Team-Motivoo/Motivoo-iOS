@@ -29,7 +29,17 @@ final class HomeViewController: BaseViewController {
     // MARK: - Properties
     private var timer: Timer? = nil
     private var quest: String = String()
-    private var goalStep: Int = 0
+    private var goalStep: Int = 0 {
+        didSet {
+            if oldValue == 0 {
+                DispatchQueue.main.async {
+                    self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
+                                                                         finalStep: self.goalStep ,
+                                                                         withAnimation: true)
+                }
+            }
+        }
+    }
     private var mateGoalStep: Int = 0 {
         didSet {
             if mateGoalStep != 0 {
@@ -140,7 +150,12 @@ final class HomeViewController: BaseViewController {
         // 네트워크 통신
         requestPostMission()
         configureMissionTapGesture()
-
+        requestPatchHome()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        requestPatchHome()
     }
     
     // MARK: - Override Functions
