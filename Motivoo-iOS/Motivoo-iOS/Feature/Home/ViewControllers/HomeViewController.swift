@@ -85,7 +85,7 @@ final class HomeViewController: BaseViewController {
         didSet {
             if oldValue < tempUserStep {
                 if !isStepCountCompleted {
-                    requestPatchHome()
+                    requestGetHome()
                 }
                 
                 DispatchQueue.main.async {
@@ -107,7 +107,7 @@ final class HomeViewController: BaseViewController {
                     self.isMateStepCountCompleted = true
                 }
                 
-                requestPatchHome()
+                requestGetHome()
                 DispatchQueue.main.async {
                     self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
                                                                              finalStep: self.mateGoalStep,
@@ -137,7 +137,7 @@ final class HomeViewController: BaseViewController {
             StepCountManager.shared.startCheckStepCount()
         }
         configureStepCount()
-        requestPatchHome()
+        requestGetHome()
         
         startTimer()
     }
@@ -150,12 +150,12 @@ final class HomeViewController: BaseViewController {
         // 네트워크 통신
         requestPostMission()
         configureMissionTapGesture()
-        requestPatchHome()
+        requestGetHome()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        requestPatchHome()
+        requestGetHome()
     }
     
     // MARK: - Override Functions
@@ -374,8 +374,8 @@ final class HomeViewController: BaseViewController {
 // MARK: - Network Functions
 
 extension HomeViewController {
-    private func requestPatchHome() {
-        HomeAPI.shared.patchHome(param: HomeRequest(myStepCount: StepCountManager.shared.stepCountData.user,
+    private func requestGetHome() {
+        HomeAPI.shared.getHome(param: HomeRequest(myStepCount: StepCountManager.shared.stepCountData.user,
                                                     opponentStepCount: StepCountManager.shared.stepCountData.mate)) { result in
             guard let result = self.validateResult(result) as? HomeIntroResponse else { return }
             
@@ -432,7 +432,7 @@ extension HomeViewController {
                 self.homeView.dateLabel.text = "오늘의 운동"
                 self.guideURL = result.todayMission?.missionDescription ?? ""
                 self.quest = result.todayMission?.missionQuest ?? ""
-                self.requestPatchHome()
+                self.requestGetHome()
             }
         }
     }
@@ -441,7 +441,7 @@ extension HomeViewController {
         HomeAPI.shared.postMissionChoice(param: param) { result in
             guard let result = self.validateResult(result) as? BlankDataResponse else { return }
             
-            self.requestPatchHome()
+            self.requestGetHome()
         }
     }
     
