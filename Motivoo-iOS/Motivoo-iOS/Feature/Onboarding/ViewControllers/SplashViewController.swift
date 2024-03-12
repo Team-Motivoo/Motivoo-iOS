@@ -19,7 +19,7 @@ final class SplashViewController: BaseViewController {
     var isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
     var token = TokenManager.shared.getToken()
     var isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
-    var isMached: Bool = UserDefaultManager.shared.getUserMatcehd()
+    var isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
 
     // MARK: - Life Cycles
 
@@ -30,7 +30,7 @@ final class SplashViewController: BaseViewController {
         self.isUserLoggedIn = UserDefaultManager.shared.getUserLoggedIn()
         self.token = TokenManager.shared.getToken()
         self.isFinished = UserDefaultManager.shared.getFinishedOnboarding()
-        self.isMached = UserDefaultManager.shared.getUserMatcehd()
+        self.isMatched = UserDefaultManager.shared.getUserMatcehd()
         print("\n============viewWillAppear============")
         print("===isUserLoggedIn: \(isUserLoggedIn)")
         print("===token: \(token)")
@@ -59,7 +59,7 @@ final class SplashViewController: BaseViewController {
             print("isUserLoggedIn: \(self.isUserLoggedIn)")
             print("token: \(self.token)")
             print("isFinished: \(self.isFinished)")
-            print("isMached: \(self.isMached)")
+            print("isMached: \(self.isMatched)")
 
             if self.token == "" {
                 // token이 없다면
@@ -69,7 +69,7 @@ final class SplashViewController: BaseViewController {
             } else {
                 // token이 있다면
                 if self.isFinished {
-                    if self.isMached {
+                    if self.isMatched {
                         let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
                         delegate.window?.rootViewController = rootViewController
                     } else {
