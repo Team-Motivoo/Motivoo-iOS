@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "orDivider.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
