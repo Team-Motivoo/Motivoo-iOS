@@ -19,16 +19,19 @@ final class SplashViewController: BaseViewController {
     var isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
     var token = TokenManager.shared.getToken()
     var isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
+    var isMached: Bool = UserDefaultManager.shared.getUserMatcehd()
 
     // MARK: - Life Cycles
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // 변경!! 앱이 최초에 시작할 때 불러오는 방법은 없을까?
         self.isUserLoggedIn = UserDefaultManager.shared.getUserLoggedIn()
         self.token = TokenManager.shared.getToken()
         self.isFinished = UserDefaultManager.shared.getFinishedOnboarding()
-        print("\n========================")
+        self.isMached = UserDefaultManager.shared.getUserMatcehd()
+        print("\n============viewWillAppear============")
         print("===isUserLoggedIn: \(isUserLoggedIn)")
         print("===token: \(token)")
         print("===isFinished: \(isFinished)")
@@ -49,29 +52,24 @@ final class SplashViewController: BaseViewController {
                 return
             }
 
-            print("\n==========================")
+            print("\n==========viewDidLoad================")
             print(TokenManager.shared.getToken())
             print("==========================\n")
 
-            let isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
-            let token = TokenManager.shared.getToken()
-            let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
-            let isMached: Bool = UserDefaultManager.shared.getUserMatcehd()
+            print("isUserLoggedIn: \(self.isUserLoggedIn)")
+            print("token: \(self.token)")
+            print("isFinished: \(self.isFinished)")
+            print("isMached: \(self.isMached)")
 
-            print("isUserLoggedIn: \(isUserLoggedIn)")
-            print("token: \(token)")
-            print("isFinished: \(isFinished)")
-            print("isMached: \(isMached)")
-
-            if token == "" {
+            if self.token == "" {
                 // token이 없다면
                 // 소셜로그인 화면으로 이동 (이후 이용약관)
                 let rootViewController = UINavigationController(rootViewController: LoginViewController())
                 delegate.window?.rootViewController = rootViewController
             } else {
                 // token이 있다면
-                if isFinished {
-                    if isMached {
+                if self.isFinished {
+                    if self.isMached {
                         let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
                         delegate.window?.rootViewController = rootViewController
                     } else {
@@ -83,19 +81,9 @@ final class SplashViewController: BaseViewController {
                     delegate.window?.rootViewController = rootViewController
                 }
                 return
-                // token는 있지만, 로그인 = false라면
-                // 카카오톡 회원가입은 했지만, 이용약관 허용을 아직 진행하지 않았음으로 이용 약관 페이지로 이동
-                let rootViewController = UINavigationController(rootViewController: TermsOfUseViewController())
-                delegate.window?.rootViewController = rootViewController
             }
         }
     }
-
-//    override func viewDidDisappear(_ animated: Bool) {
-//        navigationController?.isNavigationBarHidden = true
-//
-//        print("== spalsh: viewDidDisappear")
-//    }
 
     // MARK: - Override Functions
     override func setupNavigationBar() {
@@ -132,6 +120,16 @@ extension SplashViewController {
             UserDefaultManager.shared.saveFinishedOnboarding(finished: result.isFinishedOnboarding)
             print("===Finish:  \(result.isFinishedOnboarding)")
             self.isFinished = UserDefaultManager.shared.getFinishedOnboarding()
+        }
+    }
+
+    private func requestGetMatchingCheck() {
+        OnboardingAPI.shared.getMatchingCheck() { result in
+            guard let result = self.validateResult(result) as? MatchingCheckResponse
+            else { return }
+            if result.isMatched {
+                UserDefaultManager.shared.saveUserMatcehd(match: result.isMatched)
+            }
         }
     }
 }
