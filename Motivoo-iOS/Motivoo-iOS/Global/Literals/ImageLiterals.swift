@@ -30,6 +30,7 @@ enum ImageLiterals {
         static var galleryCircle: UIImage { .load(named: "img_onboarding_gallery")}
         static var missionCompleted: UIImage { .load(named: "img_home_mission_complete")}
         static var exerciseGuide: UIImage { .load(named: "exercise_guide")}
+        static var orDivider: UIImage { .load(named: "orDivider")}
     }
     
     enum icon {
