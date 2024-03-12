@@ -151,14 +151,12 @@ extension LoginViewController {
                 self.loginRetryLabel.isHidden = false
                 return
             }
-//            print("\n===0000======")
-//            print("result: \(result)")
-//            print("이름: \(result.nickname)")
-//            print("accessToken: \(result.accessToken)")
-//            print("refreshToken: \(result.refreshToken)")
-            print("=========TokenManager===")
+
+            print("=== postLogin result: \(result)")
+
             TokenManager.shared.saveToken(token: "Bearer \(result.accessToken)")
 
+            // 이용약관 분기처리 어카지 ??
             let isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
             if isUserLoggedIn {
                 // 로그인한 적이 있었다면 바아로 홈으로 진입
@@ -173,6 +171,32 @@ extension LoginViewController {
                 // 로그인한 적이 없다면 -> 이용약관에 동의한 적이 없다.
                 let termsOfUseViewController = TermsOfUseViewController()
                 self.navigationController?.pushViewController(termsOfUseViewController, animated: true)
+            }
+
+            let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
+            let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            guard let delegate = sceneDelegate else {
+                print("sceneDelegate가 할당 Error")
+                return
+            }
+
+            if isMatched && isFinished {
+                // 로그인 -> 온보딩 정보 입력 및 매칭 확인 ( 둘 다 true)
+                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+                delegate.window?.rootViewController = rootViewController
+            } else {
+                if isFinished {
+                    if !isMatched {
+                        // 온보딩은 입력했지만 매칭이 안된 경우는 StartVC
+                        let rootViewController = UINavigationController(rootViewController: StartViewController())
+                        delegate.window?.rootViewController = rootViewController
+                    }
+                } else {
+                    // 온보딩 정보 입력을 안했다면 OnboardingVC
+                    let rootViewController = UINavigationController(rootViewController: OnboardingViewController())
+                    delegate.window?.rootViewController = rootViewController
+                }
             }
         }
     }
