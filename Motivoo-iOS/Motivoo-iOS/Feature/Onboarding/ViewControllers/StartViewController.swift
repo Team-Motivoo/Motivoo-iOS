@@ -20,9 +20,10 @@ final class StartViewController: BaseViewController {
     private let motivooTextLogo = UIImageView()
     private let sloganLabel = UILabel()
     private let imageView = UIImageView()
-    // 버튼 TextLiterals 수정 및 디자인 변경 반영 필요
-    private let startMotivooButton = MotivooButton(text: TextLiterals.Onboarding.Login.motivooStart, buttonStyle: .gray900)
-    private let invitationCodeButton = MotivooButton(text: TextLiterals.Onboarding.Login.invitationCode, buttonStyle: .gray100)
+    private let inviteCodeCreateButton = MotivooButton(text: TextLiterals.Onboarding.Login.inviteCodeCreate, buttonStyle: .gray900)
+    private let dividerImageView = UIImageView()
+    private let inviteCodeInputButton = MotivooButton(text: TextLiterals.Onboarding.Login.inviteCodeInput, buttonStyle: .gray100)
+    
 
     // MARK: - Life Cycles
 
@@ -49,7 +50,7 @@ final class StartViewController: BaseViewController {
             $0.backgroundColor = .lightGray
         }
         sloganLabel.do {
-            $0.text = TextLiterals.Onboarding.slogan
+            $0.text = TextLiterals.Onboarding.Login.slogan
             $0.font = .heading4
             $0.textColor = .gray900
             $0.textAlignment = .left
@@ -59,10 +60,13 @@ final class StartViewController: BaseViewController {
         imageView.do {
             $0.image = ImageLiterals.img.loginAfter
         }
+        dividerImageView.do {
+            $0.image = ImageLiterals.img.orDivider
+        }
     }
 
     override func setHierachy() {
-        self.view.addSubviews(motivooTextLogo, sloganLabel, imageView, startMotivooButton, invitationCodeButton)
+        self.view.addSubviews(motivooTextLogo, sloganLabel, imageView, inviteCodeCreateButton, dividerImageView, inviteCodeInputButton)
     }
 
     override func setLayout() {
@@ -82,31 +86,36 @@ final class StartViewController: BaseViewController {
             $0.height.equalTo(348.adjusted)
             $0.width.equalTo(335.adjusted)
         }
-        startMotivooButton.snp.makeConstraints {
+        inviteCodeCreateButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(invitationCodeButton.snp.top).offset(-16.adjusted)
+            $0.bottom.equalTo(dividerImageView.snp.top).offset(-6.adjusted)
         }
-        invitationCodeButton.snp.makeConstraints {
+        dividerImageView.snp.makeConstraints {
+            $0.width.equalTo(335.adjusted)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(inviteCodeInputButton.snp.top).offset(-6.adjusted)
+        }
+        inviteCodeInputButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(44.adjusted)
         }
     }
 
     override func setButtonEvent() {
-        startMotivooButton.addTarget(self, action: #selector(startMotivooButtonDidTap), for: .touchUpInside)
-        invitationCodeButton.addTarget(self, action: #selector(invitationCodeButtonDidTap), for: .touchUpInside)
+        inviteCodeCreateButton.addTarget(self, action: #selector(inviteCodeCreateButtonDidTap), for: .touchUpInside)
+        inviteCodeInputButton.addTarget(self, action: #selector(inviteCodeInputButtonDidTap), for: .touchUpInside)
     }
 
     // MARK: - Actions
 
     @objc
-    private func startMotivooButtonDidTap() {
+    private func inviteCodeCreateButtonDidTap() {
         let invitationViewController = InvitationViewController()
         self.navigationController?.pushViewController(invitationViewController, animated: true)
     }
 
     @objc
-    private func invitationCodeButtonDidTap() {
+    private func inviteCodeInputButtonDidTap() {
         let inputInvitationViewController = InputInvitationViewController()
         self.navigationController?.pushViewController(inputInvitationViewController, animated: true)
     }

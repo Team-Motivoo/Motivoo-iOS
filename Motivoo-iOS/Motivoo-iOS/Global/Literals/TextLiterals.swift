@@ -44,9 +44,9 @@ enum TextLiterals {
         }
 
         enum Login {
-            static var slogan = "가족과 함께 만들어 나가는\n오늘의 운동 습관"
-            static var motivooStart = "모티부 시작하기"
-            static var invitationCode = "초대코드 입력하기"
+            static var slogan = "자녀님, 부모님을 초대하고\n함께 운동해봐요!"
+            static var inviteCodeCreate = "초대코드 생성하기"
+            static var inviteCodeInput = "초대코드 입력하기"
         }
 
         enum Q1 {
