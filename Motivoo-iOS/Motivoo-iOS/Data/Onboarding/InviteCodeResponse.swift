@@ -8,13 +8,13 @@
 import Foundation
 
 struct InviteCodeResponse: Codable {
-    let userId: Int
-    let opponentUserId: Int
+    let userID: Int
     let isMatched: Bool
-
+    let inviteCode: String
+    
     enum CodingKeys: String, CodingKey {
-        case userId = "user_id"
-        case opponentUserId = "opponent_user_id"
+        case userID = "user_id"
         case isMatched = "is_matched"
+        case inviteCode = "invite_code"
     }
 }
