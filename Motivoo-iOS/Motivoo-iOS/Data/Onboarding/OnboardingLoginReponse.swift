@@ -10,13 +10,16 @@ import Foundation
 // MARK: - OnboardingLoginResponse
 
 struct OnboardingLoginResponse: Codable {
-    let tokenType, accessToken, refreshToken, id: String
-    let nickname: String
-
+    let tokenType, accessToken, refreshToken: String
+    let isFinishedOnboarding, isMatched: Bool
+    let id, nickname: String
+    
     enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
         case accessToken = "access_token"
         case refreshToken = "refresh_token"
+        case isFinishedOnboarding = "is_finished_onboarding"
+        case isMatched = "is_matched"
         case id, nickname
     }
 }
