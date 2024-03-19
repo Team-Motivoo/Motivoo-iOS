@@ -155,23 +155,8 @@ extension LoginViewController {
             print("=== postLogin result: \(result)")
 
             TokenManager.shared.saveToken(token: "Bearer \(result.accessToken)")
-
-            // 이용약관 분기처리 어카지 ??
-            let isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
-            if isUserLoggedIn {
-                // 로그인한 적이 있었다면 바아로 홈으로 진입
-                let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-                guard let delegate = sceneDelegate else {
-                    print("sceneDelegate가 할당 Error")
-                    return
-                }
-                let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
-                delegate.window?.rootViewController = rootViewController
-            } else {
-                // 로그인한 적이 없다면 -> 이용약관에 동의한 적이 없다.
-                let termsOfUseViewController = TermsOfUseViewController()
-                self.navigationController?.pushViewController(termsOfUseViewController, animated: true)
-            }
+            UserDefaultManager.shared.saveFinishedOnboarding(finished: result.isFinishedOnboarding)
+            UserDefaultManager.shared.saveUserMatcehd(match: result.isMatched)
 
             let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
             let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
@@ -182,7 +167,7 @@ extension LoginViewController {
             }
 
             if isMatched && isFinished {
-                // 로그인 -> 온보딩 정보 입력 및 매칭 확인 ( 둘 다 true)
+                // 로그인 -> 온보딩 정보 입력 및 매칭 확인 (둘 다 true)
                 let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
                 delegate.window?.rootViewController = rootViewController
             } else {
@@ -194,7 +179,7 @@ extension LoginViewController {
                     }
                 } else {
                     // 온보딩 정보 입력을 안했다면 OnboardingVC
-                    let rootViewController = UINavigationController(rootViewController: OnboardingViewController())
+                    let rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
                     delegate.window?.rootViewController = rootViewController
                 }
             }
