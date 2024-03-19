@@ -60,8 +60,8 @@ final class AuthorizationViewController: BaseViewController {
         AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
             if granted {
                 DispatchQueue.main.async {
-                    let loginViewController = LoginViewController()
-                    self.navigationController?.pushViewController(loginViewController, animated: true)
+                    let termsOfUseViewController = TermsOfUseViewController()
+                    self.navigationController?.pushViewController(termsOfUseViewController, animated: true)
                 }
                 print("Camera: 권한 허용")
             } else {
