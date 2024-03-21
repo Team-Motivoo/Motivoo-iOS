@@ -10,13 +10,12 @@ import UIKit
 import Moya
 
 enum HomeService {
-    case getHome(param: HomeRequest)
+    case patchHome(param: HomeRequest)
     case postMission
     case postMissionChoice(param: HomeChoiceMissionRequest)
-    case getMissionImage
+    case patchMissionImage(param: HomeMissionImageRequest)
     case postMateGoalStep
-    case putImageWithPreSignedURL(url: String, image: UIImage)
-    case patchMissionImage(fileName: String)
+    case putimageWithPreSignedURL(url: String, image: UIImage)
 }
 
 extension HomeService: BaseTargetType {
@@ -24,7 +23,7 @@ extension HomeService: BaseTargetType {
     var baseURL: URL {
         let baseURL = Bundle.main.infoDictionary?["BASE_URL"] as! String
         switch self {
-        case .putImageWithPreSignedURL(let url, let image):
+        case .putimageWithPreSignedURL(let url, let image):
             return URL(string: url) ?? URL(fileURLWithPath: baseURL)
             
         default:
@@ -34,68 +33,59 @@ extension HomeService: BaseTargetType {
     }
     var path: String {
         switch self {
-        case .getHome:
+        case .patchHome:
             return URLs.Home.home
         case .postMission:
             return URLs.Home.mission
         case .postMissionChoice:
             return URLs.Home.missionChoice
-        case .getMissionImage:
+        case .patchMissionImage:
             return URLs.Home.missionImage
-        case .putImageWithPreSignedURL:
+        case .putimageWithPreSignedURL:
             return ""
         case .postMateGoalStep:
             return URLs.Home.mateGoalStep
-        case .patchMissionImage(fileName: let fileName):
-            return URLs.Home.patchMissionImage
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getHome:
-            return .get
+        case .patchHome:
+            return .patch
         case .postMission:
             return .post
         case .postMissionChoice:
             return .post
-        case .getMissionImage:
-            return .get
-        case .putImageWithPreSignedURL:
+        case .patchMissionImage:
+            return .patch
+        case .putimageWithPreSignedURL:
             return .put
         case .postMateGoalStep:
             return .get
-        case .patchMissionImage:
-            return .patch
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getHome(let param):
+        case .patchHome(let param):
             return .requestJSONEncodable(param)
         case .postMission:
             return .requestPlain
         case .postMissionChoice(let param):
             return .requestJSONEncodable(param)
-        case .getMissionImage:
-            return .requestPlain
-        case .putImageWithPreSignedURL(_, let image):
+        case .patchMissionImage(let param):
+            return .requestJSONEncodable(param)
+        case .putimageWithPreSignedURL(_, let image):
             let imageData = image.jpegData(compressionQuality: 0.8) ?? Data()
             return .requestData(imageData)
         case .postMateGoalStep:
             return .requestPlain
-        case .patchMissionImage(fileName: let fileName):
-            let data = HomePatchMission(fileName: fileName)
-            return .requestJSONEncodable(data)
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .getMissionImage:
-            return APIConstants.noTokenHeader
-        case .putImageWithPreSignedURL:
+        case .putimageWithPreSignedURL:
             return ["Content-Type": "image/jpeg"]
         default:
             return APIConstants.hasTokenHeader

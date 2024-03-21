@@ -44,7 +44,7 @@ final class HomeMissionView: BaseView {
         }
         
         missionLabel.do {
-            $0.font = UIFont(name: "Pretendard-Medium", size: 20)
+            $0.font = .body6
             $0.textColor = .black
             $0.setLineSpacing(lineSpacing: 1.24.adjusted)
             $0.numberOfLines = 3
@@ -52,7 +52,7 @@ final class HomeMissionView: BaseView {
         
         totalStackView.do {
             $0.axis = .vertical
-            $0.spacing = 16.adjusted
+            $0.spacing = 10.adjusted
             $0.alignment = .leading
         }
     }
@@ -64,15 +64,15 @@ final class HomeMissionView: BaseView {
     override func setLayout() {
         self.snp.makeConstraints {
             $0.height.equalTo(162.adjusted)
-            $0.width.equalTo(335.adjusted)
         }
         missionImageView.snp.makeConstraints {
             $0.height.width.equalTo(48.adjusted)
         }
         
         totalStackView.snp.makeConstraints {
-            $0.leading.top.equalToSuperview().inset(20.adjusted)
+            $0.leading.equalToSuperview().inset(20.adjusted)
             $0.trailing.equalToSuperview().inset(10.adjusted)
+            $0.top.equalToSuperview().inset(16.adjusted)
         }
     }
     

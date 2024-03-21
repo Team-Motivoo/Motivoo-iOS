@@ -12,7 +12,7 @@ struct HomeMissionCheckResponse: Codable {
     let fileName: String
 
     enum CodingKeys: String, CodingKey {
-        case imgPresignedURL = "url"
+        case imgPresignedURL = "img_presigned_url"
         case fileName = "file_name"
     }
 }

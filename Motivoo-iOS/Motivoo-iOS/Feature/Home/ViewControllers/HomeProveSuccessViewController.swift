@@ -58,8 +58,7 @@ final class HomeProveSuccessViewController: BaseViewController {
     
     @objc
     private func checkButtonDidTapped() {
-        requestPutMissionImage(image: popupView.proveImageView.image ?? UIImage())
-        
+        requestPatchMissionImage(image: popupView.proveImageView.image ?? UIImage())
         dismiss(animated: true)
     }
 }
@@ -67,24 +66,18 @@ final class HomeProveSuccessViewController: BaseViewController {
 // MARK: - Network Functions
 
 extension HomeProveSuccessViewController {
-    private func requestPutMissionImage(image: UIImage) {
-        HomeAPI.shared.patchMissionImage { result in
+    private func requestPatchMissionImage(image: UIImage) {
+        let param = HomeMissionImageRequest(imgPrefix: "mission/")
+        HomeAPI.shared.patchMissionImage(param: param) { result in
             guard let result = self.validateResult(result) as? HomeMissionCheckResponse else { return }
-            self.requestPutAtPreSignedURL(url: result.imgPresignedURL, image: image, fileName: result.fileName)
+            self.requestPutAtPreSignedURL(url: result.imgPresignedURL, image: image)
         }
     }
 
-    private func requestPutAtPreSignedURL(url: String, image: UIImage, fileName: String) {
+    private func requestPutAtPreSignedURL(url: String, image: UIImage) {
         HomeAPI.shared.putAtPreSignedURL(url: url, image: image) { result in
-            guard let result = self.validateResult(result) as? BlankDataResponse else { self.requestPatchMissionImage(fileName: fileName); return }
-            print("🐰", result)
-            self.requestPatchMissionImage(fileName: fileName)
-        }
-    }
-    
-    private func requestPatchMissionImage(fileName: String) {
-        HomeAPI.shared.patchMissionImage(fileName: fileName) { result in
             guard let result = self.validateResult(result) as? SimpleResponse else { return }
+            print("🐰", result)
         }
     }
 }

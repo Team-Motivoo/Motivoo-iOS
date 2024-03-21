@@ -31,7 +31,8 @@ final class HomeViewController: BaseViewController {
     private var quest: String = String()
     private var goalStep: Int = 0 {
         didSet {
-            if oldValue == 0 {
+            if goalStep != 0 {
+                print("들어옴시발!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 DispatchQueue.main.async {
                     self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
                                                                          finalStep: self.goalStep ,
@@ -43,7 +44,14 @@ final class HomeViewController: BaseViewController {
     private var mateGoalStep: Int = 0 {
         didSet {
             if mateGoalStep != 0 {
+                print("들어옴!!!!!!!!!💗💗💗💗💗💗💗💗💗")
+                DispatchQueue.main.async {
+                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
+                                                                             finalStep: self.mateGoalStep,
+                                                                             withAnimation: true)
+                }
                 isStepZero = false
+                isMateStepCountCompleted = true
             }
         }
     }
@@ -85,7 +93,7 @@ final class HomeViewController: BaseViewController {
         didSet {
             if oldValue < tempUserStep {
                 if !isStepCountCompleted {
-                    requestGetHome()
+                    requestPatchHome()
                 }
                 
                 DispatchQueue.main.async {
@@ -107,7 +115,7 @@ final class HomeViewController: BaseViewController {
                     self.isMateStepCountCompleted = true
                 }
                 
-                requestGetHome()
+                requestPatchHome()
                 DispatchQueue.main.async {
                     self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
                                                                              finalStep: self.mateGoalStep,
@@ -137,7 +145,7 @@ final class HomeViewController: BaseViewController {
             StepCountManager.shared.startCheckStepCount()
         }
         configureStepCount()
-        requestGetHome()
+        requestPatchHome()
         
         startTimer()
     }
@@ -148,14 +156,9 @@ final class HomeViewController: BaseViewController {
         // TODO: - 권한 허용 안되어있으면 Alert 띄우기
         
         // 네트워크 통신
-        configureMissionTapGesture()
         requestPostMission()
-        requestGetHome()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        requestGetHome()
+        configureMissionTapGesture()
+
     }
     
     // MARK: - Override Functions
@@ -181,6 +184,8 @@ final class HomeViewController: BaseViewController {
     
     override func setupNavigationBar() {
         super.setupNavigationBar()
+        
+//        navigationController?.isNavigationBarHidden = true
     }
     
     // MARK: - Custom Method
@@ -197,17 +202,23 @@ final class HomeViewController: BaseViewController {
     private func firstMissionViewDidTapped() {
         if !homeView.isMissionSelected {
             requestPostMissionChoice(param: HomeChoiceMissionRequest(missionID: firstMissionData.missionID))
+            homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
             homeView.pickMissionLabel.text = firstMissionData.missionContent
             homeView.dateLabel.text = "오늘의 운동"
+            requestPostMission()
+//            requestPatchHome()
         }
     }
     
     @objc
     private func secondMissionViewDidTapped() {
         if !homeView.isMissionSelected {
+            homeView.configureMissionSelectedView(isSelected: !homeView.isMissionSelected)
             requestPostMissionChoice(param: HomeChoiceMissionRequest(missionID: secondMissionData.missionID))
             homeView.pickMissionLabel.text = secondMissionData.missionContent
             homeView.dateLabel.text = "오늘의 운동"
+            requestPostMission()
+//            requestPatchHome()
         }
     }
     
@@ -279,7 +290,7 @@ final class HomeViewController: BaseViewController {
     ///비활성화 된 상태에서, 화면 밖으로 나가지 않고 즉시 걸음수 충족 및 인증 완료를 확인하기 위한 처리.
     ///화면으로부터 나간 후, 다시 들어왔을 때는 서버에서 isMissionCompleted 값을 준다.
     private func judgeButtonStyle(goal goalStep: Int, now currentStep: Int) {
-        if goalStep > 0 && goalStep > currentStep {
+        if goalStep > 0 && goalStep >= currentStep {
             homeView.configureCheckButtonStyle(state: .unCompleted)
         } else { /// 목표 걸음수를 채웠을 때의 두 가지 경우.
             self.isStepCountCompleted = true
@@ -295,7 +306,7 @@ final class HomeViewController: BaseViewController {
         let childPath = "Users" // 여기에 확인하고자 하는 child의 경로를 설정합니다.
 
         StepCountManager.shared.db.child(childPath).getData(completion: { [weak self] error, snapshot in
-//            guard let strongSelf = self else { return }
+            guard let strongSelf = self else { return }
 
             if let error = error {
                 print("Error getting data \(error)")
@@ -366,8 +377,9 @@ final class HomeViewController: BaseViewController {
 // MARK: - Network Functions
 
 extension HomeViewController {
-    private func requestGetHome() {
-        HomeAPI.shared.getHome() { result in
+    private func requestPatchHome() {
+        HomeAPI.shared.patchHome(param: HomeRequest(myStepCount: StepCountManager.shared.stepCountData.user,
+                                                    opponentStepCount: StepCountManager.shared.stepCountData.mate)) { result in
             guard let result = self.validateResult(result) as? HomeIntroResponse else { return }
             
             /// StepCountManager에 uid와 mid를 매칭.
@@ -384,14 +396,22 @@ extension HomeViewController {
             self.mateGoalStep = result.opponentUserGoalStepCount
             self.isStepCountCompleted = result.isStepCountCompleted
             self.isMissionCompleted = result.isMissionImgCompleted
-            
             if result.isMissionImgCompleted {
                 self.homeView.configureCheckButtonStyle(state: .checkCompleted)
-            } else if result.isStepCountCompleted {
-                self.homeView.configureCheckButtonStyle(state: .completed)
-            } else {
-                self.homeView.configureCheckButtonStyle(state: .unCompleted)
             }
+            
+            DispatchQueue.main.async {
+                self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
+                                                                     finalStep: self.goalStep ,
+                                                                     withAnimation: true)
+                
+                self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
+                                                                         finalStep: self.mateGoalStep,
+                                                                         withAnimation: true)
+            }
+            /// 목표 걸음 수 너무 높아서 따로 넣어서 사용 중
+//            self.goalStep = 700
+//            self.mateGoalStep = 1000
 
             if result.userType == "자녀" {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "부모님 걸음"
@@ -405,6 +425,7 @@ extension HomeViewController {
     private func requestPostMission() {
         HomeAPI.shared.postMission{ result in
             guard let result = self.validateResult(result) as? HomeMissionsResponse else { return }
+            
             self.homeView.configureView(data: result)
             if result.missionChoiceList != nil {
                 /// 미션을 고르자마자 뷰가 변함 -> 이 뷰에 대한 데이터 바인딩을 위해 VC에 받은 정보를 저장
@@ -414,28 +435,20 @@ extension HomeViewController {
                 self.secondMissionData = result.missionChoiceList?[1] ?? MissionChoiceList(missionID: Int(),
                                                                                            missionContent: String(),
                                                                                            missionIconURL: String())
-                DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
-                                                                         finalStep: self.goalStep ,
-                                                                         withAnimation: true)
-                    
-                    self.homeView.homeCircularProgressView.setParentProgress(currentStep: self.tempMateStep,
-                                                                             finalStep: self.mateGoalStep,
-                                                                             withAnimation: true)
-                }
             } else {
                 self.homeView.dateLabel.text = "오늘의 운동"
                 self.guideURL = result.todayMission?.missionDescription ?? ""
                 self.quest = result.todayMission?.missionQuest ?? ""
-                self.requestGetHome()
+                self.requestPatchHome()
             }
         }
     }
     
     private func requestPostMissionChoice(param: HomeChoiceMissionRequest) {
         HomeAPI.shared.postMissionChoice(param: param) { result in
-            guard let result = self.validateResult(result) as? SimpleResponse else { return }
-            self.homeView.configureMissionSelectedView(isSelected: true)
+            guard let result = self.validateResult(result) as? BlankDataResponse else { return }
+            
+            self.requestPatchHome()
         }
     }
     
