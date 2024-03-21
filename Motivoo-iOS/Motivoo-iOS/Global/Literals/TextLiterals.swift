@@ -13,7 +13,7 @@ enum TextLiterals {
         static var next = "다음"
         static var yes = "네"
         static var no = "아니요"
-        static var slogan = "가족과 함께 만들어 나가는\n오늘의 운동 습관 "
+        static var slogan = "자녀와 부모를 잇는\n매일 한 걸음"
         static var loginRetry = "로그인을 다시 한 번 시도해주세요."
 
         enum Authorization {
@@ -119,7 +119,7 @@ enum TextLiterals {
             static var share = "함께 운동할 가족에게\n초대코드를 공유해주세요!"
             static var invitationCode = "초대코드"
             static var copy = "복사하기"
-            static var matchingCheck = "매칭 확인하기"
+            static var matchingCheck = "연결 확인하기"
             static var checking = "아직 매칭을 확인하고 있어요"
             static var clipboard = "클립보드에 복사되었습니다"
 

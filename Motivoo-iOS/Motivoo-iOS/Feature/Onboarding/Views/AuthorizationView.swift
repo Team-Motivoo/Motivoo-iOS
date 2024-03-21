@@ -19,7 +19,7 @@ final class AuthorizationView: BaseView {
     private let divider = UIView()
     private let cautionLabel = UILabel()
     private let infoIcon = UIImageView()
-    let allowButton = MotivooButton(text: TextLiterals.Onboarding.Authorization.allow, buttonStyle: .gray900)
+    let allowButton = MotivooButton(text: TextLiterals.Home.Prove.check, buttonStyle: .gray900)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +31,7 @@ final class AuthorizationView: BaseView {
         introLabel.do {
             $0.text = TextLiterals.Onboarding.Authorization.introlLabel
             $0.font = .body6
-            $0.textColor = .gray900
+            $0.textColor = .gray700
             $0.textAlignment = .left
             $0.numberOfLines = 0
             $0.addLineHeight(lineHeight: 23.6.adjusted)

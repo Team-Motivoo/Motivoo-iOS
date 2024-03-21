@@ -52,7 +52,7 @@ final class InputInvitationView: BaseView {
         wrongLabel.do {
             $0.text = TextLiterals.Onboarding.Invitation.wrongInvitation
             $0.font = .caption2
-            $0.textColor = .pink
+            $0.textColor = .red500
             $0.textAlignment = .left
         }
     }

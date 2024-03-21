@@ -49,7 +49,7 @@ final class TermsOfUseTableViewCell: UITableViewCell {
         essential.do {
             $0.text = TextLiterals.Onboarding.Authorization.essential
             $0.font = .body6
-            $0.textColor = .pink
+            $0.textColor = .red500
             $0.textAlignment = .left
         }
         let underlineText = NSMutableAttributedString(string: TextLiterals.Onboarding.Terms.see, attributes: [

@@ -25,8 +25,8 @@ final class MotivooBigButton: UIButton {
 
     override var isSelected: Bool {
         didSet (isSelected) {
-            backgroundColor = isSelected ? .blue100 : .gray100
-            self.layer.borderColor = isSelected ? UIColor.blue400.cgColor : UIColor.gray200.cgColor
+            backgroundColor = isSelected ? .white: .gray100
+            self.layer.borderColor = isSelected ? UIColor.gray900.cgColor : UIColor.gray200.cgColor
         }
     }
 

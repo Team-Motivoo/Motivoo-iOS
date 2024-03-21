@@ -7,7 +7,6 @@
 
 import UIKit
 
-import Lottie
 import SnapKit
 import Then
 
@@ -15,7 +14,7 @@ final class SplashViewController: BaseViewController {
 
     // MARK: - UI Component
 
-    let lottieView = LottieAnimationView(name: "splash")
+    let imageView = UIImageView()
     var isUserLoggedIn: Bool = UserDefaultManager.shared.getUserLoggedIn()
     var token = TokenManager.shared.getToken()
     var isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
@@ -41,9 +40,6 @@ final class SplashViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.lottieView.play()
-        self.lottieView.loopMode = .playOnce
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
@@ -93,20 +89,20 @@ final class SplashViewController: BaseViewController {
     }
 
     override func setUI() {
-        lottieView.do {
-            $0.frame = self.view.bounds
-            $0.center = self.view.center
-            $0.contentMode = .scaleAspectFit
+        imageView.do {
+            $0.image = ImageLiterals.img.splashImage
         }
     }
 
     override func setHierachy() {
-        self.view.addSubview(lottieView)
+        self.view.addSubview(imageView)
     }
 
     override func setLayout() {
-        lottieView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        imageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(221.adjusted)
+            $0.height.equalTo(158.adjusted)
         }
     }
 }

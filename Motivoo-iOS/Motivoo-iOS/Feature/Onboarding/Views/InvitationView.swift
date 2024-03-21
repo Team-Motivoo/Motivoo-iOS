@@ -52,8 +52,8 @@ final class InvitationView: BaseView {
         copyButton.do {
             $0.setTitle(TextLiterals.Onboarding.Invitation.copy, for: .normal)
             $0.titleLabel?.font = .body5
-            $0.setTitleColor(.black, for: .normal)
-            $0.backgroundColor = .blue400
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = .red400
             $0.layer.cornerRadius = 8
         }
     }

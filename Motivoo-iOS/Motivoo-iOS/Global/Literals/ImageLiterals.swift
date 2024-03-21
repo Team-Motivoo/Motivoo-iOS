@@ -14,6 +14,7 @@ enum ImageLiterals {
         
         // MARK: - OnBoarding
         
+        static var splashImage: UIImage { .load(named: "splashImage")}
         static var motivooLogo: UIImage { .load(named: "motivooLogo")}
         static var motivooTextLogo: UIImage { .load(named: "img_logo")}
         static var loginAfter: UIImage { .load(named: "img_login_after")}

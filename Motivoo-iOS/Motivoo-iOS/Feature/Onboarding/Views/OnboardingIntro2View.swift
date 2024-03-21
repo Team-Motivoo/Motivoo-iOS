@@ -72,7 +72,7 @@ final class OnboardingIntro2View: BaseView {
         }
         ageInputLabel.do {
             $0.text = TextLiterals.Onboarding.Q1.ageInput
-            $0.textColor = .pink
+            $0.textColor = .red500
             $0.font = .caption2
             $0.textAlignment = .left
         }
