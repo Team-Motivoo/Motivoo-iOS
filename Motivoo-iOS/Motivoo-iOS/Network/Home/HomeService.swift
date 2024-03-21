@@ -10,7 +10,7 @@ import UIKit
 import Moya
 
 enum HomeService {
-    case getHome(param: HomeRequest)
+    case getHome
     case postMission
     case postMissionChoice(param: HomeChoiceMissionRequest)
     case getMissionImage
@@ -72,8 +72,8 @@ extension HomeService: BaseTargetType {
     
     var task: Moya.Task {
         switch self {
-        case .getHome(let param):
-            return .requestJSONEncodable(param)
+        case .getHome:
+            return .requestPlain
         case .postMission:
             return .requestPlain
         case .postMissionChoice(let param):

@@ -16,8 +16,8 @@ final class HomeAPI: BaseAPI {
 }
 
 extension HomeAPI{
-    public func getHome(param: HomeRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        homeProvider.request(.getHome(param: param)) { (result) in
+    public func getHome(completion: @escaping (NetworkResult<Any>) -> Void) {
+        homeProvider.request(.getHome) { (result) in
             self.disposeNetwork(
                 result,
                 dataModel: HomeIntroResponse.self,
