@@ -43,7 +43,7 @@ extension OnboardingAPI {
     public func patchInviteCode(param: InviteCodeRequest , completion: @escaping (NetworkResult<Any>) -> Void) {
         onboardingProvider.request(.patchInviteCode(param: param)) { (result) in
             self.disposeNetwork(result,
-                                dataModel: InviteCodeResponse.self,
+                                dataModel: MatchingCheckResponse.self,
                                 completion: completion
             )
         }

@@ -103,8 +103,14 @@ extension InputInvitationViewController {
     func requestPatchInviteCodeAPI(inviteCode: String) {
         let param = InviteCodeRequest(inviteCode: inviteCode)
         OnboardingAPI.shared.patchInviteCode(param: param) { result in
-            guard let result = self.validateResult(result) as? InviteCodeResponse else { return }
-            print(result)
+            guard let result = self.validateResult(result) as? MatchingCheckResponse
+            else {
+                self.inputInvitationView.inputTextField.layer.borderColor = UIColor.red500.cgColor
+                self.inputInvitationView.wrongLabel.isHidden = false
+
+                return
+            }
+            print("=== result: \(result)")
 
             // myInviteCode: 내 코드인지 아닌지는 백엔드에서 검사하는건가? 이제?
             if result.isMatched {
