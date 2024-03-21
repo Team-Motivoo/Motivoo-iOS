@@ -16,8 +16,8 @@ final class HomeAPI: BaseAPI {
 }
 
 extension HomeAPI{
-    public func patchHome(param: HomeRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        homeProvider.request(.patchHome(param: param)) { (result) in
+    public func getHome(param: HomeRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
+        homeProvider.request(.getHome(param: param)) { (result) in
             self.disposeNetwork(
                 result,
                 dataModel: HomeIntroResponse.self,
@@ -46,8 +46,8 @@ extension HomeAPI{
         }
     }
     
-    public func patchMissionImage(param: HomeMissionImageRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        homeProvider.request(.patchMissionImage(param: param)) { (result) in
+    public func patchMissionImage(completion: @escaping (NetworkResult<Any>) -> Void) {
+        homeProvider.request(.getMissionImage) { (result) in
             self.disposeNetwork(
                 result,
                 dataModel: HomeMissionCheckResponse.self,
@@ -57,7 +57,7 @@ extension HomeAPI{
     }
     
     public func putAtPreSignedURL(url: String, image: UIImage, completion: @escaping (NetworkResult<Any>) -> Void) {
-        homeProvider.request(.putimageWithPreSignedURL(url: url, image: image)) { (result) in
+        homeProvider.request(.putImageWithPreSignedURL(url: url, image: image)) { (result) in
             self.disposeNetwork(
                 result,
                 dataModel: BlankDataResponse.self,
@@ -73,6 +73,15 @@ extension HomeAPI{
                 dataModel: HomeMateGoalStepResponse.self,
                 completion: completion
             )
+        }
+    }
+    
+    public func patchMissionImage(fileName: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        homeProvider.request(.patchMissionImage(fileName: fileName)) { (result) in
+            self.disposeNetwork(result,
+                                dataModel: BlankDataResponse.self,
+                                completion: completion)
+            
         }
     }
 }

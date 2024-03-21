@@ -20,13 +20,7 @@ final class HomeView: BaseView {
     
     // MARK: - Properties
     
-    var isMissionSelected: Bool = false 
-    {
-        didSet {
-            configureMissionSelectedView(isSelected: isMissionSelected)
-        }
-    }
-    
+    var isMissionSelected: Bool = false
     var responseData: HomeMissionsResponse?
     var isBlinking: Bool = false
     var missionSelectedHandler: ((Int) -> Void)?
@@ -35,9 +29,8 @@ final class HomeView: BaseView {
     
     var dateLabel = UILabel()
     var pickMissionLabel = UILabel()
-    var firstMissionView = HomeMissionView()
-    var secondMissionView = HomeMissionView()
-    var stepTitleLabel = UILabel()
+    lazy var firstMissionView = HomeMissionView()
+    lazy var secondMissionView = HomeMissionView()
     private lazy var missionStackView = UIStackView(arrangedSubviews: [firstMissionView,
                                                                        secondMissionView])
     var homeStepCountView = HomeStepCountView()
@@ -67,16 +60,10 @@ final class HomeView: BaseView {
         }
         
         missionStackView.do {
-            $0.axis = .horizontal
-            $0.spacing = 9.adjusted
+            $0.axis = .vertical
+            $0.spacing = 10.adjusted
             $0.alignment = .center
             $0.distribution = .fillEqually
-        }
-        
-        stepTitleLabel.do {
-            $0.font = .caption1
-            $0.textColor = .gray600
-            $0.text = TextLiterals.Home.Main.walk
         }
         
         homeCircularProgressView.do {
@@ -109,7 +96,6 @@ final class HomeView: BaseView {
                          pickMissionLabel,
                          guideButton,
                          missionStackView,
-                         stepTitleLabel,
                          homeStepCountView,
                          homeCircularProgressView,
                          checkMissionButton,
@@ -135,18 +121,12 @@ final class HomeView: BaseView {
         }
         
         missionStackView.snp.makeConstraints {
-            $0.top.equalTo(pickMissionLabel.snp.bottom).offset(28.adjusted)
+            $0.top.equalTo(pickMissionLabel.snp.bottom).offset(18.adjusted)
             $0.leading.trailing.equalToSuperview().inset(20.adjusted)
-            $0.height.equalTo(146.adjusted)
-        }
-        
-        stepTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(missionStackView.snp.bottom).offset(36.adjusted)
-            $0.leading.equalToSuperview().inset(20.adjusted)
         }
         
         homeStepCountView.snp.makeConstraints {
-            $0.top.equalTo(stepTitleLabel.snp.bottom).offset(8.adjusted)
+            $0.top.equalTo(homeCircularProgressView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(20.adjusted)
         }
         
@@ -203,33 +183,27 @@ final class HomeView: BaseView {
     /// 나중에 아래 작업을 enum으로 처리하기! -> 서버 명세 참고
     /// 여기서 아이디 받아서 서버통신 함수 쏘기
     func configureMissionSelectedView(isSelected: Bool) {
+        print("들어왔어요!!!!!!!!!!!🔥🔥🔥🔥 미션 선정 여부 값 -> \(isSelected)")
         if isSelected {
             firstMissionView.isHidden = true
             secondMissionView.isHidden = true
-            UIView.animate(withDuration: 0.5, animations: {
-                self.checkMissionButton.isHidden = false
-                self.guideButton.isHidden = false
-                self.stepTitleLabel.isHidden = true
-                self.homeCircularProgressView.isHidden = false
-                self.homeStepCountView.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
-                self.checkMissionButton.transform = CGAffineTransform(translationX: 0, y: 102.adjusted)
-            })
+            self.checkMissionButton.isHidden = false
+            self.guideButton.isHidden = false
+            self.homeCircularProgressView.isHidden = false
+            self.homeStepCountView.isHidden = false
         } else {
             firstMissionView.isHidden = false
             secondMissionView.isHidden = false
             self.checkMissionButton.isHidden = true
-            self.stepTitleLabel.isHidden = false
             self.homeCircularProgressView.isHidden = true
+            self.homeStepCountView.isHidden = true
             self.guideButton.isHidden = true
-            if isBlinking {
-                self.homeStepCountView.transform = CGAffineTransform(translationX: 0, y: -102.adjusted)
-                self.checkMissionButton.transform = CGAffineTransform(translationX: 0, y: -102.adjusted)
-            }
         }
     }
     
     func configureView(data: HomeMissionsResponse) {
         isMissionSelected = data.isChoiceFinished
+        configureMissionSelectedView(isSelected: data.isChoiceFinished)
         ///오늘의 날짜가 nil값이 들어오는 경우
         if data.date == nil {
             dateLabel.text = TextLiterals.Home.Main.date
