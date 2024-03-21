@@ -122,7 +122,7 @@ extension InputInvitationViewController {
                 let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
                 delegate.window?.rootViewController = rootViewController
             } else {
-                self.inputInvitationView.inputTextField.layer.borderColor = UIColor.pink.cgColor
+                self.inputInvitationView.inputTextField.layer.borderColor = UIColor.red500.cgColor
                 self.inputInvitationView.wrongLabel.isHidden = false
             }
         }

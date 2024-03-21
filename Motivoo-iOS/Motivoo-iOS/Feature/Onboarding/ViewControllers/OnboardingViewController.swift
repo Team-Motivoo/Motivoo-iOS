@@ -91,7 +91,7 @@ final class OnboardingViewController: BaseViewController {
     override func setUI() {
         onboardingProgressView.do {
             $0.trackTintColor = .gray100  // progress 배경 색상
-            $0.progressTintColor = .blue400  // progress 진행 색상
+            $0.progressTintColor = .red400  // progress 진행 색상
             $0.progress = 1/6
         }
     }

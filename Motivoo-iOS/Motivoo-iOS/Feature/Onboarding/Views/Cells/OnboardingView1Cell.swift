@@ -211,14 +211,12 @@ final class OnboardingView1Cell: UICollectionViewCell {
             // age에는 변환된 Int 값 또는 0이 저장됩니다.
             if (age >= 14 && age <= 99) {
                 moveBool = true
-                onboardingIntro2View.ageTextField.layer.borderColor = UIColor.blue500.cgColor
-                onboardingIntro2View.ageTextField.textColor = .blue500
+                onboardingIntro2View.ageTextField.layer.borderColor = UIColor.gray500.cgColor
                 onboardingIntro2View.ageInputLabel.isHidden = true
                 isButtonEnabled = true
             } else {
                 moveBool = false
-                onboardingIntro2View.ageTextField.layer.borderColor = UIColor.pink.cgColor
-                onboardingIntro2View.ageTextField.textColor = .gray900
+                onboardingIntro2View.ageTextField.layer.borderColor = UIColor.red500.cgColor
                 onboardingIntro2View.ageInputLabel.isHidden = false
                 isButtonEnabled = false
             }

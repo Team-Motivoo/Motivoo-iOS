@@ -70,7 +70,7 @@ final class LoginViewController: BaseViewController {
         loginRetryLabel.do {
             $0.text = TextLiterals.Onboarding.loginRetry
             $0.font = .caption1
-            $0.textColor = .pink
+            $0.textColor = .red500
             $0.textAlignment = .center
         }
     }
@@ -96,10 +96,10 @@ final class LoginViewController: BaseViewController {
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
         imageView.snp.makeConstraints {
-            $0.top.equalTo(sloganLabel.snp.bottom).offset(20.adjusted)
+            $0.top.equalTo(sloganLabel.snp.bottom).offset(70.adjusted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(348.adjusted)
-            $0.width.equalTo(335.adjusted)
+            $0.height.equalTo(278.adjusted)
+            $0.width.equalTo(222.adjusted)
         }
         kakaoLoginButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()

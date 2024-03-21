@@ -49,7 +49,7 @@ final class AuthorizationTableViewCell: UITableViewCell {
         essential.do {
             $0.text = TextLiterals.Onboarding.Authorization.essential
             $0.font = .body6
-            $0.textColor = .pink
+            $0.textColor = .red500
             $0.textAlignment = .left
         }
         subtitle.do {

@@ -81,10 +81,10 @@ final class StartViewController: BaseViewController {
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
         imageView.snp.makeConstraints {
-            $0.top.equalTo(sloganLabel.snp.bottom).offset(20.adjusted)
+            $0.top.equalTo(sloganLabel.snp.bottom).offset(77.adjusted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(348.adjusted)
-            $0.width.equalTo(335.adjusted)
+            $0.height.equalTo(264.adjusted)
+            $0.width.equalTo(249.adjusted)
         }
         inviteCodeCreateButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
