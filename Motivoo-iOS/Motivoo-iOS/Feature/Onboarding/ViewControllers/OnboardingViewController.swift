@@ -318,6 +318,9 @@ final class OnboardingViewController: BaseViewController {
             if (choiceThreeButtonArray.count < 3) {
                 sender.isSelected = false
                 choiceThreeButtonArray.append(sender.accessibilityIdentifier ?? "Unknown")
+                if (choiceThreeButtonArray.count > 0) {
+                    cell.isButtonEnabled = true
+                }
             }
         } else {
             sender.isSelected = true
@@ -325,6 +328,9 @@ final class OnboardingViewController: BaseViewController {
             // print("=== 선택 취소")
             if let index = choiceThreeButtonArray.firstIndex(of: sender.accessibilityIdentifier ?? "Unknown") {
                 choiceThreeButtonArray.remove(at: index)
+            }
+            if (choiceThreeButtonArray.count < 1) {
+                cell.isButtonEnabled = false
             }
         }
         // print("===choiceThreeButtonArray.count: \(choiceThreeButtonArray.count)")
