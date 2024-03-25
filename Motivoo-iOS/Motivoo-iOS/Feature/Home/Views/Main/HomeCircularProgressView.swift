@@ -100,7 +100,7 @@ final class HomeCircularProgressView: BaseView {
         myProgressLayer.do {
             $0.path = circlePath.cgPath
             $0.fillColor = UIColor.clear.cgColor
-            $0.strokeColor = UIColor.blue400.cgColor
+            $0.strokeColor = UIColor.red400.cgColor
             $0.lineWidth = 9.0
             $0.strokeEnd = 0.0
         }

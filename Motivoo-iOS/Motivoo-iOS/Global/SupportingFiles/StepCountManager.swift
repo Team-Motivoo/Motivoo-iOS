@@ -25,6 +25,7 @@ final class StepCountManager {
     
     static let shared = StepCountManager()
     
+    var uuid: String = Bundle.main.infoDictionary?["UUID"] as? String ?? ""
     var db: DatabaseReference!
     private var timer: Timer? = nil
     var isStepCountStarted = false
@@ -129,11 +130,10 @@ final class StepCountManager {
     }
     
     func getStepCount() {
-        
         /// uid와 mid 들어왔을 때만돌아가도록
         guard let uid else { return }
         guard let mid else { return }
-        db.child("Users/\(uid)").getData(completion:  { error, snapshot in
+        db.child("\(uuid)/\(uid)").getData(completion:  { error, snapshot in
             guard error == nil else {
                 print(error!.localizedDescription)
                 print("허허 에러네요")
@@ -142,7 +142,7 @@ final class StepCountManager {
             self.stepCountData.user = snapshot?.value as? Int ?? 0
         })
         
-        db.child("Users/\(mid)").getData(completion:  { error, snapshot in
+        db.child("\(uuid)/\(mid)").getData(completion:  { error, snapshot in
             guard error == nil else {
                 print(error!.localizedDescription)
                 print("허허 에러네요")
@@ -155,6 +155,6 @@ final class StepCountManager {
     //    걸음수가 바꼇을때 값 업데이트 해주는 부분
     func updateStepCount(step: Int) {
         guard let uid else { return }
-            self.db.child("Users/\(uid)").setValue(self.stepCountData.user)
+            self.db.child("\(uuid)/\(uid)").setValue(self.stepCountData.user)
     }
 }
