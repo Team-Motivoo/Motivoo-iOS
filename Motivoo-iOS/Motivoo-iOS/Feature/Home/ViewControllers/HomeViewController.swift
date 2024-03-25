@@ -63,8 +63,15 @@ final class HomeViewController: BaseViewController {
                 homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
                 self.homeView.homeCircularProgressView.clearPercentLabel.do {
                     $0.text = "하이파이브 성공!"
-                    $0.textColor = .blue700
+                    $0.textColor = .red500
                     $0.font = .caption1
+                }
+                self.homeView.homeCircularProgressView.parentProgressLayer.do {
+                    $0.strokeColor = UIColor.red400.cgColor
+                }
+            } else {
+                self.homeView.homeCircularProgressView.parentProgressLayer.do {
+                    $0.strokeColor = UIColor.gray600.cgColor
                 }
             }
         }
@@ -75,8 +82,15 @@ final class HomeViewController: BaseViewController {
                 homeView.homeCircularProgressView.mainImageView.image = ImageLiterals.img.missionCompleted
                 self.homeView.homeCircularProgressView.clearPercentLabel.do {
                     $0.text = "하이파이브 성공!"
-                    $0.textColor = .blue700
+                    $0.textColor = .red500
                     $0.font = .caption1
+                }
+                self.homeView.homeCircularProgressView.parentProgressLayer.do {
+                    $0.strokeColor = UIColor.red400.cgColor
+                }
+            } else {
+                self.homeView.homeCircularProgressView.parentProgressLayer.do {
+                    $0.strokeColor = UIColor.gray600.cgColor
                 }
             }
         }
@@ -87,7 +101,7 @@ final class HomeViewController: BaseViewController {
                 if !isStepCountCompleted {
                     requestGetHome()
                 }
-                
+                                
                 DispatchQueue.main.async {
                     self.homeView.homeCircularProgressView.setMyProgress(currentStep: self.tempUserStep,
                                                                          finalStep: self.goalStep ,
@@ -95,7 +109,10 @@ final class HomeViewController: BaseViewController {
                     self.homeView.homeStepCountView.myWalkCountLabel.text = "\(self.tempUserStep)"
                     
                     /// 나중에 미션 인증 여부 들어오면 이거 감싸서 미션 인증 된건 굳이 판단하지 않도록
-                    self.judgeButtonStyle(goal: self.goalStep, now: self.tempUserStep)
+//                    self.judgeButtonStyle(goal: self.goalStep, now: self.tempUserStep)
+                    // FIXME: - 한번 운동 완료하면 값이 안바껴서 잘못판단하고 있었음.. 케이스 분류, 생각 다시
+                    self.judgeCheckButton(missionCheck: self.isMissionCompleted,
+                                          stepCountCheck: self.isStepCountCompleted)
                 }
             }
         }
@@ -231,40 +248,38 @@ final class HomeViewController: BaseViewController {
     private func checkButtonDidTapped() {
         
         ///인증하기 버튼 활성화 됐을 때 터치이벤트
-        if isMissionCompleted == false && isStepCountCompleted == true  {
-            let homeProveViewController = HomeProveViewController()
-            
-            /// BottomSheet의 PanGesture 제거
-            let noopPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: nil)
-            noopPanGestureRecognizer.cancelsTouchesInView = false
-            homeProveViewController.view.addGestureRecognizer(noopPanGestureRecognizer)
-            
-            ///BottomSheet의 높이 조정
-            if let proveSheet = homeProveViewController.sheetPresentationController {
-                proveSheet.detents = [
-                    .custom { _ in
-                        return 356.adjusted
-                    }
-                ]
-                proveSheet.preferredCornerRadius = 20
-            }
-            
-            /// Main에서 고른 미션 text를 전달하는 closure
-            homeProveViewController.missionHandler = { [weak self] in
-                guard let self else { return }
-                homeView.dimmView.isHidden = false
-                homeProveViewController.mission = self.homeView.pickMissionLabel.text ?? String()
-            }
-            
-            /// present 됐을 때 뒷배경을 더 어둡게 하기 위한 View 보이게 해주기
-            /// 이때, closure를 사용하여 dismiss 됐을 때, 어둡게 보이는 View를 숨기기
-            homeProveViewController.onDismissHandler = { [weak self] in
-                guard let self else { return }
-                self.homeView.dimmView.isHidden = true
-            }
-            homeProveViewController.bindQuest(content: self.quest)
-            self.present(homeProveViewController, animated: true)
+        let homeProveViewController = HomeProveViewController()
+        
+        /// BottomSheet의 PanGesture 제거
+        let noopPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: nil)
+        noopPanGestureRecognizer.cancelsTouchesInView = false
+        homeProveViewController.view.addGestureRecognizer(noopPanGestureRecognizer)
+        
+        ///BottomSheet의 높이 조정
+        if let proveSheet = homeProveViewController.sheetPresentationController {
+            proveSheet.detents = [
+                .custom { _ in
+                    return 356.adjusted
+                }
+            ]
+            proveSheet.preferredCornerRadius = 20
         }
+        
+        /// Main에서 고른 미션 text를 전달하는 closure
+        homeProveViewController.missionHandler = { [weak self] in
+            guard let self else { return }
+            homeView.dimmView.isHidden = false
+            homeProveViewController.mission = self.homeView.pickMissionLabel.text ?? String()
+        }
+        
+        /// present 됐을 때 뒷배경을 더 어둡게 하기 위한 View 보이게 해주기
+        /// 이때, closure를 사용하여 dismiss 됐을 때, 어둡게 보이는 View를 숨기기
+        homeProveViewController.onDismissHandler = { [weak self] in
+            guard let self else { return }
+            self.homeView.dimmView.isHidden = true
+        }
+        homeProveViewController.bindQuest(content: self.quest)
+        self.present(homeProveViewController, animated: true)
     }
     
     private func configureStepCount() {
@@ -288,6 +303,16 @@ final class HomeViewController: BaseViewController {
             } else {
                 homeView.configureCheckButtonStyle(state: .completed)
             }
+        }
+    }
+    
+    private func judgeCheckButton(missionCheck: Bool, stepCountCheck: Bool) {
+        if missionCheck {
+            homeView.configureCheckButtonStyle(state: .checkCompleted)
+        } else if stepCountCheck {
+            homeView.configureCheckButtonStyle(state: .completed)
+        } else {
+            homeView.configureCheckButtonStyle(state: .unCompleted)
         }
     }
     

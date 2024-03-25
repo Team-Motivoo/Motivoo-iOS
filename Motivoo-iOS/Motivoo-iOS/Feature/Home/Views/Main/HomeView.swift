@@ -89,6 +89,10 @@ final class HomeView: BaseView {
             $0.setImage(ImageLiterals.img.exerciseGuide, for: .normal)
             $0.isHidden = true
         }
+        
+        homeStepCountView.do {
+            $0.isHidden = true
+        }
     }
     
     override func setHierachy() {

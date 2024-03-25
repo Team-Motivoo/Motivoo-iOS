@@ -182,8 +182,9 @@ enum TextLiterals {
         static var privacyPolicy = "개인정보 처리방침"
         static var openSourceLicense = "오픈소스 라이선스"
         static var developerInfo = "개발자 정보"
-        static var AppInfoItems: [String] = ["서비스 이용약관", "개인정보 처리방침", "오픈소스 라이선스", "개발자 정보"]
-        static var ToKakaoChannel = "카카오채널 문의하기"
+        static var AppInfoItems: [String] = ["서비스 이용약관", "개인정보 처리방침", "오픈소스 라이선스", "버전 정보"]
+        static var learnMore = "모티부 더 알아보기"
+        static var ToKakaoChannel = "문의하기"
         static var appInfo = "앱 정보"
         static var back = "이전"
         static var exercisestatus = "운동여부"
@@ -203,7 +204,9 @@ enum TextLiterals {
         static var leaveTitle = "탈퇴하기"
         static var opensource = "https://gayeong04.notion.site/c78b181acf8a41f28f2ed653db998650"
         static var developer =  "https://gayeong04.notion.site/39aa420262384587957479ca4da2ba2e"
-        static var kakao = "https://gayeong04.notion.site/08592ddcf3bf4a3b80e3c54110444ebf"
+        static var kakao = "https://open.kakao.com/o/sSCxapcg"
+        static var version = "v.1.0.0"
+        static var learnMoreLink = "https://gayeong04.notion.site/358b03942cc44923886c650ac4485c7b"
       
     }
     enum NoComplete {
