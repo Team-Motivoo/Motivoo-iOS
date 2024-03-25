@@ -50,6 +50,7 @@ final class OnboardingView6Cell: UICollectionViewCell {
         kneeButton.isSelected = true
         wristButton.isSelected = true
         ankleButton.isSelected = true
+        startMotivooButton.isSelected = false
     }
 
     required init?(coder: NSCoder) {
