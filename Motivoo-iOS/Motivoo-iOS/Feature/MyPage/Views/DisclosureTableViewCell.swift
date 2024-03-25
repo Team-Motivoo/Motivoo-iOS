@@ -12,7 +12,9 @@ import Then
 
 class DisclosureTableViewCell: UITableViewCell {
         
-    private let arrowIconImageView = UIImageView()
+    static let identifier = "DisclosureTableViewCell"
+    let arrowIconImageView = UIImageView()
+    let version = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,9 +25,22 @@ class DisclosureTableViewCell: UITableViewCell {
         setUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        arrowIconImageView.isHidden = false
+        version.isHidden = true
+    }
+    
     func setUI() {
         arrowIconImageView.do{
             $0.image = ImageLiterals.icon.rightArrow
+        }
+        
+        version.do {
+            $0.font = .body6
+            $0.text = TextLiterals.MyPage.version
+            $0.textColor = .gray900
+            $0.isHidden = true
         }
     }
     required init?(coder: NSCoder) {
@@ -33,13 +48,18 @@ class DisclosureTableViewCell: UITableViewCell {
     }
     
     func setHierachy() {
-        contentView.addSubview(arrowIconImageView)
+        contentView.addSubviews(arrowIconImageView, version)
 
     }
     func setLayout() {
         arrowIconImageView.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(20.adjusted)
+        }
+        
+        version.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(26.adjusted)
         }
     }
 }

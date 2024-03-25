@@ -18,6 +18,18 @@ final class MyPageView: BaseView {
     private let childLabel = UILabel()
     var nameLabel = UILabel()
     let myInfoButton = UIButton()
+    let tableView = UITableView(frame: .zero, style: .insetGrouped).then {
+        $0.backgroundColor = .clear
+        $0.separatorColor = .gray100
+        $0.separatorStyle = .singleLine
+        $0.sectionHeaderTopPadding = 1
+        $0.layer.cornerRadius = 8
+        $0.tableHeaderView = .init(frame: .init(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+        if #available(iOS 15, *) {
+            $0.sectionHeaderTopPadding = 1
+        }
+    }
+    private var nextButton = UIButton()
     
     func configureNameLabel(with text: String) {
           nameLabel.text = text
@@ -47,18 +59,6 @@ final class MyPageView: BaseView {
             $0.titleLabel?.font = .body6
         }
     }
-    let tableView = UITableView(frame: .zero, style: .insetGrouped).then {
-        $0.backgroundColor = .clear
-        $0.separatorColor = .gray100
-        $0.separatorStyle = .singleLine
-        $0.sectionHeaderTopPadding = 1
-        $0.layer.cornerRadius = 8
-        $0.tableHeaderView = .init(frame: .init(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
-        if #available(iOS 15, *) {
-            $0.sectionHeaderTopPadding = 1
-        }
-    }
-    private var nextButton = UIButton()
     
     // MARK: - Life Cycles
     
@@ -66,6 +66,7 @@ final class MyPageView: BaseView {
         super.init(frame: frame)
         self.backgroundColor = .gray100
     }
+    
     // MARK: - Override Functions
     override func setHierachy() {
         self.addSubviews(parentLabel,nameLabel,myInfoButton,tableView)
@@ -90,7 +91,7 @@ final class MyPageView: BaseView {
         tableView.snp.makeConstraints {
             $0.top.equalTo(myInfoButton.snp.bottom).offset(35.adjusted)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(131.adjusted)
+            $0.bottom.equalToSuperview()
         }
     }
     
