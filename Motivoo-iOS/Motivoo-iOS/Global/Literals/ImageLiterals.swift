@@ -32,6 +32,18 @@ enum ImageLiterals {
         static var missionCompleted: UIImage { .load(named: "img_home_mission_complete")}
         static var exerciseGuide: UIImage { .load(named: "exercise_guide")}
         static var orDivider: UIImage { .load(named: "orDivider")}
+
+        // MARK: - MissionOverView
+
+        static var emptyTodayMission: UIImage { .load(named: "EmptyTodayMission")}
+        static var whiteTodayMission: UIImage { .load(named: "whiteTodayMission")}
+        static var missionBorder: UIImage { .load(named: "MissionBorder")}
+        static var missionHeaderBackground: UIImage { .load(named: "MissionHeaderBackground")}
+        static var myProfile: UIImage { .load(named: "myProfile")}
+        static var myProfile2: UIImage { .load(named: "myProfile2")}
+        static var partnerProfile: UIImage { .load(named: "partnerProfile")}
+        static var partnerProfile2: UIImage { .load(named: "partnerProfile2")}
+
     }
     
     enum icon {

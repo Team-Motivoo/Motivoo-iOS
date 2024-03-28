@@ -10,11 +10,11 @@ import UIKit
 final class MotivooTabBarController: UITabBarController {
     
     private let homeViewController = HomeViewController()
-    private let missionOverviewViewController = MissionOverviewViewController()
+    private let missionCollectionViewController = MissionCollectionViewController()
     private let myPageViewController = MyPageViewController()
     
     lazy var homeNavigationController = UINavigationController(rootViewController: homeViewController)
-    lazy var missionOverviewNavigationController = UINavigationController(rootViewController: missionOverviewViewController)
+    lazy var missionOverviewNavigationController = UINavigationController(rootViewController: missionCollectionViewController)
     lazy var myPageNavigationController = UINavigationController(rootViewController: myPageViewController)
 
     
