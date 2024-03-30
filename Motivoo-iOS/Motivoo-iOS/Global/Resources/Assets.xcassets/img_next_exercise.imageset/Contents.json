@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "img_next_exercise.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

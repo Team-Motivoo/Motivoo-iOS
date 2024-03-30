@@ -127,7 +127,7 @@ final class OverViewCollectionViewCell: UICollectionViewCell {
         
         parentExerciseBadge.do {
             $0.backgroundColor = .gray100
-            $0.text = TextLiterals.MissionOverview.parentExercise
+            // $0.text = TextLiterals.MissionOverview.parentExercise
             $0.font = .caption2
             $0.textColor = .gray600
         }

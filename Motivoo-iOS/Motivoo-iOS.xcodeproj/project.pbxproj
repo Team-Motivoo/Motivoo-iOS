@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022564902BB85828006D4AD3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */; };
 		0258067E2B4FEFA8002DB50E /* MotivooBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */; };
 		025806822B50162D002DB50E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025806812B50162D002DB50E /* OnboardingViewController.swift */; };
 		025806852B5020F9002DB50E /* OnboardingView1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025806842B5020F9002DB50E /* OnboardingView1Cell.swift */; };
@@ -189,6 +190,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooBigButton.swift; sourceTree = "<group>"; };
 		025806812B50162D002DB50E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		025806842B5020F9002DB50E /* OnboardingView1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1Cell.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				028750B92BB1955300D003E9 /* CollectionHeaderCell.swift */,
+				0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1122,6 +1125,7 @@
 				05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */,
 				029985752B51436600E88A4F /* InvitationViewController.swift in Sources */,
 				05AAF8642B3E58480079CEAB /* MyPageViewController.swift in Sources */,
+				022564902BB85828006D4AD3 /* CollectionViewCell.swift in Sources */,
 				05BAB7F42B571F3A0016ECE5 /* HomeMissionsResponse.swift in Sources */,
 				05C8FE642B4D496A00A2838C /* HomeStepModel.swift in Sources */,
 				02E103FB2B556452003852A7 /* TokenManager.swift in Sources */,

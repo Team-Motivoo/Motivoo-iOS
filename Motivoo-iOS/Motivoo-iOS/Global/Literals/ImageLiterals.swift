@@ -43,6 +43,7 @@ enum ImageLiterals {
         static var myProfile2: UIImage { .load(named: "myProfile2")}
         static var partnerProfile: UIImage { .load(named: "partnerProfile")}
         static var partnerProfile2: UIImage { .load(named: "partnerProfile2")}
+        static var nextExercise: UIImage { .load(named: "img_next_exercise")}
 
     }
     
@@ -80,7 +81,7 @@ enum ImageLiterals {
         
         // MARK: - MissonOverView
         static var noexercise: UIImage { .load(named: "noexercise")}
-
+        static var question: UIImage { .load(named: "icon_question")}
 
     }
 }

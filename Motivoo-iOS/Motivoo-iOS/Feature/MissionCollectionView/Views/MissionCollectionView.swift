@@ -13,7 +13,12 @@ import Then
 final class MissionCollectionView: BaseView {
 
     // MARK: - UI Components
-    let todayMissionHeader = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let missionCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collectionView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,20 +29,21 @@ final class MissionCollectionView: BaseView {
     // MARK: - Override Functions
 
     override func setHierachy() {
-        addSubview(todayMissionHeader)
+        addSubview(missionCollectionView)
     }
 
     override func setUI() {
-        todayMissionHeader.do {
+        missionCollectionView.do {
             $0.register(CollectionHeaderCell.self,
-                        forCellWithReuseIdentifier: CollectionHeaderCell.identifier)
+                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderCell.identifier)
+            $0.register(CollectionViewCell.self,
+                        forCellWithReuseIdentifier: CollectionViewCell.identifier)
         }
     }
 
     override func setLayout() {
-        todayMissionHeader.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(415.adjusted)
+        missionCollectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }
