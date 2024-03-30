@@ -18,7 +18,8 @@ final class MissionCollectionViewController: BaseViewController {
     lazy var missionCollectionView = MissionCollectionView()
 
     private func setCollectionViewConfig() {
-        missionCollectionView.todayMissionHeader.dataSource = self
+        missionCollectionView.missionCollectionView.dataSource = self
+        missionCollectionView.missionCollectionView.delegate = self
     }
 
     // MARK: - Override Functions
@@ -39,36 +40,48 @@ final class MissionCollectionViewController: BaseViewController {
 
     override func setLayout() {
         missionCollectionView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
 
     // MARK: - Actions
 }
 
-extension MissionCollectionViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension MissionCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == missionCollectionView.todayMissionHeader {
-            print("=== collectionView: todayMissionHeader")
-            return 1
-        }
-        return 0
+        return 2
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == missionCollectionView.todayMissionHeader {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionHeaderCell.identifier, for: indexPath) as! CollectionHeaderCell
-            return cell
-        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionHeaderCell.identifier, for: indexPath) as! CollectionHeaderCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == missionCollectionView.todayMissionHeader {
-            return CGSize(width: UIScreen.main.bounds.size.width, height: 415)
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderCell.identifier, for: indexPath) as? CollectionHeaderCell else {
+                return CollectionHeaderCell()
+            }
+            return header
+        } else {
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderCell.identifier, for: indexPath) as? CollectionHeaderCell else {
+                return CollectionHeaderCell()
+            }
+            return header
         }
-        return CGSize(width: 0, height: 0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.size.width, height: 376.adjusted)
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+}
+
+extension MissionCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.size.width, height: 308.adjusted)
     }
 }

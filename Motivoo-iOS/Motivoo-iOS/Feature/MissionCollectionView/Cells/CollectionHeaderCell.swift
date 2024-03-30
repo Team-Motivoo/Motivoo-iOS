@@ -28,6 +28,9 @@ class CollectionHeaderCell: UICollectionViewCell {
     let partnerIcon = UIImageView()
     private let partnerMissionBorder = UIImageView()
 
+    private let collectionTitle = UILabel()
+    let questionButton = UIButton()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -77,10 +80,21 @@ class CollectionHeaderCell: UICollectionViewCell {
         partnerMissionBorder.do {
             $0.image = ImageLiterals.img.missionBorder
         }
+
+        collectionTitle.do {
+            $0.text = TextLiterals.MissionOverview.collectionExercise
+            $0.font = .heading5
+            $0.textColor = .gray900
+            $0.textAlignment = .left
+            $0.numberOfLines = 1
+        }
+        questionButton.do {
+            $0.setImage(ImageLiterals.icon.question, for: .normal)
+        }
     }
 
     func setHierachy() {
-        addSubview(backgroundImageView)
+        addSubviews(backgroundImageView, collectionTitle, questionButton)
         backgroundImageView.addSubviews(todayLabel, exerciseLabel, mySection, partnerSection)
         mySection.addSubviews(myMissionBG, myIcon, myMissionBorder, myToolTipView)
         partnerSection.addSubviews(partnerMissionBG, partnerIcon, partnerMissionBorder, partnerToolTipView)
@@ -88,9 +102,9 @@ class CollectionHeaderCell: UICollectionViewCell {
 
     func setLayout() {
         backgroundImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(-90.adjusted)
+            $0.top.equalToSuperview().inset(-94.adjusted)
             $0.leading.equalToSuperview()
-            $0.height.equalTo(411.adjusted)
+            $0.height.equalTo(400.adjusted)
             $0.width.equalTo(375.adjusted)
         }
         todayLabel.snp.makeConstraints {
@@ -152,6 +166,15 @@ class CollectionHeaderCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
             $0.width.equalTo(164.adjusted)
             $0.height.equalTo(210.adjusted)
+        }
+
+        collectionTitle.snp.makeConstraints {
+            $0.top.equalTo(backgroundImageView.snp.bottom).offset(32.adjusted)
+            $0.leading.equalToSuperview().inset(20.adjusted)
+        }
+        questionButton.snp.makeConstraints {
+            $0.top.equalTo(backgroundImageView.snp.bottom).offset(32.adjusted)
+            $0.leading.equalTo(collectionTitle.snp.trailing).offset(8.adjusted)
         }
     }
 
