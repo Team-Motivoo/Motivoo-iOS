@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CollectionViewCell: UICollectionViewCell {
+final class CollectionViewCell: UICollectionViewCell {
 
     private let dateLabel = UILabel()
 

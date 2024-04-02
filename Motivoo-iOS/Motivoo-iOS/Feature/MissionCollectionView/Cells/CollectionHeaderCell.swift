@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CollectionHeaderCell: UICollectionViewCell {
+final class CollectionHeaderCell: UICollectionViewCell {
 
     private let backgroundImageView = UIImageView()
     private let todayLabel = UILabel()
