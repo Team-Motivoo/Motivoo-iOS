@@ -128,7 +128,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.height.equalTo(180.adjusted)
         }
         myToolTipView.snp.makeConstraints {
-            $0.bottom.equalTo(myIcon.snp.top).offset(-8)
+            $0.bottom.equalTo(myIcon.snp.top).offset(4)
             $0.centerX.equalToSuperview()
         }
         myIcon.snp.makeConstraints {
@@ -154,7 +154,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.height.equalTo(180.adjusted)
         }
         partnerToolTipView.snp.makeConstraints {
-            $0.bottom.equalTo(myIcon.snp.top).offset(-4)
+            $0.bottom.equalTo(myIcon.snp.top).offset(4)
             $0.centerX.equalToSuperview()
         }
         partnerIcon.snp.makeConstraints {

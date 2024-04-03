@@ -13,7 +13,7 @@ final class ToolTipView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.layer.cornerRadius = 33
+        label.font = .body5
         return label
     }()
     private let tipView = TipView()
@@ -24,6 +24,7 @@ final class ToolTipView: UIView {
     init(title: String?, textColor: UIColor = .white, backgroundColor: UIColor = .gray, isTopTip: Bool = false) {
         label.text = title
         tipView.isTopTip = isTopTip
+
         self.textColor = textColor
         self.bgColor = backgroundColor
 
@@ -40,7 +41,13 @@ final class ToolTipView: UIView {
         backgroundColor = .clear
         label.textColor = textColor
         containerView.backgroundColor = bgColor
+        containerView.layer.cornerRadius = 15
+
         tipView.bgColor = bgColor
+    }
+
+    func updateTitle(text: String) {
+        self.label.text = text
     }
 
     private func setupLayout() {
@@ -59,7 +66,7 @@ final class ToolTipView: UIView {
         }
 
         label.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10))
         }
 
         tipView.snp.makeConstraints{
@@ -77,7 +84,7 @@ final class ToolTipView: UIView {
         }
 
         label.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10))
         }
 
         tipView.snp.makeConstraints{
