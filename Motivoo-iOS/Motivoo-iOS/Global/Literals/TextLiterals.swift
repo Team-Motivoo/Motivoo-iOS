@@ -172,8 +172,9 @@ enum TextLiterals {
         static var partnerExercise = "상대방 운동"
         static var childExercise = "자녀 운동"
         static var collectionExercise = "우리들의 운동 기록"
-
+        static var emptyMission = "아직 진행한 운동이 없어요\n운동하고 나만의 앨범을 만들어봐요!"
     }
+
     enum MyPage {
         static var exerciseInfo = "운동 정보"
         static var checkExerciseInfo = "내 운동 정보를 확인하세요!"
