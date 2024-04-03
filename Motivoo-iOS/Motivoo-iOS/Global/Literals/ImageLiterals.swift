@@ -45,6 +45,9 @@ enum ImageLiterals {
         static var partnerProfile2: UIImage { .load(named: "partnerProfile2")}
         static var nextExercise: UIImage { .load(named: "img_next_exercise")}
 
+        static var notexerciseRed: UIImage { .load(named: "img_notexercise_red")}
+        static var notexerciseGray: UIImage { .load(named: "img_notexercise_gray")}
+
     }
     
     enum icon {

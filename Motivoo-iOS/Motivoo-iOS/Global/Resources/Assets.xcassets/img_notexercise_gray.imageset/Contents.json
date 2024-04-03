@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "img_notexercise_gray.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
