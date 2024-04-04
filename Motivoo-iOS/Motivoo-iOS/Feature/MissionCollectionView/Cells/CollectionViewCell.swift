@@ -46,6 +46,8 @@ final class CollectionViewCell: UICollectionViewCell {
         myImage.do {
             $0.image = ImageLiterals.img.nextExercise
             $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         myExerciseLabel.do {
             $0.font = .body1
@@ -68,6 +70,8 @@ final class CollectionViewCell: UICollectionViewCell {
         partnerImage.do {
             $0.image = ImageLiterals.img.nextExercise
             $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         partnerExerciseLabel.do {
             $0.font = .body1

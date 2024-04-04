@@ -83,6 +83,8 @@ final class CollectionHeaderCell: UICollectionViewCell {
         myMissionBG.do {
             $0.image = ImageLiterals.img.whiteTodayMission
             $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         myIcon.do {
             $0.image = ImageLiterals.img.myProfile
@@ -94,6 +96,8 @@ final class CollectionHeaderCell: UICollectionViewCell {
         partnerMissionBG.do {
             $0.image = ImageLiterals.img.whiteTodayMission
             $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         partnerIcon.do {
             $0.image = ImageLiterals.img.partnerProfile
