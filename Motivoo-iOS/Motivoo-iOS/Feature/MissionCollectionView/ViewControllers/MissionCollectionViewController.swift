@@ -71,31 +71,49 @@ final class MissionCollectionViewController: BaseViewController {
     }
 
     // MARK: - Actions
+
+    override func setButtonEvent() {
+        self.missionEmptyView.goExerciseButton.addTarget(self, action: #selector(goExerciseButtonDidTapped), for: .touchUpInside)
+    }
+
+    @objc private func goExerciseButtonDidTapped() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else {
+            print("sceneDelegate가 할당 Error")
+            return
+        }
+        let rootViewController = UINavigationController(rootViewController: MotivooTabBarController())
+        delegate.window?.rootViewController = rootViewController
+    }
 }
 
 extension MissionCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var count = missionHistory?.missionHistory.count ?? 0
-        count -= 1
-        if count == 0 {
+        if historyCount <= 0 {
             self.emptyImageView.isHidden = false
         } else {
             self.emptyImageView.isHidden = true
-
+            self.missionCollectionView.isHidden = false
         }
-        return count
+        return historyCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
 
-        let date = missionHistory?.missionHistory[indexPath.row]?.date ?? ""
-        let myImage = missionHistory?.missionHistory[indexPath.row]?.myMissionImgURL ?? nil
-        let myMission = missionHistory?.missionHistory[indexPath.row]?.myMissionContent ?? ""
-        let myStatus = missionHistory?.missionHistory[indexPath.row]?.myMissionStatus ?? ""
-        let partnerImage = missionHistory?.missionHistory[indexPath.row]?.opponentMissionImgURL ?? nil
-        let partnerMission = missionHistory?.missionHistory[indexPath.row]?.opponentMissionContent ?? ""
-        let partnerStatusChip = missionHistory?.missionHistory[indexPath.row]?.opponentMissionStatus ?? ""
+        var adjustedIndex = indexPath.row
+
+        if missionHistory?.todayMission != nil {
+            adjustedIndex += 1
+        }
+
+        let date = missionHistory?.missionHistory[adjustedIndex]?.date ?? ""
+        let myImage = missionHistory?.missionHistory[adjustedIndex]?.myMissionImgURL ?? nil
+        let myMission = missionHistory?.missionHistory[adjustedIndex]?.myMissionContent ?? ""
+        let myStatus = missionHistory?.missionHistory[adjustedIndex]?.myMissionStatus ?? ""
+        let partnerImage = missionHistory?.missionHistory[adjustedIndex]?.opponentMissionImgURL ?? nil
+        let partnerMission = missionHistory?.missionHistory[adjustedIndex]?.opponentMissionContent ?? ""
+        let partnerStatusChip = missionHistory?.missionHistory[adjustedIndex ]?.opponentMissionStatus ?? ""
 
         cell.setMissionHistory(date: date,
                                myImage: myImage, myMission: myMission, mySuccess: myStatus,
@@ -108,7 +126,8 @@ extension MissionCollectionViewController: UICollectionViewDataSource {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderCell.identifier, for: indexPath) as? CollectionHeaderCell else {
                 return CollectionHeaderCell()
             }
-
+            header.goExerciseButton.addTarget(self, action: #selector(goExerciseButtonDidTapped), for: .touchUpInside)
+            
             if missionHistory?.userType == "부모" {
                 header.changeIcon()
             }
@@ -154,7 +173,11 @@ extension MissionCollectionViewController {
             self.missionHistory = result
             self.missionEmptyView.isHidden = true
 
-            if result.missionHistory.count == 1 ||  result.missionHistory.count == 0{
+            if self.missionHistory?.todayMission != nil {
+                self.historyCount -= 1
+            }
+
+            if result.missionHistory.count == 0 {
                 if result.todayMission == nil {
                     // 히스트로 X, 미션 선택 X./
                     print("=== 히스트로 X, 미션 선택 X: \(result)")
@@ -165,20 +188,7 @@ extension MissionCollectionViewController {
                     print("=== 히스트로 X, 미션 선택 O: \(result)")
                     self.missionCollectionView.isHidden = false
                 }
-            } else {
-//                if result.todayMission == nil {
-//                    // 히스트로 O, 미션 선택 X
-//                    print("=== 히스트로 O, 미션 선택 X: \(result)")
-//                    self.missionCollectionView.isHidden = true
-//                    self.emptyImageView.isHidden = false
-//                } else {
-//                    // 히스트로 O, 미션 선택 O
-//                    self.missionCollectionView.isHidden = true
-//                    self.emptyImageView.isHidden = false
-//                }
-                self.missionCollectionView.isHidden = true
             }
-
         }
     }
 }
