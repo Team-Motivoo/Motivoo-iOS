@@ -45,7 +45,7 @@ final class CollectionViewCell: UICollectionViewCell {
         }
         myImage.do {
             $0.image = ImageLiterals.img.nextExercise
-            $0.contentMode = .scaleAspectFit
+            $0.contentMode = .scaleAspectFill
         }
         myExerciseLabel.do {
             $0.font = .body1
@@ -67,7 +67,7 @@ final class CollectionViewCell: UICollectionViewCell {
         }
         partnerImage.do {
             $0.image = ImageLiterals.img.nextExercise
-            $0.contentMode = .scaleAspectFit
+            $0.contentMode = .scaleAspectFill
         }
         partnerExerciseLabel.do {
             $0.font = .body1

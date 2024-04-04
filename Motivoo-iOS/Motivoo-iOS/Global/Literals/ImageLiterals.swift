@@ -48,7 +48,7 @@ enum ImageLiterals {
         static var notexerciseRed: UIImage { .load(named: "img_notexercise_red")}
         static var notexerciseGray: UIImage { .load(named: "img_notexercise_gray")}
         static var goToExerciseButton: UIImage { .load(named: "goToExerciseButton")}
-
+        static var historyToolTip: UIImage { .load(named: "historyToolTip")}
     }
     
     enum icon {
@@ -86,6 +86,7 @@ enum ImageLiterals {
         // MARK: - MissonOverView
         static var noexercise: UIImage { .load(named: "noexercise")}
         static var question: UIImage { .load(named: "icon_question")}
+        static var thickRightArrow: UIImage { .load(named: "thick_right_arrow")}
 
     }
 }

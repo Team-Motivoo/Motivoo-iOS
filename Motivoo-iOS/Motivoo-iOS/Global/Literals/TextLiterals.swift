@@ -216,6 +216,7 @@ enum TextLiterals {
         static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 앨범을 만들어봐요!"
         static var goTodayExercise = "오늘의 운동 하러가기"
         static var goSelectExercise = "오늘 할 운동을 선택하세요!"
+        static var goSelectExercise2 = "오늘의 운동 선택하러가기"
     }
 
 

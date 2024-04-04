@@ -16,6 +16,8 @@ final class CollectionHeaderCell: UICollectionViewCell {
     private let todayLabel = UILabel()
     private let exerciseLabel = UILabel()
     let goExerciseButton = UIButton()
+    private let goExerciseLabel = UILabel()
+    private let goExerciseIcon = UIImageView()
 
     let mySection = UIView()
     let myMissionBG = UIImageView()
@@ -39,7 +41,8 @@ final class CollectionHeaderCell: UICollectionViewCell {
         setUI()
         setHierachy()
         setLayout()
-        self.goExerciseButton.isHidden = true
+        setButtonEvent()
+        self.goExerciseButton.isUserInteractionEnabled = true
     }
 
     required init?(coder: NSCoder) {
@@ -63,12 +66,23 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.text = "8천걸음 걷고\n스탠딩 랫폴다운 20번 하기"
         }
         goExerciseButton.do {
-            $0.setImage(ImageLiterals.img.goToExerciseButton, for: .normal)
+            $0.backgroundColor = .gray900
+            $0.layer.cornerRadius = 8
+        }
+        goExerciseLabel.do {
+            $0.font = .heading4
+            $0.textColor = .white
+            $0.textAlignment = .left
+            $0.numberOfLines = 1
+            $0.text = TextLiterals.NoComplete.goSelectExercise2
+        }
+        goExerciseIcon.do {
+            $0.image = ImageLiterals.icon.thickRightArrow
         }
 
         myMissionBG.do {
             $0.image = ImageLiterals.img.whiteTodayMission
-            $0.contentMode = .scaleAspectFit
+            $0.contentMode = .scaleAspectFill
         }
         myIcon.do {
             $0.image = ImageLiterals.img.myProfile
@@ -79,7 +93,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
 
         partnerMissionBG.do {
             $0.image = ImageLiterals.img.whiteTodayMission
-            $0.contentMode = .scaleAspectFit
+            $0.contentMode = .scaleAspectFill
         }
         partnerIcon.do {
             $0.image = ImageLiterals.img.partnerProfile
@@ -101,8 +115,10 @@ final class CollectionHeaderCell: UICollectionViewCell {
     }
 
     func setHierachy() {
-        addSubviews(backgroundImageView, collectionTitle, questionButton)
+        contentView.addSubviews(backgroundImageView, collectionTitle, questionButton)
         backgroundImageView.addSubviews(todayLabel, exerciseLabel, goExerciseButton, mySection, partnerSection)
+        contentView.bringSubviewToFront(goExerciseButton)
+        goExerciseButton.addSubviews(goExerciseLabel, goExerciseIcon)
         mySection.addSubviews(myMissionBG, myIcon, myMissionBorder, myToolTipView)
         partnerSection.addSubviews(partnerMissionBG, partnerIcon, partnerMissionBorder, partnerToolTipView)
     }
@@ -127,6 +143,15 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.leading.equalToSuperview().inset(20.adjusted)
             $0.width.equalTo(235.adjusted)
             $0.height.equalTo(36.adjusted)
+        }
+        goExerciseLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(10.adjusted)
+        }
+        goExerciseIcon.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(goExerciseLabel.snp.trailing).offset(4.adjusted)
+            $0.size.equalTo(14.adjusted)
         }
 
         mySection.snp.makeConstraints {
@@ -189,6 +214,33 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.top.equalTo(backgroundImageView.snp.bottom).offset(32.adjusted)
             $0.leading.equalTo(collectionTitle.snp.trailing).offset(8.adjusted)
         }
+    }
+
+    func setButtonEvent() {
+        self.questionButton.addTarget(self, action: #selector(showToolTip), for: .touchUpInside)
+    }
+
+    @objc private func showToolTip() {
+        let toolTipImageView = UIImageView()
+        toolTipImageView.do {
+            $0.image = ImageLiterals.img.historyToolTip
+            $0.contentMode = .scaleAspectFill
+        }
+
+        backgroundImageView.addSubview(toolTipImageView)
+
+        toolTipImageView.snp.makeConstraints {
+            $0.top.equalTo(questionButton.snp.bottom).offset(4.adjusted)
+            $0.leading.equalToSuperview().inset(20.adjusted)
+            $0.width.equalTo(281.adjusted)
+            $0.height.equalTo(64.adjusted)
+        }
+
+        UIView.animate(withDuration: 2.0, delay: 0.8, options: .curveEaseOut, animations: {
+            toolTipImageView.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toolTipImageView.removeFromSuperview()
+        })
     }
 
     func setTodayMission(todatMission: String) {
