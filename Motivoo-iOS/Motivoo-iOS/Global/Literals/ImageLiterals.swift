@@ -47,6 +47,7 @@ enum ImageLiterals {
 
         static var notexerciseRed: UIImage { .load(named: "img_notexercise_red")}
         static var notexerciseGray: UIImage { .load(named: "img_notexercise_gray")}
+        static var goToExerciseButton: UIImage { .load(named: "goToExerciseButton")}
 
     }
     

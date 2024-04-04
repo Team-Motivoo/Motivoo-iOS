@@ -169,6 +169,7 @@ enum TextLiterals {
         static var onlyfail = "실패"
         static var failfail = "실패"
         static var onlysuccess = "성공"
+        static var onlySuccess = "성공"
         static var partnerExercise = "상대방 운동"
         static var childExercise = "자녀 운동"
         static var collectionExercise = "우리들의 운동 기록"
@@ -214,6 +215,7 @@ enum TextLiterals {
     enum NoComplete {
         static var goExerciseMessage = "아직 완료한 운동이 없어요\n운동하고 나만의 앨범을 만들어봐요!"
         static var goTodayExercise = "오늘의 운동 하러가기"
+        static var goSelectExercise = "오늘 할 운동을 선택하세요!"
     }
 
 

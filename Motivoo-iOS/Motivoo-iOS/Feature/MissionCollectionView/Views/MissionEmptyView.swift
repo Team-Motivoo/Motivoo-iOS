@@ -44,12 +44,13 @@ final class MissionEmptyView: BaseView {
             $0.titleLabel?.font = .body5
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = .gray900
+            $0.layer.cornerRadius = 8
         }
     }
 
     override func setLayout() {
         emptyImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(178.adjusted)
+            $0.top.equalToSuperview().inset(225.adjusted)
             $0.centerX.equalToSuperview()
             $0.size.equalTo(120.adjusted)
         }
