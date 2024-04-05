@@ -23,7 +23,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
                                delay: 0,
                                options: [.curveEaseInOut]) { [self] in
                     var frame = buttonStackView.frame
-                    frame.origin.y = 286.adjusted
+                    frame.origin.y = 266.adjusted
                     buttonStackView.frame = frame
                     onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 0)
                 }
@@ -32,7 +32,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
                                delay: 0,
                                options: [.curveEaseInOut]) { [self] in
                     var frame = buttonStackView.frame
-                    frame.origin.y = 308.adjusted
+                    frame.origin.y = 288.adjusted
                     buttonStackView.frame = frame
                     onboardingIntro2View.parentOrChildLabel.transform = CGAffineTransform(translationX: 0, y: 22.adjusted)
                 }
@@ -196,7 +196,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
                        delay: 0.0,
                        options: [.curveEaseInOut]) { [self] in
             var frame = buttonStackView.frame
-            frame.origin.y = 286.adjusted
+            frame.origin.y = 266.adjusted
             buttonStackView.frame = frame
         }
         isButtonEnabled = false
