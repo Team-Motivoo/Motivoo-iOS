@@ -11,9 +11,9 @@ import SnapKit
 import Then
 
 final class OnboardingView1Cell: UICollectionViewCell {
-
+    
     //MARK: - Properties
-
+    
     lazy var ageInfo: Int = 0
     var buttonClickCount: Int = 0
     var moveBool: Bool = false {
@@ -39,9 +39,9 @@ final class OnboardingView1Cell: UICollectionViewCell {
             }
         }
     }
-
+    
     // MARK: - UI Component
-
+    
     private let bgView = UIView()
     let introTitle = UILabel()
     let introSubtitle = UILabel()
@@ -49,9 +49,9 @@ final class OnboardingView1Cell: UICollectionViewCell {
     let parentButton = MotivooButton(text: TextLiterals.Onboarding.Q1.patent, buttonStyle: .borderGray100Half)
     let childButton = MotivooButton(text: TextLiterals.Onboarding.Q1.child, buttonStyle: .borderGray100Half)
     let nextButton = MotivooButton(text: TextLiterals.Onboarding.next, buttonStyle: .gray900)
-
+    
     private let onboardingIntro2View = OnboardingIntro2View()
-
+    
     var isButtonEnabled: Bool = false {
         didSet {
             if isButtonEnabled {
@@ -63,10 +63,10 @@ final class OnboardingView1Cell: UICollectionViewCell {
             }
         }
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         setUI()
         setHierachy()
         setLayout()
@@ -76,13 +76,13 @@ final class OnboardingView1Cell: UICollectionViewCell {
         onboardingIntro2View.isHidden = true
         buttonEnabledCheck()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Actions
-
+    
     @objc
     private func parentButtonDidTap() {
         if (parentButton.isSelected) {
@@ -98,7 +98,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
             buttonClickCount += 1
         }
     }
-
+    
     @objc
     private func childButtonDidTap() {
         if (childButton.isSelected) {
@@ -114,9 +114,9 @@ final class OnboardingView1Cell: UICollectionViewCell {
             buttonClickCount += 1
         }
     }
-
+    
     // MARK: - Override Functions
-
+    
     func setUI() {
         introTitle.do {
             $0.text = TextLiterals.Onboarding.Q1.parentTitle
@@ -138,13 +138,13 @@ final class OnboardingView1Cell: UICollectionViewCell {
             $0.alignment = .fill
         }
     }
-
+    
     func setHierachy() {
         contentView.addSubviews(bgView, nextButton, onboardingIntro2View)
         bgView.addSubviews(introTitle, introSubtitle, buttonStackView)
         buttonStackView.addArrangedSubviews(parentButton, childButton)
     }
-
+    
     func setLayout() {
         bgView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20.adjusted)
@@ -172,20 +172,20 @@ final class OnboardingView1Cell: UICollectionViewCell {
             $0.height.equalTo(285.adjusted)
         }
     }
-
+    
     func setButtonEvent() {
         parentButton.addTarget(self, action: #selector(parentButtonDidTap), for: .touchUpInside)
         childButton.addTarget(self, action: #selector(childButtonDidTap), for: .touchUpInside)
         onboardingIntro2View.ageTextField.addTarget(self, action:  #selector(textFieldDidChanacge), for: .editingChanged)
     }
-
+    
     @objc
     func changeViewAnimation() {
         introTitle.isHidden = true
         introSubtitle.isHidden = true
         onboardingIntro2View.isHidden = false
         onboardingIntro2View.alpha = 0.3
-
+        
         UIView.animate(withDuration: 0.4,
                        delay: 0.0,
                        options: [.curveEaseInOut]) { [self] in
@@ -202,7 +202,7 @@ final class OnboardingView1Cell: UICollectionViewCell {
         isButtonEnabled = false
         nextButton.isEnabled = isButtonEnabled
     }
-
+    
     @objc
     func textFieldDidChanacge(_ sender: Any?) {
         if let text = onboardingIntro2View.ageTextField.text {
@@ -213,11 +213,21 @@ final class OnboardingView1Cell: UICollectionViewCell {
                 moveBool = true
                 onboardingIntro2View.ageTextField.layer.borderColor = UIColor.gray500.cgColor
                 onboardingIntro2View.ageInputLabel.isHidden = true
+                onboardingIntro2View.ageRangeLabel.isHidden = true
                 isButtonEnabled = true
-            } else {
+            } else if (age == 0) {
+                // 나이를 입력해주세요.
                 moveBool = false
                 onboardingIntro2View.ageTextField.layer.borderColor = UIColor.red500.cgColor
+                onboardingIntro2View.ageRangeLabel.isHidden = true
                 onboardingIntro2View.ageInputLabel.isHidden = false
+                isButtonEnabled = true
+            } else {
+                // 14세~99세
+                moveBool = false
+                onboardingIntro2View.ageTextField.layer.borderColor = UIColor.red500.cgColor
+                onboardingIntro2View.ageInputLabel.isHidden = true
+                onboardingIntro2View.ageRangeLabel.isHidden = false
                 isButtonEnabled = false
             }
             nextButton.isEnabled = isButtonEnabled

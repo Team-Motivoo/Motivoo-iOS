@@ -22,6 +22,7 @@ final class OnboardingIntro2View: BaseView {
 
     let ageLabel = UILabel()
     let ageTextField = UITextField()
+    let ageRangeLabel = UILabel()
     let ageInputLabel = UILabel()
 
     let parentOrChildLabel = UILabel()
@@ -30,6 +31,7 @@ final class OnboardingIntro2View: BaseView {
         super.init(frame: frame)
 
         ageInputLabel.isHidden = true
+        ageRangeLabel.isHidden = true
     }
 
     // MARK: - Override Functions
@@ -76,6 +78,12 @@ final class OnboardingIntro2View: BaseView {
             $0.font = .caption2
             $0.textAlignment = .left
         }
+        ageRangeLabel.do {
+            $0.text = TextLiterals.Onboarding.Q1.ageRange
+            $0.textColor = .red500
+            $0.font = .caption2
+            $0.textAlignment = .left
+        }
         parentOrChildLabel.do {
             $0.text = TextLiterals.Onboarding.Q1.parentOrChild
             $0.font = .body6
@@ -86,7 +94,7 @@ final class OnboardingIntro2View: BaseView {
 
     override func setHierachy() {
         self.addSubviews(onboardingProgressView, bgView)
-        bgView.addSubviews(ageTitle, ageSubtitle, ageLabel, ageTextField, ageInputLabel, parentOrChildLabel)
+        bgView.addSubviews(ageTitle, ageSubtitle, ageLabel, ageTextField, ageInputLabel, ageRangeLabel, parentOrChildLabel)
     }
 
     override func setLayout() {
@@ -119,6 +127,10 @@ final class OnboardingIntro2View: BaseView {
             $0.height.equalTo(52.adjusted)
         }
         ageInputLabel.snp.makeConstraints {
+            $0.top.equalTo(ageTextField.snp.bottom).offset(4.adjusted)
+            $0.leading.equalToSuperview()
+        }
+        ageRangeLabel.snp.makeConstraints {
             $0.top.equalTo(ageTextField.snp.bottom).offset(4.adjusted)
             $0.leading.equalToSuperview()
         }
