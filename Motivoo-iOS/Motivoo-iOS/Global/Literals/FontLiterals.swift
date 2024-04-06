@@ -12,7 +12,8 @@ enum AppFontName: String {
     case regular = "Pretendard-Regular"
     case medium = "Pretendard-Medium"
     case semiBold = "Pretendard-SemiBold"
-    
+    case code =  "IBMPlexSansKR-Medium"
+
     var name: String {
         return self.rawValue
     }
