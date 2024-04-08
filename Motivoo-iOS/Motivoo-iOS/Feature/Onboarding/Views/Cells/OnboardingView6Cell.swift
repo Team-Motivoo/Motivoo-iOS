@@ -26,18 +26,6 @@ final class OnboardingView6Cell: UICollectionViewCell {
     let ankleButton = MotivooButton(text: TextLiterals.Onboarding.Q3.ankle, buttonStyle: .borderGray100Half)
     let startMotivooButton = MotivooButton(text: TextLiterals.Onboarding.Q3.startMotivoo, buttonStyle: .gray900)
 
-    var isButtonEnabled: Bool = false {
-        didSet {
-            if isButtonEnabled {
-                startMotivooButton.setTitleColor(.white, for: .normal)
-                startMotivooButton.backgroundColor = .gray900
-            } else {
-                startMotivooButton.setTitleColor(.gray400, for: .normal)
-                startMotivooButton.backgroundColor = .gray100
-            }
-        }
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -50,7 +38,6 @@ final class OnboardingView6Cell: UICollectionViewCell {
         kneeButton.isSelected = true
         wristButton.isSelected = true
         ankleButton.isSelected = true
-        startMotivooButton.isSelected = false
     }
 
     required init?(coder: NSCoder) {
