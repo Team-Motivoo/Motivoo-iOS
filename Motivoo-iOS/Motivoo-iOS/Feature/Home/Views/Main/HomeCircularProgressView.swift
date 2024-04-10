@@ -10,10 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
+enum SuccessState {
+    case completed
+    case unCompleted
+}
+
 final class HomeCircularProgressView: BaseView {
-    
-    // MARK: - Properties
-    
     
     // MARK: - UI Components
     
@@ -59,12 +61,6 @@ final class HomeCircularProgressView: BaseView {
         self.do {
             $0.backgroundColor = .clear
             $0.layer.cornerRadius = self.frame.size.width / 2
-        }
-        
-        clearPercentLabel.do {
-            $0.text = TextLiterals.Home.Main.clearPercent
-            $0.font = .caption2
-            $0.textColor = .gray600
         }
         
         let startAngleRadians = 2 / CGFloat.pi  // 시작 각도 (라디안)
@@ -144,16 +140,6 @@ final class HomeCircularProgressView: BaseView {
             $0.centerX.equalTo(mainImageView)
         }
     }
-
-//    func updateImageViewPosition(to progress: CGFloat) {
-//        let radius = (frame.size.width - 1.5) / 2
-//        let centerPoint = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-//        let startAngleRadians = 2 / CGFloat.pi  // 시작 각도 (라디안)
-//        let startAngleDegrees = startAngleRadians * 180 / CGFloat.pi  // 시작 각도 (도)
-//        let adjustedStartAngle = startAngleDegrees + 110  // 조정된 시작 각도
-//        let newPoint = UIBezierPath.point(atPercent: progress, withRadius: radius, andCenter: centerPoint)
-////        childImageView.center = newPoint
-//    }
     
     func setMyProgress(currentStep: Int, finalStep: Int, withAnimation: Bool) {
         var value: Double = Double()
@@ -213,6 +199,31 @@ final class HomeCircularProgressView: BaseView {
             parentProgressLayer.add(animation, forKey: "animateReverseProgress")
         } else {
             parentProgressLayer.strokeEnd = CGFloat(newValue)
+        }
+    }
+    
+    func configureProgressBar(state: SuccessState) {
+        switch state {
+        case .completed:
+            clearPercentLabel.do {
+                $0.text = "하이파이브 성공!"
+                $0.textColor = .red500
+                $0.font = .caption1
+            }
+            parentProgressLayer.do {
+                $0.strokeColor = UIColor.red400.cgColor
+            }
+            mainImageView.image = ImageLiterals.img.missionCompleted
+            
+        case .unCompleted:
+            clearPercentLabel.do {
+                $0.text = ""
+            }
+            parentProgressLayer.do {
+                $0.strokeColor = UIColor.gray600.cgColor
+            }
+            mainImageView.image = ImageLiterals.img.missionMain
+
         }
     }
 }
