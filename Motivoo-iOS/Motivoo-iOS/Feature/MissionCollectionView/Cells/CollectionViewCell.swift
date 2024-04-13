@@ -46,6 +46,8 @@ final class CollectionViewCell: UICollectionViewCell {
         myImage.do {
             $0.image = ImageLiterals.img.nextExercise
             $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         myExerciseLabel.do {
             $0.font = .body1
@@ -68,6 +70,8 @@ final class CollectionViewCell: UICollectionViewCell {
         partnerImage.do {
             $0.image = ImageLiterals.img.nextExercise
             $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         partnerExerciseLabel.do {
             $0.font = .body1
@@ -140,8 +144,24 @@ final class CollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func setMissionHistory(_ date: String, _ myImage: UIImage, _ myMission: String, mySuccess: Bool, _ partnerImage: UIImage, _ partnerMission: String, _ partnerSuccess: Bool){
-        dateLabel.text = date
+    func setMissionHistory(date: String, myImage: String?, myMission: String, mySuccess: String, partnerImage: String?, partnerMission: String, partnerSuccess: String) {
+        self.dateLabel.text = date
+
+        if myImage != nil {
+            self.myImage.kfSetImage(url: myImage)
+        }
+        self.myExerciseLabel.text = myMission
+        if mySuccess != "성공" {
+            self.mySuccessTag.isHidden = true
+        }
+
+        if partnerImage != nil {
+            self.partnerImage.kfSetImage(url: partnerImage)
+        }
+        self.partnerExerciseLabel.text = partnerMission
+        if partnerSuccess != "성공" {
+            self.partnerSuccessTag.isHidden = true
+        }
     }
 }
 

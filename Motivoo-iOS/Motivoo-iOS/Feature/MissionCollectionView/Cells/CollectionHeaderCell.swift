@@ -15,6 +15,9 @@ final class CollectionHeaderCell: UICollectionViewCell {
     private let backgroundImageView = UIImageView()
     private let todayLabel = UILabel()
     private let exerciseLabel = UILabel()
+    let goExerciseButton = UIButton()
+    private let goExerciseLabel = UILabel()
+    private let goExerciseIcon = UIImageView()
 
     let mySection = UIView()
     let myMissionBG = UIImageView()
@@ -38,6 +41,8 @@ final class CollectionHeaderCell: UICollectionViewCell {
         setUI()
         setHierachy()
         setLayout()
+        setButtonEvent()
+        self.goExerciseButton.isUserInteractionEnabled = true
     }
 
     required init?(coder: NSCoder) {
@@ -60,9 +65,26 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.numberOfLines = 2
             $0.text = "8천걸음 걷고\n스탠딩 랫폴다운 20번 하기"
         }
+        goExerciseButton.do {
+            $0.backgroundColor = .gray900
+            $0.layer.cornerRadius = 8
+        }
+        goExerciseLabel.do {
+            $0.font = .heading4
+            $0.textColor = .white
+            $0.textAlignment = .left
+            $0.numberOfLines = 1
+            $0.text = TextLiterals.NoComplete.goSelectExercise2
+        }
+        goExerciseIcon.do {
+            $0.image = ImageLiterals.icon.thickRightArrow
+        }
 
         myMissionBG.do {
             $0.image = ImageLiterals.img.whiteTodayMission
+            $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         myIcon.do {
             $0.image = ImageLiterals.img.myProfile
@@ -73,6 +95,9 @@ final class CollectionHeaderCell: UICollectionViewCell {
 
         partnerMissionBG.do {
             $0.image = ImageLiterals.img.whiteTodayMission
+            $0.contentMode = .scaleAspectFill
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
         partnerIcon.do {
             $0.image = ImageLiterals.img.partnerProfile
@@ -94,8 +119,10 @@ final class CollectionHeaderCell: UICollectionViewCell {
     }
 
     func setHierachy() {
-        addSubviews(backgroundImageView, collectionTitle, questionButton)
-        backgroundImageView.addSubviews(todayLabel, exerciseLabel, mySection, partnerSection)
+        contentView.addSubviews(backgroundImageView, collectionTitle, questionButton)
+        backgroundImageView.addSubviews(todayLabel, exerciseLabel, goExerciseButton, mySection, partnerSection)
+        contentView.bringSubviewToFront(goExerciseButton)
+        goExerciseButton.addSubviews(goExerciseLabel, goExerciseIcon)
         mySection.addSubviews(myMissionBG, myIcon, myMissionBorder, myToolTipView)
         partnerSection.addSubviews(partnerMissionBG, partnerIcon, partnerMissionBorder, partnerToolTipView)
     }
@@ -115,6 +142,21 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.top.equalTo(todayLabel.snp.bottom).offset(6.adjusted)
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
+        goExerciseButton.snp.makeConstraints {
+            $0.top.equalTo(todayLabel.snp.bottom).offset(6.adjusted)
+            $0.leading.equalToSuperview().inset(20.adjusted)
+            $0.width.equalTo(235.adjusted)
+            $0.height.equalTo(36.adjusted)
+        }
+        goExerciseLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(10.adjusted)
+        }
+        goExerciseIcon.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(goExerciseLabel.snp.trailing).offset(4.adjusted)
+            $0.size.equalTo(14.adjusted)
+        }
 
         mySection.snp.makeConstraints {
             $0.top.equalTo(exerciseLabel.snp.bottom).offset(18.adjusted)
@@ -128,7 +170,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.height.equalTo(180.adjusted)
         }
         myToolTipView.snp.makeConstraints {
-            $0.bottom.equalTo(myIcon.snp.top).offset(-8)
+            $0.bottom.equalTo(myIcon.snp.top).offset(4)
             $0.centerX.equalToSuperview()
         }
         myIcon.snp.makeConstraints {
@@ -154,7 +196,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.height.equalTo(180.adjusted)
         }
         partnerToolTipView.snp.makeConstraints {
-            $0.bottom.equalTo(myIcon.snp.top).offset(-4)
+            $0.bottom.equalTo(myIcon.snp.top).offset(4)
             $0.centerX.equalToSuperview()
         }
         partnerIcon.snp.makeConstraints {
@@ -178,7 +220,67 @@ final class CollectionHeaderCell: UICollectionViewCell {
         }
     }
 
-    func setMySection(_ myIconImage: UIImage, _ myMissionImage: UIImage){
-        self.myIcon.image = myIconImage
+    func setButtonEvent() {
+        self.questionButton.addTarget(self, action: #selector(showToolTip), for: .touchUpInside)
+    }
+
+    @objc private func showToolTip() {
+        let toolTipImageView = UIImageView()
+        toolTipImageView.do {
+            $0.image = ImageLiterals.img.historyToolTip
+            $0.contentMode = .scaleAspectFill
+        }
+
+        backgroundImageView.addSubview(toolTipImageView)
+
+        toolTipImageView.snp.makeConstraints {
+            $0.top.equalTo(questionButton.snp.bottom).offset(4.adjusted)
+            $0.leading.equalToSuperview().inset(20.adjusted)
+            $0.width.equalTo(281.adjusted)
+            $0.height.equalTo(64.adjusted)
+        }
+
+        UIView.animate(withDuration: 2.0, delay: 0.8, options: .curveEaseOut, animations: {
+            toolTipImageView.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toolTipImageView.removeFromSuperview()
+        })
+    }
+
+    func setTodayMission(todatMission: String) {
+        self.todayLabel.text = TextLiterals.MissionOverview.todayExercise
+        self.exerciseLabel.text = todatMission
+        self.exerciseLabel.isHidden = false
+        self.goExerciseButton.isHidden = true
+        self.myToolTipView.isHidden = false
+        self.partnerToolTipView.isHidden = false
+    }
+
+    func setNotTodayMission() {
+        self.todayLabel.text = TextLiterals.NoComplete.goSelectExercise
+        self.goExerciseButton.isHidden = false
+        self.exerciseLabel.isHidden = true
+        self.myToolTipView.isHidden = true
+        self.partnerToolTipView.isHidden = true
+    }
+
+    func setTodaySection(myMissionImage: String?, myStatus: String, partnerMissionImage: String?, partnerStatus: String){
+        if myMissionImage != nil {
+            self.myMissionBG.kfSetImage(url: myMissionImage)
+        }
+        if myStatus == "성공" {
+            myToolTipView.updateTitle(text: TextLiterals.MissionOverview.onlySuccess)
+        }
+        if partnerMissionImage != nil {
+            self.partnerMissionBG.kfSetImage(url: partnerMissionImage)
+        }
+        if myStatus == "성공" {
+            partnerToolTipView.updateTitle(text: TextLiterals.MissionOverview.onlySuccess)
+        }
+    }
+
+    func changeIcon() {
+        self.myIcon.image = ImageLiterals.img.myProfile2
+        self.partnerIcon.image = ImageLiterals.img.partnerProfile2
     }
 }

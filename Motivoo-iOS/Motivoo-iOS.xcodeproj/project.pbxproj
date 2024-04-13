@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		020DB8072BC10615008872FD /* IBMPlexSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */; };
+		020DB8042BBD9214008872FD /* MissionEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DB8032BBD9214008872FD /* MissionEmptyView.swift */; };
 		022564902BB85828006D4AD3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */; };
 		0258067E2B4FEFA8002DB50E /* MotivooBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */; };
 		025806822B50162D002DB50E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025806812B50162D002DB50E /* OnboardingViewController.swift */; };
@@ -192,6 +194,7 @@
 
 /* Begin PBXFileReference section */
 		020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Medium.otf"; sourceTree = "<group>"; };
+		020DB8032BBD9214008872FD /* MissionEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEmptyView.swift; sourceTree = "<group>"; };
 		0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooBigButton.swift; sourceTree = "<group>"; };
 		025806812B50162D002DB50E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				02DF9CF22BB5322E005CDC8C /* MissionCollectionView.swift */,
+				020DB8032BBD9214008872FD /* MissionEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1189,6 +1193,7 @@
 				05AAF8F52B44F2950079CEAB /* UIColor+.swift in Sources */,
 				34BC14692B4F064800636C81 /* SectionTitleTableViewCell.swift in Sources */,
 				05AAF9052B47EE4E0079CEAB /* MotivooTabBarController.swift in Sources */,
+				020DB8042BBD9214008872FD /* MissionEmptyView.swift in Sources */,
 				05AAF8A12B3E5BB90079CEAB /* SplashViewController.swift in Sources */,
 				34BC14782B4FF8A700636C81 /* LeaveTableViewCell.swift in Sources */,
 				349D53F82B5820FB004E6B8C /* OverviewService.swift in Sources */,
