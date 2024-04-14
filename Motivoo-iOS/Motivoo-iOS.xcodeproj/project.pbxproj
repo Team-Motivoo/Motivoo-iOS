@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		020DB8072BC10615008872FD /* IBMPlexSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */; };
 		020DB8042BBD9214008872FD /* MissionEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DB8032BBD9214008872FD /* MissionEmptyView.swift */; };
 		022564902BB85828006D4AD3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */; };
 		0258067E2B4FEFA8002DB50E /* MotivooBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */; };
@@ -191,6 +193,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Medium.otf"; sourceTree = "<group>"; };
 		020DB8032BBD9214008872FD /* MissionEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEmptyView.swift; sourceTree = "<group>"; };
 		0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooBigButton.swift; sourceTree = "<group>"; };
@@ -824,6 +827,7 @@
 		05AAF8922B3E5AC20079CEAB /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */,
 				05AAF8F62B44F3FC0079CEAB /* Pretendard-Medium.otf */,
 				05AAF8F72B44F3FC0079CEAB /* Pretendard-Regular.otf */,
 				05AAF8F82B44F3FC0079CEAB /* Pretendard-SemiBold.otf */,
@@ -1067,6 +1071,7 @@
 			files = (
 				05AAF86C2B3E58490079CEAB /* LaunchScreen.storyboard in Resources */,
 				05AAF8FA2B44F3FC0079CEAB /* Pretendard-Regular.otf in Resources */,
+				020DB8072BC10615008872FD /* IBMPlexSansKR-Medium.otf in Resources */,
 				05BAB7AA2B568A430016ECE5 /* SecretsConfig.xcconfig in Resources */,
 				05AAF8FB2B44F3FC0079CEAB /* Pretendard-SemiBold.otf in Resources */,
 				05AAF8692B3E58490079CEAB /* Assets.xcassets in Resources */,

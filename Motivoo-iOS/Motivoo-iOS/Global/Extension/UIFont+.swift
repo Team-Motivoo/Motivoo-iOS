@@ -67,4 +67,8 @@ extension UIFont{
     class var caption2: UIFont {
         return UIFont(name: AppFontName.regular.rawValue, size: 15.adjusted)!
     }
+
+    class var codeMed: UIFont {
+        return UIFont(name: AppFontName.code.rawValue, size: 24.adjusted)!
+    }
 }

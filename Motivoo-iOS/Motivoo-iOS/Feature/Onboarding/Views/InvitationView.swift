@@ -45,7 +45,7 @@ final class InvitationView: BaseView {
         }
         codeLabel.do {
             $0.text = "81dc24gd0"
-            $0.font = .heading3
+            $0.font = .codeMed
             $0.textColor = .black
             $0.textAlignment = .center
         }

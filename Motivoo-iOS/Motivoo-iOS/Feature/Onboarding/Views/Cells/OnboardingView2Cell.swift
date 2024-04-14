@@ -50,7 +50,7 @@ final class OnboardingView2Cell: UICollectionViewCell {
         }
         yesButton.accessibilityIdentifier = "yes"
         noButton.accessibilityIdentifier = "no"
-    }
+    } 
 
     func setHierachy() {
         contentView.addSubviews(bgView)

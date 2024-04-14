@@ -56,7 +56,8 @@ enum TextLiterals {
             static var age = "나이"
             static var textArea = "텍스트 영역"
 
-            static var ageInput = "14세부터 99세까지 사용 가능해요."
+            static var ageRange = "14세부터 99세까지 사용 가능해요."
+            static var ageInput = "나이를 입력해주세요."
 
             static var parentTitle = "당신은\n부모인가요 자녀인가요?"
             static var parentSubtitle = "맞춤 운동을 제공해드려요!"
