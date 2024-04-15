@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		020DB8072BC10615008872FD /* IBMPlexSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */; };
 		020DB8042BBD9214008872FD /* MissionEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DB8032BBD9214008872FD /* MissionEmptyView.swift */; };
+		020DB8072BC10615008872FD /* IBMPlexSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */; };
+		02113B192BCBFFA3001DFC47 /* OnboardingView0Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02113B182BCBFFA3001DFC47 /* OnboardingView0Cell.swift */; };
 		022564902BB85828006D4AD3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */; };
 		0258067E2B4FEFA8002DB50E /* MotivooBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */; };
 		025806822B50162D002DB50E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025806812B50162D002DB50E /* OnboardingViewController.swift */; };
@@ -193,8 +193,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Medium.otf"; sourceTree = "<group>"; };
 		020DB8032BBD9214008872FD /* MissionEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionEmptyView.swift; sourceTree = "<group>"; };
+		020DB8062BC10615008872FD /* IBMPlexSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSansKR-Medium.otf"; sourceTree = "<group>"; };
+		02113B182BCBFFA3001DFC47 /* OnboardingView0Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView0Cell.swift; sourceTree = "<group>"; };
 		0225648F2BB85828006D4AD3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0258067D2B4FEFA8002DB50E /* MotivooBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivooBigButton.swift; sourceTree = "<group>"; };
 		025806812B50162D002DB50E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +396,7 @@
 		025806832B5020BF002DB50E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				02113B182BCBFFA3001DFC47 /* OnboardingView0Cell.swift */,
 				025806842B5020F9002DB50E /* OnboardingView1Cell.swift */,
 				0299856A2B504EBE00E88A4F /* OnboardingView2Cell.swift */,
 				0299856C2B5057C300E88A4F /* OnboardingView3Cell.swift */,
@@ -1116,6 +1118,7 @@
 				349D53F02B582034004E6B8C /* MyInfoUserResponse.swift in Sources */,
 				05AAF8B12B3E5C270079CEAB /* s.swift in Sources */,
 				348EB1AE2B4BE8790041BE5C /* MypageView.swift in Sources */,
+				02113B192BCBFFA3001DFC47 /* OnboardingView0Cell.swift in Sources */,
 				05AAF89F2B3E5BB30079CEAB /* f.swift in Sources */,
 				05AAF8CB2B3EA92D0079CEAB /* UIViewController+.swift in Sources */,
 				05AAF8F12B44F10A0079CEAB /* UIFont+.swift in Sources */,

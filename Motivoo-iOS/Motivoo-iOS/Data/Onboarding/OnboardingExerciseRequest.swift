@@ -10,6 +10,7 @@ import Foundation
 // MARK: - OnboardingExerciseRequest
 
 struct OnboardingExerciseRequest: Codable {
+    let nickname: String
     let type: String
     let age: Int
     let isExercise: Bool
@@ -17,7 +18,7 @@ struct OnboardingExerciseRequest: Codable {
     let exerciseNote: [String]
 
     enum CodingKeys: String, CodingKey {
-        case type, age
+        case nickname, type, age
         case isExercise = "is_exercise"
         case exerciseType = "exercise_type"
         case exerciseCount = "exercise_count"

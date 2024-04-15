@@ -49,6 +49,11 @@ enum TextLiterals {
             static var inviteCodeInput = "초대코드 입력하기"
         }
 
+        enum Q0 {
+            static var nameQuestion = "별명을 알려주세요"
+            static var nickname = "별명"
+        }
+
         enum Q1 {
             static var patent = "부모"
             static var child = "자녀"

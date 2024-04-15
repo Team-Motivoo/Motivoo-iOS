@@ -20,7 +20,7 @@ final class OnboardingViewController: BaseViewController {
     lazy var selectButtonName3Second: String = ""
     lazy var selectButtonName4: String = ""
     lazy var selectButtonName5: String = ""
-    lazy var questionArray: [String: Any] = ["type": "", "age": 0, "isExercise": true,
+    lazy var questionArray: [String: Any] = ["nickname":"", "type": "", "age": 0, "isExercise": true,
                                              "exerciseType":"", "exerciseCount":"", "exerciseTime":"", "exerciseNote":""]
 
     // MARK: - UI Component
@@ -41,6 +41,8 @@ final class OnboardingViewController: BaseViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isScrollEnabled = false
+        collectionView.register(OnboardingView0Cell.self,
+                                forCellWithReuseIdentifier: OnboardingView0Cell.identifier)
         collectionView.register(OnboardingView1Cell.self,
                                 forCellWithReuseIdentifier: OnboardingView1Cell.identifier)
         collectionView.register(OnboardingView2Cell.self,
@@ -92,7 +94,7 @@ final class OnboardingViewController: BaseViewController {
         onboardingProgressView.do {
             $0.trackTintColor = .gray100  // progress 배경 색상
             $0.progressTintColor = .red400  // progress 진행 색상
-            $0.progress = 1/6
+            $0.progress = 1/7
         }
     }
 
@@ -312,7 +314,6 @@ final class OnboardingViewController: BaseViewController {
     @objc
     private func choiceMaxThreeButtonDidTap(_ sender: UIButton) {
         let indexPath = IndexPath(row: 5, section: 0)
-        let cell = self.onboardingCollectionView.cellForItem(at: indexPath) as! OnboardingView6Cell
         if (sender.isSelected) {
             // print("=== 선택")
             if (choiceThreeButtonArray.count < 3) {
@@ -354,6 +355,7 @@ final class OnboardingViewController: BaseViewController {
         questionArray["exerciseNote"] = choiceThreeButtonArray
         // print(questionArray)
         requestPostExerciseAPI(
+            nickname: questionArray["nickname"] as? String ?? "",
             type: questionArray["type"] as? String ?? "",
             age: questionArray["age"] as? Int ?? 0,
             isExercise: questionArray["isExercise"] != nil,
@@ -368,7 +370,7 @@ final class OnboardingViewController: BaseViewController {
 extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
                                      UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -378,9 +380,9 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // 셀이 화면에 표시되기 직전에 호출되는 코드
-        // print("Cell at \(indexPath.row/6) will display")
+        // print("Cell at \(indexPath.row/7) will display")
         let cellIndex = Float(indexPath.row + 1)
-        onboardingProgressView.setProgress(cellIndex/6, animated: true)
+        onboardingProgressView.setProgress(cellIndex/7, animated: true)
         if cellIndex == 1.0 {
             self.onboardingBackButton.isHidden = true
         } else {
@@ -391,13 +393,18 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // print("=====index: \(indexPath.row)")
         if indexPath.row == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
+            cell.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+            return cell
+        }
+        else if indexPath.row == 2 {
             // indexPath.row가 1일 경우 OnboardingView2Cell을 반환
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView2Cell.cellIdentifier, for: indexPath) as! OnboardingView2Cell
             cell.yesButton.addTarget(self, action: #selector(selectButtonDidTap2), for: .touchUpInside)
             cell.noButton.addTarget(self, action: #selector(selectButtonDidTap2), for: .touchUpInside)
             // 필요한 설정을 추가합니다.
             return cell
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 3 {
             // print("=====selectButtonName2: \(selectButtonName2)")
             if (selectButtonName2 == "yes") {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView3Cell.identifier, for: indexPath) as! OnboardingView3Cell
@@ -414,7 +421,7 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
                 // print("nononononononononono")
                 return cell
             }
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView4Cell.identifier, for: indexPath) as! OnboardingView4Cell
             if (selectButtonName2 == "yes") {
                 cell.question4Title.text = TextLiterals.Onboarding.Q3.howManyExercise
@@ -426,7 +433,7 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.day3Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
             cell.day5Button.addTarget(self, action: #selector(selectButtonDidTap4), for: .touchUpInside)
             return cell
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView5Cell.identifier, for: indexPath) as! OnboardingView5Cell
             if (selectButtonName2 == "yes") {
                 cell.question5Title.text = TextLiterals.Onboarding.Q3.howLongExercise
@@ -438,7 +445,7 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.twoHourButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
             cell.twoHoueOverButton.addTarget(self, action: #selector(selectButtonDidTap5), for: .touchUpInside)
             return cell
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 6 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView6Cell.identifier, for: indexPath) as! OnboardingView6Cell
             cell.neckButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.shoulderButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
@@ -447,6 +454,8 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
             cell.ankleButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.kneeButton.addTarget(self, action: #selector(choiceMaxThreeButtonDidTap), for: .touchUpInside)
             cell.startMotivooButton.addTarget(self, action: #selector(startMotivooButtonDidTap), for: .touchUpInside)
+
+            // cell 1번에 있는 정보 가져오기
             let cellInfo = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
             if (!cellInfo.childButton.isSelected) { // 자식 버튼 클릭
                 questionArray["type"] = "자녀"
@@ -454,11 +463,15 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
                 questionArray["type"] = "부모"
             }
             questionArray["age"] = cellInfo.ageInfo
+
+            // cell 1번에 있는 정보 가져오기
+            let cell0Info = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView0Cell.identifier, for: indexPath) as! OnboardingView0Cell
+            questionArray["nickname"] = cell0Info.nameTextField.text
+
             return cell
         } else {
-            // OnboardingView1Cell을 반환
-            //self.customBackButton.addTarget(self, action: #selector(backViewController), for: .touchUpInside)
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView1Cell.identifier, for: indexPath) as! OnboardingView1Cell
+            // OnboardingView0Cell을 반환
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingView0Cell.identifier, for: indexPath) as! OnboardingView0Cell
             cell.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
             return cell
         }
@@ -466,9 +479,9 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
 }
 
 extension OnboardingViewController {
-    func requestPostExerciseAPI(type: String, age: Int, isExercise: Bool, exerciseType: String, exerciseCount: String,
+    func requestPostExerciseAPI(nickname: String, type: String, age: Int, isExercise: Bool, exerciseType: String, exerciseCount: String,
                                 exerciseTime: String, exerciseNote: [String]) {
-        let param = OnboardingExerciseRequest(type: type, age: age, isExercise: isExercise, exerciseType: exerciseType, exerciseCount: exerciseCount, exerciseTime: exerciseTime, exerciseNote: exerciseNote)
+        let param = OnboardingExerciseRequest(nickname: nickname, type: type, age: age, isExercise: isExercise, exerciseType: exerciseType, exerciseCount: exerciseCount, exerciseTime: exerciseTime, exerciseNote: exerciseNote)
         OnboardingAPI.shared.postExercise(param: param) { result in
             guard let result = self.validateResult(result) as? OnboardingExerciseResponse else { return }
             // 온보딩 완료 저장
