@@ -12,8 +12,9 @@ import Foundation
 struct OnboardingLoginResponse: Codable {
     let tokenType, accessToken, refreshToken: String
     let isFinishedOnboarding, isMatched: Bool
-    let id, nickname: String
-    
+    let id: String
+    let nickname: String?
+
     enum CodingKeys: String, CodingKey {
         case tokenType = "token_type"
         case accessToken = "access_token"
