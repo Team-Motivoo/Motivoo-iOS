@@ -52,6 +52,7 @@ enum TextLiterals {
         enum Q0 {
             static var nameQuestion = "별명을 알려주세요"
             static var nickname = "별명"
+            static var nicknameRange = "8자 이내로 입력해주세요."
         }
 
         enum Q1 {

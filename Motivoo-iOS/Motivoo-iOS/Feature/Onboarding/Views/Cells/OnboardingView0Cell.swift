@@ -15,9 +15,10 @@ final class OnboardingView0Cell: UICollectionViewCell {
     // MARK: - UI Component
 
     private let bgView = UIView()
-    let question0Title = UILabel()
-    let question0Subtitle = UILabel()
+    private let question0Title = UILabel()
+    private let question0Subtitle = UILabel()
     var nameTextField = UITextField()
+    private let nameRangeLable = UILabel()
     let nextButton = MotivooButton(text: TextLiterals.Onboarding.next, buttonStyle: .gray900)
 
     var isButtonEnabled: Bool = true {
@@ -39,6 +40,7 @@ final class OnboardingView0Cell: UICollectionViewCell {
         setHierachy()
         setLayout()
         setButtonEvent()
+        nameRangeLable.isHidden = true
     }
 
     required init?(coder: NSCoder) {
@@ -69,11 +71,17 @@ final class OnboardingView0Cell: UICollectionViewCell {
             $0.backgroundColor = .gray50
             $0.addLeftPadding()
         }
+        nameRangeLable.do {
+            $0.text = TextLiterals.Onboarding.Q0.nicknameRange
+            $0.textColor = .red500
+            $0.font = .caption2
+            $0.textAlignment = .left
+        }
     }
 
     func setHierachy() {
         contentView.addSubviews(bgView, nextButton)
-        bgView.addSubviews(question0Title, question0Subtitle, nameTextField)
+        bgView.addSubviews(question0Title, question0Subtitle, nameTextField, nameRangeLable)
     }
 
     func setLayout() {
@@ -97,6 +105,10 @@ final class OnboardingView0Cell: UICollectionViewCell {
             $0.width.equalTo(328.adjusted)
             $0.height.equalTo(52.adjusted)
         }
+        nameRangeLable.snp.makeConstraints {
+            $0.top.equalTo(nameTextField.snp.bottom).offset(4.adjusted)
+            $0.leading.equalToSuperview()
+        }
         nextButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(78.adjusted)
@@ -112,10 +124,27 @@ final class OnboardingView0Cell: UICollectionViewCell {
 
     @objc
     func textFieldDidChanacge(_ sender: Any?) {
-        if nameTextField.text != nil {
-            isButtonEnabled = true
-        } else {
-            isButtonEnabled = false
+        if let text = nameTextField.text {
+            if text.count >= 8 {
+                let index = text.index(text.startIndex, offsetBy: 7)
+                let fixedText = String(text[text.startIndex...index])
+                nameTextField.text = fixedText + " "
+
+                let when = DispatchTime.now() + 0.01
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.nameTextField.text = fixedText
+                }
+                nameRangeLable.isHidden = false
+                nameTextField.layer.borderColor = UIColor.red500.cgColor
+            } else {
+                if text.count < 1 {
+                    isButtonEnabled = false
+                } else {
+                    isButtonEnabled = true
+                }
+                nameRangeLable.isHidden = true
+                nameTextField.layer.borderColor = UIColor.gray500.cgColor
+            }
         }
         nextButton.isEnabled = isButtonEnabled
     }
