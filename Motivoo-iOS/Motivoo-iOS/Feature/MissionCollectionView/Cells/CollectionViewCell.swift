@@ -52,7 +52,7 @@ final class CollectionViewCell: UICollectionViewCell {
         myExerciseLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
-            $0.numberOfLines = 2
+            $0.numberOfLines = 3
             $0.text = "Test 미션입니다.\n 6000 걸음 걷기"
         }
         myExerciseTag.do {
@@ -76,7 +76,7 @@ final class CollectionViewCell: UICollectionViewCell {
         partnerExerciseLabel.do {
             $0.font = .body1
             $0.textColor = .gray900
-            $0.numberOfLines = 2
+            $0.numberOfLines = 3
             $0.text = "Test 미션입니다.\n 6000 걸음 걷기"
         }
         partnerExerciseTag.do {

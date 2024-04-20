@@ -84,7 +84,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.image = ImageLiterals.img.whiteTodayMission
             $0.contentMode = .scaleAspectFill
             $0.clipsToBounds = true
-            $0.layer.cornerRadius = 8
+            $0.layer.cornerRadius = 10
         }
         myIcon.do {
             $0.image = ImageLiterals.img.myProfile
@@ -97,7 +97,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.image = ImageLiterals.img.whiteTodayMission
             $0.contentMode = .scaleAspectFill
             $0.clipsToBounds = true
-            $0.layer.cornerRadius = 8
+            $0.layer.cornerRadius = 10
         }
         partnerIcon.do {
             $0.image = ImageLiterals.img.partnerProfile
@@ -170,7 +170,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.height.equalTo(180.adjusted)
         }
         myToolTipView.snp.makeConstraints {
-            $0.bottom.equalTo(myIcon.snp.top).offset(4)
+            $0.bottom.equalTo(myIcon.snp.top)
             $0.centerX.equalToSuperview()
         }
         myIcon.snp.makeConstraints {
@@ -196,7 +196,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.height.equalTo(180.adjusted)
         }
         partnerToolTipView.snp.makeConstraints {
-            $0.bottom.equalTo(myIcon.snp.top).offset(4)
+            $0.bottom.equalTo(myIcon.snp.top)
             $0.centerX.equalToSuperview()
         }
         partnerIcon.snp.makeConstraints {
