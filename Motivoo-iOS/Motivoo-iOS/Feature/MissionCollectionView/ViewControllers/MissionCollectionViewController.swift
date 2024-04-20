@@ -17,6 +17,9 @@ final class MissionCollectionViewController: BaseViewController {
         didSet {
             missionCollectionView.missionCollectionView.reloadData()
             historyCount = missionHistory?.missionHistory.count ?? 0
+            if self.missionHistory?.todayMission != nil {
+                self.historyCount -= 1
+            }
             print("=== change missionHistoryData")
         }
     }
@@ -137,7 +140,7 @@ extension MissionCollectionViewController: UICollectionViewDataSource {
             } else {
                 // today 미션 있으면
                 header.setTodayMission(todatMission: missionHistory?.todayMission?.missionContent ?? "")
-                let todayMission = missionHistory?.missionHistory[historyCount-1]
+                let todayMission = missionHistory?.missionHistory[historyCount]
                 header.setTodaySection(myMissionImage: todayMission?.myMissionImgURL, myStatus: todayMission?.myMissionStatus ?? "", partnerMissionImage: todayMission?.opponentMissionImgURL, partnerStatus: todayMission?.opponentMissionStatus ?? "")
             }
             return header
@@ -173,16 +176,13 @@ extension MissionCollectionViewController {
             self.missionHistory = result
             self.missionEmptyView.isHidden = true
 
-            if self.missionHistory?.todayMission != nil {
-                self.historyCount -= 1
-            }
-
             if result.missionHistory.count == 0 {
                 if result.todayMission == nil {
                     // 히스트로 X, 미션 선택 X./
                     print("=== 히스트로 X, 미션 선택 X: \(result)")
                     self.missionCollectionView.isHidden = true
-                    self.missionEmptyView.isHidden = false
+                    self.missionEmptyView.isHidden = false        
+                    // self.emptyImageView.isHidden = true
                 } else {
                     // 히스트로 X, 미션 선택 O
                     print("=== 히스트로 X, 미션 선택 O: \(result)")

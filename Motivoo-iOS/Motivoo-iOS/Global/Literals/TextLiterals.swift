@@ -175,7 +175,7 @@ enum TextLiterals {
         static var onlyfail = "실패"
         static var failfail = "실패"
         static var onlysuccess = "성공"
-        static var onlySuccess = "성공"
+        static var onlySuccess = "성공!"
         static var partnerExercise = "상대방 운동"
         static var childExercise = "자녀 운동"
         static var collectionExercise = "우리들의 운동 기록"
