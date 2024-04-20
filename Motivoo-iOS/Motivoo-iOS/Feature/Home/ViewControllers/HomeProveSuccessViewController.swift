@@ -27,10 +27,15 @@ final class HomeProveSuccessViewController: BaseViewController {
         self.view.backgroundColor = .clear
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("============HomeProveSuccessVCWillDisappear=============")
+    }
+    
     init(image: UIImage) {
         self.popupView = HomeProveSuccessView(image: image)
         super.init(nibName: nil, bundle:nil)
-        modalTransitionStyle = .coverVertical
+        modalTransitionStyle = .crossDissolve
         modalPresentationStyle = .overFullScreen
     }
     
