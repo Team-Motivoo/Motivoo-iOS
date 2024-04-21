@@ -140,7 +140,7 @@ extension MissionCollectionViewController: UICollectionViewDataSource {
             } else {
                 // today 미션 있으면
                 header.setTodayMission(todatMission: missionHistory?.todayMission?.missionContent ?? "")
-                let todayMission = missionHistory?.missionHistory[historyCount]
+                let todayMission = missionHistory?.missionHistory[0]
                 header.setTodaySection(myMissionImage: todayMission?.myMissionImgURL, myStatus: todayMission?.myMissionStatus ?? "", partnerMissionImage: todayMission?.opponentMissionImgURL, partnerStatus: todayMission?.opponentMissionStatus ?? "")
             }
             return header
