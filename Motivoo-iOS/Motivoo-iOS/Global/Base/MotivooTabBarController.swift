@@ -37,6 +37,7 @@ final class MotivooTabBarController: UITabBarController {
         tabBar.backgroundColor = .white
         tabBar.itemPositioning = .centered
         tabBar.tintColor = .black
+        tabBar.barTintColor = .white
     }
 
     private func setNavigationController() {
