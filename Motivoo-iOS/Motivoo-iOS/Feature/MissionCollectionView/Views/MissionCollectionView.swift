@@ -38,6 +38,7 @@ final class MissionCollectionView: BaseView {
                         forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderCell.identifier)
             $0.register(CollectionViewCell.self,
                         forCellWithReuseIdentifier: CollectionViewCell.identifier)
+            $0.showsVerticalScrollIndicator = false
         }
     }
 

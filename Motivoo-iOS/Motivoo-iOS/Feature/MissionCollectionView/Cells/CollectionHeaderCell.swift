@@ -39,7 +39,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
         self.backgroundColor = .white
 
         setUI()
-        setHierachy()
+        setHierarchy()
         setLayout()
         setButtonEvent()
         self.goExerciseButton.isUserInteractionEnabled = true
@@ -118,10 +118,10 @@ final class CollectionHeaderCell: UICollectionViewCell {
         }
     }
 
-    func setHierachy() {
-        contentView.addSubviews(backgroundImageView, collectionTitle, questionButton)
-        backgroundImageView.addSubviews(todayLabel, exerciseLabel, goExerciseButton, mySection, partnerSection)
+    func setHierarchy() {
+        contentView.addSubviews(backgroundImageView, collectionTitle, goExerciseButton, questionButton)
         contentView.bringSubviewToFront(goExerciseButton)
+        backgroundImageView.addSubviews(todayLabel, exerciseLabel, mySection, partnerSection)
         goExerciseButton.addSubviews(goExerciseLabel, goExerciseIcon)
         mySection.addSubviews(myMissionBG, myIcon, myMissionBorder, myToolTipView)
         partnerSection.addSubviews(partnerMissionBG, partnerIcon, partnerMissionBorder, partnerToolTipView)
@@ -139,7 +139,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
         exerciseLabel.snp.makeConstraints {
-            $0.top.equalTo(todayLabel.snp.bottom).offset(6.adjusted)
+            $0.top.equalToSuperview().inset(102.adjusted)
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
         goExerciseButton.snp.makeConstraints {
