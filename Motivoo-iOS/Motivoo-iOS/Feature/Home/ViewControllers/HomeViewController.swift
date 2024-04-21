@@ -49,20 +49,19 @@ final class HomeViewController: BaseViewController {
     private var isStepZero: Bool = true
     private var guideURL = String()
     /// 나중에 인증 완료 API 들어오면 바인딩
+//    private var isMissionCompleted: Bool = false
     private var isMissionCompleted: Bool = false {
         didSet {
-            if isMissionCompleted {
-                homeView.configureCheckButtonStyle(state: .checkCompleted)
-            }
+            print("미션 인증 이미지 완료 했는지 여부. 서버통신 하자마자 바뀌나요? -> \(isMissionCompleted)")
         }
     }
     private var isStepCountCompleted: Bool = false {
         didSet {
             if isStepCountCompleted {
                 print("걸음수 달성 완료함!💦💦💦")
-                DispatchQueue.main.async {
-                    self.homeView.configureCheckButtonStyle(state: .completed)
-                }
+//                DispatchQueue.main.async {
+//                    self.homeView.configureCheckButtonStyle(state: .completed)
+//                }
             }
             
             if isStepCountCompleted && isMateStepCountCompleted {

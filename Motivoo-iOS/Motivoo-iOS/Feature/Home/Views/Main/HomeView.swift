@@ -172,6 +172,7 @@ final class HomeView: BaseView {
                 $0.titleLabel?.font = .body5
                 $0.isEnabled = true
             }
+            print("🔥🔥🔥🔥걸음수 인증 완료 버튼으로 바뀌었어요! 지금!")
         case .checkCompleted:
             checkMissionButton.do {
                 $0.backgroundColor = .gray100
@@ -181,6 +182,8 @@ final class HomeView: BaseView {
                 $0.titleLabel?.font = .body5
                 $0.isEnabled = false
             }
+            print("🔥🔥🔥🔥미션 인증 완료 버튼으로 바뀌었어요! 지금!")
+
         }
     }
     
