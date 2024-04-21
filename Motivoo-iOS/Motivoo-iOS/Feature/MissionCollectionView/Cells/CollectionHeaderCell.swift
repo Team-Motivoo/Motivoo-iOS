@@ -274,7 +274,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
         if partnerMissionImage != nil {
             self.partnerMissionBG.kfSetImage(url: partnerMissionImage)
         }
-        if myStatus == "성공" {
+        if partnerStatus == "성공" {
             partnerToolTipView.updateTitle(text: TextLiterals.MissionOverview.onlySuccess)
         }
     }

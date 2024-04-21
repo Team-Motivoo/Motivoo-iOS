@@ -48,6 +48,7 @@ final class ToolTipView: UIView {
 
     func updateTitle(text: String) {
         self.label.text = text
+        containerView.backgroundColor = .white
     }
 
     private func setupLayout() {
