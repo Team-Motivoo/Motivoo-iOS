@@ -212,7 +212,7 @@ enum TextLiterals {
         static var realLeave = "정말 탈퇴하시겠어요?"
         static var leaveSubtitle = "회원 탈퇴 시, 모든 정보가\n삭제되며 복구가 불가능해요."
         static var leaveTitle = "탈퇴하기"
-        static var opensource = "https://gayeong04.notion.site/c78b181acf8a41f28f2ed653db998650"
+        static var opensource = "https://gayeong04.notion.site/c78b181acf8a41f28f2ed653db998650?pvs=4"
         static var developer =  "https://gayeong04.notion.site/39aa420262384587957479ca4da2ba2e"
         static var kakao = "https://open.kakao.com/o/sSCxapcg"
         static var version = "v.1.0.0"
