@@ -205,7 +205,7 @@ enum TextLiterals {
         static var leave = "회원탈퇴"
         static var logout = "로그아웃"
         static var leaveDescription = "탈퇴 시 모든 정보가 삭제됩니다."
-        static var name = "이름"
+        static var name = "별명"
         static var age = "나이"
         static var no = "안할래요"
         static var realLogout = "정말 로그아웃 하실건가요?"
