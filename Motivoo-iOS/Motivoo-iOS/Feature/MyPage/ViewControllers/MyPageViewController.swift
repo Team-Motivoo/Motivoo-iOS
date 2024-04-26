@@ -77,7 +77,6 @@ final class MyPageViewController: BaseViewController {
     private func myInfoButtonDidTapped() {
         let myInfoViewController = MyInfoViewController()
         myInfoViewController.dataBind(data: self.userInfo ?? MyInfoUserResponse(userNickname: "", userAge: 0, userType: ""))
-        navigationController?.pushViewController(myInfoViewController, animated: true)
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.pushViewController(myInfoViewController, animated: true)
     }
@@ -142,7 +141,9 @@ extension MyPageViewController: UITableViewDataSource, UITableViewDelegate {
         case 1:
             if indexPath.row == 0{
                 cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell", for: indexPath)
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
                 cell.isUserInteractionEnabled = false
+                
             } else if indexPath.row == 4 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: DisclosureTableViewCell.identifier,
                                                                                 for: indexPath) as? DisclosureTableViewCell else { return UITableViewCell() }
@@ -240,7 +241,6 @@ extension MyPageViewController {
             print(result)
             self.userInfo = result
             self.mypageView.nameLabel.text = result.userNickname
-            print(self.userInfo)
             if self.userInfo?.userType == "자녀" {
                 self.mypageView.parentLabel.text = TextLiterals.MyPage.child
             } else {
