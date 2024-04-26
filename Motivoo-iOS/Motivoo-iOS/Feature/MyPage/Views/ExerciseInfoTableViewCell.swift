@@ -77,6 +77,14 @@ class ExerciseInfoTableViewCell: UITableViewCell {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(20.adjusted)
         }
+        
+        checkExerciseInfoLabel.snp.makeConstraints {
+            $0.height.equalTo(22.adjusted)
+        }
+        
+        exerciseInfoLabel.snp.makeConstraints {
+            $0.height.equalTo(26.adjusted)
+        }
     }
 }
 
