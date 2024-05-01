@@ -23,7 +23,6 @@ final class HomeCircularProgressView: BaseView {
     var parentProgressLayer = CAShapeLayer()
     private var trackLayer = CAShapeLayer()
     var mainImageView = UIImageView()
-    var clearPercentLabel = UILabel()
 //    private var childImageView = UIImageView()
 
     // MARK: - inits
@@ -115,7 +114,7 @@ final class HomeCircularProgressView: BaseView {
     }
     
     override func setHierachy() {
-        addSubviews(mainImageView, clearPercentLabel)
+        addSubviews(mainImageView)
         [trackLayer,
          myProgressLayer,
          parentProgressLayer].forEach {
@@ -133,11 +132,6 @@ final class HomeCircularProgressView: BaseView {
             $0.height.equalTo(184.adjusted)
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().offset(-20.adjusted)
-        }
-        
-        clearPercentLabel.snp.makeConstraints {
-            $0.bottom.equalTo(mainImageView).offset(10.adjusted)
-            $0.centerX.equalTo(mainImageView)
         }
     }
     
@@ -205,20 +199,12 @@ final class HomeCircularProgressView: BaseView {
     func configureProgressBar(state: SuccessState) {
         switch state {
         case .completed:
-            clearPercentLabel.do {
-                $0.text = "하이파이브 성공!"
-                $0.textColor = .red500
-                $0.font = .caption1
-            }
             parentProgressLayer.do {
                 $0.strokeColor = UIColor.red400.cgColor
             }
             mainImageView.image = ImageLiterals.img.missionCompleted
             
         case .unCompleted:
-            clearPercentLabel.do {
-                $0.text = ""
-            }
             parentProgressLayer.do {
                 $0.strokeColor = UIColor.gray600.cgColor
             }
