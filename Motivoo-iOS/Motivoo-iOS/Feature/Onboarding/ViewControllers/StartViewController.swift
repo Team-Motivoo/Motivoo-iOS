@@ -17,7 +17,6 @@ final class StartViewController: BaseViewController {
     lazy var isFinished: Bool = false
 
     // MARK: - UI Component
-    private let motivooTextLogo = UIImageView()
     private let sloganLabel = UILabel()
     private let imageView = UIImageView()
     private let inviteCodeCreateButton = MotivooButton(text: TextLiterals.Onboarding.Login.inviteCodeCreate, buttonStyle: .gray900)
@@ -45,10 +44,6 @@ final class StartViewController: BaseViewController {
     }
 
     override func setUI() {
-        motivooTextLogo.do {
-            $0.image = ImageLiterals.img.motivooTextLogo
-            $0.backgroundColor = .lightGray
-        }
         sloganLabel.do {
             $0.text = TextLiterals.Onboarding.Login.slogan
             $0.font = .heading4
@@ -66,18 +61,12 @@ final class StartViewController: BaseViewController {
     }
 
     override func setHierachy() {
-        self.view.addSubviews(motivooTextLogo, sloganLabel, imageView, inviteCodeCreateButton, dividerImageView, inviteCodeInputButton)
+        self.view.addSubviews(sloganLabel, imageView, inviteCodeCreateButton, dividerImageView, inviteCodeInputButton)
     }
 
     override func setLayout() {
-        motivooTextLogo.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(32.adjusted)
-            $0.leading.equalToSuperview().inset(20.adjusted)
-            $0.height.equalTo(16.adjusted)
-            $0.width.equalTo(78.adjusted)
-        }
         sloganLabel.snp.makeConstraints {
-            $0.top.equalTo(motivooTextLogo.snp.bottom).offset(24.adjusted)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(60.adjusted)
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
         imageView.snp.makeConstraints {
