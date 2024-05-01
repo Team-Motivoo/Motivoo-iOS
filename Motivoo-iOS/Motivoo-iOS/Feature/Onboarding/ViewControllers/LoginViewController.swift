@@ -88,7 +88,7 @@ final class LoginViewController: BaseViewController {
         motivooTextLogo.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(32.adjusted)
             $0.leading.equalToSuperview().inset(20.adjusted)
-            $0.height.equalTo(16.adjusted)
+            $0.height.equalTo(13.adjusted)
             $0.width.equalTo(78.adjusted)
         }
         sloganLabel.snp.makeConstraints {
