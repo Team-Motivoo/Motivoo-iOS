@@ -38,6 +38,10 @@ final class HomeView: BaseView {
     var checkMissionButton = UIButton()
     var dimmView = UIView()
     var guideButton = UIButton()
+    var withdrawImage = UIImageView()
+    var withdrawButton = UIButton()
+    private lazy var withdrawStackView = UIStackView(arrangedSubviews: [withdrawImage,
+                                                                        withdrawButton])
     
     // MARK: - Override Method
     
@@ -48,15 +52,14 @@ final class HomeView: BaseView {
             $0.text = TextLiterals.Home.Main.date
             $0.font = .caption1
             $0.textColor = .gray600
-            $0.addLineHeight(lineHeight: 28.adjusted)
         }
         
         pickMissionLabel.do {
             $0.text = TextLiterals.Home.Main.pick
-            $0.font = .heading4
+            $0.font = .heading3
             $0.numberOfLines = 2
             $0.textColor = .black
-            $0.setLineSpacing(lineSpacing: 1.17.adjusted)
+            $0.addLineHeight(lineHeight: 28.adjusted)
         }
         
         missionStackView.do {
@@ -93,6 +96,26 @@ final class HomeView: BaseView {
         homeStepCountView.do {
             $0.isHidden = true
         }
+        
+        withdrawImage.do {
+            $0.isHidden = true
+            $0.image = ImageLiterals.img.unconnection
+        }
+        
+        withdrawButton.do {
+            $0.isHidden = true
+            $0.backgroundColor = .gray900
+            $0.layer.cornerRadius = 8.adjusted
+            $0.titleLabel?.font = .body5
+            $0.setTitleColor(.white, for: .normal)
+            $0.setTitle(TextLiterals.MyPage.leaveTitle, for: .normal)
+        }
+        
+        withdrawStackView.do {
+            $0.axis = .vertical
+            $0.spacing = 100.adjusted
+            $0.alignment = .center
+        }
     }
     
     override func setHierachy() {
@@ -103,7 +126,9 @@ final class HomeView: BaseView {
                          homeStepCountView,
                          homeCircularProgressView,
                          checkMissionButton,
-                         dimmView)
+                         dimmView,
+                         withdrawStackView
+        )
     }
     
     override func setLayout() {
@@ -147,6 +172,21 @@ final class HomeView: BaseView {
         
         dimmView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        withdrawImage.snp.makeConstraints {
+            $0.height.equalTo(192.adjusted)
+            $0.width.equalTo(256.adjusted)
+        }
+        
+        withdrawButton.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(52.adjusted)
+        }
+        
+        withdrawStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(20.adjusted)
         }
     }
     
@@ -192,6 +232,7 @@ final class HomeView: BaseView {
     func configureMissionSelectedView(isSelected: Bool) {
         print("들어왔어요!!!!!!!!!!!🔥🔥🔥🔥 미션 선정 여부 값 -> \(isSelected)")
         if isSelected {
+            pickMissionLabel.font = .heading4
             firstMissionView.isHidden = true
             secondMissionView.isHidden = true
             self.checkMissionButton.isHidden = false
@@ -199,6 +240,7 @@ final class HomeView: BaseView {
             self.homeCircularProgressView.isHidden = false
             self.homeStepCountView.isHidden = false
         } else {
+            pickMissionLabel.font = .heading3
             firstMissionView.isHidden = false
             secondMissionView.isHidden = false
             self.checkMissionButton.isHidden = true
@@ -236,6 +278,29 @@ final class HomeView: BaseView {
             secondMissionView.configureView(imageURL: secondMission?.missionIconURL ?? "",
                                             mission: secondMission?.missionContent ?? "",
                                             id: secondMission?.missionID ?? Int())
+        }
+    }
+    
+    func configureWhetherMateWithdraw(isMateWithdraw: Bool) {
+        if isMateWithdraw {
+            withdrawImage.isHidden = false
+            withdrawButton.isHidden = false
+            [dateLabel,
+             pickMissionLabel,
+             guideButton,
+             missionStackView,
+             homeStepCountView,
+             homeCircularProgressView,
+             checkMissionButton,
+             dimmView].forEach {
+                $0.isHidden = true
+            }
+        } else {
+            withdrawImage.isHidden = true
+            withdrawButton.isHidden = true
+            dateLabel.isHidden = false
+            pickMissionLabel.isHidden = false
+            missionStackView.isHidden = false
         }
     }
 }

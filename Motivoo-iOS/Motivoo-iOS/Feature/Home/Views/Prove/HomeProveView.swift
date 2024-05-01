@@ -45,7 +45,6 @@ final class HomeProveView: BaseView {
             $0.font = .heading3
             $0.textColor = .black
             $0.numberOfLines = 2
-            $0.setLineSpacing(lineSpacing: 1.17.adjusted)
         }
         
         subtitleLabel.do {
@@ -82,7 +81,7 @@ final class HomeProveView: BaseView {
         
         subtitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(30.adjusted)
-            $0.top.equalTo(missionLabel.snp.bottom).offset(6.adjusted)
+            $0.top.equalTo(missionLabel.snp.bottom).offset(7.adjusted)
         }
         
         pictureStackView.snp.makeConstraints {

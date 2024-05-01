@@ -25,9 +25,9 @@ final class HomeStepCountView: BaseView {
                                                                       myWalkCountLabel])
     private lazy var parentWalkStackView = UIStackView(arrangedSubviews: [parentWalkLabel,
                                                                           parentWalkCountLabel])
-    private lazy var totalStackView = UIStackView(arrangedSubviews: [myWalkStackView,
-                                                                     divideLineView,
-                                                                     parentWalkStackView])
+//    private lazy var totalStackView = UIStackView(arrangedSubviews: [myWalkStackView,
+//                                                                     divideLineView,
+//                                                                     parentWalkStackView])
     
     // MARK: - inits
     
@@ -88,15 +88,16 @@ final class HomeStepCountView: BaseView {
             $0.alignment = .center
         }
         
-        totalStackView.do {
-            $0.axis = .horizontal
-            $0.spacing = 45.adjusted
-            $0.alignment = .center
-        }
+//        totalStackView.do {
+//            $0.axis = .horizontal
+//            $0.spacing = 45.adjusted
+//            $0.alignment = .center
+//        }
     }
     
     override func setHierachy() {
-        self.addSubview(totalStackView)
+//        self.addSubview(totalStackView)
+        self.addSubviews(myWalkStackView, divideLineView, parentWalkStackView)
     }
     
     override func setLayout() {
@@ -104,14 +105,26 @@ final class HomeStepCountView: BaseView {
             $0.height.equalTo(104.adjusted)
         }
         
-        totalStackView.snp.makeConstraints {
-            $0.center.height.equalToSuperview()
-        }
-
         divideLineView.snp.makeConstraints {
             $0.width.equalTo(1.adjusted)
             $0.top.bottom.equalToSuperview().inset(20.adjusted)
+            $0.centerX.equalToSuperview()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        myWalkStackView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.centerX.equalTo(divideLineView.frame.origin.x / 2)
+        }
+        
+        parentWalkStackView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.centerX.equalTo(divideLineView.frame.origin.x * 1.5)
+        }
+        
     }
     
     // MARK: - Custom Functions
