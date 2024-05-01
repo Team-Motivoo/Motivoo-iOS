@@ -18,7 +18,7 @@ final class OnboardingView0Cell: UICollectionViewCell {
     private let question0Title = UILabel()
     private let question0Subtitle = UILabel()
     var nameTextField = UITextField()
-    private let nameRangeLable = UILabel()
+    let nameRangeLable = UILabel()
     let nextButton = MotivooButton(text: TextLiterals.Onboarding.next, buttonStyle: .gray900)
 
     var isButtonEnabled: Bool = true {
@@ -40,6 +40,7 @@ final class OnboardingView0Cell: UICollectionViewCell {
         setHierachy()
         setLayout()
         setButtonEvent()
+
         nameRangeLable.isHidden = true
     }
 
@@ -122,6 +123,15 @@ final class OnboardingView0Cell: UICollectionViewCell {
         self.nextButton.backgroundColor = .gray100
     }
 
+    func showNameRangeLable() {
+        self.nameRangeLable.isHidden = false
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            self.nameTextField.layer.borderColor = UIColor.gray500.cgColor
+            self.nameRangeLable.isHidden = true
+        }
+    }
+
     @objc
     func textFieldDidChanacge(_ sender: Any?) {
         if let text = nameTextField.text {
@@ -134,16 +144,16 @@ final class OnboardingView0Cell: UICollectionViewCell {
                 DispatchQueue.main.asyncAfter(deadline: when) {
                     self.nameTextField.text = fixedText
                 }
-                nameRangeLable.isHidden = false
                 nameTextField.layer.borderColor = UIColor.red500.cgColor
+                showNameRangeLable()
             } else {
                 if text.count < 1 {
                     isButtonEnabled = false
                 } else {
                     isButtonEnabled = true
                 }
-                nameRangeLable.isHidden = true
                 nameTextField.layer.borderColor = UIColor.gray500.cgColor
+                nameRangeLable.isHidden = true
             }
         }
         nextButton.isEnabled = isButtonEnabled
