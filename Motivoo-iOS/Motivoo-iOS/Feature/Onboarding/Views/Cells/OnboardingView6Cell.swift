@@ -123,7 +123,7 @@ final class OnboardingView6Cell: UICollectionViewCell {
         }
         startMotivooButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(78.adjusted)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-78.adjusted)
         }
     }
 }
