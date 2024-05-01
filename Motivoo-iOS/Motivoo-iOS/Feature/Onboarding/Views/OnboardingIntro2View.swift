@@ -71,6 +71,7 @@ final class OnboardingIntro2View: BaseView {
             $0.backgroundColor = .gray50
             $0.keyboardType = .numberPad
             $0.addLeftPadding()
+            $0.addRightPadding()
         }
         ageInputLabel.do {
             $0.text = TextLiterals.Onboarding.Q1.ageInput
