@@ -279,8 +279,21 @@ final class CollectionHeaderCell: UICollectionViewCell {
         }
     }
 
-    func changeIcon() {
-        self.myIcon.image = ImageLiterals.img.myProfile2
-        self.partnerIcon.image = ImageLiterals.img.partnerProfile2
+    func changeIcon(_ userType: String?, _ opponentUserType: String?) {
+        if userType != nil {
+            if userType == "자녀" {
+                self.myIcon.image = ImageLiterals.img.myProfile
+            } else {
+                self.myIcon.image = ImageLiterals.img.myProfile2
+            }
+        }
+
+        if opponentUserType != nil {
+            if opponentUserType == "자녀" {
+                self.partnerIcon.image = ImageLiterals.img.partnerProfile2
+            } else {
+                self.partnerIcon.image = ImageLiterals.img.partnerProfile
+            }
+        }
     }
 }
