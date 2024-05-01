@@ -44,9 +44,9 @@ final class HomeMissionView: BaseView {
         }
         
         missionLabel.do {
-            $0.font = UIFont(name: "Pretendard-Medium", size: 20)
+            $0.font = UIFont(name: "Pretendard-Medium", size: 20.adjusted)
             $0.textColor = .black
-            $0.setLineSpacing(lineSpacing: 1.24.adjusted)
+            $0.addLineHeight(lineHeight: 28.adjusted)
             $0.numberOfLines = 3
         }
         
@@ -81,6 +81,7 @@ final class HomeMissionView: BaseView {
     func configureView(imageURL: String, mission: String, id: Int) {
         missionImageView.kfSetImage(url: imageURL)
         missionLabel.text = mission
+        missionLabel.addLineHeight(lineHeight: 28.adjusted)
         self.missionID = id
     }
 }

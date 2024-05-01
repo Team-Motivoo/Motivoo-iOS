@@ -110,6 +110,7 @@ final class HomeProveViewController: BaseViewController {
     
     func bindQuest(content: String) {
         homeProveView.missionLabel.text = content
+        homeProveView.missionLabel.addLineHeight(lineHeight: 33.6.adjusted)
     }
 }
 
