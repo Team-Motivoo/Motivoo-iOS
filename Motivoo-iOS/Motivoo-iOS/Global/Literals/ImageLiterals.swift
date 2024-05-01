@@ -32,6 +32,7 @@ enum ImageLiterals {
         static var missionCompleted: UIImage { .load(named: "img_home_mission_complete")}
         static var exerciseGuide: UIImage { .load(named: "exercise_guide")}
         static var orDivider: UIImage { .load(named: "orDivider")}
+        static var readyOnboarding: UIImage { .load(named: "img_ready")}
 
         // MARK: - MissionOverView
 

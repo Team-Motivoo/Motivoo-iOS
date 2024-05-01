@@ -74,6 +74,8 @@ final class OnboardingViewController: BaseViewController {
         setDelegate()
         self.onboardingBackButton.isHidden = true
         self.onboardingBackButton.addTarget(self, action: #selector(prevButtonDidTap), for: .touchUpInside)
+
+        showReadyView()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -86,6 +88,8 @@ final class OnboardingViewController: BaseViewController {
             navigationArray.remove(at: navigationArray.count - 2) // 두 번째로 마지막인 FirstVC를 제거합니다.
             self.navigationController?.viewControllers = navigationArray // 수정된 스택을 다시 설정합니다.
         }
+
+        showReadyView()
     }
 
     // MARK: - Override Functions
@@ -364,6 +368,26 @@ final class OnboardingViewController: BaseViewController {
             exerciseTime: questionArray["exerciseTime"] as? String ?? "",
             exerciseNote: questionArray["exerciseNote"] as? [String] ?? []
         )
+    }
+
+    private func showReadyView() {
+        let readyView = OnboardingReadyView()
+
+        self.view.addSubview(readyView)
+
+        readyView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            // UIView 애니메이션을 사용하여 readyView의 투명도를 0으로 서서히 변경합니다.
+            UIView.animate(withDuration: 0.2, animations: {
+                readyView.alpha = 0
+            }) { _ in
+                // 애니메이션이 완료되면 readyView를 뷰 계층 구조에서 제거합니다.
+                readyView.removeFromSuperview()
+            }
+        }
     }
 }
 

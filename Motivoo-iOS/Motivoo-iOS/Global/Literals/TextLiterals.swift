@@ -49,6 +49,11 @@ enum TextLiterals {
             static var inviteCodeInput = "초대코드 입력하기"
         }
 
+        enum Ready {
+            static var readyTitle = "맞춤 운동을 위한\n질문을 준비중이에요."
+            static var readyIntro = "모든 정보는 수정이 어려워요!\n신중하게 입력해주세요."
+        }
+
         enum Q0 {
             static var nameQuestion = "별명을 알려주세요"
             static var nickname = "별명"
