@@ -131,9 +131,8 @@ extension MissionCollectionViewController: UICollectionViewDataSource {
             }
             header.goExerciseButton.addTarget(self, action: #selector(goExerciseButtonDidTapped), for: .touchUpInside)
             
-            if missionHistory?.userType == "부모" {
-                header.changeIcon()
-            }
+            header.changeIcon(missionHistory?.userType, missionHistory?.opponentUserType)
+
             if missionHistory?.todayMission == nil {
                 // today 미션 없으면 버튼 반환
                 header.setNotTodayMission()
