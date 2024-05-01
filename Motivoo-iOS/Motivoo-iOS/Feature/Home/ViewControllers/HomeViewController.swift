@@ -19,6 +19,12 @@ import SafariServices
 final class HomeViewController: BaseViewController {
     
     // MARK: - Properties
+    
+    private var isMateWithdraw: Bool = false {
+        didSet {
+                homeView.configureWhetherMateWithdraw(isMateWithdraw: isMateWithdraw)
+        }
+    }
     private var timer: Timer? = nil
     private var quest: String = String()
     private var goalStep: Int = 0 {
@@ -150,10 +156,15 @@ final class HomeViewController: BaseViewController {
         
         // TODO: - 권한 허용 안되어있으면 Alert 띄우기
         print("=============HomeVCWillAppear==============")
-        // 네트워크 통신
-        configureMissionTapGesture()
-        requestPostMission()
-        requestGetHome()
+
+        if !isMateWithdraw {
+            configureMissionTapGesture()
+            requestPostMission()
+            requestGetHome()
+        } else {
+            stopTimer()
+            StepCountManager.shared.stopCheckStepCount()
+        }
     }
     
     // MARK: - Override Functions
@@ -175,21 +186,14 @@ final class HomeViewController: BaseViewController {
     override func setButtonEvent() {
         homeView.checkMissionButton.addTarget(self, action: #selector(checkButtonDidTapped), for: .touchUpInside)
         homeView.guideButton.addTarget(self, action: #selector(guideButtonDidTapped), for: .touchUpInside)
+        homeView.withdrawButton.addTarget(self, action: #selector(deleteUser), for: .touchUpInside)
     }
     
     override func setupNavigationBar() {
         super.setupNavigationBar()
     }
     
-    // MARK: - Custom Method
-    
-    private func configureMissionTapGesture() {
-        let firstMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(firstMissionViewDidTapped))
-        let secondMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(secondMissionViewDidTapped))
-        
-        homeView.firstMissionView.addGestureRecognizer(firstMissionViewTappedGesture)
-        homeView.secondMissionView.addGestureRecognizer(secondMissionViewTappedGesture)
-    }
+    // MARK: - Action Method
     
     @objc
     private func firstMissionViewDidTapped() {
@@ -220,11 +224,6 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func configureStepCountView(user: Int, mate: Int) {
-        homeView.homeStepCountView.configureView(myWalk: user,
-                                                 parentWalk: mate)
-    }
-    
     @objc
     private func checkButtonDidTapped() {
         
@@ -240,7 +239,7 @@ final class HomeViewController: BaseViewController {
         if let proveSheet = homeProveViewController.sheetPresentationController {
             proveSheet.detents = [
                 .custom { _ in
-                    return 356.adjusted
+                    return 322.adjusted
                 }
             ]
             proveSheet.preferredCornerRadius = 20
@@ -261,6 +260,48 @@ final class HomeViewController: BaseViewController {
         }
         homeProveViewController.bindQuest(content: self.quest)
         self.present(homeProveViewController, animated: true)
+    }
+    
+    @objc 
+    private func deleteUser() {
+        // 회원 탈퇴하기
+        MyAPI.shared.deleteLeave() { result in
+            guard let result = self.validateResult(result) as? SimpleResponse else { return }
+            TokenManager.shared.removeToken()
+            UserDefaultManager.shared.removeUserInfo()
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            guard let delegate = sceneDelegate else {
+                print("sceneDelegate가 할당 Error")
+                return
+            }
+            let rootViewController = UINavigationController(rootViewController: SplashViewController())
+            delegate.window?.rootViewController = rootViewController
+        }
+    }
+    
+    @objc 
+    private func runLoop() {
+        if isStepZero {
+            self.requestPostMateGoalStep()
+        } else {
+            self.stopTimer()
+        }
+    }
+
+    // MARK: - Custom Method
+    
+    private func configureMissionTapGesture() {
+        let firstMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(firstMissionViewDidTapped))
+        let secondMissionViewTappedGesture = UITapGestureRecognizer(target: self, action: #selector(secondMissionViewDidTapped))
+        
+        homeView.firstMissionView.addGestureRecognizer(firstMissionViewTappedGesture)
+        homeView.secondMissionView.addGestureRecognizer(secondMissionViewTappedGesture)
+    }
+    
+    
+    private func configureStepCountView(user: Int, mate: Int) {
+        homeView.homeStepCountView.configureView(myWalk: user,
+                                                 parentWalk: mate)
     }
     
     private func configureStepCount() {
@@ -349,14 +390,6 @@ final class HomeViewController: BaseViewController {
         timer = nil
         print("걸음수 타이머 멈춤")
     }
-    
-    @objc private func runLoop() {
-        if isStepZero {
-            self.requestPostMateGoalStep()
-        } else {
-            self.stopTimer()
-        }
-    }
 }
 
 // MARK: - Network Functions
@@ -365,6 +398,8 @@ extension HomeViewController {
     private func requestGetHome() {
         HomeAPI.shared.getHome() { result in
             guard let result = self.validateResult(result) as? HomeIntroResponse else { return }
+            self.isMateWithdraw = result.isOpponentUserWithdraw
+            if !self.isMateWithdraw {
             print("requestGetHome!!!!!!!!!!!")
             /// StepCountManager에 uid와 mid를 매칭.
             /// uid와 mid가 있어야 파이어베이스에서 값을 읽어오고, 저장 할 수 있도록 로직을 구생했기 때문
@@ -401,6 +436,8 @@ extension HomeViewController {
             } else if result.userType == "부모" {
                 self.homeView.homeStepCountView.parentWalkLabel.text = "자녀 걸음"
             }
+                
+            }
         }
     }
     
@@ -436,6 +473,7 @@ extension HomeViewController {
             /// 그러려면, 내 목표걸음수와 상대방 목표 걸음수가 정상적으로 들어온 뒤, 프로그래스 바 세팅을 해주어야 함.
             /// 그래서 목표 걸음수가 들어오는 API인 requestGetHome을 한번 더 호출
             self.requestGetHome()
+            self.requestPostMission()
         }
     }
     
