@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class MissionCollectionViewController: BaseViewController {
-
+    
     //MARK: - Properties
     var missionHistory: OverViewResponse? {
         didSet {
@@ -23,39 +23,38 @@ final class MissionCollectionViewController: BaseViewController {
             print("=== change missionHistoryData")
         }
     }
-
+    
     lazy var historyCount = missionHistory?.missionHistory.count ?? 0
-
+    
     // MARK: - UI Component
     lazy var missionCollectionView = MissionCollectionView()
     private let missionEmptyView = MissionEmptyView()
     private let emptyImageView = UIImageView()
-
+    
     private func setCollectionViewConfig() {
         missionCollectionView.missionCollectionView.dataSource = self
         missionCollectionView.missionCollectionView.delegate = self
     }
-
+    
     // MARK: - Override Functions
-
+    
     override func viewWillAppear(_ animated: Bool) {
         requestOverviewAPI()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = .white
         self.missionEmptyView.isHidden = true
-        self.emptyImageView.isHidden = true
         setCollectionViewConfig()
         requestOverviewAPI()
     }
-
+    
     override func setHierachy() {
         self.view.addSubviews(missionCollectionView, missionEmptyView, emptyImageView)
     }
-
+    
     override func setLayout() {
         missionCollectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -65,6 +64,7 @@ final class MissionCollectionViewController: BaseViewController {
         }
         emptyImageView.do {
             $0.image = ImageLiterals.img.notexerciseGray
+            $0.isHidden = true
         }
         emptyImageView.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(440.adjusted)
@@ -72,13 +72,13 @@ final class MissionCollectionViewController: BaseViewController {
             $0.size.equalTo(120.adjusted)
         }
     }
-
+    
     // MARK: - Actions
-
+    
     override func setButtonEvent() {
         self.missionEmptyView.goExerciseButton.addTarget(self, action: #selector(goExerciseButtonDidTapped), for: .touchUpInside)
     }
-
+    
     @objc private func goExerciseButtonDidTapped() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         guard let delegate = sceneDelegate else {
@@ -92,24 +92,23 @@ final class MissionCollectionViewController: BaseViewController {
 
 extension MissionCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if historyCount <= 0 {
-            self.emptyImageView.isHidden = false
-        } else {
-            self.emptyImageView.isHidden = true
+        if historyCount > 0 {
             self.missionCollectionView.isHidden = false
+        } else if historyCount > 1 {
+            self.emptyImageView.isHidden = true
         }
         return historyCount
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
-
+        
         var adjustedIndex = indexPath.row
-
+        
         if missionHistory?.todayMission != nil {
             adjustedIndex += 1
         }
-
+        
         let date = missionHistory?.missionHistory[adjustedIndex]?.date ?? ""
         let myImage = missionHistory?.missionHistory[adjustedIndex]?.myMissionImgURL ?? nil
         let myMission = missionHistory?.missionHistory[adjustedIndex]?.myMissionContent ?? ""
@@ -117,13 +116,13 @@ extension MissionCollectionViewController: UICollectionViewDataSource {
         let partnerImage = missionHistory?.missionHistory[adjustedIndex]?.opponentMissionImgURL ?? nil
         let partnerMission = missionHistory?.missionHistory[adjustedIndex]?.opponentMissionContent ?? ""
         let partnerStatusChip = missionHistory?.missionHistory[adjustedIndex ]?.opponentMissionStatus ?? ""
-
+        
         cell.setMissionHistory(date: date,
                                myImage: myImage, myMission: myMission, mySuccess: myStatus,
                                partnerImage: partnerImage, partnerMission: partnerMission, partnerSuccess: partnerStatusChip)
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderCell.identifier, for: indexPath) as? CollectionHeaderCell else {
@@ -151,11 +150,11 @@ extension MissionCollectionViewController: UICollectionViewDataSource {
             return header
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.size.width, height: 376.adjusted)
     }
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -175,19 +174,21 @@ extension MissionCollectionViewController {
             }
             self.missionHistory = result
             self.missionEmptyView.isHidden = true
-
+            
             if result.missionHistory.count == 0 {
                 if result.todayMission == nil {
                     // 히스트로 X, 미션 선택 X./
                     print("=== 히스트로 X, 미션 선택 X: \(result)")
                     self.missionCollectionView.isHidden = true
-                    self.missionEmptyView.isHidden = false        
-                    // self.emptyImageView.isHidden = true
+                    self.missionEmptyView.isHidden = false
+                    self.emptyImageView.isHidden = true
                 } else {
                     // 히스트로 X, 미션 선택 O
                     print("=== 히스트로 X, 미션 선택 O: \(result)")
                     self.missionCollectionView.isHidden = false
                 }
+            } else if result.missionHistory.count == 1 {
+                self.emptyImageView.isHidden = false
             }
         }
     }
