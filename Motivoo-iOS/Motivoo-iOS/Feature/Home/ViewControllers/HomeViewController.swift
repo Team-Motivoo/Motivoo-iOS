@@ -65,33 +65,13 @@ final class HomeViewController: BaseViewController {
         didSet {
             if isStepCountCompleted {
                 print("걸음수 달성 완료함!💦💦💦")
-//                DispatchQueue.main.async {
-//                    self.homeView.configureCheckButtonStyle(state: .completed)
-//                }
             }
-            
-            if isStepCountCompleted && isMateStepCountCompleted {
-                DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.configureProgressBar(state: .completed)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.configureProgressBar(state: .unCompleted)
-                }
-            }
+            configureProgressBar()
         }
     }
     private var isMateStepCountCompleted: Bool = false {
         didSet {
-            if isStepCountCompleted && isMateStepCountCompleted {
-                DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.configureProgressBar(state: .completed)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.homeView.homeCircularProgressView.configureProgressBar(state: .unCompleted)
-                }
-            }
+            configureProgressBar()
         }
     }
     private var tempUserStep: Int = 0 {
@@ -155,12 +135,12 @@ final class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         // TODO: - 권한 허용 안되어있으면 Alert 띄우기
-        print("=============HomeVCWillAppear==============")
 
         if !isMateWithdraw {
             configureMissionTapGesture()
             requestPostMission()
             requestGetHome()
+            configureProgressBar()
         } else {
             stopTimer()
             StepCountManager.shared.stopCheckStepCount()
@@ -259,6 +239,11 @@ final class HomeViewController: BaseViewController {
             self.homeView.dimmView.isHidden = true
         }
         homeProveViewController.bindQuest(content: self.quest)
+        homeProveViewController.homeViewWillAppearHandler = { [weak self] in
+            self?.requestPostMission()
+            self?.requestGetHome()
+            self?.configureProgressBar()
+        }
         self.present(homeProveViewController, animated: true)
     }
     
@@ -297,7 +282,6 @@ final class HomeViewController: BaseViewController {
         homeView.firstMissionView.addGestureRecognizer(firstMissionViewTappedGesture)
         homeView.secondMissionView.addGestureRecognizer(secondMissionViewTappedGesture)
     }
-    
     
     private func configureStepCountView(user: Int, mate: Int) {
         homeView.homeStepCountView.configureView(myWalk: user,
@@ -389,6 +373,18 @@ final class HomeViewController: BaseViewController {
         timer?.invalidate()
         timer = nil
         print("걸음수 타이머 멈춤")
+    }
+    
+    private func configureProgressBar() {
+        if isStepCountCompleted && isMateStepCountCompleted {
+            DispatchQueue.main.async {
+                self.homeView.homeCircularProgressView.configureProgressBar(state: .completed)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.homeView.homeCircularProgressView.configureProgressBar(state: .unCompleted)
+            }
+        }
     }
 }
 
