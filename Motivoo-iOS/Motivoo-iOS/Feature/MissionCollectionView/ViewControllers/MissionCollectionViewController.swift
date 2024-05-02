@@ -186,9 +186,21 @@ extension MissionCollectionViewController {
                     // 히스트로 X, 미션 선택 O
                     print("=== 히스트로 X, 미션 선택 O: \(result)")
                     self.missionCollectionView.isHidden = false
+                    self.emptyImageView.isHidden = false
                 }
             } else if result.missionHistory.count == 1 {
-                self.emptyImageView.isHidden = false
+                if result.todayMission != nil {
+                    print("처음 미션 선택해서 히스토리는 없는 경우")
+                    self.missionCollectionView.isHidden = false
+                    self.emptyImageView.isHidden = false
+                } else {
+                    print("어제 미션 선택해서 히스토리 하나 있는 경우")
+                    self.missionCollectionView.isHidden = false
+                    self.emptyImageView.isHidden = true
+                }
+            } else {
+                self.missionCollectionView.isHidden = false
+                self.emptyImageView.isHidden = true
             }
         }
     }
