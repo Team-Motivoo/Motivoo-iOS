@@ -15,6 +15,7 @@ final class HomeProveViewController: BaseViewController {
     
     // MARK: - Properties
     
+    var homeViewWillAppearHandler: (() -> (Void))?
     var onDismissHandler: (() -> (Void))?
     var missionHandler: (() -> (Void))?
     var mission: String = String() {
@@ -110,6 +111,7 @@ final class HomeProveViewController: BaseViewController {
     
     func bindQuest(content: String) {
         homeProveView.missionLabel.text = content
+        homeProveView.missionLabel.addLineHeight(lineHeight: 33.6.adjusted)
     }
 }
 
@@ -127,10 +129,38 @@ extension HomeProveViewController: UIImagePickerControllerDelegate, UINavigation
         }
         
         picker.dismiss(animated: true, completion: nil)
-        self.dismiss(animated: true, completion: nil)
-        
+        self.requestPutMissionImage(image: newImage ?? UIImage() )
+
         let popupViewController = HomeProveSuccessViewController(image: newImage ?? UIImage())
         popupViewController.modalPresentationStyle = .overFullScreen
+        popupViewController.dismissHandler = { [weak self] in
+            self?.dismiss(animated: true) {
+                self?.homeViewWillAppearHandler?()
+            }
+        }
         self.present(popupViewController, animated: true)
+    }
+}
+
+extension HomeProveViewController {
+    private func requestPutMissionImage(image: UIImage) {
+        HomeAPI.shared.patchMissionImage { result in
+            guard let result = self.validateResult(result) as? HomeMissionCheckResponse else { return }
+            self.requestPutAtPreSignedURL(url: result.imgPresignedURL, image: image, fileName: result.fileName)
+        }
+    }
+
+    private func requestPutAtPreSignedURL(url: String, image: UIImage, fileName: String) {
+        HomeAPI.shared.putAtPreSignedURL(url: url, image: image) { result in
+            guard let result = self.validateResult(result) as? BlankDataResponse else { self.requestPatchMissionImage(fileName: fileName); return }
+            print("🐰", result)
+            self.requestPatchMissionImage(fileName: fileName)
+        }
+    }
+    
+    private func requestPatchMissionImage(fileName: String) {
+        HomeAPI.shared.patchMissionImage(fileName: fileName) { result in
+            guard let result = self.validateResult(result) as? SimpleResponse else { return }
+        }
     }
 }

@@ -50,6 +50,8 @@ enum ImageLiterals {
         static var notexerciseGray: UIImage { .load(named: "img_notexercise_gray")}
         static var goToExerciseButton: UIImage { .load(named: "goToExerciseButton")}
         static var historyToolTip: UIImage { .load(named: "historyToolTip")}
+        static var unconnection: UIImage { .load(named: "img_unconnection")}
+
     }
     
     enum icon {
@@ -77,7 +79,6 @@ enum ImageLiterals {
         static var shoes: UIImage { .load(named: "shoes")}
         static var notice: UIImage { .load(named: "notice")}
         static var checkActive: UIImage { .load(named: "check_active")}
-
         
         // MARK: - MyPage
         

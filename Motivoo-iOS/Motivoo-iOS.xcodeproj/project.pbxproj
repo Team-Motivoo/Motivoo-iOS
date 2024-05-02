@@ -74,6 +74,7 @@
 		055A42B62B515EF50090DA73 /* HomeProveSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */; };
 		055A42B82B515F090090DA73 /* HomeProveSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */; };
 		055BE4C62B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */; };
+		056540652BDA4E6900A36809 /* SecretsConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 056540642BDA4E6900A36809 /* SecretsConfig.xcconfig */; };
 		05760F3F2B9B071200A6528D /* HomePatchMission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05760F3E2B9B071200A6528D /* HomePatchMission.swift */; };
 		0586B5702B4EEE3D00E1D93F /* HomeProveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */; };
 		0586B5742B4F3C8A00E1D93F /* HomeProveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */; };
@@ -121,7 +122,6 @@
 		05AAF9072B47EF5F0079CEAB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */; };
 		05AAF90E2B47F0C30079CEAB /* MissionOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */; };
 		05BAB7A62B55BA850016ECE5 /* StepCountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */; };
-		05BAB7AA2B568A430016ECE5 /* SecretsConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */; };
 		05BAB7AC2B568F780016ECE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAB7AB2B568F780016ECE5 /* GoogleService-Info.plist */; };
 		05BAB7AF2B5690AC0016ECE5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAB7AE2B5690AC0016ECE5 /* FirebaseAnalytics */; };
 		05BAB7B12B5690AC0016ECE5 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAB7B02B5690AC0016ECE5 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -255,6 +255,8 @@
 		055A42B52B515EF50090DA73 /* HomeProveSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessView.swift; sourceTree = "<group>"; };
 		055A42B72B515F090090DA73 /* HomeProveSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveSuccessViewController.swift; sourceTree = "<group>"; };
 		055BE4C52B5B939A0002C0D3 /* HomeMateGoalStepRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMateGoalStepRequest.swift; sourceTree = "<group>"; };
+		056540632BDA486C00A36809 /* Motivoo-iOS.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Motivoo-iOS.entitlements"; sourceTree = "<group>"; };
+		056540642BDA4E6900A36809 /* SecretsConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SecretsConfig.xcconfig; sourceTree = "<group>"; };
 		05760F3E2B9B071200A6528D /* HomePatchMission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatchMission.swift; sourceTree = "<group>"; };
 		0586B56F2B4EEE3D00E1D93F /* HomeProveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveViewController.swift; sourceTree = "<group>"; };
 		0586B5732B4F3C8A00E1D93F /* HomeProveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProveView.swift; sourceTree = "<group>"; };
@@ -302,7 +304,6 @@
 		05AAF9062B47EF5F0079CEAB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05AAF90D2B47F0C30079CEAB /* MissionOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOverviewViewController.swift; sourceTree = "<group>"; };
 		05BAB7A52B55BA850016ECE5 /* StepCountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountManager.swift; sourceTree = "<group>"; };
-		05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SecretsConfig.xcconfig; sourceTree = "<group>"; };
 		05BAB7AB2B568F780016ECE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		05BAB7E72B570B770016ECE5 /* HomeIntroReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIntroReponse.swift; sourceTree = "<group>"; };
 		05BAB7E92B570D270016ECE5 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -541,6 +542,7 @@
 		05AAF85E2B3E58480079CEAB /* Motivoo-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				056540632BDA486C00A36809 /* Motivoo-iOS.entitlements */,
 				05AAF8772B3E59450079CEAB /* Application */,
 				05AAF8762B3E593D0079CEAB /* Global */,
 				05AAF8752B3E59380079CEAB /* Data */,
@@ -778,8 +780,8 @@
 				05BAB7AB2B568F780016ECE5 /* GoogleService-Info.plist */,
 				05AAF8922B3E5AC20079CEAB /* Font */,
 				05AAF86D2B3E58490079CEAB /* Info.plist */,
+				056540642BDA4E6900A36809 /* SecretsConfig.xcconfig */,
 				05AAF8682B3E58490079CEAB /* Assets.xcassets */,
-				05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1076,8 +1078,8 @@
 			files = (
 				05AAF86C2B3E58490079CEAB /* LaunchScreen.storyboard in Resources */,
 				05AAF8FA2B44F3FC0079CEAB /* Pretendard-Regular.otf in Resources */,
+				056540652BDA4E6900A36809 /* SecretsConfig.xcconfig in Resources */,
 				020DB8072BC10615008872FD /* IBMPlexSansKR-Medium.otf in Resources */,
-				05BAB7AA2B568A430016ECE5 /* SecretsConfig.xcconfig in Resources */,
 				05AAF8FB2B44F3FC0079CEAB /* Pretendard-SemiBold.otf in Resources */,
 				05AAF8692B3E58490079CEAB /* Assets.xcassets in Resources */,
 				05AAF8F92B44F3FC0079CEAB /* Pretendard-Medium.otf in Resources */,
@@ -1252,7 +1254,6 @@
 /* Begin XCBuildConfiguration section */
 		05AAF86E2B3E58490079CEAB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1313,7 +1314,6 @@
 		};
 		05AAF86F2B3E58490079CEAB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05BAB7A92B568A430016ECE5 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1368,6 +1368,7 @@
 		};
 		05AAF8712B3E58490079CEAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 056540642BDA4E6900A36809 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1400,6 +1401,7 @@
 		};
 		05AAF8722B3E58490079CEAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 056540642BDA4E6900A36809 /* SecretsConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -40,7 +40,7 @@ final class MyPageView: BaseView {
     override func setUI() {
         parentLabel.do{
             $0.textColor = .gray900
-            $0.font = .body5
+            $0.font = .body1
         }
         childLabel.do{
             $0.text = TextLiterals.MyPage.child
@@ -75,10 +75,12 @@ final class MyPageView: BaseView {
     override func setLayout() {
         parentLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(82.adjusted)
+            $0.height.equalTo(27.adjusted)
             $0.leading.equalToSuperview().inset(30.adjusted)
         }
         nameLabel.snp.makeConstraints{
             $0.top.equalTo(parentLabel.snp.bottom).offset(3.adjusted)
+            $0.height.equalTo(34.adjusted)
             $0.leading.equalTo(parentLabel.snp.leading)
             
         }

@@ -39,7 +39,7 @@ class TitleTableViewCell: UITableViewCell {
     func setLayout() {
         AppInfoTitleLabel.snp.makeConstraints{
             $0.leading.equalToSuperview().inset(20.adjusted)
-            $0.centerY.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(4.adjusted)
         }
     }
 }

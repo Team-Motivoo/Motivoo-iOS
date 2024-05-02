@@ -54,7 +54,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.image = ImageLiterals.img.missionHeaderBackground
         }
         todayLabel.do {
-            $0.font = .body1
+            $0.font = .caption1
             $0.textColor = .gray600
             $0.text = TextLiterals.MissionOverview.todayExercise
         }
@@ -135,12 +135,12 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.width.equalTo(375.adjusted)
         }
         todayLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(76.adjusted)
+            $0.top.equalTo(safeAreaLayoutGuide)
             $0.leading.equalToSuperview().inset(20.adjusted)
         }
         exerciseLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(102.adjusted)
-            $0.leading.equalToSuperview().inset(20.adjusted)
+            $0.top.equalTo(todayLabel.snp.bottom).offset(9.adjusted)
+            $0.leading.equalTo(todayLabel)
         }
         goExerciseButton.snp.makeConstraints {
             $0.top.equalTo(todayLabel.snp.bottom).offset(6.adjusted)
@@ -240,7 +240,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
             $0.height.equalTo(64.adjusted)
         }
 
-        UIView.animate(withDuration: 2.0, delay: 1.5, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 1.8, delay: 1.55, options: .curveEaseOut, animations: {
             toolTipImageView.alpha = 0.0
         }, completion: {(isCompleted) in
             toolTipImageView.removeFromSuperview()
@@ -250,6 +250,7 @@ final class CollectionHeaderCell: UICollectionViewCell {
     func setTodayMission(todatMission: String) {
         self.todayLabel.text = TextLiterals.MissionOverview.todayExercise
         self.exerciseLabel.text = todatMission
+        self.exerciseLabel.addLineHeight(lineHeight: 28.adjusted)
         self.exerciseLabel.isHidden = false
         self.goExerciseButton.isHidden = true
         self.myToolTipView.isHidden = false

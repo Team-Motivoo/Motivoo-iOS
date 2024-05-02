@@ -14,6 +14,7 @@ final class HomeProveSuccessViewController: BaseViewController {
     
     // MARK: - Properties
     
+    var dismissHandler: (() -> Void)?
     
     // MARK: - UI Components
    
@@ -25,11 +26,6 @@ final class HomeProveSuccessViewController: BaseViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .clear
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("============HomeProveSuccessVCWillDisappear=============")
     }
     
     init(image: UIImage) {
@@ -63,33 +59,7 @@ final class HomeProveSuccessViewController: BaseViewController {
     
     @objc
     private func checkButtonDidTapped() {
-        requestPutMissionImage(image: popupView.proveImageView.image ?? UIImage())
-        
         dismiss(animated: true)
-    }
-}
-
-// MARK: - Network Functions
-
-extension HomeProveSuccessViewController {
-    private func requestPutMissionImage(image: UIImage) {
-        HomeAPI.shared.patchMissionImage { result in
-            guard let result = self.validateResult(result) as? HomeMissionCheckResponse else { return }
-            self.requestPutAtPreSignedURL(url: result.imgPresignedURL, image: image, fileName: result.fileName)
-        }
-    }
-
-    private func requestPutAtPreSignedURL(url: String, image: UIImage, fileName: String) {
-        HomeAPI.shared.putAtPreSignedURL(url: url, image: image) { result in
-            guard let result = self.validateResult(result) as? BlankDataResponse else { self.requestPatchMissionImage(fileName: fileName); return }
-            print("🐰", result)
-            self.requestPatchMissionImage(fileName: fileName)
-        }
-    }
-    
-    private func requestPatchMissionImage(fileName: String) {
-        HomeAPI.shared.patchMissionImage(fileName: fileName) { result in
-            guard let result = self.validateResult(result) as? SimpleResponse else { return }
-        }
+        dismissHandler?()
     }
 }
