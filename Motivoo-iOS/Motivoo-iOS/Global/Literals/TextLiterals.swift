@@ -38,9 +38,9 @@ enum TextLiterals {
             static var termsOfInfoHangling = "개인정보 처리방침 동의"
             static var see = "보기"
 
-            static var termOfUserURL = "https://gayeong04.notion.site/82b7d6d8cc3f4091aa0a3b41bbfc6c62?pvs=4"
-            static var termOfInfoCollectionURL = "https://gayeong04.notion.site/e85e6a92bcce43bbac61c0de4e79cd14?pvs=4"
-            static var termOfInfoHandlingURL = "https://gayeong04.notion.site/df1e215e4b2248d28a913ea27788a777?pvs=4"
+            static var termOfUserURL = "https://motivoo.notion.site/82b7d6d8cc3f4091aa0a3b41bbfc6c62?pvs=4"
+            static var termOfInfoCollectionURL = "https://motivoo.notion.site/e85e6a92bcce43bbac61c0de4e79cd14?pvs=4"
+            static var termOfInfoHandlingURL = "https://motivoo.notion.site/df1e215e4b2248d28a913ea27788a777?pvs=4"
         }
 
         enum Login {
@@ -212,11 +212,11 @@ enum TextLiterals {
         static var realLeave = "정말 탈퇴하시겠어요?"
         static var leaveSubtitle = "회원 탈퇴 시, 모든 정보가\n삭제되며 복구가 불가능해요."
         static var leaveTitle = "탈퇴하기"
-        static var opensource = "https://gayeong04.notion.site/c78b181acf8a41f28f2ed653db998650?pvs=4"
+        static var opensource = "https://motivoo.notion.site/c78b181acf8a41f28f2ed653db998650?pvs=4"
         static var developer =  "https://gayeong04.notion.site/39aa420262384587957479ca4da2ba2e"
         static var kakao = "https://open.kakao.com/o/sSCxapcg"
         static var version = "v.1.0.0"
-        static var learnMoreLink = "https://gayeong04.notion.site/358b03942cc44923886c650ac4485c7b"
+        static var learnMoreLink = "https://www.notion.so/motivoo/358b03942cc44923886c650ac4485c7b?pvs=4"
       
     }
     enum NoComplete {
