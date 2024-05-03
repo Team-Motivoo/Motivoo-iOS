@@ -21,8 +21,6 @@ enum ImageLiterals {
         static var login: UIImage { .load(named: "img_login")}
         static var kakaoLogin: UIImage { .load(named: "solid_btn_kakao")}
         static var appleLogin: UIImage { .load(named: "solid_btn_apple")}
-        static var missionTree: UIImage { .load(named: "mission_tree")}
-        static var missionDrink: UIImage { .load(named: "mission_drink")}
         static var child: UIImage { .load(named: "child")}
         static var parent: UIImage { .load(named: "parent")}
         static var missionMain: UIImage { .load(named: "mission_main")}

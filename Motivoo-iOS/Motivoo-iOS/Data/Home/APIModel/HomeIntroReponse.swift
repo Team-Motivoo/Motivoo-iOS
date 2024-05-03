@@ -9,11 +9,13 @@ import Foundation
 
 struct HomeIntroResponse: Codable {
     let userType: String
+//    let opponentUserType: String
     let userID, userGoalStepCount, opponentUserGoalStepCount, opponentUserID: Int
     let isStepCountCompleted, isOpponentUserWithdraw, isMissionImgCompleted: Bool
 
     enum CodingKeys: String, CodingKey {
         case userType = "user_type"
+//        case opponentUserType = "opponent_user_type"
         case userID = "user_id"
         case userGoalStepCount = "user_goal_step_count"
         case opponentUserID = "opponent_user_id"
