@@ -116,6 +116,7 @@ final class CollectionViewCell: UICollectionViewCell {
         myExerciseLabel.snp.makeConstraints {
             $0.top.equalTo(myImage.snp.bottom).offset(8.adjusted)
             $0.leading.equalToSuperview()
+            $0.width.equalTo(164.adjusted)
         }
         myExerciseTag.snp.makeConstraints {
             $0.top.equalTo(myExerciseLabel.snp.bottom).offset(6.adjusted)
@@ -133,6 +134,7 @@ final class CollectionViewCell: UICollectionViewCell {
         partnerExerciseLabel.snp.makeConstraints {
             $0.top.equalTo(partnerImage.snp.bottom).offset(8.adjusted)
             $0.leading.equalTo(myImage.snp.trailing).offset(7.adjusted)
+            $0.width.equalTo(164.adjusted)
         }
         partnerExerciseTag.snp.makeConstraints {
             $0.top.equalTo(partnerExerciseLabel.snp.bottom).offset(6.adjusted)
