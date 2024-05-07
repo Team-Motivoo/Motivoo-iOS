@@ -216,6 +216,8 @@ extension LoginViewController {
             UserDefaultManager.shared.saveFinishedOnboarding(finished: result.isFinishedOnboarding)
             UserDefaultManager.shared.saveUserMatcehd(match: result.isMatched)
 
+            APIConstants.accessToken = TokenManager.shared.getToken()
+
             let isMatched: Bool = UserDefaultManager.shared.getUserMatcehd()
             let isFinished: Bool = UserDefaultManager.shared.getFinishedOnboarding()
             let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
